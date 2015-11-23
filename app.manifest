@@ -63,7 +63,9 @@
     "api": [
         "MyService"
     ],
-    "db": [],
+    "db": [
+        "reservation_salles"
+    ],
     "packages": [
         "nodemailer",
         "nodemailer-smtp-transport",
