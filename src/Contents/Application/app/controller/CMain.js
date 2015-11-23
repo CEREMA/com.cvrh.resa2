@@ -13,9 +13,6 @@ App.controller.define('CMain', {
 		this.control({
 			"menu>menuitem": {
 				click: "Menu_onClick"
-			},
-			"button#clickme": {
-				click: "clickme_onclick"
 			}
 		});
 		
@@ -28,13 +25,9 @@ App.controller.define('CMain', {
 			Ext.Msg.alert('Status', 'Click event on '+p.itemId);
 		};			
 	},
-	clickme_onclick: function()
-	{
-		Ext.Msg.alert('Omneedia','hello world!');
-	},
 	onLoad: function()
 	{
-		// form loaded	
+		
 	}
 	
 	
