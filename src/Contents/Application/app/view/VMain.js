@@ -217,9 +217,10 @@ App.view.define('VMain', {
                  displayField: "agent",
                  valueField: "Id",
 
-				store: App.store.create('App.reservation.agents', {
-                 autoLoad: true
-                  })
+				store: App.store.create({
+					fields: [],
+					data: []
+				})
 
             },
 			],
