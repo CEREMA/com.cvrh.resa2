@@ -1,8 +1,8 @@
 {
     "namespace": "com.cvrh.resa2",
     "git": "",
-    "title": "com.cvrh.resa2",
-    "description": "Package description goes here",
+    "title": "Réservation",
+    "description": "Logiciel de réservation du CVRH",
     "platform": "desktop",
     "targets": [
         "webapp"
@@ -13,9 +13,9 @@
     "copyright": "Copyright (c) 2015 By CVRH",
     "license": "BSD",
     "author": {
-        "name": "XXX",
-        "mail": "xxx@xxx.com",
-        "twitter": "@xxx",
+        "name": "Stéphane Zucatti",
+        "mail": "stephane.zucati@me.com",
+        "twitter": "@mydearsz",
         "web": "",
         "github": ""
     },
@@ -46,7 +46,9 @@
             "src": "http://cdnjs.cloudflare.com/ajax/libs/jquery/{version}/jquery.js"
         }
     ],
-    "auth": [],
+    "auth": [
+        "CERBERE"
+    ],
     "paths": {},
     "controllers": [
         "CMain"
@@ -54,10 +56,18 @@
     "modules": [],
     "plugins": [],
     "api": [
+        "Ext.ux.Scheduler",
+        "Ext.ux.form.field.BoxSelect",
+        "Ext.ux.grid.plugin.RowEditing",
+        "Ext.ux.callout.Callout",
         "MyService"
     ],
     "db": [],
-    "packages": [],
+    "packages": [
+        "nodemailer",
+        "nodemailer-smtp-transport",
+        "iconv-lite"
+    ],
     "icon": {
         "background": "#FFFFFF",
         "file": "app.png"
