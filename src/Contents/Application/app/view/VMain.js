@@ -258,7 +258,7 @@ App.view.define('VMain', {
                 field: new Ext.form.TextField()
             }],
             eventStore: App.eventstore.create("App.ressources.getEvents"),
-            resourceStore: App.resourcestore.create("reservation_salles://salle{id_salle=Id,nomSalle=Name}?id_site=1",{autLoad: true})
+            resourceStore: App.resourcestore.create("reservation_salles://salle{id_salle,nomSalle}?id_site=1",{autLoad: true})
         }]
     }]
 
