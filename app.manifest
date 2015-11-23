@@ -1,0 +1,73 @@
+{
+    "namespace": "com.cvrh.resa2",
+    "git": "",
+    "title": "com.cvrh.resa2",
+    "description": "Package description goes here",
+    "platform": "desktop",
+    "targets": [
+        "webapp"
+    ],
+    "uid": "efa44011-5922-481c-8b83-cf746337b5d2",
+    "version": "1.00",
+    "build": "0",
+    "copyright": "Copyright (c) 2015 By CVRH",
+    "license": "BSD",
+    "author": {
+        "name": "XXX",
+        "mail": "xxx@xxx.com",
+        "twitter": "@xxx",
+        "web": "",
+        "github": ""
+    },
+    "team": {
+        "debugger": [],
+        "tester": []
+    },
+    "langs": [
+        "en",
+        "fr"
+    ],
+    "frameworks": [
+        {
+            "name": "ext",
+            "version": "4.2.1",
+            "type": "desktop",
+            "theme": "classic",
+            "src": [
+                "http://cdn.sencha.com/ext/gpl/{version}/ext-all-debug.js"
+            ],
+            "res": [
+                "http://cdn.sencha.com/ext/gpl/{version}/resources/ext-theme-{theme}/ext-theme-{theme}-all.css"
+            ]
+        },
+        {
+            "name": "jquery",
+            "version": "2.0.3",
+            "src": "http://cdnjs.cloudflare.com/ajax/libs/jquery/{version}/jquery.js"
+        }
+    ],
+    "auth": [],
+    "paths": {},
+    "controllers": [
+        "CMain"
+    ],
+    "modules": [],
+    "plugins": [],
+    "api": [
+        "MyService"
+    ],
+    "db": [],
+    "packages": [],
+    "icon": {
+        "background": "#FFFFFF",
+        "file": "app.png"
+    },
+    "splashscreen": {
+        "background": "#FFFFFF",
+        "color": "orange",
+        "file": "app.png"
+    },
+    "server": {
+        "port": 3000
+    }
+}
