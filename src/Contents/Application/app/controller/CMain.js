@@ -68,11 +68,11 @@ App.controller.define('CMain', {
 	},
 	do_open_planning: function()
 	{
-	
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),1);
 	},
 	do_open_cvrh: function()
 	{
-	
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0);	
 	},
 	do_open_mesReservations: function()
 	{
