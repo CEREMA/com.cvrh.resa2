@@ -1,8 +1,8 @@
 
-MyService = {
-	hello: function(o,cb) {
+resources = {
+	getAll: function(o,cb) {
 		cb('hello world '+o);
 	}
 }
 
-module.exports = MyService;
+module.exports = resources;
