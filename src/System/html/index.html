@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="Liste des six prochains trains pour n'importe quelle gare SNCF Transilien" />
+<link rel="stylesheet" type="text/css" href="me/me.css" media="screen" />
+<link rel="stylesheet" href="me/jquery-ui.css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
+<link rel="apple-touch-icon" href="favicon-macfags.png" />
+<title>Réservation CMVRH</title>
+<script type="text/javascript" src="me/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="me/fullscreen.js"></script>
+<script type="text/javascript" src="me/date.js"></script>
+<script type="text/javascript" src="me/date-fr.js"></script>
+<script type="text/javascript" src="me/me.js"></script>
+</head>
+
+<body style="background-color:#E1EABF" onLoad="init()">
+
+<div id="header">
+	<div id="otherstation" style="background-color:#E1EABF;background-image:url(me/siteon.jpg);height:80px;background-repeat: no-repeat;width:100%">
+	</div>
+	<div id="heure">--:--:--</div>
+	<div id="date">mercredi 3 juin 2015</div>
+</div>
+
+<div class="listetrains" id="listetrains">
+
+	<div class="train" id="t1">
+		<div class="col1" id="t1c1">
+			<span class="mission-train" id="t1c1a">&nbsp;</span><br />
+			<span class="numero-train" id="t1c1b">&nbsp;</span>
+			<span class="retard-train" id="t1c1c">&nbsp;</span>
+		</div>
+		<div class="col2" id="t1c2"></div>
+		<div class="col3" id="t1c3"><span id="t1c3a"></span>
+
+			<!--div class="desserte" id="t1c3b">
+			
+			</div-->
+		</div>
+		<div class="col4" id="t1c4">&nbsp;</div>
+	</div>
+
+	<div class="train" id="t2">
+		<div class="col1" id="t2c1">
+			<span class="mission-train" id="t2c1a">&nbsp;</span><br />
+			<span class="numero-train" id="t2c1b">&nbsp;</span>
+			<span class="retard-train" id="t2c1c">&nbsp;</span>
+		</div>
+		<div class="col2" id="t2c2">&nbsp;</div>
+		<div class="col3" id="t2c3"><span id="t2c3a"></span>
+
+			<!--div class="desserte" id="t2c3b">
+			</div-->
+		</div>
+		<div class="col4" id="t2c4">&nbsp;</div>
+	</div>
+
+	<div class="train" id="t3">
+		<div class="col1" id="t3c1">
+			<span class="mission-train" id="t3c1a">&nbsp;</span><br />
+			<span class="numero-train" id="t3c1b">&nbsp;</span>
+			<span class="retard-train" id="t3c1c">&nbsp;</span>
+		</div>
+		<div class="col2" id="t3c2">&nbsp;</div>
+		<div class="col3" id="t3c3"><span id="t3c3a"></span>
+
+		</div>
+		<div class="col4" id="t3c4">&nbsp;</div>
+	</div>
+
+	<div class="train" id="t4">
+		<div class="col1" id="t4c1">
+			<span class="mission-train" id="t4c1a">&nbsp;</span><br />
+			<span class="numero-train" id="t4c1b">&nbsp;</span>
+			<span class="retard-train" id="t4c1c">&nbsp;</span>
+		</div>
+		<div class="col2" id="t4c2">&nbsp;</div>
+		<div class="col3" id="t4c3"><span id="t4c3a"></span>
+
+		</div>
+		<div class="col4" id="t4c4">&nbsp;</div>
+	</div>
+
+	<div class="train" id="t5">
+		<div class="col1" id="t5c1">
+			<span class="mission-train" id="t5c1a">&nbsp;</span><br />
+			<span class="numero-train" id="t5c1b">&nbsp;</span>
+			<span class="retard-train" id="t5c1c">&nbsp;</span>
+		</div>
+		<div class="col2" id="t5c2">&nbsp;</div>
+		<div class="col3" id="t5c3"><span id="t5c3a"></span>
+
+		</div>
+		<div class="col4" id="t5c4">&nbsp;</div>
+	</div>
+
+        <div class="train" id="t6">
+                <div class="col1" id="t6c1">
+                        <span class="mission-train" id="t6c1a">&nbsp;</span><br />
+                        <span class="numero-train" id="t6c1b">&nbsp;</span>
+                        <span class="retard-train" id="t6c1c">&nbsp;</span>
+                </div>
+                <div class="col2" id="t6c2">&nbsp;</div>
+                <div class="col3" id="t6c3"><span id="t6c3a"></span>
+
+                </div>
+                <div class="col4" id="t6c4">&nbsp;</div>
+        </div>
+
+        <div class="train" id="t7">
+                <div class="col1" id="t7c1">
+                        <span class="mission-train" id="t7c1a">&nbsp;</span><br />
+                        <span class="numero-train" id="t7c1b">&nbsp;</span>
+                        <span class="retard-train" id="t7c1c">&nbsp;</span>
+                </div>
+                <div class="col2" id="t7c2">&nbsp;</div>
+                <div class="col3" id="t7c3"><span id="t7c3a"></span>
+
+                </div>
+                <div class="col4" id="t7c4">&nbsp;</div>
+        </div>
+
+        <div class="train" id="t8">
+                <div class="col1" id="t8c1">
+                        <span class="mission-train" id="t8c1a">&nbsp;</span><br />
+                        <span class="numero-train" id="t8c1b">&nbsp;</span>
+                        <span class="retard-train" id="t8c1c">&nbsp;</span>
+                </div>
+                <div class="col2" id="t8c2">&nbsp;</div>
+                <div class="col3" id="t8c3"><span id="t8c3a"></span>
+
+                </div>
+                <div class="col4" id="t8c4">&nbsp;</div>
+        </div>
+
+        <div class="train" id="t9">
+                <div class="col1" id="t9c1">
+                        <span class="mission-train" id="t9c1a">&nbsp;</span><br />
+                        <span class="numero-train" id="t9c1b">&nbsp;</span>
+                        <span class="retard-train" id="t9c1c">&nbsp;</span>
+                </div>
+                <div class="col2" id="t9c2">&nbsp;</div>
+                <div class="col3" id="t9c3"><span id="t9c3a"></span>
+
+                </div>
+                <div class="col4" id="t9c4">&nbsp;</div>
+        </div>
+		
+        <div class="train" id="t10">
+                <div class="col1" id="t10c1">
+                        <span class="mission-train" id="t10c1a">&nbsp;</span><br />
+                        <span class="numero-train" id="t10c1b">&nbsp;</span>
+                        <span class="retard-train" id="t10c1c">&nbsp;</span>
+                </div>
+                <div class="col2" id="t10c2">&nbsp;</div>
+                <div class="col3" id="t10c3"><span id="t10c3a"></span>
+
+                </div>
+                <div class="col4" id="t10c4">&nbsp;</div>
+        </div>
+ <div class="train" id="t11">
+                <div class="col1" id="t11c1">
+                        <span class="mission-train" id="t11c1a">&nbsp;</span><br />
+                        <span class="numero-train" id="t11c1b">&nbsp;</span>
+                        <span class="retard-train" id="t11c1c">&nbsp;</span>
+                </div>
+                <div class="col2" id="t11c2">&nbsp;</div>
+                <div class="col3" id="t11c3"><span id="t11c3a"></span>
+
+                </div>
+                <div class="col4" id="t11c4">&nbsp;</div>
+        </div>
+<div class="train" id="t12">
+                <div class="col1" id="t12c1">
+                        <span class="mission-train" id="t12c1a">&nbsp;</span><br />
+                        <span class="numero-train" id="t12c1b">&nbsp;</span>
+                        <span class="retard-train" id="t12c1c">&nbsp;</span>
+                </div>
+                <div class="col2" id="t12c2">&nbsp;</div>
+                <div class="col3" id="t12c3"><span id="t12c3a"></span>
+
+                </div>
+                <div class="col4" id="t12c4">&nbsp;</div>
+        </div>
+	<div class="train" id="t13">
+		<div class="col1" id="t13c1">
+			<span class="mission-train" id="t13c1a">&nbsp;</span><br />
+			<span class="numero-train" id="t13c1b">&nbsp;</span>
+			<span class="retard-train" id="t13c1c">&nbsp;</span>
+		</div>
+		<div class="col2" id="t13c2"></div>
+		<div class="col3" id="t13c3"><span id="t13c3a"></span>
+
+			<div class="desserte" id="t13c3b">
+			
+			</div>
+		</div>
+		<div class="col4" id="t13c4">&nbsp;</div>
+	</div>
+		
+</div>
+
+<div id="listemessages">
+	<div id="conteneurmessages"">
+		<marquee>Bienvenue au CMVRH d'Aix en Provence</marquee>
+	</div>
+</div>
+
+<div id="error"><p id="errormsg">
+	<script type="text/javascript">document.getElementById("error").style.display = "none";</script>
+	<noscript>Désolé, ce site nécessite JavaScript pour fonctionner.</noscript>
+	</p>
+</div>
+
+
+</body>
+
+</html>
