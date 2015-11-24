@@ -127,6 +127,60 @@ App.controller.define('CMain', {
         };
 	},
 	
+	// Display Scheduler /////////////////////////////////////////////////////////////
+	display_scheduler: function()
+	{
+		var scheduler=App.get('schedulergrid#schedule');
+		var now=new Date();
+		
+		scheduler.getResourceStore().getProxy().extraParams._cfg = 0;
+		scheduler.getResourceStore().load();	
+
+		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+		
+		App.get('combo#selectMonth').setValue(parseInt(mm)-1);
+
+		function isWeekend(d) {
+			return (d.getDay() == 6);
+		};
+		
+		var month = App.get('combo#selectMonth').getValue();
+
+		function days_in_month(month, year) {
+			var m = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			if (month != 2) return m[month - 1]; //tout sauf février
+			if (year % 4 != 0) return m[1]; //février normal non bissextile
+			if (year % 100 == 0 && year % 400 != 0) return m[1]; //février bissextile siècle non divisible par 400
+			return m[1] + 1; //tous les autres févriers = 29 jours
+		}
+
+		days_in_month(mm, new Date().getFullYear());
+		var resultat = days_in_month(mm, new Date().getFullYear()) + 1;
+		EVT_CURRENT.resultat = resultat - 1;
+
+		scheduler.setStart(new Date(year, month, 1));
+		scheduler.setEnd(new Date(year, month, resultat));
+		
+		// load "off" day
+		App.DB.get('reservation_salles://off', function(p,r) {
+			// add weekends to off day
+			var weekends = [];
+			for (var i=0;i<r.result.data.length;i++) {
+				r.result.data[i].StartDate=r.result.data[i].StartDate.toDate();
+				r.result.data[i].EndDate=r.result.data[i].EndDate.toDate();
+			};
+			for (var i = 1; i < resultat; i++) {
+				var d = new Date(year, month, i);
+				if (isWeekend(d)) r.result.data.push({
+					StartDate: new Date(year, month, i),
+					EndDate: new Date(year, month, i + 2),
+					Type: "Week-end"
+				});
+			};
+			scheduler.plugins[0].store.loadData(r.result.data);
+		});
+	},
+	
 	// Authentication ////////////////////////////////////////////////////////////////
 	
 	onAuth: function(p,user) {
@@ -180,56 +234,8 @@ App.controller.define('CMain', {
 
 		// init Scheduler
 		
-		
-		App.get('schedulergrid#schedule').getResourceStore().getProxy().extraParams._cfg = 0;
-		App.get('schedulergrid#schedule').getResourceStore().load();	
-		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
-		
-		App.get('combo#selectMonth').setValue(parseInt(mm)-1);
-
-		function isWeekend(d) {
-			return (d.getDay() == 6);
-		};
-		
-		var month = App.get('combo#selectMonth').getValue();
-
-		function days_in_month(month, year) {
-			var m = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-			if (month != 2) return m[month - 1]; //tout sauf février
-			if (year % 4 != 0) return m[1]; //février normal non bissextile
-			if (year % 100 == 0 && year % 400 != 0) return m[1]; //février bissextile siècle non divisible par 400
-			return m[1] + 1; //tous les autres févriers = 29 jours
-		}
-
-		days_in_month(mm, new Date().getFullYear());
-		var resultat = days_in_month(mm, new Date().getFullYear()) + 1;
-		EVT_CURRENT.resultat = resultat - 1;
-
-		App.get('schedulergrid#schedule').setStart(new Date(year, month, 1));
-		App.get('schedulergrid#schedule').setEnd(new Date(year, month, resultat));
-		
-		// load "off" day
-		App.DB.get('reservation_salles://off', function(p,r) {
-			// add weekends to off day
-			var weekends = [];
-			for (var i=0;i<r.result.data.length;i++) {
-				r.result.data[i].StartDate=r.result.data[i].StartDate.toDate();
-				r.result.data[i].EndDate=r.result.data[i].EndDate.toDate();
-			};
-			for (var i = 1; i < resultat; i++) {
-				var d = new Date(year, month, i);
-				if (isWeekend(d)) r.result.data.push({
-					StartDate: new Date(year, month, i),
-					EndDate: new Date(year, month, i + 2),
-					Type: "Week-end"
-				});
-			};
-			App.get('schedulergrid#schedule').plugins[0].store.loadData(r.result.data);
-		});
-		
-		// resize scheduler column
-		App.get('schedulergrid#schedule').setTimeColumnWidth(70);
-		
+		this.display_scheduler();
+				
 	},
 	
 	// Mainform SHOW //////////////////////////////////////////////////////////////////
