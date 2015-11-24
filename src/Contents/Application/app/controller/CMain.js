@@ -156,8 +156,8 @@ App.controller.define('CMain', {
 			return m[1] + 1; //tous les autres févriers = 29 jours
 		}
 
-		days_in_month(mm, new Date().getFullYear());
-		var resultat = days_in_month(mm, new Date().getFullYear()) + 1;
+		days_in_month(mm, year);
+		var resultat = days_in_month(mm, year) + 1;
 		EVT_CURRENT.resultat = resultat - 1;
 
 		scheduler.setStart(new Date(year, month, 1));
