@@ -25,12 +25,81 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+	
+	// Menu ////////////////////////////////////////////////////////////////////
+	
+	do_new_evt: function()
+	{
+	
+	},
+	do_open_evt: function()
+	{
+	
+	},
+	do_open_planning: function()
+	{
+	
+	},
+	do_open_cvrh: function()
+	{
+	
+	},
+	do_open_mesReservations: function()
+	{
+	
+	},
+	do_open_jf: function()
+	{
+	
+	},
+	do_admin_db: function()
+	{
+	
+	},
+	do_display: function()
+	{
+		App.get('panel#DISPLAY').show();
+		$('.my_display').attr('src', "/display");
+		App.get('schedulergrid#schedule').hide();	
+	},
 	Menu_onClick: function(p)
 	{
-		if (p.itemId) {
-			Ext.Msg.alert('Status', 'Click event on '+p.itemId);
-		};			
+        if (p.itemId) {
+            App.get('panel#DISPLAY').hide();
+            App.get('schedulergrid#schedule').show();
+			switch (p.itemId) {
+				case "MNU_DISPLAY" :
+					this.do_display();
+					break;
+				case "MNU_EVT_NEW":
+					this.do_new_evt();
+					break;
+				case "MNU_EVT_OPEN":
+					this.do_open_evt();
+					break;
+				case "MNU_PLANNING":
+					this.do_open_planning();
+					break;	
+				case "MNU_CVRH":
+					this.do_open_cvrh();
+					break;
+				case "MNU_MES_SALLES":
+					this.do_open_mesReservations();
+					break;
+				case "MNU_ADMIN_JF":
+					this.do_open_jf();
+					break;
+				case "MNU_ADMIN_DB":
+					this.do_admin_db();
+					break;
+				default:
+					break;
+			};
+        };
 	},
+	
+	// Authentication ////////////////////////////////////////////////////////////////
+	
 	onAuth: function(p,user) {
 		// EVT_CURRENT = Current user
 		EVT_CURRENT.user = user.mail;
@@ -131,6 +200,9 @@ App.controller.define('CMain', {
 		App.get('schedulergrid#schedule').setTimeColumnWidth(70);
 		
 	},
+	
+	// Mainform SHOW //////////////////////////////////////////////////////////////////
+	
 	onShow: function(p)
 	{
 		var me=this;
