@@ -40,7 +40,7 @@ App.controller.define('CMain', {
 				beforeeventresize: "no_event_resize",
 				beforedragcreate: "no_drag_create",
                 dragcreateend: "no_grid_drag_end",
-                eventdrop: "no_grid_drop"				
+                eventdrop: "no_grid_drop"		
                 /*
                 eventmouseleave: "grid_mouse_leave",
                 eventmouseenter: "grid_mouse_enter",
@@ -77,7 +77,7 @@ App.controller.define('CMain', {
 			}]
         }).showAt(e.getXY());
     },
-    event_context: function(view, record, item, index, e) {
+    event_context: function(s, rec, e) {
         e.stopEvent();
         Ext.create('Ext.menu.Menu', {
             items: [
