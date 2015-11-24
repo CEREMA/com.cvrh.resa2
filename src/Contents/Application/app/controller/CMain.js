@@ -1,3 +1,5 @@
+var EVT_CURRENT="";
+
 App.controller.define('CMain', {
 
 	views: [
