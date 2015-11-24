@@ -87,8 +87,8 @@ App.controller.define('CMain', {
 
 		App.get('mainform combo#selectAnnee').bindStore(store);
 		App.get('mainform combo#selectAnnee').setValue(now.getFullYear());		
-
-		App.ressources.getOff({}, function(p, r) {
+		
+		App.DB.get('reservation_salles://off', function(p,r) {
 			// load weekends
 			var weekends = [];
 			for (var i=0;i<r.result.data.length;i++) {
