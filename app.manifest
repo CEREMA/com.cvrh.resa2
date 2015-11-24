@@ -1,7 +1,7 @@
 {
     "namespace": "com.cvrh.resa2",
     "git": "https://github.com/CEREMA/com.cvrh.resa2.git",
-    "title": "Réservation",
+    "title": "Resalia",
     "description": "Logiciel de réservation du CVRH",
     "platform": "desktop",
     "targets": [
