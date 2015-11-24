@@ -133,6 +133,8 @@ App.controller.define('CMain', {
 		var scheduler=App.get('schedulergrid#schedule');
 		var now=new Date();
 		
+		var year=now.getFullYear();
+		
 		scheduler.getResourceStore().getProxy().extraParams._cfg = 0;
 		scheduler.getResourceStore().load();	
 
