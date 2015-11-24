@@ -35,7 +35,8 @@ App.controller.define('CMain', {
                 select: "select_year"
             },
             "mainform schedulergrid#schedule": {
-                itemcontextmenu: "grid_context",
+                itemcontextmenu: "resource_context",
+				eventcontextmenu: "event_context"
                 /*beforeeventresize: "not_event_resize",
                 eventmouseleave: "grid_mouse_leave",
                 eventmouseenter: "grid_mouse_enter",
@@ -43,7 +44,7 @@ App.controller.define('CMain', {
                 dragcreateend: "grid_drag_end",
                 eventdrop: "grid_drop",
                 eventdblclick: "grid_dblclick",
-				eventcontextmenu: "schedule_context"*/
+				*/
             }			
 		});
 		
@@ -66,16 +67,21 @@ App.controller.define('CMain', {
 	{
 		this.display_scheduler(new Date(p.getValue(),App.get('combo#selectMonth').getValue(),1));
 	},
-    grid_context: function(view, record, item, index, e) {
-		alert('x');
+    resource_context: function(view, record, item, index, e) {
         e.stopEvent();
         Ext.create('Ext.menu.Menu', {
             items: [
 			{
-                text: 'Ajouter évènement'
-            },
-			{
 				text: "Voir la ressource"
+			}]
+        }).showAt(e.getXY());
+    },
+    event_context: function(view, record, item, index, e) {
+        e.stopEvent();
+        Ext.create('Ext.menu.Menu', {
+            items: [
+			{
+				text: "Ajouter évènement"
 			}]
         }).showAt(e.getXY());
     },
