@@ -18,7 +18,7 @@ App.controller.define('CMain', {
 				click: "Menu_onClick"
 			},
 			"mainform": {
-				show: "onShow"
+				load: "onShow"
 			}
 		});
 		
