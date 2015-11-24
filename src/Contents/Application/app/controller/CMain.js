@@ -46,6 +46,7 @@ App.controller.define('CMain', {
 					alert('x');
 					var rec = { Id: 0, agent: '-----------' };
 					store.insert(0,rec);				
+					console.log(store);
 				}
 			}
 		});
