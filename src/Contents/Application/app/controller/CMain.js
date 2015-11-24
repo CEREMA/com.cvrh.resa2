@@ -42,11 +42,12 @@ App.controller.define('CMain', {
 		
 		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
 		store.on('load',function(p,r) {
-			store.insert(0,{
+			var obj=r[0];
+			obj.data={
 					Id: 0,
 					agent: '---------------'			
-			});
-			store.load();
+			};
+			r.unshift(obj);
 			App.get("mainform combo#selectAgent").setValue(0);
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
