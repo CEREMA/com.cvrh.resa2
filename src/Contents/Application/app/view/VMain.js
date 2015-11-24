@@ -217,7 +217,7 @@ App.view.define('VMain', {
                  displayField: "agent",
                  valueField: "Id",
 
-				store: App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}",{autoLoad: true})
+				store: App.store.create({fields:[],data:[]})
 
             },
 			],
