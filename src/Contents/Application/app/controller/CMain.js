@@ -46,6 +46,7 @@ App.controller.define('CMain', {
 					Id: 0,
 					agent: '---------------'			
 			});
+			store.load();
 			App.get("mainform combo#selectAgent").setValue(0);
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
