@@ -42,17 +42,15 @@ App.controller.define('CMain', {
 		
 		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
 		store.on('load',function(p,r) {
-			var obj=r[0];
-			obj.data={
+			store.insert(0,{
 					Id: 0,
 					agent: '---------------'			
-			};
-			r.unshift(obj);
+			});
+			App.get("mainform combo#selectAgent").setValue(0);
 		});
-		store.load();
 		App.get("mainform combo#selectAgent").bindStore(store);		
-		App.get("mainform combo#selectAgent").setValue(0);
-		
+		store.load();
+			
 		App.reservation.getInfo(o, function(err, result) {	
 			numLogin = result.result.data[0].Id;
 			EVT_CURRENT.numLogin = numLogin;
