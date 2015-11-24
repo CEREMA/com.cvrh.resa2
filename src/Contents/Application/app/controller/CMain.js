@@ -67,6 +67,7 @@ App.controller.define('CMain', {
 		this.display_scheduler(new Date(p.getValue(),App.get('combo#selectMonth').getValue(),1));
 	},
     grid_context: function(view, record, item, index, e) {
+		alert('x');
         e.stopEvent();
         Ext.create('Ext.menu.Menu', {
             items: [
