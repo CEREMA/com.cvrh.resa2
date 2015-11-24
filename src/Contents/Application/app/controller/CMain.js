@@ -17,13 +17,42 @@ App.controller.define('CMain', {
 			"menu>menuitem": {
 				click: "Menu_onClick"
 			},
+			
+			/*
+			Main Screen
+			*/
+			
 			"mainform": {
 				render: "onShow"
-			}
+			},
+            "mainform combo#selectMonth": {
+                select: "select_month"
+            },
+            "mainform combo#selectAgent": {
+                select: "select_agent"
+            },
+            "mainform combo#selectAnnee": {
+                select: "select_year"
+            }			
 		});
 		
 		App.init('VMain',this.onLoad);
 		
+	},
+	
+	// Main Screen events ///////////////////////////////////////////////////////
+	
+	select_month: function()
+	{
+	
+	},
+	select_agent: function()
+	{
+	
+	},
+	select_year: function()
+	{
+	
 	},
 	
 	// Menu ////////////////////////////////////////////////////////////////////
