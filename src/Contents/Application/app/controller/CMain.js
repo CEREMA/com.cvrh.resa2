@@ -26,7 +26,7 @@ App.controller.define('CMain', {
 			Ext.Msg.alert('Status', 'Click event on '+p.itemId);
 		};			
 	},
-	onLoad: function()
+	onLoad: function(p)
 	{
 		function onAuth(p,user) {
             EVT_CURRENT.user = user.mail;
