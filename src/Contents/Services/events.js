@@ -1,3 +1,6 @@
+/*
+Events
+*/
 
 events = {
 	getAll: function(o,cb) {
