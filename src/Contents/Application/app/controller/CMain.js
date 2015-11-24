@@ -43,6 +43,7 @@ App.controller.define('CMain', {
 		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}",{
 			listeners: {
 				load: function() {
+					alert('x');
 					var rec = { Id: 0, agent: '-----------' };
 					store.insert(0,rec);				
 				}
