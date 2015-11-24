@@ -132,6 +132,7 @@ App.controller.define('CMain', {
 	display_scheduler: function(now,salle,agent)
 	{
 		var scheduler=App.get('schedulergrid#schedule');		
+		scheduler.setTimeColumnWidth(70);
 		
 		var year=now.getFullYear();
 		
