@@ -73,6 +73,9 @@ App.controller.define('CMain', {
         Ext.create('Ext.menu.Menu', {
             items: [
 			{
+				text: "Ajouter évènement"
+			},
+			{
 				text: "Voir la ressource"
 			}]
         }).showAt(e.getXY());
@@ -81,9 +84,7 @@ App.controller.define('CMain', {
         e.stopEvent();
         Ext.create('Ext.menu.Menu', {
             items: [
-			{
-				text: "Ajouter évènement"
-			}]
+			]
         }).showAt(e.getXY());
     },
     no_event_resize: function(p) {
