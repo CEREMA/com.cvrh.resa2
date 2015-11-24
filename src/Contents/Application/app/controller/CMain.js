@@ -30,6 +30,7 @@ App.controller.define('CMain', {
 	},
 	onLoad: function(p)
 	{
+		return;
 		function onAuth(p,user) {
             EVT_CURRENT.user = user.mail;
 			if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);
