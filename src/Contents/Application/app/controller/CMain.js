@@ -119,7 +119,9 @@ App.controller.define('CMain', {
 	},
 	do_open_evt: function()
 	{
-		alert('non implémenté');
+        App.view.create('VOpenEvenement', {
+            modal: true
+        }).show();
 	},
 	do_open_planning: function()
 	{
