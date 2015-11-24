@@ -42,15 +42,15 @@ App.controller.define('CMain', {
 	
 	// Main Screen events ///////////////////////////////////////////////////////
 	
-	select_month: function()
+	select_month: function(p)
+	{
+		alert(p.getValue());
+	},
+	select_agent: function(p)
 	{
 	
 	},
-	select_agent: function()
-	{
-	
-	},
-	select_year: function()
+	select_year: function(p)
 	{
 	
 	},
