@@ -61,7 +61,6 @@
     ],
     "plugins": [],
     "api": [
-        "MyService",
         "resources",
         "events"
     ],
