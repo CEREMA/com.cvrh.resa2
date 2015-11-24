@@ -76,7 +76,7 @@ App.controller.define('CMain', {
 	},
 	do_open_mesReservations: function()
 	{
-	
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),2,EVT_CURRENT.numLogin);	
 	},
 	do_open_jf: function()
 	{
