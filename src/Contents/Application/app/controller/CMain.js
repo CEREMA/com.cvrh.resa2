@@ -40,17 +40,13 @@ App.controller.define('CMain', {
 			Mail: EVT_CURRENT.user,
 		};
 		
-		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
-		store.on('load',function(p,r) {
-			/*var obj=r[0];
-			obj.data={
-					Id: 0,
-					agent: '---------------'			
-			};
-			r.unshift(obj);
-			App.get("mainform combo#selectAgent").setValue(0);*/
-			var rec = { Id: 0, agent: '-----------' };
-            store.insert(0,rec);
+		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}",{
+			listeners: {
+				load: function() {
+					var rec = { Id: 0, agent: '-----------' };
+					store.insert(0,rec);				
+				}
+			}
 		});
 		store.load();
 		App.get("mainform combo#selectAgent").bindStore(store);		
