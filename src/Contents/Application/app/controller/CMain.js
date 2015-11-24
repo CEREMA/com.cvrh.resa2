@@ -137,8 +137,8 @@ App.controller.define('CMain', {
 		
 		if (!salle) var salle=0; else {
 			scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
-	        scheduler.getResourceStore().getProxy().extraParams.debut = debut;
-			scheduler.getResourceStore().getProxy().extraParams.fin = fin;
+	        /*scheduler.getResourceStore().getProxy().extraParams.debut = debut;
+			scheduler.getResourceStore().getProxy().extraParams.fin = fin;*/
 			scheduler.getResourceStore().getProxy().extraParams.NumLogin = agent;
 			scheduler.getResourceStore().load();
 			scheduler.getEventStore().getProxy().extraParams.NumLogin = agent;
