@@ -128,10 +128,9 @@ App.controller.define('CMain', {
 	},
 	
 	// Display Scheduler /////////////////////////////////////////////////////////////
-	display_scheduler: function()
+	display_scheduler: function(now)
 	{
-		var scheduler=App.get('schedulergrid#schedule');
-		var now=new Date();
+		var scheduler=App.get('schedulergrid#schedule');		
 		
 		var year=now.getFullYear();
 		
@@ -236,7 +235,7 @@ App.controller.define('CMain', {
 
 		// init Scheduler
 		
-		this.display_scheduler();
+		this.display_scheduler(new Date());
 				
 	},
 	
