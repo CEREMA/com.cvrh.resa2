@@ -76,7 +76,7 @@ App.controller.define('CMain', {
 		
 		var tab=[];
 		
-		for (var i=-3;i<=3;i++) tab.push(year+i);
+		for (var i=-3;i<=3;i++) tab.push({year:year+i});
 		console.log(tab);
 		var store = App.store.create({
 			fields: [
