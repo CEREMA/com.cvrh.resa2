@@ -52,7 +52,7 @@ App.controller.define('CMain', {
 	},
 	select_year: function(p)
 	{
-	
+		this.display_scheduler(new Date(p.getValue(),App.get('combo#selectMonth').getValue(),1));
 	},
 	
 	// Menu ////////////////////////////////////////////////////////////////////
