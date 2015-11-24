@@ -45,6 +45,9 @@ App.controller.define('CMain', {
             var now = new Date();
             App.get('schedulergrid#schedule').getResourceStore().getProxy().extraParams._cfg = 0;
             App.get('schedulergrid#schedule').getResourceStore().load();
+			App.get('schedulergrid#schedule').getResourceStore().on('load',function() {
+				alert('bravo');
+			});
 		
 		};
 		
