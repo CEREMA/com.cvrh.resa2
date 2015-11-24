@@ -128,13 +128,14 @@ App.controller.define('CMain', {
 	},
 	
 	// Display Scheduler /////////////////////////////////////////////////////////////
-	display_scheduler: function(now)
+	display_scheduler: function(now,salle,agent)
 	{
 		var scheduler=App.get('schedulergrid#schedule');		
 		
 		var year=now.getFullYear();
 		
-		scheduler.getResourceStore().getProxy().extraParams._cfg = 0;
+		if (!salle) var salle=0;
+		scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
 		scheduler.getResourceStore().load();	
 
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
