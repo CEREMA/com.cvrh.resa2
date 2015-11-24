@@ -1,5 +1,5 @@
 /*
-Réservation
+Reservation
 */
 
 reservation={
