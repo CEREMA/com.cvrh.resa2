@@ -60,11 +60,11 @@ App.controller.define('CMain', {
 	
 	do_new_evt: function()
 	{
-	
+		alert('non implémenté');
 	},
 	do_open_evt: function()
 	{
-	
+		alert('non implémenté');
 	},
 	do_open_planning: function()
 	{
@@ -80,11 +80,11 @@ App.controller.define('CMain', {
 	},
 	do_open_jf: function()
 	{
-	
+		alert('non implémenté');
 	},
 	do_admin_db: function()
 	{
-	
+		alert('non implémenté');	
 	},
 	do_display: function()
 	{
