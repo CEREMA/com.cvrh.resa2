@@ -40,20 +40,14 @@ App.controller.define('CMain', {
 			Mail: EVT_CURRENT.user,
 		};
 		
-		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}",{
-			listeners: {
-				load: function() {
-					alert('x');
-					var rec = { Id: 0, agent: '-----------' };
-					store.insert(0,rec);				
-					console.log(store);
-				}
-			}
+		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
+		store.on('load',function(p,r) {
+			var rec = { Id: 0, agent: '-----------' };
+            store.insert(0,rec);
 		});
-		store.load();
 		App.get("mainform combo#selectAgent").bindStore(store);		
-		
-			
+		store.load();
+					
 		App.reservation.getInfo(o, function(err, result) {	
 			numLogin = result.result.data[0].Id;
 			EVT_CURRENT.numLogin = numLogin;
@@ -93,14 +87,14 @@ App.controller.define('CMain', {
 		
 		for (var i=-3;i<=3;i++) tab.push({year:year+i});
 		
-		var store = App.store.create({
+		var store_year = App.store.create({
 			fields: [
 				"year"
 			],
 			data: tab
 		});
 
-		App.get('mainform combo#selectAnnee').bindStore(store);
+		App.get('mainform combo#selectAnnee').bindStore(store_year);
 		App.get('mainform combo#selectAnnee').setValue(now.getFullYear());		
 		
 		// load "off" day
