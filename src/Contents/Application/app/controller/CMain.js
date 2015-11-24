@@ -88,8 +88,9 @@ App.controller.define('CMain', {
 		App.get('mainform combo#selectAnnee').bindStore(store);
 		App.get('mainform combo#selectAnnee').setValue(now.getFullYear());		
 		
+		// load "off" day
 		App.DB.get('reservation_salles://off', function(p,r) {
-			// load weekends
+			// add weekends to off day
 			var weekends = [];
 			for (var i=0;i<r.result.data.length;i++) {
 				r.result.data[i].StartDate=r.result.data[i].StartDate.toDate();
@@ -105,9 +106,9 @@ App.controller.define('CMain', {
 			};
 			App.get('schedulergrid#schedule').plugins[0].store.loadData(r.result.data);
 		});
-
+		
+		// resize scheduler column
 		App.get('schedulergrid#schedule').setTimeColumnWidth(70);
-
 		
 	},
 	onShow: function(p)
