@@ -33,12 +33,21 @@ App.controller.define('CMain', {
 	},
 	onAuth: function(p,user) {
 		EVT_CURRENT.user = user.mail;
-		if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);
+		if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);		
 		App.get('Menu#MenuPanel').update();
+		
 		var o = {
 			Mail: EVT_CURRENT.user,
 		};
-		App.get("mainform combo#selectAgent").setValue(0);
+		
+		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
+		store.on('load',function(p,r) {
+			console.log(p);
+			console.log(r);
+		});
+
+		//		App.get("mainform combo#selectAgent").setValue(0);
+		
 		App.reservation.getInfo(o, function(err, result) {	
 			numLogin = result.result.data[0].Id;
 			EVT_CURRENT.numLogin = numLogin;
