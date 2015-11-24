@@ -151,8 +151,8 @@ App.controller.define('CMain', {
 		if (!salle) var salle=0; else {
 			var mmm=App.get('combo#selectMonth').getValue()+1;
 			if (mmm<10) mmm="0"+mmm;
-            var debut = now.getFullYear() + mmm  + "-01";
-            var fin = now.getFullYear() + mmm + "-" + days_in_month(App.get('combo#selectMonth').getValue(),year);
+            var debut = now.getFullYear() +'-'+ mmm  + "-01";
+            var fin = now.getFullYear() +'-'+ mmm + "-" + days_in_month(App.get('combo#selectMonth').getValue(),year);
 			scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
 	        scheduler.getResourceStore().getProxy().extraParams.debut = debut;
 			scheduler.getResourceStore().getProxy().extraParams.fin = fin;
