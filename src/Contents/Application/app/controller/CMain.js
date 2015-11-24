@@ -44,7 +44,7 @@ App.controller.define('CMain', {
 	
 	select_month: function(p)
 	{
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),p.getValue()+1,1));
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),p.getValue(),1));
 	},
 	select_agent: function(p)
 	{
