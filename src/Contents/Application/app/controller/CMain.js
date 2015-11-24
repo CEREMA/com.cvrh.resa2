@@ -135,6 +135,8 @@ App.controller.define('CMain', {
 		var year=now.getFullYear();
 		
 		if (!salle) var salle=0;
+		if (!agent) App.get('combo#selectAgent').setValue(0);
+		
 		scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
 		scheduler.getResourceStore().load();	
 
