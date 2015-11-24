@@ -36,13 +36,14 @@ App.controller.define('CMain', {
             },
             "mainform schedulergrid#schedule": {
                 itemcontextmenu: "resource_context",
-				eventcontextmenu: "event_context"
-                /*beforeeventresize: "not_event_resize",
+				eventcontextmenu: "event_context",
+				beforeeventresize: "no_event_resize",
+				beforedragcreate: "no_drag_create",
+                dragcreateend: "no_grid_drag_end",
+                eventdrop: "no_grid_drop"				
+                /*
                 eventmouseleave: "grid_mouse_leave",
                 eventmouseenter: "grid_mouse_enter",
-				beforedragcreate: "no_drag_create",
-                dragcreateend: "grid_drag_end",
-                eventdrop: "grid_drop",
                 eventdblclick: "grid_dblclick",
 				*/
             }			
@@ -85,7 +86,24 @@ App.controller.define('CMain', {
 			}]
         }).showAt(e.getXY());
     },
-	
+    no_event_resize: function(p) {
+        return false;
+    },	
+	no_drag_create: function(p) {
+		return false;
+	},
+	no_event_resize: function(p) {
+		return false;
+	},
+	no_drag_create: function(p) {
+		return false;	
+	},
+	no_grid_drag_end: function(p) {
+		return false;	
+	},
+	no_grid_drop: function(p) {
+		return false;	
+	},
 	// Menu ////////////////////////////////////////////////////////////////////
 	
 	do_new_evt: function()
