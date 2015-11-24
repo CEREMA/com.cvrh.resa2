@@ -87,6 +87,27 @@ App.controller.define('CMain', {
 
 		App.get('mainform combo#selectAnnee').bindStore(store);
 		App.get('mainform combo#selectAnnee').setValue(now.getFullYear());		
+
+		App.ressources.getOff({}, function(p, r) {
+			// load weekends
+			var weekends = [];
+			for (var i=0;i<r.result.data.length;i++) {
+				r.result.data[i].StartDate=r.result.data[i].StartDate.toDate();
+				r.result.data[i].EndDate=r.result.data[i].EndDate.toDate();
+			};
+			for (var i = 1; i < resultat; i++) {
+				var d = new Date(year, month, i);
+				if (isWeekend(d)) r.result.data.push({
+					StartDate: new Date(year, month, i),
+					EndDate: new Date(year, month, i + 2),
+					Type: "Week-end"
+				});
+			};
+			App.get('schedulergrid#schedule').plugins[0].store.loadData(r.result.data);
+		});
+
+		App.get('schedulergrid#schedule').setTimeColumnWidth(70);
+
 		
 	},
 	onShow: function(p)
