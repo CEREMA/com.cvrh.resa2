@@ -4,7 +4,6 @@ Resources
 
 resources = {
 	getAll: function(o,cb) {
-		console.log('-------------------------------------------------');
 		if (o.NumLogin=='0') o._cfg=0;
 		if (o._cfg==0){ 
 			resources.using('db').model('reservation_salles', 'select id_salle Id,salle.nomSalle Name from salle left join site on site.id_site=salle.id_site where salle.id_site=1 order by salle.nomSalle', cb); 
