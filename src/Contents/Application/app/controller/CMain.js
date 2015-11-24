@@ -39,11 +39,11 @@ App.controller.define('CMain', {
 			Mail: EVT_CURRENT.user,
 		};
 		App.get("mainform combo#selectAgent").setValue(0);
-		/*App.reservation.getInfo(o, function(err, result) {	
+		App.reservation.getInfo(o, function(err, result) {	
 			numLogin = result.result.data[0].Id;
 			EVT_CURRENT.numLogin = numLogin;
 			App.get('schedulergrid#schedule').getEventStore().load();
-		});*/
+		});
 
 		var now = new Date();
 		App.get('schedulergrid#schedule').getResourceStore().getProxy().extraParams._cfg = 0;
