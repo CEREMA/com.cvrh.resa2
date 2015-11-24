@@ -130,6 +130,9 @@ App.controller.define('CMain', {
 	// Authentication ////////////////////////////////////////////////////////////////
 	
 	onAuth: function(p,user) {
+		
+		var now = new Date();
+		
 		// EVT_CURRENT = Current user
 		EVT_CURRENT.user = user.mail;
 		
@@ -177,7 +180,7 @@ App.controller.define('CMain', {
 
 		// init Scheduler
 		
-		var now = new Date();
+		
 		App.get('schedulergrid#schedule').getResourceStore().getProxy().extraParams._cfg = 0;
 		App.get('schedulergrid#schedule').getResourceStore().load();	
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
