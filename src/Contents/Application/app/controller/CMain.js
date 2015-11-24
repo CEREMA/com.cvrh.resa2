@@ -84,6 +84,12 @@ App.controller.define('CMain', {
         e.stopEvent();
         Ext.create('Ext.menu.Menu', {
             items: [
+			{
+				text: "Ajouter évènement"
+			},
+			{
+				text: "Editer évènement"
+			}			
 			]
         }).showAt(e.getXY());
     },
