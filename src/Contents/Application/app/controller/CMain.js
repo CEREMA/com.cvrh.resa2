@@ -48,7 +48,8 @@ App.controller.define('CMain', {
 	},
 	select_agent: function(p)
 	{
-	
+        var numlogin = App.get('combo#selectAgent').getValue();
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),2,numlogin);
 	},
 	select_year: function(p)
 	{
@@ -134,7 +135,15 @@ App.controller.define('CMain', {
 		
 		var year=now.getFullYear();
 		
-		if (!salle) var salle=0;
+		if (!salle) var salle=0; else {
+			scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
+	        scheduler.getResourceStore().getProxy().extraParams.debut = debut;
+			scheduler.getResourceStore().getProxy().extraParams.fin = fin;
+			scheduler.getResourceStore().getProxy().extraParams.NumLogin = agent;
+			scheduler.getResourceStore().load();
+			scheduler.getEventStore().getProxy().extraParams.NumLogin = agent;
+			scheduler.getEventStore().load();			
+		};
 		if (!agent) App.get('combo#selectAgent').setValue(0);
 		
 		scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
