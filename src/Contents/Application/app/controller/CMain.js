@@ -41,6 +41,7 @@ App.controller.define('CMain', {
 		};
 		
 		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
+		store.load();
 		store.on('load',function(p,r) {
 			console.log(p);
 			console.log(r);
