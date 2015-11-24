@@ -75,9 +75,9 @@ App.controller.define('CMain', {
 		App.get('schedulergrid#schedule').setEnd(new Date(year, month, resultat));
 		
 		var tab=[];
-		alert(year);
-		for (var i=-3;i<=3;i++) tab.push(year+i);
 		
+		for (var i=-3;i<=3;i++) tab.push(year+i);
+		console.log(tab);
 		var store = App.store.create({
 			fields: [
 				"year"
