@@ -32,9 +32,14 @@ App.controller.define('CMain', {
 		};			
 	},
 	onAuth: function(p,user) {
+		// EVT_CURRENT = Current user
 		EVT_CURRENT.user = user.mail;
+		
+		// Profiles
 		if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);		
 		App.get('Menu#MenuPanel').update();
+		
+		// Combo Agents
 		
 		var o = {
 			Mail: EVT_CURRENT.user,
@@ -47,13 +52,17 @@ App.controller.define('CMain', {
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
 		store.load();
-					
+		
+		// ???
+		
 		App.reservation.getInfo(o, function(err, result) {	
 			numLogin = result.result.data[0].Id;
 			EVT_CURRENT.numLogin = numLogin;
 			App.get('schedulergrid#schedule').getEventStore().load();
 		});
-
+		
+		// init Scheduler
+		
 		var now = new Date();
 		App.get('schedulergrid#schedule').getResourceStore().getProxy().extraParams._cfg = 0;
 		App.get('schedulergrid#schedule').getResourceStore().load();	
@@ -82,6 +91,8 @@ App.controller.define('CMain', {
 
 		App.get('schedulergrid#schedule').setStart(new Date(year, month, 1));
 		App.get('schedulergrid#schedule').setEnd(new Date(year, month, resultat));
+		
+		// Combo year
 		
 		var tab=[];
 		
