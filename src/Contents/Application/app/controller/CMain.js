@@ -52,8 +52,9 @@ App.controller.define('CMain', {
 			var rec = { Id: 0, agent: '-----------' };
             store.insert(0,rec);
 		});
-		App.get("mainform combo#selectAgent").bindStore(store);		
 		store.load();
+		App.get("mainform combo#selectAgent").bindStore(store);		
+		
 			
 		App.reservation.getInfo(o, function(err, result) {	
 			numLogin = result.result.data[0].Id;
