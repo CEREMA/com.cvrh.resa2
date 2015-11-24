@@ -61,7 +61,8 @@
     ],
     "plugins": [],
     "api": [
-        "MyService"
+        "MyService",
+        "resources"
     ],
     "db": [
         "reservation_salles"
