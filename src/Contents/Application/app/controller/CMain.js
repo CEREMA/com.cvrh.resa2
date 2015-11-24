@@ -7,7 +7,7 @@ App.controller.define('CMain', {
 	],
 	
 	models: [
-		"TreeModel"
+		
 	],
 	
 	init: function()
