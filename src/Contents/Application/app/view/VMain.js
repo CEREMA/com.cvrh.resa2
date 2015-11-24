@@ -255,11 +255,8 @@ App.view.define('VMain', {
                 sortable: true,
                 field: new Ext.form.TextField()
             }],
-            eventStore: App.eventstore.create({
-				fields: [],
-				data: []
-			}),
-            resourceStore: App.resourcestore.create("reservation_salles://salle{id_salle,nomSalle}?id_site=1",{autLoad: true})
+            eventStore: App.eventstore.create("App.events.getAll",{autoLoad: true}),
+            resourceStore: App.resourcestore.create("App.resources.getAll",{autLoad: true})
         }]
     }]
 
