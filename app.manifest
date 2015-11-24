@@ -63,7 +63,8 @@
     "api": [
         "resources",
         "events",
-        "reservation"
+        "reservation",
+        "/*\r\nR�servation\r\n*/\r\n\r\nreservation={\r\n\tgetInfo: function()\r\n\t{\r\n        reservation.using('db').model('reservation_salles', 'select Id,profil,LOWER(mail) as mail from agents where mail=\"' + o.Mail + '\"', cb);\t\r\n\t}\r\n};"
     ],
     "db": [
         "reservation_salles"
