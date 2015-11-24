@@ -256,6 +256,7 @@ App.view.define('VMain', {
                 field: new Ext.form.TextField()
             }],
             /*eventStore: App.eventstore.create("App.events.getAll",{autoLoad: true}),*/
+			eventStore: App.eventstore.create({fields:[],data:[]}),
             resourceStore: App.resourcestore.create("App.resources.getAll",{autLoad: true})
         }]
     }]
