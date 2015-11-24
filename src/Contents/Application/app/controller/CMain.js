@@ -41,18 +41,17 @@ App.controller.define('CMain', {
 		};
 		
 		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
-		store.on('load',function(p,r) {			
-			r.unshift({
-				data: {
+		store.on('load',function(p,r) {
+			var obj=r[0];
+			obj.data={
 					Id: 0,
-					agent: '---------------'
-				}
-			});
-			console.log(r);
+					agent: '---------------'			
+			};
+			r.unshift(obj);
 		});
 		store.load();
-		
-		//		App.get("mainform combo#selectAgent").setValue(0);
+		App.get("mainform combo#selectAgent").bindStore(store);		
+		App.get("mainform combo#selectAgent").setValue(0);
 		
 		App.reservation.getInfo(o, function(err, result) {	
 			numLogin = result.result.data[0].Id;
