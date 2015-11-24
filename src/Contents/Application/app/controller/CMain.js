@@ -131,15 +131,31 @@ App.controller.define('CMain', {
 	// Display Scheduler /////////////////////////////////////////////////////////////
 	display_scheduler: function(now,salle,agent)
 	{
+	
+		function isWeekend(d) {
+			return (d.getDay() == 6);
+		};
+		function days_in_month(month, year) {
+			var m = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			if (month != 2) return m[month - 1]; //tout sauf février
+			if (year % 4 != 0) return m[1]; //février normal non bissextile
+			if (year % 100 == 0 && year % 400 != 0) return m[1]; //février bissextile siècle non divisible par 400
+			return m[1] + 1; //tous les autres févriers = 29 jours
+		};
+
 		var scheduler=App.get('schedulergrid#schedule');		
 		scheduler.setTimeColumnWidth(70);
 		
 		var year=now.getFullYear();
 		
 		if (!salle) var salle=0; else {
+			var mmm=App.get('combo#selectMonth').getValue()+1;
+			if (mmm<10) mmm="0"+mmm;
+            var debut = now.getFullYear() + mmm  + "-01";
+            var fin = now.getFullYear() + mmm + "-" + days_in_month(App.get('combo#selectMonth').getValue(),year);
 			scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
-	        /*scheduler.getResourceStore().getProxy().extraParams.debut = debut;
-			scheduler.getResourceStore().getProxy().extraParams.fin = fin;*/
+	        scheduler.getResourceStore().getProxy().extraParams.debut = debut;
+			scheduler.getResourceStore().getProxy().extraParams.fin = fin;
 			scheduler.getResourceStore().getProxy().extraParams.NumLogin = agent;
 			scheduler.getResourceStore().load();
 			scheduler.getEventStore().getProxy().extraParams.NumLogin = agent;
@@ -153,20 +169,8 @@ App.controller.define('CMain', {
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
 		
 		App.get('combo#selectMonth').setValue(parseInt(mm)-1);
-
-		function isWeekend(d) {
-			return (d.getDay() == 6);
-		};
 		
 		var month = App.get('combo#selectMonth').getValue();
-
-		function days_in_month(month, year) {
-			var m = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-			if (month != 2) return m[month - 1]; //tout sauf février
-			if (year % 4 != 0) return m[1]; //février normal non bissextile
-			if (year % 100 == 0 && year % 400 != 0) return m[1]; //février bissextile siècle non divisible par 400
-			return m[1] + 1; //tous les autres févriers = 29 jours
-		}
 
 		days_in_month(mm, year);
 		var resultat = days_in_month(mm, year) + 1;
