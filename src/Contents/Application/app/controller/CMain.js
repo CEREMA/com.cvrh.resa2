@@ -74,6 +74,20 @@ App.controller.define('CMain', {
 		App.get('schedulergrid#schedule').setStart(new Date(year, month, 1));
 		App.get('schedulergrid#schedule').setEnd(new Date(year, month, resultat));
 		
+		var tab=[];
+		
+		for (var i=-3;i<=3;i++) tab.push(now.getFullYear()+i);
+		
+		var store = App.store.create({
+			fields: [
+				"year"
+			],
+			data: tab
+		});
+
+		App.get('mainform combo#selectAnnee').bindStore(store);
+		App.get('mainform combo#selectAnnee').setValue(now.getFullYear());		
+		
 	},
 	onShow: function(p)
 	{
