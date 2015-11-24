@@ -165,7 +165,7 @@ App.controller.define('CMain', {
 		// Combo year
 		
 		var tab=[];
-		
+		var year = now.getFullYear();		
 		for (var i=-3;i<=3;i++) tab.push({year:year+i});
 		
 		var store_year = App.store.create({
@@ -190,8 +190,7 @@ App.controller.define('CMain', {
 		function isWeekend(d) {
 			return (d.getDay() == 6);
 		};
-
-		var year = now.getFullYear();
+		
 		var month = App.get('combo#selectMonth').getValue();
 
 		function days_in_month(month, year) {
