@@ -68,7 +68,7 @@ App.controller.define('CMain', {
 	},
     grid_context: function(view, record, item, index, e) {
         e.stopEvent();
-        var gridMenu = Ext.create('Ext.menu.Menu', {
+        Ext.create('Ext.menu.Menu', {
             items: [
 			{
                 text: 'Ajouter évènement'
@@ -76,8 +76,7 @@ App.controller.define('CMain', {
 			{
 				text: "Voir la ressource"
 			}]
-        });
-        gridMenu.showAt(e.getXY());
+        }).showAt(e.getXY());
     },
 	
 	// Menu ////////////////////////////////////////////////////////////////////
