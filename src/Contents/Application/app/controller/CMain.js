@@ -159,6 +159,22 @@ App.controller.define('CMain', {
 			App.get('schedulergrid#schedule').getEventStore().load();
 		});
 		
+		// Combo year
+		
+		var tab=[];
+		
+		for (var i=-3;i<=3;i++) tab.push({year:year+i});
+		
+		var store_year = App.store.create({
+			fields: [
+				"year"
+			],
+			data: tab
+		});
+
+		App.get('mainform combo#selectAnnee').bindStore(store_year);
+		App.get('mainform combo#selectAnnee').setValue(now.getFullYear());		
+
 		// init Scheduler
 		
 		var now = new Date();
@@ -189,22 +205,6 @@ App.controller.define('CMain', {
 
 		App.get('schedulergrid#schedule').setStart(new Date(year, month, 1));
 		App.get('schedulergrid#schedule').setEnd(new Date(year, month, resultat));
-		
-		// Combo year
-		
-		var tab=[];
-		
-		for (var i=-3;i<=3;i++) tab.push({year:year+i});
-		
-		var store_year = App.store.create({
-			fields: [
-				"year"
-			],
-			data: tab
-		});
-
-		App.get('mainform combo#selectAnnee').bindStore(store_year);
-		App.get('mainform combo#selectAnnee').setValue(now.getFullYear());		
 		
 		// load "off" day
 		App.DB.get('reservation_salles://off', function(p,r) {
