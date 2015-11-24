@@ -72,7 +72,7 @@ App.controller.define('CMain', {
 	},
 	do_open_cvrh: function()
 	{
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0);	
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0);
 	},
 	do_open_mesReservations: function()
 	{
@@ -149,6 +149,7 @@ App.controller.define('CMain', {
 		var year=now.getFullYear();
 		
 		if (!salle) var salle=0; else {
+			if (salle==1) App.get('schedulergrid#schedule').columns[0].setText("Salles Campus");
 			var mmm=App.get('combo#selectMonth').getValue()+1;
 			if (mmm<10) mmm="0"+mmm;
             var debut = now.getFullYear() +'-'+ mmm  + "-01";
