@@ -61,8 +61,7 @@ App.controller.define('CMain', {
 	},
 	select_agent: function(p)
 	{
-        var numlogin = App.get('combo#selectAgent').getValue();
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),2,numlogin);
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),2,App.get('combo#selectAgent').getValue());
 	},
 	select_year: function(p)
 	{
@@ -194,7 +193,7 @@ App.controller.define('CMain', {
 	},
 	do_open_mesReservations: function()
 	{        
-		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),2,EVT_CURRENT.numLogin);	
+		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),2,EVT_CURRENT.login);
 	},
 	do_open_jf: function()
 	{
@@ -344,7 +343,7 @@ App.controller.define('CMain', {
 		store.on('load',function(p,r) {
 			var rec = { Id: 0, agent: '-----------' };
             store.insert(0,rec);			
-            App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.numLogin);
+            App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.login);
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
 		store.load();
