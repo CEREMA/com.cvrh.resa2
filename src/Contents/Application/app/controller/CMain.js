@@ -196,6 +196,7 @@ App.controller.define('CMain', {
 	do_open_mesReservations: function()
 	{
         App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.numLogin);
+        alert(App.get('mainform combo#selectAgent').getValue());
 		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),2,EVT_CURRENT.numLogin);	
 	},
 	do_open_jf: function()
