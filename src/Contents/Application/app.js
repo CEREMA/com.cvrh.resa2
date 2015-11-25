@@ -16,10 +16,7 @@ Manifest = function()
 		appFolder: Ext.Loader.getPath('Contents'),	
 		autoCreateViewport: false,
 
-		controllers: [
-			"CMain",
-			"admin.CBackoffice"
-		],
+		controllers: Settings.CONTROLLERS,
 		
 		launch: function () 
 		{
