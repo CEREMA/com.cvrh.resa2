@@ -158,7 +158,7 @@ App.controller.define('CMain', {
                         if (r.data.dateAvis)
                         str = str.replace('{dateAvis}', 'Date avis: '+r.data.dateAvis.toString('d MMMM yyyy'));
                         else
-                        str = str.replace("{dateAvis}", "Pas de date d'avis");
+                        str = str.replace("{dateAvis}", "<i>Pas de date d'avis</i>");
                         if (r2.data.length>0) {
                             str = str.replace('{nom_assistant}', r2.data[0].nom);
                             str = str.replace('{prenom_assistant}', r2.data[0].prenom);
