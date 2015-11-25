@@ -186,15 +186,16 @@ App.controller.define('CMain', {
 	},
 	do_open_planning: function()
 	{
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),1);
+		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),1);
 	},
 	do_open_cvrh: function()
 	{
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0);
+		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),0);
 	},
 	do_open_mesReservations: function()
 	{
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),2,EVT_CURRENT.numLogin);	
+        App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.numLogin);
+		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),2,EVT_CURRENT.numLogin);	
 	},
 	do_open_jf: function()
 	{
@@ -249,7 +250,8 @@ App.controller.define('CMain', {
 	// Display Scheduler /////////////////////////////////////////////////////////////
 	display_scheduler: function(now,salle,agent)
 	{
-	
+	    // Private methods
+        
 		function isWeekend(d) {
 			return (d.getDay() == 6);
 		};
