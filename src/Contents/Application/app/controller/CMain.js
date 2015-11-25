@@ -149,7 +149,7 @@ App.controller.define('CMain', {
 			cls: 'yellow',
 			html: str,
 			width: 540,
-			target: view,
+			target: e,
 			relativePosition: 'b-b',
 			relativeOffsets: [0, 58]
 		}).show();	
