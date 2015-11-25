@@ -126,7 +126,6 @@ App.controller.define('CMain', {
                             '<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
 							'<div class=typeInfoSalle>{prenom} {nom}</div>',
                             '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',
-                            /*'<div class=typeInfoSalle2>Date avis: {dateAvis}</div>',*/
 							'</div>'
 						];
                     } else {
@@ -328,7 +327,7 @@ App.controller.define('CMain', {
 		
 		// EVT_CURRENT = Current user
 		EVT_CURRENT.user = user.mail;
-        console.log(user);
+        EVT_CURRENT.numLogin = user.id;
 		
 		// Profiles
 		if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);		
@@ -348,15 +347,7 @@ App.controller.define('CMain', {
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
 		store.load();
-		
-		// ???
-		
-		App.reservation.getInfo(o, function(err, result) {	
-			numLogin = result.result.data[0].Id;
-			EVT_CURRENT.numLogin = numLogin;
-			App.get('schedulergrid#schedule').getEventStore().load();
-		});
-		
+			
 		// Combo year
 		
 		var tab=[];
