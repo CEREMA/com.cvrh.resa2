@@ -118,7 +118,6 @@ App.controller.define('CMain', {
 		Ext.create('Ext.tip.ToolTip', {
             html: '',
             listeners: {
-                // Change content dynamically depending on which element triggered the show.
                 beforeshow: function updateTipBody(tip) {
                     if (r.data.id_typologie != 1) {
 						var str= [
@@ -153,7 +152,6 @@ App.controller.define('CMain', {
                     tip.update(str);
                 }
             }
-
         }).showAt(e.getXY());     
     },
     
