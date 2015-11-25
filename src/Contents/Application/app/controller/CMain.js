@@ -328,7 +328,6 @@ App.controller.define('CMain', {
 		// EVT_CURRENT = Current user
 		EVT_CURRENT.user = user.mail;
         EVT_CURRENT.login = user.id;
-		alert(EVT_CURRENT.login);
 		
 		// Profiles
 		if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);		
@@ -342,9 +341,8 @@ App.controller.define('CMain', {
 		
 		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
 		store.on('load',function(p,r) {
-			var rec = { Id: 0, agent: '-----------' };
+			var rec = { Id: 0, agent: '-- Tous les agents' };
             store.insert(0,rec);			
-            App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.login);
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
 		store.load();
