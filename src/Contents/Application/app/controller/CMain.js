@@ -155,7 +155,7 @@ App.controller.define('CMain', {
                         str = str.replace('{nom}', r.data.nom);
                         str = str.replace('{prenom}', r.data.prenom);
                         if (r.data.dateAvis)
-                        str = str.replace('{dateAvis}', r.data.dateAvis.toString('d/M/yyyy'));
+                        str = str.replace('{dateAvis}', r.data.dateAvis.toString('d MMMM yyyy'));
                         else
                         str = str.replace('{dateAvis}', '');
                         if (r2.data.length>0) {
