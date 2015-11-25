@@ -326,6 +326,7 @@ App.controller.define('CMain', {
 		var now = new Date();
 		
 		// EVT_CURRENT = Current user
+		console.log(user);
 		EVT_CURRENT.user = user.mail;
         EVT_CURRENT.numLogin = user.id;
 		
