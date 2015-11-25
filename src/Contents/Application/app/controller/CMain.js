@@ -115,45 +115,7 @@ App.controller.define('CMain', {
         $('.x-tip').hide();
     },
     grid_mouse_enter: function(view, r, e, eOpts) {
-		if (r.data.id_typologie != 1) {
-			var str= [
-				'<div class=typeInfo>',
-				'<div class=typeInfoTitle>{nomEvenement}<br><small>{initial}</small></div>',
-				'<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
-				'<div class=typeInfoSalle>{prenom} {nom}</div>',
-				'</div>'
-			];
-		} else {
-			var str= [
-				'<div class=typeInfo>',
-				'<div class=typeInfoTitle>{nomEvenement}<br><small>{initial}</small></div>',
-				'<div class=typeInfoSession><table><tr><td>session</td><td><b>{num_session}</b></td></tr></table></div>',
-				'<div class=typeInfoSessionModule><table><tr><td>module</td><td><b>{num_module}</b></td></tr></table></div>',
-				'<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
-				'<div class=typeInfoSalle>{prenom} {nom}</div>',
-				'</div>'
-			];
-		};
-		str = str.join('');
-		str = str.replace('{nomTypologie}', r.data.nomTypologie);
-		str = str.replace('{nomsalle}', r.data.nomsalle);
-		str = str.replace('{nomEvenement}', r.data.nomEvenement);
-		str = str.replace('{num_session}', r.data.num_session);
-		str = str.replace('{num_module}', r.data.num_module);
-		str = str.replace('{initial}', r.data.initial);
-		str = str.replace('{debut}', r.data.debut);
-		str = str.replace('{fin}', r.data.fin);
-		str = str.replace('{prenom}', r.data.prenom);
-		str = str.replace('{nom}', r.data.nom);	
-		Ext.widget( 'callout', {
-			cls: 'yellow',
-			html: str,
-			width: 540,
-			target: e,
-			relativePosition: 'b-b',
-			relativeOffsets: [0, 58]
-		}).show();	
-        /*view.tip = Ext.create('Ext.tip.ToolTip', {
+		Ext.create('Ext.tip.ToolTip', {
             html: '',
             listeners: {
                 // Change content dynamically depending on which element triggered the show.
@@ -192,8 +154,7 @@ App.controller.define('CMain', {
                 }
             }
 
-        });
-        view.tip.showAt(e.getXY()); */       
+        }).showAt(e.getXY());     
     },
     
 	// Menu ////////////////////////////////////////////////////////////////////
