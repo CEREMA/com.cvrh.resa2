@@ -51,8 +51,8 @@
     ],
     "paths": {},
     "controllers": [
-        "CMain",
-        "admin.CBackoffice"
+        "admin.CBackoffice",
+        "CMain"
     ],
     "modules": [
         "Ext.ux.Scheduler",
