@@ -328,6 +328,7 @@ App.controller.define('CMain', {
 		
 		// EVT_CURRENT = Current user
 		EVT_CURRENT.user = user.mail;
+        console.log(user);
 		
 		// Profiles
 		if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);		
@@ -343,7 +344,6 @@ App.controller.define('CMain', {
 		store.on('load',function(p,r) {
 			var rec = { Id: 0, agent: '-----------' };
             store.insert(0,rec);
-            alert(EVT_CURRENT.numLogin);
             App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.numLogin);            
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
