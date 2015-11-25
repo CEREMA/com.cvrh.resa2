@@ -136,9 +136,10 @@ App.controller.define('CMain', {
                             '<div class=typeInfoSession><table><tr><td>session</td><td><b>{num_session}</b></td></tr></table></div>',
                             '<div class=typeInfoSessionModule><table><tr><td>module</td><td><b>{num_module}</b></td></tr></table></div>',
                             '<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
+                            '<div class=typeInfoDebut>{dateAvis}</div>',
 							'<div class=typeInfoSalle>{prenom} {nom}</div>',
-                            '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',
-                            '<div class=typeInfoSalle2>{dateAvis}</div>',
+                            '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>'
+                            /*'<div class=typeInfoSalle2>{dateAvis}</div>',*/
 							'</div>'
 						];
                     };
