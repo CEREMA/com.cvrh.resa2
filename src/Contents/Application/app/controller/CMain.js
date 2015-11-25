@@ -126,7 +126,7 @@ App.controller.define('CMain', {
                             '<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
 							'<div class=typeInfoSalle>{prenom} {nom}</div>',
                             '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',
-                            '<div class=typeInfoSalle2>{dateAvis}</div>',
+                            '<div class=typeInfoSalle2>Date avis: {dateAvis}</div>',
 							'</div>'
 						];
                     } else {
@@ -138,7 +138,7 @@ App.controller.define('CMain', {
                             '<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
 							'<div class=typeInfoSalle>{prenom} {nom}</div>',
                             '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',
-                            '<div class=typeInfoSalle2>{dateAvis}</div>',
+                            '<div class=typeInfoSalle2>Date avis: {dateAvis}</div>',
 							'</div>'
 						];
                     };
