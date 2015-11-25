@@ -20,6 +20,8 @@ App.controller.define('CMain', {
 			Main Screen
 			*/
 			
+            EVT_CURRENT: {},
+            
 			"mainform": {
 				render: "onShow"
 			},
@@ -191,8 +193,8 @@ App.controller.define('CMain', {
 	},
 	do_open_mesReservations: function()
 	{        
-		App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.login);
-		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),2,EVT_CURRENT.login);
+		App.get('mainform combo#selectAgent').setValue(this.EVT_CURRENT.login);
+		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),2,this.EVT_CURRENT.login);
 	},
 	do_admin_off: function()
 	{
@@ -296,7 +298,7 @@ App.controller.define('CMain', {
 
 		days_in_month(mm, year);
 		var resultat = days_in_month(mm, year) + 1;
-		EVT_CURRENT.resultat = resultat - 1;
+		this.EVT_CURRENT.resultat = resultat - 1;
 
 		scheduler.setStart(new Date(year, month, 1));
 		scheduler.setEnd(new Date(year, month, resultat));
@@ -328,8 +330,8 @@ App.controller.define('CMain', {
 		var now = new Date();
 		
 		// EVT_CURRENT = Current user
-		EVT_CURRENT.user = user.mail;
-        EVT_CURRENT.login = user.id;
+		this.EVT_CURRENT.user = user.mail;
+        this.EVT_CURRENT.login = user.id;
 		
 		// Profiles
 		if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);		
@@ -338,7 +340,7 @@ App.controller.define('CMain', {
 		// Combo Agents
 		
 		var o = {
-			Mail: EVT_CURRENT.user,
+			Mail: this.EVT_CURRENT.user,
 		};
 		
 		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
