@@ -327,8 +327,8 @@ App.controller.define('CMain', {
 		
 		// EVT_CURRENT = Current user
 		EVT_CURRENT.user = user.mail;
-        EVT_CURRENT.numLogin = user.id;
-		alert(EVT_CURRENT.numLogin);
+        EVT_CURRENT.login = user.id;
+		alert(EVT_CURRENT.login);
 		
 		// Profiles
 		if (user.profiles.indexOf('ADMIN')>-1) Ext.getCmp('MNU_ADMIN').setVisible(true);		
