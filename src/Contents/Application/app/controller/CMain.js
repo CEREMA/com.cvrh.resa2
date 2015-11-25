@@ -126,7 +126,7 @@ App.controller.define('CMain', {
                             '<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
 							'<div class=typeInfoSalle>{prenom} {nom}</div>',
                             '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',
-                            '<div class=typeInfoSalle2>Date avis: {dateAvis}</div>',
+                            /*'<div class=typeInfoSalle2>Date avis: {dateAvis}</div>',*/
 							'</div>'
 						];
                     } else {
@@ -138,7 +138,7 @@ App.controller.define('CMain', {
                             '<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
 							'<div class=typeInfoSalle>{prenom} {nom}</div>',
                             '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',
-                            /*'<div class=typeInfoSalle2>Date avis: {dateAvis}</div>',*/
+                            '<div class=typeInfoSalle2>Date avis: {dateAvis}</div>',
 							'</div>'
 						];
                     };
@@ -155,9 +155,9 @@ App.controller.define('CMain', {
                         str = str.replace('{nom}', r.data.nom);
                         str = str.replace('{prenom}', r.data.prenom);
                         if (r.data.dateAvis)
-                        str = str.replace('{dateAvis}', r.data.dateAvis.toString('d MMMM yyyy'));
+                        str = str.replace('{dateAvis}', 'Date avis: '+r.data.dateAvis.toString('d MMMM yyyy'));
                         else
-                        str = str.replace('{dateAvis}', '');
+                        str = str.replace("{dateAvis}", "Pas de date d'avis");
                         if (r2.data.length>0) {
                             str = str.replace('{nom_assistant}', r2.data[0].nom);
                             str = str.replace('{prenom_assistant}', r2.data[0].prenom);
