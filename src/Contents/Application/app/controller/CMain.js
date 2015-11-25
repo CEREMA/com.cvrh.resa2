@@ -1,4 +1,4 @@
-var EVT_CURRENT="";
+var EVT_CURRENT={};
 
 App.controller.define('CMain', {
 
