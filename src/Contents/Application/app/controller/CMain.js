@@ -138,18 +138,31 @@ App.controller.define('CMain', {
 							'</div>'
 						];
                     };
-                    str = str.join('');
-                    str = str.replace('{nomTypologie}', r.data.nomTypologie);
-                    str = str.replace('{nomsalle}', r.data.nomsalle);
-                    str = str.replace('{nomEvenement}', r.data.nomEvenement);
-                    str = str.replace('{num_session}', r.data.num_session);
-                    str = str.replace('{num_module}', r.data.num_module);
-                    str = str.replace('{initial}', r.data.initial);
-                    str = str.replace('{debut}', r.data.debut);
-                    str = str.replace('{fin}', r.data.fin);
-					str = str.replace('{prenom}', r.data.prenom);
-					str = str.replace('{nom}', r.data.nom);
-                    tip.update(str);
+                    App.DB.get('reservation_salles://agents?Id='+r.data.assistant,function(r2) {                        
+                        str = str.join('');
+                        str = str.replace('{nomTypologie}', r.data.nomTypologie);
+                        str = str.replace('{nomsalle}', r.data.nomsalle);
+                        str = str.replace('{nomEvenement}', r.data.nomEvenement);
+                        str = str.replace('{num_session}', r.data.num_session);
+                        str = str.replace('{num_module}', r.data.num_module);
+                        str = str.replace('{initial}', r.data.initial);
+                        str = str.replace('{debut}', r.data.debut);
+                        str = str.replace('{fin}', r.data.fin);
+                        str = str.replace('{nom}', r.data.nom);
+                        str = str.replace('{prenom}', r.data.prenom);
+                        if (r.data.dateAvis)
+                        str = str.replace('{dateAvis}', r.data.dateAvis.toString('dd/mmm/yyyy'));
+                        else
+                        str = str.replace('{dateAvis}', '');
+                        if (r2.data.length>0) {
+                            str = str.replace('{nom_assistant}', r2.data[0].nom);
+                            str = str.replace('{prenom_assistant}', r2.data[0].prenom);
+                        } else {
+                            str = str.replace('{nom_assistant}', "");
+                            str = str.replace('{prenom_assistant}', "");
+                        }
+                        tip.update(str);                        
+                    });					
                 }
             }
         }).showAt(e.getXY());     
