@@ -198,7 +198,9 @@ App.controller.define('CMain', {
 	},
 	do_admin_off: function()
 	{
-		alert('non implémenté');
+		App.view.create('admin.dayOff', {
+            modal: true
+        }).show();
 	},
 	do_admin_db: function()
 	{
