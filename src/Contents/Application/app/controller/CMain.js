@@ -196,13 +196,15 @@ App.controller.define('CMain', {
 		App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.login);
 		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),2,EVT_CURRENT.login);
 	},
-	do_open_jf: function()
+	do_admin_off: function()
 	{
 		alert('non implémenté');
 	},
 	do_admin_db: function()
 	{
-		alert('non implémenté');	
+		App.view.create('admin.backoffice', {
+            modal: true
+        }).show();
 	},
 	do_display: function()
 	{
@@ -235,7 +237,7 @@ App.controller.define('CMain', {
 					this.do_open_mesReservations();
 					break;
 				case "MNU_ADMIN_JF":
-					this.do_open_jf();
+					this.do_admin_off();
 					break;
 				case "MNU_ADMIN_DB":
 					this.do_admin_db();
