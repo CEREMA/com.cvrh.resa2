@@ -162,8 +162,8 @@
 	text-align: center;
 	font-weight: bold;
 	bottom: 20px;    
-	border: 1px solid red;
-    background-color: black;
+	border: 1px solid #EEEEEE;
+    background-color: #AAAAAA;
     color: white;
 }
 .typeInfoSalle2
