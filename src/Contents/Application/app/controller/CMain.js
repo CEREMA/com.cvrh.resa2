@@ -343,7 +343,8 @@ App.controller.define('CMain', {
 		store.on('load',function(p,r) {
 			var rec = { Id: 0, agent: '-----------' };
             store.insert(0,rec);
-            App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.numLogin);            
+			alert(EVT_CURRENT.numLogin);
+            App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.numLogin);
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
 		store.load();
