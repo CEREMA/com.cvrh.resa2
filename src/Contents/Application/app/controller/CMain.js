@@ -326,7 +326,6 @@ App.controller.define('CMain', {
 		var now = new Date();
 		
 		// EVT_CURRENT = Current user
-		console.log(user.id);
 		EVT_CURRENT.user = user.mail;
         EVT_CURRENT.numLogin = user.id;
 		
@@ -339,12 +338,11 @@ App.controller.define('CMain', {
 		var o = {
 			Mail: EVT_CURRENT.user,
 		};
-		
+		alert(EVT_CURRENT.numLogin);
 		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
 		store.on('load',function(p,r) {
 			var rec = { Id: 0, agent: '-----------' };
-            store.insert(0,rec);
-			alert(EVT_CURRENT.numLogin);
+            store.insert(0,rec);			
             App.get('mainform combo#selectAgent').setValue(EVT_CURRENT.numLogin);
 		});
 		App.get("mainform combo#selectAgent").bindStore(store);		
