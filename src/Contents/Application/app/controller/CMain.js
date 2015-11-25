@@ -148,9 +148,9 @@ App.controller.define('CMain', {
 		Ext.widget( 'callout', {
 			cls: 'yellow',
 			html: str,
-			width: 340,
+			width: 540,
 			target: 'viewport',
-			relativePosition: 't-t',
+			relativePosition: 'b-b',
 			relativeOffsets: [0, 58]
 		}).show();	
         /*view.tip = Ext.create('Ext.tip.ToolTip', {
