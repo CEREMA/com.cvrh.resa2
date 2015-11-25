@@ -115,7 +115,15 @@ App.controller.define('CMain', {
         $('.x-tip').hide();
     },
     grid_mouse_enter: function(view, r, e, eOpts) {
-        view.tip = Ext.create('Ext.tip.ToolTip', {
+		Ext.widget( 'callout', {
+			cls: 'yellow',
+			html: 'Welcome to the <a href="https://github.com/CodeCatalyst/Ext.ux.callout.Callout">Ext.ux.callout.Callout</a> explorer, an example application where you can experiment with configuration values for this custom component and see the corresponding JavaScript code.',
+			width: 340,
+			target: 'viewport',
+			relativePosition: 't-t',
+			relativeOffsets: [0, 58]
+		}).show();	
+        /*view.tip = Ext.create('Ext.tip.ToolTip', {
             html: '',
             listeners: {
                 // Change content dynamically depending on which element triggered the show.
@@ -155,7 +163,7 @@ App.controller.define('CMain', {
             }
 
         });
-        view.tip.showAt(e.getXY());        
+        view.tip.showAt(e.getXY()); */       
     },
     
 	// Menu ////////////////////////////////////////////////////////////////////
