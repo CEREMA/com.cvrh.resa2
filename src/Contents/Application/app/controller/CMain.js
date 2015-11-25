@@ -18,9 +18,7 @@ App.controller.define('CMain', {
 			
 			/*
 			Main Screen
-			*/
-			
-            EVT_CURRENT: {},
+			*/            
             
 			"mainform": {
 				render: "onShow"
@@ -53,6 +51,10 @@ App.controller.define('CMain', {
 		
 	},
 	
+    // init variables
+    
+    EVT_CURRENT: {},
+    
 	// Main Screen events ///////////////////////////////////////////////////////
 	
 	select_month: function(p)
