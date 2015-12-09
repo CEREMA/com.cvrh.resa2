@@ -1,7 +1,9 @@
 App.controller.define('CMain', {
 
 	views: [
-		"VMain"
+		"VMain",
+		"admin.VDayOff",
+		"admin.VBackoffice"
 	],
 	
 	models: [
