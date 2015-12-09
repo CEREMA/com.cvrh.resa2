@@ -8,9 +8,7 @@ reservation={
         reservation.using('db').model('reservation_salles', 'select Id,profil,LOWER(mail) as mail from agents where mail="' + o.Mail + '"', cb);	
 	},
 	getAllFormations: function(o,cb) {
-		console.log('--------');
-		console.log(o);
-		console.log('--------');
+
 		var _queryTreeSort;
 
 		_queryTreeSort = function(options) {
@@ -163,7 +161,6 @@ reservation={
 					};
 					var response=_queryTreeSort({q:t});
 					response=_makeTree({q:response});
-					console.log(response);
 					cb(null, response);
 				});
 			});
