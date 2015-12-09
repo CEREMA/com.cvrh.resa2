@@ -71,6 +71,7 @@ App.controller.define('CMain', {
 		App.get('TOpenEvenement treepanel#tree1').getStore().getProxy().extraParams.userId = 7;
         App.get('TOpenEvenement treepanel#tree1').getStore().load();
 		App.get('TOpenEvenement treepanel#tree1').getStore().on('load',function() {
+			alert('x');
 			App.get('TOpenEvenement treepanel#tree1').getRootNode().expand(true);	
 		});		
 	},
