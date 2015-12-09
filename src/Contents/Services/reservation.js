@@ -9,6 +9,8 @@ reservation={
 	},
 	getAllFormations: function(o,cb) {
 		console.log('--------');
+		console.log(o);
+		console.log('--------');
 		var _queryTreeSort;
 
 		_queryTreeSort = function(options) {
