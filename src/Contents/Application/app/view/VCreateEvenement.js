@@ -17,7 +17,40 @@ App.view.define('VCreateEvenement', {
         };
 
         this.items = [
-];
+		{
+            layout: "form",
+            margin: 5,
+			flex: 1,
+            border: false,
+            items: [
+				{
+                    xtype: "combo",
+                    itemId: "cboTypologie",
+                    fieldLabel: "Typologie",
+                    allowBlank: false,
+                    editable: false,
+                    displayField: "nomTypologie",
+                    valueField: "id_typologie",
+                    store: App.store.create('reservation_salles://typologie', {
+                        autoLoad: true
+                    })
+                },
+                {
+                    xtype: 'textfield',
+                    itemId: "insert_evenement",
+                    fieldLabel: "Nom évènement",
+                    allowBlank: false,
+                    editable: false,
+                }, 
+				{
+                    xtype: 'textarea',
+                    itemId: "insert_descriptif",
+                    fieldLabel: "Descriptif",
+                    //allowBlank: false,
+                    editable: false
+                }
+            ]
+        }];
 		
         this.bbar = [
 		{
