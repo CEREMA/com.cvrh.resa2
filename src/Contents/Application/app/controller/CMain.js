@@ -69,6 +69,11 @@ App.controller.define('CMain', {
 	TOpenEvenement_onShow: function()
 	{
 		alert('x');
+		App.get('treepanel#tree1').getStore().getProxy().extraParams.userId = 614;
+        App.get('treepanel#tree1').getStore().load();
+		App.get('treepanel#tree1').getStore().on('load',function() {
+			App.get('treepanel#tree1').getRootNode().expand(true);	
+		});		
 	},
 	
 	// Main Screen events ///////////////////////////////////////////////////////
