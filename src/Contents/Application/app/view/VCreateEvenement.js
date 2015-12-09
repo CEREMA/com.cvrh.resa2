@@ -30,7 +30,7 @@ App.view.define('VCreateEvenement', {
                     editable: false,
                     displayField: "nomTypologie",
                     valueField: "id_typologie",
-                    store: App.store.create('App.reservation.typologie', {
+                    store: App.store.create('reservation_salles://typologie', {
                         autoLoad: true
                     })
                 },
@@ -65,7 +65,7 @@ App.view.define('VCreateEvenement', {
                             labelAlign: "left",
                             displayField: "agent",
                             valueField: "Id",
-                            store: App.store.create('App.reservation.agents', {
+                            store: App.store.create('reservation_salles://agents{nom+' '+prenom=agent,Id}', {
                                 autoLoad: true
                             })
                         }, 
