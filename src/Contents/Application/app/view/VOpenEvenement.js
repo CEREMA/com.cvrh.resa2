@@ -5,7 +5,7 @@ App.view.define('VOpenEvenement', {
     initComponent: function() {
         this.width = 640;
         this.height = 390;
-		this.closable=false;
+		this.closable=true;
         this.title = "Choississez un évènement";
         this.bodyCls = "white";
 		this.layout="fit";
