@@ -68,7 +68,7 @@ App.controller.define('CMain', {
 	
 	TOpenEvenement_onShow: function()
 	{
-		App.get('TOpenEvenement treepanel#tree1').getStore().getProxy().extraParams.userId = 614;
+		App.get('TOpenEvenement treepanel#tree1').getStore().getProxy().extraParams.userId = 7;
         App.get('TOpenEvenement treepanel#tree1').getStore().load();
 		App.get('TOpenEvenement treepanel#tree1').getStore().on('load',function() {
 			alert('x');
