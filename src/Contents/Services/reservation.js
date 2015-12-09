@@ -159,6 +159,7 @@ reservation={
 					};
 					var response=_queryTreeSort({q:t});
 					response=_makeTree({q:response});
+					console.log('---------------');
 					console.log(response);
 					cb(null, response);
 				});

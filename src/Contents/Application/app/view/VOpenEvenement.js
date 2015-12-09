@@ -16,7 +16,7 @@ App.view.define('VOpenEvenement', {
                 useArrows: true,
                 rootVisible: false,
                 height: "100%",
-                store: App.treestore.create('TreeModel', {
+                store: App.treestore.create('App.reservation.getAllFormations', {
                     autoLoad: true,
 					root: {
                         expanded: true, 
