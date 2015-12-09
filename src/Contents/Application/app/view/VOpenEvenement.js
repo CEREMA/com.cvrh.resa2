@@ -20,17 +20,18 @@ App.view.define('VOpenEvenement', {
                     autoLoad: true,
 					root: {
                         expanded: true, 
-						children: []
+						children: [],
+						autoLoad: true
                     }
                 }),
                 multiSelect: false,
                 singleExpand: false,
                 columns: [{
-                xtype: 'treecolumn', //this is so we know which column will show the tree
-                text: 'Evènement',
-				width: 250,
-                sortable: true,
-                dataIndex: 'text'
+					xtype: 'treecolumn', //this is so we know which column will show the tree
+					text: 'Evènement',
+					width: 250,
+					sortable: true,
+					dataIndex: 'text'
 				},
 				{
                 text: 'Typologie',
@@ -49,8 +50,7 @@ App.view.define('VOpenEvenement', {
 				renderer : function(val){
 					return '<span style="background-color:#'+val+';">&nbsp;&nbsp;&nbsp;&nbsp;</span>';
 				},
-            },
-			
+            },			
 			{
               
                 text: 'Début formation',
