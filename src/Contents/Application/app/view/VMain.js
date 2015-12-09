@@ -31,7 +31,7 @@ Ext.define('MyTimeAxis', {
     }
 });
 
-var CVRHView = {
+Ext.ux.Scheduler.preset.Manager.registerPreset("CVRH_VIEW", {
         displayDateFormat : 'd/m/Y',
         shiftIncrement    : 1,
         shiftUnit         : "WEEK",
@@ -56,9 +56,7 @@ var CVRHView = {
                 }
             }
         }
-};
-
-Ext.ux.Scheduler.preset.Manager.registerPreset("CVRH_VIEW", CVRHView); 
+}); 
 
 App.view.define('VMain', {
 
