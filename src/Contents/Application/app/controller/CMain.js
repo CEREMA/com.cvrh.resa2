@@ -200,13 +200,13 @@ App.controller.define('CMain', {
 	},
 	do_admin_off: function()
 	{
-		App.view.create('admin.dayOff', {
+		App.view.create('admin.VDayOff', {
             modal: true
         }).show();
 	},
 	do_admin_db: function()
 	{
-		App.view.create('admin.backoffice', {
+		App.view.create('admin.VBackoffice', {
             modal: true
         }).show();
 	},
