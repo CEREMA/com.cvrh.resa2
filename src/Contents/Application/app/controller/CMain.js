@@ -47,7 +47,13 @@ App.controller.define('CMain', {
                 /*
                 eventdblclick: "grid_dblclick",
 				*/
-            }			
+            },
+			/*
+			OpenEvenement
+			*/ 
+			"TOpenEvenement": {
+				render: "TOpenEvenement_onShow"
+			}			
 		});
 		
 		App.init('VMain',this.onLoad);
@@ -58,6 +64,13 @@ App.controller.define('CMain', {
     
     EVT_CURRENT: {},
     
+	// TOpenEvenement
+	
+	TOpenEvenement_onShow: function()
+	{
+		alert('x');
+	},
+	
 	// Main Screen events ///////////////////////////////////////////////////////
 	
 	select_month: function(p)
