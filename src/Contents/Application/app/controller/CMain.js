@@ -2,6 +2,7 @@ App.controller.define('CMain', {
 
 	views: [
 		"VMain",
+		"VOpenEvenement",
 		"admin.VDayOff",
 		"admin.VBackoffice"
 	],
