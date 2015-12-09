@@ -70,6 +70,7 @@ reservation={
         var db = reservation.using('db');
 		var t=[];
         db.query('reservation_salles', 'select * from evenement left join typologie on typologie.id_typologie=evenement.id_typologie left join session on session.id_evenement=evenement.id_evenement where evenement.status="I" and session.chefProjet='+userId+' and (evenement.id_evenement in (select id_evenement from session where id_session in (select id_session from module where finModule>=NOW()))) order by evenement.id_evenement', function(err, result) {
+			console.log(result);
 			db.query('reservation_salles', 'select * from session left join evenement on evenement.id_evenement=session.id_evenement left join typologie on typologie.id_typologie=evenement.id_typologie where session.chefProjet='+userId+' and session.status="I" and id_session in (select id_session from module where module.finModule>=NOW()) order by id_session', function(err2, result2) {
 				db.query('reservation_salles', 'select module.*,evenement.id_typologie,evenement.id_evenement from module left join session on session.id_session=module.id_session left join evenement on evenement.id_evenement=session.id_evenement where session.chefProjet='+userId+' and module.status="I" and finModule>=NOW() order by id_module', function(err3, result3) {
 					
