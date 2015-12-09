@@ -1,4 +1,4 @@
-App.view.define('admin.dayOff', {
+App.view.define('admin.VDayOff', {
     extend: 'Ext.window.Window',
     alias: 'widget.TAdminJF',
 
