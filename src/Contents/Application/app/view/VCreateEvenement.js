@@ -46,7 +46,6 @@ App.view.define('VCreateEvenement', {
                     xtype: 'textarea',
                     itemId: "insert_descriptif",
                     fieldLabel: "Descriptif",
-                    //allowBlank: false,
                     editable: false
                 }
             ]
