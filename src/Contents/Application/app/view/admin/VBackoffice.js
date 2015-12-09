@@ -1,4 +1,4 @@
-App.view.define('admin.backoffice', {
+App.view.define('admin.VBackoffice', {
     extend: 'Ext.window.Window',
     alias: 'widget.TAdmin',
 
