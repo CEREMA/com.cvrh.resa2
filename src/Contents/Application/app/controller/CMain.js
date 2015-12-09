@@ -197,7 +197,9 @@ App.controller.define('CMain', {
 	
 	do_new_evt: function()
 	{
-		alert('non implémenté');
+		App.view.create('VCreateEvenement',{
+			modal: true
+		}).show();
 	},
 	do_open_evt: function()
 	{
