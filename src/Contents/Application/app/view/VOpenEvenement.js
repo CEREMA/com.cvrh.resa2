@@ -17,10 +17,10 @@ App.view.define('VOpenEvenement', {
                 rootVisible: false,
                 height: "100%",
                 store: App.treestore.create('App.reservation.getAllFormations', {
-                    root: {
+                    autoLoad: true,
+					root: {
                         expanded: true, 
-						children: [],
-						autoLoad: true
+						children: []
                     }
                 }),
                 multiSelect: false,
