@@ -20,7 +20,7 @@ App.view.define('VOpenEvenement', {
                     root: {
                         expanded: true, 
 						children: [],
-						autoLoad: false
+						autoLoad: true
                     }
                 }),
                 multiSelect: false,
