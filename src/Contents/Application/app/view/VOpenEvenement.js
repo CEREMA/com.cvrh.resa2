@@ -11,6 +11,7 @@ App.view.define('VOpenEvenement', {
 		this.layout="fit";
         this.items = [{
                 xtype: "treepanel",
+				border: false,
                 itemId: "tree1",
                 useArrows: true,
                 rootVisible: false,
