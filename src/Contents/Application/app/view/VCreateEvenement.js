@@ -65,7 +65,7 @@ App.view.define('VCreateEvenement', {
                             labelAlign: "left",
                             displayField: "agent",
                             valueField: "Id",
-                            store: App.store.create('reservation_salles://agents{nom+' '+prenom=agent,Id}', {
+                            store: App.store.create("reservation_salles://agents{nom+' '+prenom=agent,Id}", {
                                 autoLoad: true
                             })
                         }, 
