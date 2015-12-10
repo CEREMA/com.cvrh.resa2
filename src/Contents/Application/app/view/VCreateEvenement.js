@@ -194,11 +194,10 @@ App.view.define('VCreateEvenement', {
 						}
 						]
 					},
-					//--- Début zone radio bouton ---											
 					{ 				
 						xtype: 'radiogroup',
 						fieldLabel: 'Avis de parution',
-						width: 300,
+						width: 400,
 						padding: 10,
 						itemId: "rdAvis",
 						flex: 1,
@@ -230,6 +229,13 @@ App.view.define('VCreateEvenement', {
 						hidden: true,
 						editable: false,
 						fieldLabel: 'Date avis',
+					},
+					{
+						xtype: "grid",
+						columns: [],
+						store: App.store.create({fields:[],data:[]}),
+						flex: 1,
+						width: "100%"
 					}
 					
 					]
