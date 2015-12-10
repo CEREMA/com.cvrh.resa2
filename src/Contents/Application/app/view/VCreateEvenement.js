@@ -15,6 +15,10 @@ App.view.define('VCreateEvenement', {
         this.defaults = {
             split: true
         };
+		
+		this.title = "";
+		
+		this.padding = 10;
 
         this.items = [
 		{
@@ -26,6 +30,7 @@ App.view.define('VCreateEvenement', {
             items: [
 				{
                     xtype: "combo",
+					width: "100%",
                     itemId: "cboTypologie",
                     fieldLabel: "Typologie",
                     allowBlank: false,
