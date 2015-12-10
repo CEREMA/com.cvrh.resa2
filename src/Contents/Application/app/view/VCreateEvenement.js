@@ -148,7 +148,7 @@ App.view.define('VCreateEvenement', {
 							startDay: 1,
 							editable: false,
 							fieldLabel: 'Début',
-							width: 180,
+							width: 110,
 							labelWidth: 50
 						}, 
 						{
@@ -162,7 +162,7 @@ App.view.define('VCreateEvenement', {
 							allowBlank: false,
 							editable: false,
 							fieldLabel: 'Fin',
-							width: 80,
+							width: 110,
 							labelWidth: 50
 						},
 						{
@@ -173,7 +173,7 @@ App.view.define('VCreateEvenement', {
 							itemId: "insert_numGeff",
 							fieldLabel: "GEFF",
 							minValue: 0,
-							width: 20
+							width: 70
 						},
 						{
 							xtype: "numberfield",
@@ -181,7 +181,7 @@ App.view.define('VCreateEvenement', {
 							allowBlank: false,
 							minValue: 0,
 							labelAlign: "left",
-							width: 20,
+							width: 70,
 							fieldLabel: "Nb participants"
 						}
 						]
