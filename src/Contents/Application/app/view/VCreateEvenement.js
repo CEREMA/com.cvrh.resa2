@@ -174,7 +174,7 @@ App.view.define('VCreateEvenement', {
 							fieldLabel: "GEFF",
 							labelAlign: "top",
 							minValue: 0,
-							width: 110,
+							width: 70,
 							labelWidth: 50
 						},
 						{
@@ -186,7 +186,7 @@ App.view.define('VCreateEvenement', {
 							labelAlign: "top",
 							allowBlank: false,
 							minValue: 0,
-							width: 170,
+							width: 100,
 							labelWidth: 100,
 							fieldLabel: "Nb participants"
 						}
