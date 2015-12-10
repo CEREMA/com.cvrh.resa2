@@ -48,6 +48,112 @@ App.view.define('VCreateEvenement', {
                     itemId: "insert_descriptif",
                     fieldLabel: "Descriptif",
                     editable: false
+                },
+                //------------regroupement hbox-------------------------------------------------------
+                {
+                    layout: "vbox",
+                    itemId: "regroupement_hboxGrid1",
+                    hidden: false,
+                    border: false,
+                    items: [{
+                            xtype: "combo",
+                            itemId: "cboCP",
+                            width: "100%",
+                            fieldLabel: "Chef de projet",
+                            allowBlank: false,
+                            editable: false,
+                            labelAlign: "left",
+                            displayField: "agent",
+                            valueField: "Id",
+                            store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
+                                autoLoad: true
+                            })
+                        }, {
+                            xtype: "combo",
+                            itemId: "cboAssistant",
+                            width: "100%",
+                            fieldLabel: "Assistant(e)",
+                            //allowBlank: false,
+                            editable: false,
+                            labelAlign: "left",
+                            displayField: "agent",
+                            valueField: "Id",
+                            store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
+                                autoLoad: true
+                            })
+                        }
+                    ]
+                },
+                //------------regroupement hbox-------------------------------------------------------
+                {
+                    xtype: "numberfield",
+                    itemId: "participant",
+                    width: "100%",
+                    allowBlank: false,
+					minValue: 0,
+                    labelAlign: "left",
+                    fieldLabel: "Nb participant"
+                },
+                {
+                    xtype: "datefield",
+                    renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+                    itemId: "debutModule",
+                    width: "100%",
+                    allowBlank: false,
+					startDay: 1,
+                    editable: false,
+                    fieldLabel: 'Début module',
+                }, 
+				{
+                    xtype: "datefield",
+                    renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+                    itemId: "finModule",
+					startDay: 1,
+                    width: "100%",
+                    allowBlank: false,
+                    editable: false,
+                    fieldLabel: 'Fin module',
+                },
+				{
+                    xtype: 'numberfield',
+                    itemId: "insert_numGeff",
+                    fieldLabel: "Numéro GEFF",
+					minValue: 0
+                },
+				//--- Début zone radio bouton ---											
+                { 				
+                    xtype: 'radiogroup',
+                    fieldLabel: 'Avis de parution',
+                    itemId: "rdAvis",
+                    flex: 1,
+                    columns: 5,
+                    vertical: true,
+                    items: [
+					{
+						boxLabel: 'Oui',
+						itemId: "RA0",
+						name: 'ra',
+						inputValue: '0'
+                    }, 
+					{
+						boxLabel: 'Non',
+						itemId: "RA1",
+						name: 'ra',
+						inputValue: '1',
+						checked: true
+                    }
+					]
+                }, 
+				{
+                    xtype: "datefield",
+					startDay: 1,
+                    renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+                    itemId: "dateAvis",
+                    width: "100%",
+                    allowBlank: false,
+                    hidden: true,
+                    editable: false,
+                    fieldLabel: 'Date avis',
                 }
             ]
         }];
