@@ -173,7 +173,7 @@ App.view.define('VCreateEvenement', {
 							itemId: "insert_numGeff",
 							fieldLabel: "GEFF",
 							minValue: 0,
-							width: 70,
+							width: 110,
 							labelWidth: 50
 						},
 						{
