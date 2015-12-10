@@ -130,7 +130,6 @@ App.view.define('VCreateEvenement', {
 				{
 					width: "100%",
 					title: 'Module 1',
-					flex: 1,
 					layout: "vbox",
 					items: [
 					{
