@@ -16,7 +16,7 @@ App.view.define('VCreateEvenement', {
             split: true
         };
 		
-		this.title = "";
+		this.title = "Nouvel évènement";
 		
 		this.padding = 10;
 
@@ -30,7 +30,6 @@ App.view.define('VCreateEvenement', {
             items: [
 				{
                     xtype: "combo",
-					width: "100%",
                     itemId: "cboTypologie",
                     fieldLabel: "Typologie",
                     allowBlank: false,
@@ -89,77 +88,6 @@ App.view.define('VCreateEvenement', {
                         }
                     ]
                 },
-                //------------regroupement hbox-------------------------------------------------------
-                {
-                    xtype: "numberfield",
-                    itemId: "participant",
-                    width: "100%",
-                    allowBlank: false,
-					minValue: 0,
-                    labelAlign: "left",
-                    fieldLabel: "Nb participant"
-                },
-                {
-                    xtype: "datefield",
-                    renderer: Ext.util.Format.dateRenderer('d/m/Y'),
-                    itemId: "debutModule",
-                    width: "100%",
-                    allowBlank: false,
-					startDay: 1,
-                    editable: false,
-                    fieldLabel: 'Début module',
-                }, 
-				{
-                    xtype: "datefield",
-                    renderer: Ext.util.Format.dateRenderer('d/m/Y'),
-                    itemId: "finModule",
-					startDay: 1,
-                    width: "100%",
-                    allowBlank: false,
-                    editable: false,
-                    fieldLabel: 'Fin module',
-                },
-				{
-                    xtype: 'numberfield',
-                    itemId: "insert_numGeff",
-                    fieldLabel: "Numéro GEFF",
-					minValue: 0
-                },
-				//--- Début zone radio bouton ---											
-                { 				
-                    xtype: 'radiogroup',
-                    fieldLabel: 'Avis de parution',
-                    itemId: "rdAvis",
-                    flex: 1,
-                    columns: 5,
-                    vertical: true,
-                    items: [
-					{
-						boxLabel: 'Oui',
-						itemId: "RA0",
-						name: 'ra',
-						inputValue: '0'
-                    }, 
-					{
-						boxLabel: 'Non',
-						itemId: "RA1",
-						name: 'ra',
-						inputValue: '1',
-						checked: true
-                    }
-					]
-                }, 
-				{
-                    xtype: "datefield",
-					startDay: 1,
-                    renderer: Ext.util.Format.dateRenderer('d/m/Y'),
-                    itemId: "dateAvis",
-                    width: "100%",
-                    allowBlank: false,
-                    hidden: true,
-                    editable: false,
-                    fieldLabel: 'Date avis',
-                }
             ]
         }];
 		
