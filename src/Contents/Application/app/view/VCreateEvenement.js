@@ -23,7 +23,7 @@ App.view.define('VCreateEvenement', {
         this.items = [
 		{
             layout: "form",
-            margin: 5,
+            margin: 15,
 			width: "100%",
 			flex: 1,
             border: false,
