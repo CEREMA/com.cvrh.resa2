@@ -30,6 +30,13 @@ App.view.define('VCreateEvenement', {
 			flex: 1,
             border: false,
             items: [
+                //------------regroupement hbox-------------------------------------------------------
+                {
+                    layout: "vbox",
+                    itemId: "regroupement_hboxGrid1",
+                    hidden: false,
+                    border: false,
+                    items: [
 				{
                     xtype: "combo",
 					width: "100%",
@@ -58,13 +65,7 @@ App.view.define('VCreateEvenement', {
                     fieldLabel: "Descriptif",
                     editable: false
                 },
-                //------------regroupement hbox-------------------------------------------------------
-                {
-                    layout: "vbox",
-                    itemId: "regroupement_hboxGrid1",
-                    hidden: false,
-                    border: false,
-                    items: [{
+				{
                             xtype: "combo",
                             itemId: "cboCP",
                             width: "100%",
@@ -77,7 +78,8 @@ App.view.define('VCreateEvenement', {
                             store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
                                 autoLoad: true
                             })
-                        }, {
+                    }, 
+					{
                             xtype: "combo",
                             itemId: "cboAssistant",
                             width: "100%",
@@ -90,7 +92,7 @@ App.view.define('VCreateEvenement', {
                             store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
                                 autoLoad: true
                             })
-                        }
+                    }
                     ]
                 },
             ]
