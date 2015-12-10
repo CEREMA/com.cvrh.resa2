@@ -143,7 +143,6 @@ App.view.define('VCreateEvenement', {
 							xtype: "datefield",
 							renderer: Ext.util.Format.dateRenderer('d/m/Y'),
 							itemId: "debutModule",
-							flex: 1,
 							allowBlank: false,
 							startDay: 1,
 							editable: false,
@@ -153,10 +152,12 @@ App.view.define('VCreateEvenement', {
 						}, 
 						{
 							xtype: "datefield",
+							margin: {
+								left: 10
+							},
 							renderer: Ext.util.Format.dateRenderer('d/m/Y'),
 							itemId: "finModule",
 							startDay: 1,
-							flex: 1,
 							allowBlank: false,
 							editable: false,
 							fieldLabel: 'Fin',
@@ -165,11 +166,24 @@ App.view.define('VCreateEvenement', {
 						},
 						{
 							xtype: 'numberfield',
+							margin: {
+								left: 10
+							},
 							itemId: "insert_numGeff",
 							fieldLabel: "GEFF",
 							minValue: 0,
-							flex: 1
-						}						
+							width: 20
+						},
+						{
+							xtype: "numberfield",
+							itemId: "participant",
+							width: "100%",
+							allowBlank: false,
+							minValue: 0,
+							labelAlign: "left",
+							flex: 1,
+							fieldLabel: "Nb participants"
+						}
 						]
 					},
 					//--- Début zone radio bouton ---											
