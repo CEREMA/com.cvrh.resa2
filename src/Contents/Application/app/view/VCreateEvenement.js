@@ -141,7 +141,7 @@ App.view.define('VCreateEvenement', {
 						{
 							xtype: "numberfield",
 							itemId: "participant",
-							width: "100%",
+							flex: 1,
 							allowBlank: false,
 							minValue: 0,
 							labelAlign: "left",
@@ -151,7 +151,7 @@ App.view.define('VCreateEvenement', {
 							xtype: "datefield",
 							renderer: Ext.util.Format.dateRenderer('d/m/Y'),
 							itemId: "debutModule",
-							width: "100%",
+							flex: 1,
 							allowBlank: false,
 							startDay: 1,
 							editable: false,
@@ -162,7 +162,7 @@ App.view.define('VCreateEvenement', {
 							renderer: Ext.util.Format.dateRenderer('d/m/Y'),
 							itemId: "finModule",
 							startDay: 1,
-							width: "100%",
+							flex: 1,
 							allowBlank: false,
 							editable: false,
 							fieldLabel: 'Fin module',
@@ -171,7 +171,8 @@ App.view.define('VCreateEvenement', {
 							xtype: 'numberfield',
 							itemId: "insert_numGeff",
 							fieldLabel: "Numéro GEFF",
-							minValue: 0
+							minValue: 0,
+							flex: 1
 						}						
 						]
 					},
