@@ -122,7 +122,13 @@ App.view.define('VCreateEvenement', {
 				//------------ MODULE -------------------------------------------------------
 				{
 					collapsible: true,
-                    title: 'Module 1'
+                    title: 'Module 1',
+					flex: 1
+				},
+				{
+					collapsible: true,
+                    title: 'Module 2',
+					flex: 1
 				}
             ]
         }];
