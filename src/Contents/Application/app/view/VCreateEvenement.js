@@ -139,8 +139,13 @@ App.view.define('VCreateEvenement', {
 					width: "100%",
 					title: 'Module 2',
 					flex: 1
-				}			
-			]
+				},			
+				{
+					collapsible: true,
+					width: "100%",
+					title: 'Module 3',
+					flex: 1
+				}			]
 		}
 		];
 		
