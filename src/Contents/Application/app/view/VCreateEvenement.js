@@ -148,7 +148,7 @@ App.view.define('VCreateEvenement', {
 							startDay: 1,
 							editable: false,
 							fieldLabel: 'Début',
-							width: 80,
+							width: 180,
 							labelWidth: 50
 						}, 
 						{
