@@ -137,6 +137,7 @@ App.view.define('VCreateEvenement', {
 					{
 						layout: "hbox",
 						padding: 10,
+						border: false,
 						width: "100%",
 						items: [
 						{
