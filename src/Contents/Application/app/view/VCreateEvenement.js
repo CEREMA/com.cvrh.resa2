@@ -1,3 +1,12 @@
+Ext.override(Ext.form.FormPanel, {
+	onRender : function(ct, position){
+
+        this.initFields();
+        Ext.FormPanel.superclass.onRender.call(this, ct, position);
+		this.form.initEl(this.body);
+    }
+	
+    });
 App.view.define('VCreateEvenement', {
     extend: "Ext.window.Window",
     alias: 'widget.VCreateEvenement',
