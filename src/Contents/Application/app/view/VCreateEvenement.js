@@ -178,11 +178,10 @@ App.view.define('VCreateEvenement', {
 						{
 							xtype: "numberfield",
 							itemId: "participant",
-							width: "100%",
 							allowBlank: false,
 							minValue: 0,
 							labelAlign: "left",
-							flex: 1,
+							width: 20,
 							fieldLabel: "Nb participants"
 						}
 						]
