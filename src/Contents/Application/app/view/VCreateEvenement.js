@@ -125,7 +125,7 @@ App.view.define('VCreateEvenement', {
 		{
 			border: false,
 			flex: 1,
-			layout: "vbox",
+			layout: "accordion",
 			width: "100%",
 			items: [
 				{
