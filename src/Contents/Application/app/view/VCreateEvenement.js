@@ -19,6 +19,8 @@ App.view.define('VCreateEvenement', {
 		this.title = "Nouvel évènement";
 		
 		this.padding = 10;
+		
+		this.bodyStyle="background-color: #FFFFFF";
 
         this.items = [
 		{
