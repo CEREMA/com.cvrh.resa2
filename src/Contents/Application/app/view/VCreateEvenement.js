@@ -92,7 +92,27 @@ App.view.define('VCreateEvenement', {
                             store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
                                 autoLoad: true
                             })
-                    }
+                    },
+					{
+                            xtype: "combo",
+                            itemId: "cboSession",
+                            width: "100%",
+                            fieldLabel: "Session",
+                            editable: false,
+                            labelAlign: "left",
+                            displayField: "agent",
+                            valueField: "Id",
+                            store: App.store.create({
+								fields: ["id","session"],
+								data: [
+								{
+									id: 0,
+									session: "Session 1"
+								}
+								],
+                                autoLoad: true
+                            })						
+					}
                     ]
                 },
             ]
