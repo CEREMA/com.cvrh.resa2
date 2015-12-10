@@ -2,7 +2,7 @@ App.view.define('VCreateEvenement', {
     extend: "Ext.window.Window",
     alias: 'widget.VCreateEvenement',
     initComponent: function() {
-        this.width = 1024;
+        this.width = 800;
         this.height = 660;
 
         this.layout = {
