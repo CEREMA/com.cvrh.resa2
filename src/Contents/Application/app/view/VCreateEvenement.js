@@ -118,20 +118,21 @@ App.view.define('VCreateEvenement', {
                             })						
 					}
                     ]
-                },
-				//------------ MODULE -------------------------------------------------------
-				{
-					collapsible: true,
-                    title: 'Module 1',
-					flex: 1
-				},
-				{
-					collapsible: true,
-                    title: 'Module 2',
-					flex: 1
-				}
+                }
             ]
-        }];
+        },
+		//------------ MODULE -------------------------------------------------------
+		{
+			collapsible: true,
+			title: 'Module 1',
+			flex: 1
+		},
+		{
+			collapsible: true,
+			title: 'Module 2',
+			flex: 1
+		}
+		];
 		
         this.bbar = [
 		{
