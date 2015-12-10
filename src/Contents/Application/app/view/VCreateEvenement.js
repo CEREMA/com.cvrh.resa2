@@ -198,10 +198,11 @@ App.view.define('VCreateEvenement', {
 					{ 				
 						xtype: 'radiogroup',
 						fieldLabel: 'Avis de parution',
+						padding: 10,
 						itemId: "rdAvis",
 						flex: 1,
 						columns: 5,
-						vertical: true,
+						vertical: false,
 						items: [
 						{
 							boxLabel: 'Oui',
