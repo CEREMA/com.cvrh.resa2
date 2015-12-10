@@ -41,81 +41,81 @@ App.view.define('VCreateEvenement', {
                     hidden: false,
                     border: false,
                     items: [
-				{
-                    xtype: "combo",
-					width: "100%",
-                    itemId: "cboTypologie",
-                    fieldLabel: "Typologie",
-                    allowBlank: false,
-                    editable: false,
-                    displayField: "nomTypologie",
-                    valueField: "id_typologie",
-                    store: App.store.create('reservation_salles://typologie', {
-                        autoLoad: true
-                    })
-                },
-                {
-                    xtype: 'textfield',
-                    itemId: "insert_evenement",
-					width: "100%",
-                    fieldLabel: "Nom évènement",
-                    allowBlank: false,
-                    editable: false,
-                }, 
-				{
-                    xtype: 'textarea',
-                    itemId: "insert_descriptif",
-					width: "100%",
-                    fieldLabel: "Descriptif",
-                    editable: false
-                },
-				{
-                            xtype: "combo",
-                            itemId: "cboCP",
-                            width: "100%",
-                            fieldLabel: "Chef de projet",
-                            allowBlank: false,
-                            editable: false,
-                            labelAlign: "left",
-                            displayField: "agent",
-                            valueField: "Id",
-                            store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
-                                autoLoad: true
-                            })
-                    }, 
 					{
-                            xtype: "combo",
-                            itemId: "cboAssistant",
-                            width: "100%",
-                            fieldLabel: "Assistant(e)",
-                            //allowBlank: false,
-                            editable: false,
-                            labelAlign: "left",
-                            displayField: "agent",
-                            valueField: "Id",
-                            store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
-                                autoLoad: true
-                            })
+						xtype: "combo",
+						width: "100%",
+						itemId: "cboTypologie",
+						fieldLabel: "Typologie",
+						allowBlank: false,
+						editable: false,
+						displayField: "nomTypologie",
+						valueField: "id_typologie",
+						store: App.store.create('reservation_salles://typologie', {
+							autoLoad: true
+						})
+					},
+					{
+						xtype: 'textfield',
+						itemId: "insert_evenement",
+						width: "100%",
+						fieldLabel: "Nom évènement",
+						allowBlank: false,
+						editable: false,
+					}, 
+					{
+						xtype: 'textarea',
+						itemId: "insert_descriptif",
+						width: "100%",
+						fieldLabel: "Descriptif",
+						editable: false
+					},
+					{
+						xtype: "combo",
+						itemId: "cboCP",
+						width: "100%",
+						fieldLabel: "Chef de projet",
+						allowBlank: false,
+						editable: false,
+						labelAlign: "left",
+						displayField: "agent",
+						valueField: "Id",
+						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
+							autoLoad: true
+						})
+					}, 
+					{
+						xtype: "combo",
+						itemId: "cboAssistant",
+						width: "100%",
+						fieldLabel: "Assistant(e)",
+						//allowBlank: false,
+						editable: false,
+						labelAlign: "left",
+						displayField: "agent",
+						valueField: "Id",
+						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
+							autoLoad: true
+						})
                     },
 					{
-                            xtype: "combo",
-                            itemId: "cboSession",
-                            width: "100%",
-                            fieldLabel: "Session",
-                            editable: false,
-                            labelAlign: "left",
-                            displayField: "session",
-                            valueField: "id",
-                            store: App.store.create({
-								fields: ["id","session"],
-								data: [
-								{
-									id: 0,
-									session: "Session 1"
-								}
-								],
-                                autoLoad: true
-                            })						
+						xtype: "combo",
+						itemId: "cboSession",
+						width: "100%",
+						fieldLabel: "Session",
+						editable: false,
+						labelAlign: "left",
+						displayField: "session",
+						valueField: "id",
+						store: App.store.create({
+							fields: ["id","session"],
+							data: [
+							{
+								id: 0,
+								session: "Session 1"
+							}
+							],
+							autoLoad: true
+						})
 					}
                     ]
                 }
@@ -131,7 +131,81 @@ App.view.define('VCreateEvenement', {
 				{
 					width: "100%",
 					title: 'Module 1',
-					flex: 1
+					flex: 1,
+					layout: "vbox",
+					items: [
+					{
+						xtype: "numberfield",
+						itemId: "participant",
+						width: "100%",
+						allowBlank: false,
+						minValue: 0,
+						labelAlign: "left",
+						fieldLabel: "Nb participant"
+					},
+					{
+						xtype: "datefield",
+						renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+						itemId: "debutModule",
+						width: "100%",
+						allowBlank: false,
+						startDay: 1,
+						editable: false,
+						fieldLabel: 'Début module',
+					}, 
+					{
+						xtype: "datefield",
+						renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+						itemId: "finModule",
+						startDay: 1,
+						width: "100%",
+						allowBlank: false,
+						editable: false,
+						fieldLabel: 'Fin module',
+					},
+					{
+						xtype: 'numberfield',
+						itemId: "insert_numGeff",
+						fieldLabel: "Numéro GEFF",
+						minValue: 0
+					},
+					//--- Début zone radio bouton ---											
+					{ 				
+						xtype: 'radiogroup',
+						fieldLabel: 'Avis de parution',
+						itemId: "rdAvis",
+						flex: 1,
+						columns: 5,
+						vertical: true,
+						items: [
+						{
+							boxLabel: 'Oui',
+							itemId: "RA0",
+							name: 'ra',
+							inputValue: '0'
+						}, 
+						{
+							boxLabel: 'Non',
+							itemId: "RA1",
+							name: 'ra',
+							inputValue: '1',
+							checked: true
+						}
+						]
+					}, 
+					{
+						xtype: "datefield",
+						startDay: 1,
+						renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+						itemId: "dateAvis",
+						width: "100%",
+						allowBlank: false,
+						hidden: true,
+						editable: false,
+						fieldLabel: 'Date avis',
+					}
+					
+					]
 				},
 				{
 					width: "100%",
