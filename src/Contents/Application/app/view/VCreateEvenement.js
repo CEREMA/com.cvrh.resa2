@@ -148,6 +148,7 @@ App.view.define('VCreateEvenement', {
 							startDay: 1,
 							editable: false,
 							fieldLabel: 'Début',
+							labelWidth: 50
 						}, 
 						{
 							xtype: "datefield",
