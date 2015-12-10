@@ -23,18 +23,7 @@ App.view.define('VCreateEvenement', {
 			flex: 1,
             border: false,
             items: [
-				{
-                    xtype: "combo",
-                    itemId: "cboTypologie",
-                    fieldLabel: "Typologie",
-                    allowBlank: false,
-                    editable: false,
-                    displayField: "nomTypologie",
-                    valueField: "id_typologie",
-                    store: App.store.create('reservation_salles://typologie', {
-                        autoLoad: true
-                    })
-                },
+
                 {
                     xtype: 'textfield',
                     itemId: "insert_evenement",
