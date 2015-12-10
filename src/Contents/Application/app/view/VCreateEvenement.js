@@ -10,6 +10,10 @@ App.view.define('VCreateEvenement', {
         };
 
         this.tbar = [
+		{
+			text: "Nouvelle session",
+			hidden: true
+		}
         ];
 		
         this.defaults = {
@@ -30,7 +34,7 @@ App.view.define('VCreateEvenement', {
 			flex: 1,
             border: false,
             items: [
-                //------------regroupement hbox-------------------------------------------------------
+                //------------ EVENEMENT -------------------------------------------------------
                 {
                     layout: "vbox",
                     itemId: "regroupement_hboxGrid1",
@@ -100,8 +104,8 @@ App.view.define('VCreateEvenement', {
                             fieldLabel: "Session",
                             editable: false,
                             labelAlign: "left",
-                            displayField: "agent",
-                            valueField: "Id",
+                            displayField: "session",
+                            valueField: "id",
                             store: App.store.create({
 								fields: ["id","session"],
 								data: [
@@ -115,6 +119,11 @@ App.view.define('VCreateEvenement', {
 					}
                     ]
                 },
+				//------------ MODULE -------------------------------------------------------
+				{
+					collapsible: true,
+                    title: 'Module 1'
+				}
             ]
         }];
 		
