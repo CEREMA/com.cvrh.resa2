@@ -266,7 +266,7 @@ App.view.define('VCreateEvenement', {
         '->', 
 		{
                     xtype: "button",
-                    text: "Suivant",
+                    text: "Enregistrer",
                     itemId: "insert_evenement"
 		}
         ];
