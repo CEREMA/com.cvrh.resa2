@@ -135,39 +135,45 @@ App.view.define('VCreateEvenement', {
 					layout: "vbox",
 					items: [
 					{
-						xtype: "numberfield",
-						itemId: "participant",
+						layout: "hbox",
 						width: "100%",
-						allowBlank: false,
-						minValue: 0,
-						labelAlign: "left",
-						fieldLabel: "Nb participant"
-					},
-					{
-						xtype: "datefield",
-						renderer: Ext.util.Format.dateRenderer('d/m/Y'),
-						itemId: "debutModule",
-						width: "100%",
-						allowBlank: false,
-						startDay: 1,
-						editable: false,
-						fieldLabel: 'Début module',
-					}, 
-					{
-						xtype: "datefield",
-						renderer: Ext.util.Format.dateRenderer('d/m/Y'),
-						itemId: "finModule",
-						startDay: 1,
-						width: "100%",
-						allowBlank: false,
-						editable: false,
-						fieldLabel: 'Fin module',
-					},
-					{
-						xtype: 'numberfield',
-						itemId: "insert_numGeff",
-						fieldLabel: "Numéro GEFF",
-						minValue: 0
+						items: [
+						{
+							xtype: "numberfield",
+							itemId: "participant",
+							width: "100%",
+							allowBlank: false,
+							minValue: 0,
+							labelAlign: "left",
+							fieldLabel: "Nb participant"
+						},
+						{
+							xtype: "datefield",
+							renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+							itemId: "debutModule",
+							width: "100%",
+							allowBlank: false,
+							startDay: 1,
+							editable: false,
+							fieldLabel: 'Début module',
+						}, 
+						{
+							xtype: "datefield",
+							renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+							itemId: "finModule",
+							startDay: 1,
+							width: "100%",
+							allowBlank: false,
+							editable: false,
+							fieldLabel: 'Fin module',
+						},
+						{
+							xtype: 'numberfield',
+							itemId: "insert_numGeff",
+							fieldLabel: "Numéro GEFF",
+							minValue: 0
+						}						
+						]
 					},
 					//--- Début zone radio bouton ---											
 					{ 				
