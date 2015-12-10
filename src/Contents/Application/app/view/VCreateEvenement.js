@@ -148,7 +148,7 @@ App.view.define('VCreateEvenement', {
 							startDay: 1,
 							editable: false,
 							fieldLabel: 'Début',
-							width: 110,
+							width: 140,
 							labelWidth: 50
 						}, 
 						{
@@ -162,7 +162,7 @@ App.view.define('VCreateEvenement', {
 							allowBlank: false,
 							editable: false,
 							fieldLabel: 'Fin',
-							width: 110,
+							width: 140,
 							labelWidth: 50
 						},
 						{
