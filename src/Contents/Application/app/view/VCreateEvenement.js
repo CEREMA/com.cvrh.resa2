@@ -32,6 +32,7 @@ App.view.define('VCreateEvenement', {
             items: [
 				{
                     xtype: "combo",
+					width: "100%",
                     itemId: "cboTypologie",
                     fieldLabel: "Typologie",
                     allowBlank: false,
@@ -45,6 +46,7 @@ App.view.define('VCreateEvenement', {
                 {
                     xtype: 'textfield',
                     itemId: "insert_evenement",
+					width: "100%",
                     fieldLabel: "Nom évènement",
                     allowBlank: false,
                     editable: false,
@@ -52,6 +54,7 @@ App.view.define('VCreateEvenement', {
 				{
                     xtype: 'textarea',
                     itemId: "insert_descriptif",
+					width: "100%",
                     fieldLabel: "Descriptif",
                     editable: false
                 },
