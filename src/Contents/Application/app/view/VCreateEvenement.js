@@ -188,7 +188,6 @@ App.view.define('VCreateEvenement', {
 							labelAlign: "top",
 							allowBlank: false,
 							minValue: 0,
-							labelAlign: "left",
 							width: 170,
 							labelWidth: 100,
 							fieldLabel: "Nb participants"
