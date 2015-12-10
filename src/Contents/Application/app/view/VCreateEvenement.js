@@ -173,7 +173,8 @@ App.view.define('VCreateEvenement', {
 							itemId: "insert_numGeff",
 							fieldLabel: "GEFF",
 							minValue: 0,
-							width: 70
+							width: 70,
+							labelWidth: 50
 						},
 						{
 							xtype: "numberfield",
@@ -182,6 +183,7 @@ App.view.define('VCreateEvenement', {
 							minValue: 0,
 							labelAlign: "left",
 							width: 70,
+							labelWidth: 50,
 							fieldLabel: "Nb participants"
 						}
 						]
