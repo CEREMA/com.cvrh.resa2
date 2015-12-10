@@ -38,6 +38,7 @@ App.view.define('VCreateEvenement', {
                 {
                     layout: "vbox",
                     itemId: "regroupement_hboxGrid1",
+					height: 100,
                     hidden: false,
                     border: false,
                     items: [
