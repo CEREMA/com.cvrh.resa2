@@ -242,9 +242,10 @@ App.view.define('VCreateEvenement', {
 							width: 100,
 							dataIndex: "nomsalle",
 							renderer : function (value,p) {
+								console.log(value);
 								console.log(p);
-								/*var record = comboStore.findRecord('id', value);
-								return record.title;*/
+								//var record = comboStore.findRecord('id', value);
+								return p.record.data.salle;
 							},
 							editor: {
 								xtype: 'combobox',
