@@ -230,7 +230,7 @@ App.view.define('VCreateEvenement', {
 								selectOnTab: true,
 								displayField: "salle",
 								valueField: "id_salle",
-								store: App.store.create("reservation_salles://salle{id_salle,nom_salle+' ('+lieu+')=salle'}?id_site=1"),
+								store: App.store.create("reservation_salles://salle{id_salle,nom_salle+' ('+lieu+')'=salle}?id_site=1"),
 								lazyRender: true,
 								listClass: 'x-combo-list-small'
 							}							
