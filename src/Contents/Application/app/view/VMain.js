@@ -127,6 +127,7 @@ App.view.define('VMain', {
 		height: 64,
 		border: false,
 		layout: "hbox",
+		padding: 5,
 		width: "100%",
 		items: [
 			{
@@ -134,10 +135,9 @@ App.view.define('VMain', {
 				itemId: "ajouter_modification",
 				text: "Evènement",
 				height: "100%",
-				width: 64,
+				scale: "large",
 				iconAlign: "top",
-				iconCls: "add",
-				hidden: true
+				iconCls: "add"
 			}	
 		]
 	},
