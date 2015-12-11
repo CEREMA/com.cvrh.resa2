@@ -243,3 +243,13 @@
 	width: 16px;
 	height: 16px;
 }
+.add_event
+{
+	background-image:url(webapp/icon_add_event.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	background-size: 32px 32px;
+	width: 32px;
+	height: 32px;
+}
+}

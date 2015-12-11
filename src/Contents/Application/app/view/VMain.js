@@ -134,15 +134,15 @@ App.view.define('VMain', {
 				itemId: "ajouter_modification",
 				text: "Evènement",
 				margin: {
-					left: 5,
-					top: 5,
-					bottom: 5,
-					right: 5
+					left: 1,
+					top: 1,
+					bottom: 1,
+					right: 1
 				},
 				height: "100%",
 				scale: "large",
 				iconAlign: "top",
-				iconCls: "add"
+				iconCls: "add_event"
 			}	
 		]
 	},
