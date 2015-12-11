@@ -193,7 +193,7 @@ App.view.define('VCreateEvenement', {
 							displayField: 'Titre_formation',
 							valueField: 'id',
 							queryMode: 'remote',
-							store: App.store.create('reservation_salles://geff_imports'),
+							store: App.store.create('reservation_salles://geff_imports',{autoLoad: true}),
 							listConfig: {
 								columns: [{
 									header: "Formation",
