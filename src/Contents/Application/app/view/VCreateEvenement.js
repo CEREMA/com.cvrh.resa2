@@ -240,7 +240,7 @@ App.view.define('VCreateEvenement', {
 						{
 							header: "Site",
 							width: 100,
-							dataIndex: "nomsalle",
+							dataIndex: "id_site",
 							renderer : function (value,p,record)
 							{
 								console.log(record);
@@ -279,11 +279,11 @@ App.view.define('VCreateEvenement', {
 						],
 						store: App.store.create({
 						fields:[
-							"salle"
+							"id_site"
 						],
 						data:[
 							{
-								salle: "test"
+								id_site: ""
 							}
 						]}),
 						flex: 1,
