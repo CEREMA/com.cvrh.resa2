@@ -220,17 +220,6 @@ App.view.define('VCreateEvenement', {
 						]
 					}, 
 					{
-						xtype: "datefield",
-						startDay: 1,
-						renderer: Ext.util.Format.dateRenderer('d/m/Y'),
-						itemId: "dateAvis",
-						width: "100%",
-						allowBlank: false,
-						hidden: true,
-						editable: false,
-						fieldLabel: 'Date avis',
-					},
-					{
 						xtype: "grid",
 						columns: [],
 						store: App.store.create({fields:[],data:[]}),
