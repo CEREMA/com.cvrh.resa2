@@ -142,7 +142,7 @@ App.view.define('VMain', {
 				},
 				height: "100%",
 				scale: "large",
-				iconAlign: "center",
+				iconAlign: "top",
 				iconCls: "add_event"
 			}	
 		]
