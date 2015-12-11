@@ -27,6 +27,12 @@ App.controller.define('CMain', {
 			"mainform": {
 				render: "onShow"
 			},
+			"mainform button#create_event": {
+				click: "do_new_evt"
+			},
+			"mainform button#open_event": {
+				click: "do_open_evt"
+			},			
             "mainform combo#selectMonth": {
                 select: "select_month"
             },
