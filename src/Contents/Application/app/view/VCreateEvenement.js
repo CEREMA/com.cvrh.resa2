@@ -184,16 +184,23 @@ App.view.define('VCreateEvenement', {
 						},
 						{
 							xtype: 'gridpicker',
-							displayField: 'name',
+							margin: {
+								left: 10
+							},		
+							fieldLabel: "GEFF",
+							labelAlign: "top",							
+							itemId: "insert_numGeff",							
+							displayField: 'Titre_formation',
 							valueField: 'id',
 							queryMode: 'local',
-							store: '',
+							store: App.store.create('reservation_salles://geff_imports'),
 							listConfig: {
 								columns: [{
-									dataIndex: 'name'
+									header: "Formation",
+									dataIndex: 'Titre_formation'
 								}]
 							}
-						},						
+						}/*,						
 						{
 							xtype: 'numberfield',
 							margin: {
@@ -205,7 +212,7 @@ App.view.define('VCreateEvenement', {
 							minValue: 0,
 							width: 70,
 							labelWidth: 50
-						},
+						}*/,
 						{
 							xtype: "numberfield",
 							margin: {
