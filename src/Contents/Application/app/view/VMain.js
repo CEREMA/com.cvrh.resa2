@@ -85,6 +85,22 @@ App.view.define('VMain', {
             }]
         },
 		{
+			region: "north",
+			height: 64,
+			border: false,
+			items: [
+			{
+				xtype:"button",
+				itemId: "ajouter_modification",
+				text: "Nouvel évènement",
+				scale: "large",
+				iconAlign: "top",
+				iconCls: "add",
+				hidden: true
+			}			
+			]
+		},
+		{
 		text: "Planning",
             menu: [{
                 itemId: "MNU_PLANNING",
