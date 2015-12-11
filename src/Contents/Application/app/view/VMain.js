@@ -125,6 +125,8 @@ App.view.define('VMain', {
 		region: "north",
 		height: 64,
 		border: false,
+		layout: "hbox",
+		width: "100%",
 		items: [
 			{
 				xtype:"button",
