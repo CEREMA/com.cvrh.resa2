@@ -241,11 +241,6 @@ App.view.define('VCreateEvenement', {
 							header: "Site",
 							width: 100,
 							dataIndex: "id_site",
-							renderer : function (value,p,record)
-							{
-								console.log(record);
-								return record.nomsalle;
-							},
 							editor: {
 								xtype: 'combobox',
 								typeAhead: true,
@@ -255,7 +250,12 @@ App.view.define('VCreateEvenement', {
 								valueField: "id_site",
 								store: App.store.create("reservation_salles://site"),
 								lazyRender: true,
-								listClass: 'x-combo-list-small'
+								listClass: 'x-combo-list-small',
+								listeners: {
+									select: function(combo, recs, opts){
+										combo.fireEvent('blur');
+									}								
+								}
 							}							
 						},
 						{
