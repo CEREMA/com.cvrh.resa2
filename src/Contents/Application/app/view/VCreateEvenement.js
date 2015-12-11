@@ -193,7 +193,7 @@ App.view.define('VCreateEvenement', {
 						}
 						]
 					},
-					{ 				
+					/*{ 				
 						xtype: 'radiogroup',
 						fieldLabel: 'Avis de parution',
 						width: 400,
@@ -218,7 +218,7 @@ App.view.define('VCreateEvenement', {
 							checked: true
 						}
 						]
-					}, 
+					}, */
 					{
 						xtype: "grid",
 						columns: [],
