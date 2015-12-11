@@ -104,42 +104,33 @@ App.view.define('VCreateEvenement', {
 						editable: false
 					},
 					{
-						layout: "hbox",
-						border: false,
+						xtype: "combo",
+						itemId: "cboCP",
 						width: "100%",
-						items: [
-						{
-							xtype: "combo",
-							itemId: "cboCP",
-							width: "100%",
-							fieldLabel: "Chef de projet",
-							allowBlank: false,
-							editable: false,
-							labelAlign: "left",
-							displayField: "agent",
-							valueField: "Id",
-							flex: 1,
-							store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
-								autoLoad: true
-							})
-						}, 
-						{
-							xtype: "combo",
-							itemId: "cboAssistant",
-							width: "100%",
-							flex: 1,
-							fieldLabel: "Assistant(e)",
-							//allowBlank: false,
-							editable: false,
-							labelAlign: "left",
-							displayField: "agent",
-							valueField: "Id",
-							store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
-								autoLoad: true
-							})
-						}						
-						]
-					}
+						fieldLabel: "Chef de projet",
+						allowBlank: false,
+						editable: false,
+						labelAlign: "left",
+						displayField: "agent",
+						valueField: "Id",
+						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
+							autoLoad: true
+						})
+					}, 
+					{
+						xtype: "combo",
+						itemId: "cboAssistant",
+						width: "100%",
+						fieldLabel: "Assistant(e)",
+						//allowBlank: false,
+						editable: false,
+						labelAlign: "left",
+						displayField: "agent",
+						valueField: "Id",
+						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
+							autoLoad: true
+						})
+                    }
                     ]
                 }
             ]
