@@ -243,7 +243,15 @@ App.view.define('VCreateEvenement', {
 						plugins: [
 							Ext.create('Ext.grid.plugin.CellEditing',{clicksToEdit: 1})
 						],
-						store: App.store.create({fields:[],data:[]}),
+						store: App.store.create({
+						fields:[
+							"salle"
+						],
+						data:[
+							{
+								salle: "test"
+							}
+						]}),
 						flex: 1,
 						width: "100%"
 					}
