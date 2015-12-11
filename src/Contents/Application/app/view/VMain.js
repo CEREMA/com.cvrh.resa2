@@ -132,8 +132,8 @@ App.view.define('VMain', {
 		items: [
 			{
 				xtype:"button",
-				itemId: "ajouter_modification",
-				text: "Evènement",
+				itemId: "create_event",
+				text: "Nouveau",
 				margin: {
 					left: 3,
 					top: 3,
@@ -144,6 +144,21 @@ App.view.define('VMain', {
 				scale: "large",
 				iconAlign: "top",
 				iconCls: "add_event"
+			},
+			{
+				xtype:"button",
+				itemId: "open_event",
+				text: "Ouvrir",
+				margin: {
+					left: 3,
+					top: 3,
+					bottom: 3,
+					right: 3
+				},
+				height: "100%",
+				scale: "large",
+				iconAlign: "top",
+				iconCls: "open_event"
 			}	
 		]
 	},
