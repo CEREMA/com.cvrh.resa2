@@ -220,7 +220,11 @@ App.view.define('VCreateEvenement', {
 					{
 						xtype: "grid",
 						border: false,
-						columns: [],
+						columns: [
+						{
+							header: "Salle"
+						}
+						],
 						store: App.store.create({fields:[],data:[]}),
 						flex: 1,
 						width: "100%"
