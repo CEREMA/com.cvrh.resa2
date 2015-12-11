@@ -137,7 +137,7 @@ App.view.define('VCreateEvenement', {
 						padding: 10,
 						border: false,
 						width: "100%",
-						height: 40,
+						height: 60,
 						items: [
 						{
 							xtype: "datefield",
@@ -203,17 +203,17 @@ App.view.define('VCreateEvenement', {
 						vertical: false,
 						items: [
 						{
-							boxLabel: 'Oui',
-							itemId: "RA0",
-							name: 'ra',
-							inputValue: '0'
-						}, 
-						{
 							boxLabel: 'Non',
 							itemId: "RA1",
 							name: 'ra',
 							inputValue: '1',
 							checked: true
+						},
+						{
+							boxLabel: 'Oui',
+							itemId: "RA0",
+							name: 'ra',
+							inputValue: '0'
 						}
 						]
 					}, 
