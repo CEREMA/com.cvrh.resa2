@@ -241,11 +241,8 @@ App.view.define('VCreateEvenement', {
 							header: "Site",
 							width: 100,
 							dataIndex: "nomsalle",
-							renderer : function (value,p) {
-								console.log(value);
-								console.log(p);
-								//var record = comboStore.findRecord('id', value);
-								return p.record.data.salle;
+							renderer : function (value,p,record) {
+								return record.nomsalle;
 							},
 							editor: {
 								xtype: 'combobox',
