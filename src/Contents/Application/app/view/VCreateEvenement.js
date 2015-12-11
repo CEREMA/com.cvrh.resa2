@@ -239,6 +239,7 @@ App.view.define('VCreateEvenement', {
 						columns: [
 						{
 							header: "Salle",
+							width: 100,
 							field: {
 								xtype: 'combobox',
 								typeAhead: true,
