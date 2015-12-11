@@ -183,6 +183,18 @@ App.view.define('VCreateEvenement', {
 							labelWidth: 50
 						},
 						{
+							xtype: 'gridpicker',
+							displayField: 'name',
+							valueField: 'id',
+							queryMode: 'local',
+							store: '',
+							listConfig: {
+								columns: [{
+									dataIndex: 'name'
+								}]
+							}
+						},						
+						{
 							xtype: 'numberfield',
 							margin: {
 								left: 10
