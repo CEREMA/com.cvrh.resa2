@@ -228,13 +228,9 @@ App.view.define('VCreateEvenement', {
 								typeAhead: true,
 								triggerAction: 'all',
 								selectOnTab: true,
-								store: [
-									['Shade','Shade'],
-									['Mostly Shady','Mostly Shady'],
-									['Sun or Shade','Sun or Shade'],
-									['Mostly Sunny','Mostly Sunny'],
-									['Sunny','Sunny']
-								],
+								displayField: "salle",
+								valueField: "id_salle",
+								store: App.store.create("reservation_salles://salle{id_salle,nom_salle+' ('+lieu+')=salle'}?id_site=1"),
 								lazyRender: true,
 								listClass: 'x-combo-list-small'
 							}							
