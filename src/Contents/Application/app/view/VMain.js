@@ -133,7 +133,12 @@ App.view.define('VMain', {
 				xtype:"button",
 				itemId: "ajouter_modification",
 				text: "Evènement",
-				padding: 5,
+				margin: {
+					left: 5,
+					top: 5,
+					bottom: 5,
+					right: 5
+				},
 				height: "100%",
 				scale: "large",
 				iconAlign: "top",
