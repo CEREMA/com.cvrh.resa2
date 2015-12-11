@@ -241,7 +241,8 @@ App.view.define('VCreateEvenement', {
 							header: "Site",
 							width: 100,
 							dataIndex: "nomsalle",
-							renderer : function (value,p,record {
+							renderer : function (value,p,record)
+							{
 								console.log(record);
 								return record.nomsalle;
 							},
