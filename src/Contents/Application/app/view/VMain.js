@@ -135,7 +135,6 @@ App.view.define('VMain', {
 				text: "Evènement",
 				height: "100%",
 				width: 64,
-				scale: "large",
 				iconAlign: "top",
 				iconCls: "add",
 				hidden: true
