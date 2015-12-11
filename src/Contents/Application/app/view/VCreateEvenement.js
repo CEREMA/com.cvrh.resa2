@@ -41,17 +41,45 @@ App.view.define('VCreateEvenement', {
                     border: false,
                     items: [
 					{
-						xtype: "combo",
+						layout: "hbox",
+						border: false,
 						width: "100%",
-						itemId: "cboTypologie",
-						fieldLabel: "Typologie",
-						allowBlank: false,
-						editable: false,
-						displayField: "nomTypologie",
-						valueField: "id_typologie",
-						store: App.store.create('reservation_salles://typologie', {
-							autoLoad: true
-						})
+						items: [
+						{
+							xtype: "combo",
+							width: "100%",
+							itemId: "cboTypologie",
+							flex: 1,
+							fieldLabel: "Typologie",
+							allowBlank: false,
+							editable: false,
+							displayField: "nomTypologie",
+							valueField: "id_typologie",
+							store: App.store.create('reservation_salles://typologie', {
+								autoLoad: true
+							})
+						},
+						{
+							xtype: "combo",
+							itemId: "cboSession",
+							flex: 1,
+							fieldLabel: "Session",
+							editable: false,
+							labelAlign: "left",
+							displayField: "session",
+							valueField: "id",
+							store: App.store.create({
+								fields: ["id","session"],
+								data: [
+								{
+									id: 0,
+									session: "Session 1"
+								}
+								],
+								autoLoad: true
+							})
+						}						
+						]
 					},
 					{
 						xtype: 'textfield',
@@ -95,27 +123,7 @@ App.view.define('VCreateEvenement', {
 						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
 							autoLoad: true
 						})
-                    },
-					{
-						xtype: "combo",
-						itemId: "cboSession",
-						width: "100%",
-						fieldLabel: "Session",
-						editable: false,
-						labelAlign: "left",
-						displayField: "session",
-						valueField: "id",
-						store: App.store.create({
-							fields: ["id","session"],
-							data: [
-							{
-								id: 0,
-								session: "Session 1"
-							}
-							],
-							autoLoad: true
-						})
-					}
+                    }
                     ]
                 }
             ]
