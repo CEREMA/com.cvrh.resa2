@@ -126,14 +126,14 @@ App.view.define('VMain', {
 		region: "north",
 		height: 64,
 		border: false,
-		layout: "hbox",
-		padding: 5,
+		layout: "hbox",		
 		width: "100%",
 		items: [
 			{
 				xtype:"button",
 				itemId: "ajouter_modification",
 				text: "Evènement",
+				padding: 5,
 				height: "100%",
 				scale: "large",
 				iconAlign: "top",
