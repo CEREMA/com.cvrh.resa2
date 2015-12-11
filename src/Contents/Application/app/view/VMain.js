@@ -125,6 +125,7 @@ App.view.define('VMain', {
 	{
 		region: "north",
 		height: 64,
+		bodyStyle: "background-color: transparent",
 		border: false,
 		layout: "hbox",		
 		width: "100%",
@@ -134,10 +135,10 @@ App.view.define('VMain', {
 				itemId: "ajouter_modification",
 				text: "Evènement",
 				margin: {
-					left: 1,
-					top: 1,
-					bottom: 1,
-					right: 1
+					left: 3,
+					top: 3,
+					bottom: 3,
+					right: 3
 				},
 				height: "100%",
 				scale: "large",
