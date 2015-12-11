@@ -137,7 +137,7 @@ App.view.define('VCreateEvenement', {
 						padding: 10,
 						border: false,
 						width: "100%",
-						height: 58,
+						height: 60,
 						items: [
 						{
 							xtype: "datefield",
@@ -219,6 +219,7 @@ App.view.define('VCreateEvenement', {
 					}, 
 					{
 						xtype: "grid",
+						border: false,
 						columns: [],
 						store: App.store.create({fields:[],data:[]}),
 						flex: 1,
