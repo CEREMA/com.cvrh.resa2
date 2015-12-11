@@ -66,7 +66,8 @@ App.view.define('VMain', {
 
     layout: "border",
 
-    items: [{
+    items: [
+	{
         region: 'north',
         height: 25,
         minHeight: 25,
@@ -132,14 +133,11 @@ App.view.define('VMain', {
 				xtype:"button",
 				itemId: "ajouter_modification",
 				text: "Ajouter",
-				scale: "large",
-				iconAlign: "top",
-				iconCls: "add",
-				hidden: true
+				width: 64,
+				height: "100%"
 			}	
 		]
 	},
-	
 	{
         region: "center",
         split: true,
@@ -161,7 +159,8 @@ App.view.define('VMain', {
             viewPreset:'CVRH_VIEW',
             rowHeight: 32,
 			allowOverlap: false,
-            tbar: [{
+            tbar: [
+			{
                 xtype: "combo",
                 itemId: "selectMonth",
 				width: 100,
@@ -211,10 +210,9 @@ App.view.define('VMain', {
                 }),
                 displayField: "month",
                 valueField: "id"
-            }, {
-			
-                xtype: "combo",
-                itemId: "selectAnnee",
+            }, {			
+                 xtype: "combo",
+                 itemId: "selectAnnee",
 				 width: 70,
 				 editable: false,
                  displayField: "year",
@@ -225,18 +223,14 @@ App.view.define('VMain', {
                     ],
                     data: []
                 })
-
-            },{
-			
+            },{			
                 xtype: "combo",
                 itemId: "selectAgent",
-				 width: 200,
-				 editable: false,
-                 displayField: "agent",
-                 valueField: "Id",
-
+				width: 200,
+				editable: false,
+                displayField: "agent",
+                valueField: "Id",
 				store: App.store.create({fields:[],data:[]})
-
             },
 			],
 			bbar: [
