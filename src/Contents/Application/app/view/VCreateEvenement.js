@@ -240,11 +240,12 @@ App.view.define('VCreateEvenement', {
 						{
 							header: "Site",
 							width: 100,
-							dataIndex: "nomsalle"/*,
-							renderer : function (value) {
-								var record = comboStore.findRecord('id', value);
-								return record.title;
-							}*/,
+							dataIndex: "nomsalle",
+							renderer : function (value,p) {
+								console.log(p);
+								/*var record = comboStore.findRecord('id', value);
+								return record.title;*/
+							},
 							editor: {
 								xtype: 'combobox',
 								typeAhead: true,
