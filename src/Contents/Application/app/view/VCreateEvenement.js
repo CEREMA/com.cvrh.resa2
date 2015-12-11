@@ -240,6 +240,8 @@ App.view.define('VCreateEvenement', {
 						{
 							header: "Site",
 							width: 100,
+							dataIndex: "id_site",
+							field: {
 								xtype: 'combobox',
 								typeAhead: true,
 								triggerAction: 'all',
@@ -248,7 +250,8 @@ App.view.define('VCreateEvenement', {
 								valueField: "id_site",
 								store: App.store.create("reservation_salles://site"),
 								lazyRender: true,
-								listClass: 'x-combo-list-small'							
+								listClass: 'x-combo-list-small'
+							}							
 						},
 						{
 							header: "Salle",
