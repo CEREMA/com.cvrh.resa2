@@ -134,6 +134,7 @@ App.view.define('VMain', {
 				xtype:"button",
 				itemId: "create_event",
 				text: "Nouveau",
+				width: 64,
 				margin: {
 					left: 3,
 					top: 3,
@@ -149,6 +150,7 @@ App.view.define('VMain', {
 				xtype:"button",
 				itemId: "open_event",
 				text: "Ouvrir",
+				width: 64,
 				margin: {
 					left: 3,
 					top: 3,
