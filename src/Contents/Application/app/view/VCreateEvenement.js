@@ -241,7 +241,7 @@ App.view.define('VCreateEvenement', {
 							header: "Site",
 							width: 100,
 							dataIndex: "id_site",
-							field: {
+							editor: {
 								xtype: 'combobox',
 								typeAhead: true,
 								triggerAction: 'all',
