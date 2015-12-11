@@ -71,7 +71,7 @@ App.view.define('VCreateEvenement', {
 								left: 10
 							},
 							fieldLabel: "Session",
-							labelWidth: 40,
+							labelWidth: 50,
 							editable: false,
 							labelAlign: "left",
 							displayField: "session",
