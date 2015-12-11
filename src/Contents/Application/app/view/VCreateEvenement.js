@@ -222,8 +222,26 @@ App.view.define('VCreateEvenement', {
 						border: false,
 						columns: [
 						{
-							header: "Salle"
+							header: "Salle",
+							field: {
+								xtype: 'combobox',
+								typeAhead: true,
+								triggerAction: 'all',
+								selectOnTab: true,
+								store: [
+									['Shade','Shade'],
+									['Mostly Shady','Mostly Shady'],
+									['Sun or Shade','Sun or Shade'],
+									['Mostly Sunny','Mostly Sunny'],
+									['Sunny','Sunny']
+								],
+								lazyRender: true,
+								listClass: 'x-combo-list-small'
+							}							
 						}
+						],
+						plugins: [
+							Ext.create('Ext.grid.plugin.CellEditing',{clicksToEdit: 1})
 						],
 						store: App.store.create({fields:[],data:[]}),
 						flex: 1,
