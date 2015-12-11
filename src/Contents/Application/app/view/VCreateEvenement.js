@@ -49,6 +49,9 @@ App.view.define('VCreateEvenement', {
 							xtype: "combo",
 							width: "100%",
 							itemId: "cboTypologie",
+							margin: {
+								bottom: 10
+							},
 							flex: 1,
 							fieldLabel: "Typologie",
 							allowBlank: false,
@@ -63,6 +66,10 @@ App.view.define('VCreateEvenement', {
 							xtype: "combo",
 							itemId: "cboSession",
 							flex: 1,
+							margin: {
+								bottom: 10,
+								left: 10
+							},
 							fieldLabel: "Session",
 							editable: false,
 							labelAlign: "left",
