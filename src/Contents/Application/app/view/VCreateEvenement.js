@@ -137,7 +137,7 @@ App.view.define('VCreateEvenement', {
 						padding: 10,
 						border: false,
 						width: "100%",
-						height: 60,
+						height: 50,
 						items: [
 						{
 							xtype: "datefield",
