@@ -238,6 +238,21 @@ App.view.define('VCreateEvenement', {
 						border: false,
 						columns: [
 						{
+							header: "Site",
+							width: 100,
+							field: {
+								xtype: 'combobox',
+								typeAhead: true,
+								triggerAction: 'all',
+								selectOnTab: true,
+								displayField: "nomsalle",
+								valueField: "id_site",
+								store: App.store.create("reservation_salles://site"),
+								lazyRender: true,
+								listClass: 'x-combo-list-small'
+							}							
+						},
+						{
 							header: "Salle",
 							width: 150,
 							field: {
