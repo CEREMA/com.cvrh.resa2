@@ -133,9 +133,11 @@ App.view.define('VResaModule', {
 					{
 						text: "Nouvelle ressource",
 						iconCls: "plus_res",
-						handler: function() {
+						handler: function(me) {
 							App.view.create('VResNew',{
-								modal: true
+								modal: true,
+								d0: App.get(me.up('window'),'datefield#debutModule').getValue(),
+								d1: App.get(me.up('window'),'datefield#finModule').getValue()
 							}).show();
 						}
 					}
