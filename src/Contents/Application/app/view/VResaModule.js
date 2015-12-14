@@ -97,19 +97,31 @@ App.view.define('VResaModule', {
 							itemId: "RA1",
 							name: 'ra',
 							inputValue: '1',
-							checked: true
+							checked: true,
+							listeners: {
+								click: function(me) {
+									App.get(me.up('window'),'datefield#date_avis').hide();
+								}
+							}
 						},
 						{
 							boxLabel: 'Oui',
 							itemId: "RA0",
 							name: 'ra',
-							inputValue: '0'
+							inputValue: '0',
+							listeners: {
+								click: function(me) {
+									App.get(me.up('window'),'datefield#date_avis').show();
+								}
+							}
 						}
 						]
 					},
 					{
 						xtype: "datefield",
+						itemId: "date_avis",
 						padding: 10,
+						hidden: true,
 						flex: 1
 					}
 					]
