@@ -107,6 +107,8 @@ App.controller.define('CMain', {
 		App.get(p,'checkboxfield#check_valider').setValue(true);
 		App.get(p,'checkboxfield#check_afficher').setValue(true);
 		App.get(p,'datefield#d0').setMinValue(p.d0);		
+		App.get(p,'datefield#d0').setMaxValue(p.d1);
+		App.get(p,'datefield#d1').setMinValue(p.d0);		
 		App.get(p,'datefield#d1').setMaxValue(p.d1);
 		App.get(p,'datefield#d0').setValue(p.d0);		
 		App.get(p,'datefield#d1').setValue(p.d1);
