@@ -106,6 +106,8 @@ App.controller.define('CMain', {
 		App.get(p,'combo#salle').getStore().load();		
 		App.get(p,'checkboxfield#check_valider').setValue(true);
 		App.get(p,'checkboxfield#check_afficher').setValue(true);
+		App.get(p,'datefield#d0').setValue(p.d0);
+		App.get(p,'datefield#d1').setValue(p.d1);
 	},
 	site_onselect: function(p)
 	{
