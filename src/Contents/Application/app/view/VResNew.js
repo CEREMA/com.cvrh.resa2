@@ -73,6 +73,7 @@ App.view.define('VResNew', {
 			},
 			{
 				xtype:"combo",
+				itemId: "p0",
 				editable: false,
 				fieldLabel: "Période",
 				labelAlign: "top",
@@ -101,6 +102,7 @@ App.view.define('VResNew', {
 			},
 			{
 				xtype:"combo",
+				itemId: "p1",
 				editable: false,
 				fieldLabel: "Période",
 				labelAlign: "top",
