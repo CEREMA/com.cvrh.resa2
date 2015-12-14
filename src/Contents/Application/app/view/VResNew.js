@@ -64,11 +64,14 @@ App.view.define('VResNew', {
 			},
 			{
 				xtype:"combo",
+				editable: false,
+				fieldLabel: "Période",
+				labelAlign: "top",
 				width: 20,
+				displayField: "value",
+				valueField: "id",
 				store: App.store.create({
 					fields: ["id","value"],
-					displayField: "value",
-					valueField: "id",
 					data: [{id:"J",value:"J"},{id:"M",value:"M"},{id:"A",value:"A"}]
 				}),
 				
