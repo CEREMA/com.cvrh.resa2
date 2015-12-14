@@ -236,6 +236,11 @@ App.view.define('VCreateEvenement', {
 					{
 						xtype: "grid",
 						border: false,
+						tbar: [
+						{
+							text: "Nouvelle ressource"
+						}
+						],
 						columns: [
 						{
 							header: "Site",
