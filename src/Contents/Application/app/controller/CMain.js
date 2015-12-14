@@ -108,11 +108,6 @@ App.controller.define('CMain', {
 		App.get(p,'checkboxfield#check_afficher').setValue(true);
 		App.get(p,'datefield#d0').setValue(p.d0);
 		App.get(p,'datefield#d1').setValue(p.d1);
-		App.get(p,'combo#salle').getStore().getProxy().extraParams={
-			DebutRessource: App.get(p,'datefield#d0').getValue(),
-			FinRessource: App.get(p,'datefield#d1').getValue()
-		};
-		App.get(p,'combo#salle').getStore().load();
 	},
 	site_onselect: function(p)
 	{
