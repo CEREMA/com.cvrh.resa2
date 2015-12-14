@@ -95,7 +95,6 @@ App.controller.define('CMain', {
 	// VResNew
 	VResNew_onshow: function(p)
 	{
-		alert('x');
 		App.get(p,'combo#site').setValue(1);
 	},
 	
