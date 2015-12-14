@@ -4,7 +4,9 @@ App.view.define('VResNew', {
     initComponent: function() {
         this.width = 500;
         this.height = 400;
-
+		
+		this.title="Ressource";
+		
         this.layout = {
             type: 'vbox'
         };
@@ -135,7 +137,21 @@ App.view.define('VResNew', {
 			labelAlign: "top",
 			width: "100%",
 			padding: 10
-		}		
+		},
+		{
+			layout: "hbox",
+			width: "100%",
+			padding: 10,
+			border: false,
+			items: [
+			{
+				xtype: "checkboxfield",
+				fieldLabel: 'Préparation',
+				labelWidth: 65,
+				itemId: "check_preparation"
+            }
+			]
+		}
 		];
 
         this.callParent();
