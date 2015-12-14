@@ -99,7 +99,7 @@ App.view.define('VResaModule', {
 							inputValue: '1',
 							checked: true,
 							listeners: {
-								click: function(me) {
+								change: function(me) {
 									App.get(me.up('window'),'datefield#date_avis').hide();
 								}
 							}
@@ -110,7 +110,7 @@ App.view.define('VResaModule', {
 							name: 'ra',
 							inputValue: '0',
 							listeners: {
-								click: function(me) {
+								change: function(me) {
 									App.get(me.up('window'),'datefield#date_avis').show();
 								}
 							}
