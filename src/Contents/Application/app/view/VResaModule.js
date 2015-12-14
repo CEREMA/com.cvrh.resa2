@@ -78,27 +78,38 @@ App.view.define('VResaModule', {
 					}
 					]
 				},
-				{ 				
-					xtype: 'radiogroup',
-					fieldLabel: 'Avis de parution',
-					width: 400,
-					padding: 10,
-					itemId: "rdAvis",
-					columns: 5,
-					vertical: false,
+				{
+					layout: "hbox",
+					width: "100%",
 					items: [
-					{
-						boxLabel: 'Non',
-						itemId: "RA1",
-						name: 'ra',
-						inputValue: '1',
-						checked: true
+					{ 				
+						xtype: 'radiogroup',
+						fieldLabel: 'Avis de parution',
+						width: 400,
+						padding: 10,
+						itemId: "rdAvis",
+						columns: 5,
+						vertical: false,
+						items: [
+						{
+							boxLabel: 'Non',
+							itemId: "RA1",
+							name: 'ra',
+							inputValue: '1',
+							checked: true
+						},
+						{
+							boxLabel: 'Oui',
+							itemId: "RA0",
+							name: 'ra',
+							inputValue: '0'
+						}
+						]
 					},
 					{
-						boxLabel: 'Oui',
-						itemId: "RA0",
-						name: 'ra',
-						inputValue: '0'
+						xtype: "datefield",
+						fieldLabel: 'Date avis',
+						flex: 1
 					}
 					]
 				}, 
