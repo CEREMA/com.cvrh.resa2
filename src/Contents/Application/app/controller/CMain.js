@@ -90,6 +90,7 @@ App.controller.define('CMain', {
 		App.get(p,'combo#cboSession').setValue(p.session);
 		App.get(p,'combo#cboTypologie').setValue(1);
 		App.get(p,'combo#cboCP').setValue(Auth.User.id);
+		App.get(p,'combo#cboCP').disable();
 	},
 	
 	// VResNew
