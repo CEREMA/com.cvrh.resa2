@@ -67,7 +67,10 @@ App.view.define('VResNew', {
 				editable: false,
 				fieldLabel: "Période",
 				labelAlign: "top",
-				width: 20,
+				margin: {
+					left: 5
+				},
+				width: 60,
 				displayField: "value",
 				valueField: "id",
 				store: App.store.create({
@@ -86,6 +89,23 @@ App.view.define('VResNew', {
 				editable: false,
 				valueField: "id_salle"
 			},
+			{
+				xtype:"combo",
+				editable: false,
+				fieldLabel: "Période",
+				labelAlign: "top",
+				margin: {
+					left: 5
+				},
+				width: 60,
+				displayField: "value",
+				valueField: "id",
+				store: App.store.create({
+					fields: ["id","value"],
+					data: [{id:"J",value:"J"},{id:"M",value:"M"},{id:"A",value:"A"}]
+				}),
+				
+			}
 			]			
 		},
 		{
