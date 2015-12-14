@@ -89,6 +89,7 @@ App.controller.define('CMain', {
 		console.log(p);
 		App.get(p,'combo#cboSession').setValue(p.session);
 		App.get(p,'combo#cboTypologie').setValue(1);
+		App.get(p,'combo#cboCP').setValue(Auth.User.uid);
 	},
 	
 	// VResNew
