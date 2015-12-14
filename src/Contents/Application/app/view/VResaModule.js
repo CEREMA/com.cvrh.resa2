@@ -110,8 +110,6 @@ App.view.define('VResaModule', {
 					{
 						xtype: "datefield",
 						padding: 10,
-						labelAlign: "top",
-						fieldLabel: 'Date avis',
 						flex: 1
 					}
 					]
