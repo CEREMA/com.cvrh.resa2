@@ -100,7 +100,7 @@ App.view.define('VResaModule', {
 							checked: true,
 							listeners: {
 								change: function(me) {
-									App.get(me.up('window'),'datefield#date_avis').hide();
+									App.get(me.up('window'),'datefield#date_avis').show();
 								}
 							}
 						},
@@ -111,7 +111,7 @@ App.view.define('VResaModule', {
 							inputValue: '0',
 							listeners: {
 								change: function(me) {
-									App.get(me.up('window'),'datefield#date_avis').show();
+									App.get(me.up('window'),'datefield#date_avis').hide();
 								}
 							}
 						}
