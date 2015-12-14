@@ -13,7 +13,7 @@ reservation={
 		o.FinRessource=o.FinRessource.split('T')[0]+' 18:00:00';
 		console.log(o);
 		console.log("select id_salle, nomSalle from salle where id_site=1 and salle.id_salle not in (select  distinct  id_salle FROM ressourcesalles WHERE '"+o.DebutRessource+"' < debutRessource AND '"+o.FinRessource+"' > finRessource)");
-        reservation.using('db').model('reservation_salles',"select id_salle, nomSalle from salle where id_site=1 and salle.id_salle not in (select  distinct  id_salle FROM ressourcesalles WHERE '"+o.DebutRessource+"' < debutRessource AND '"+o.FinRessource+"' > finRessource)", cb);
+        reservation.using('db').model('reservation_salles',"select id_salle, nomSalle from salle where id_site=1 and salle.id_salle not in (select  distinct  id_salle FROM ressourcesalles WHERE '"+o.DebutRessource+"' <= debutRessource AND '"+o.FinRessource+"' >= finRessource)", cb);
 	},
 	getAllFormations: function(o,cb) {
 
