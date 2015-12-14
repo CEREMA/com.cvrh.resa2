@@ -33,6 +33,7 @@ App.view.define('VResNew', {
 			items: [
 			{
 				xtype: "combo",
+				itemId: "site",
 				fieldLabel: "Site",
 				labelAlign: "top",
 				displayField: "nomsalle",
