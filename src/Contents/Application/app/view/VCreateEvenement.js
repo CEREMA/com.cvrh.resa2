@@ -114,7 +114,7 @@ App.view.define('VCreateEvenement', {
 						labelAlign: "left",
 						displayField: "agent",
 						valueField: "Id",
-						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
+						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent+}', {
 							autoLoad: true
 						})
 					}, 
@@ -128,7 +128,7 @@ App.view.define('VCreateEvenement', {
 						labelAlign: "left",
 						displayField: "agent",
 						valueField: "Id",
-						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent}', {
+						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent+}', {
 							autoLoad: true
 						})
                     }
