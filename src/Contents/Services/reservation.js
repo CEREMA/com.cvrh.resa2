@@ -10,7 +10,8 @@ reservation={
 	getFree: function(o,cb)
 	{
 		o.DebutRessource=o.DebutRessource.split('T')[0]+' 07:00:00';
-		o.FinRessource=o.FinRessource.split('T')[0]+' 19:00:00'
+		o.FinRessource=o.FinRessource.split('T')[0]+' 19:00:00';
+		console.log(o);
 		console.log("select id_salle, nomSalle from salle where id_site=1 and salle.id_salle not in (select  distinct  id_salle FROM ressourcesalles WHERE '"+o.DebutRessource+"' < debutRessource AND '"+o.finRessource+"' > finRessource)");
         reservation.using('db').model('reservation_salles',"select id_salle, nomSalle from salle where id_site=1 and salle.id_salle not in (select  distinct  id_salle FROM ressourcesalles WHERE '"+o.DebutRessource+"' < debutRessource AND '"+o.finRessource+"' > finRessource)", cb);
 	},
