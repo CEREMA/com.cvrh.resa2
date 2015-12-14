@@ -1,6 +1,7 @@
 App.view.define('VResaModule', {
     extend: "Ext.Panel",
     alias: 'widget.VResaModule',
+	
     initComponent: function() {
 
         this.layout = {
@@ -10,16 +11,6 @@ App.view.define('VResaModule', {
 		this.title = 'Module 1';
 		this.width = "100%";
         
-		this.bbar = [
-        ];
-
-        this.tbar = [
-        ];
-		
-        this.defaults = {
-            split: true
-        };
-
         this.items = [
 				{
 					layout: "hbox",
