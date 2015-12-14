@@ -43,6 +43,7 @@ App.view.define('VResNew', {
 			},
 			{
 				xtype: "combo",
+				itemId: "salle",
 				fieldLabel: "Salle",
 				labelAlign: "top",
 				margin: {
