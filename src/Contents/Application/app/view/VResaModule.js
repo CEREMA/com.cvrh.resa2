@@ -81,11 +81,12 @@ App.view.define('VResaModule', {
 				{
 					layout: "hbox",
 					width: "100%",
+					border: false,
 					items: [
 					{ 				
 						xtype: 'radiogroup',
 						fieldLabel: 'Avis de parution',
-						width: 400,
+						/*width: 400,*/
 						padding: 10,
 						itemId: "rdAvis",
 						columns: 5,
@@ -108,6 +109,7 @@ App.view.define('VResaModule', {
 					},
 					{
 						xtype: "datefield",
+						padding: 10,
 						fieldLabel: 'Date avis',
 						flex: 1
 					}
