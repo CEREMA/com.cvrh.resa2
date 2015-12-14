@@ -25,6 +25,7 @@ App.view.define('VResNew', {
 			layout: "hbox",
 			border: false,
 			padding: 10,
+			width: "100%",
 			items: [
 			{
 				xtype: "combo",
@@ -34,8 +35,12 @@ App.view.define('VResNew', {
 			},
 			{
 				xtype: "combo",
-				displayField: "",
-				valueField: "",
+				margin: {
+					left: 5
+				},
+				displayField: "nomSalle",
+				valueField: "id_salle",
+				flex: 1,
 				store: App.store.create('reservation_salles://salle')
 			}
 			]
