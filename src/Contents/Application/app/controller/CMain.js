@@ -109,8 +109,8 @@ App.controller.define('CMain', {
 		App.get(p,'datefield#d0').setValue(p.d0);
 		App.get(p,'datefield#d1').setValue(p.d1);
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
-			DebutRessource: p.d0,
-			FinRessource: p.d1
+			DebutRessource: p.d0.replace('T',' '),
+			FinRessource: p.d1.replace('T',' ')
 		};
 		App.get(p,'combo#salle').getStore().load();
 	},
