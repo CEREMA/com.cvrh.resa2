@@ -16,6 +16,8 @@ App.view.define('VResNew', {
 		}
         ];
 		
+		this.bodyStyle = "background-color: #FFFFFF";
+		
         this.defaults = {
             split: true
         };
