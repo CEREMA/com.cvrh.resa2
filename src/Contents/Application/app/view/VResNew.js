@@ -31,6 +31,8 @@ App.view.define('VResNew', {
 			items: [
 			{
 				xtype: "combo",
+				fieldLabel: "Site",
+				labelAlign: "top",
 				displayField: "nomsalle",
 				editable: false,
 				valueField: "id_site",
@@ -38,6 +40,8 @@ App.view.define('VResNew', {
 			},
 			{
 				xtype: "combo",
+				fieldLabel: "Salle",
+				labelAlign: "top",
 				margin: {
 					left: 5
 				},
@@ -60,7 +64,8 @@ App.view.define('VResNew', {
 				fieldLabel: "Début",
 				labelAlign: "top",
 				editable: false,
-				valueField: "id_site"
+				valueField: "id_site",
+				flex: 1
 			},
 			{
 				xtype:"combo",
@@ -87,7 +92,8 @@ App.view.define('VResNew', {
 				fieldLabel: "Fin",
 				labelAlign: "top",
 				editable: false,
-				valueField: "id_salle"
+				valueField: "id_salle",
+				flex: 1
 			},
 			{
 				xtype:"combo",
@@ -121,7 +127,15 @@ App.view.define('VResNew', {
 			displayField: "nomChoix",
 			valueField: "id_choix",
 			store: App.store.create('reservation_salles://choix',{autoLoad: true})
-		}					
+		},
+		{
+			xtype: "htmleditor",
+			flex: 1,
+			fieldLabel: "Commentaires",
+			labelAlign: "top",
+			width: "100%",
+			padding: 10
+		}		
 		];
 
         this.callParent();
