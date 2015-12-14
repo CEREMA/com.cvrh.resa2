@@ -63,6 +63,17 @@ App.view.define('VResNew', {
 				valueField: "id_site"
 			},
 			{
+				xtype:"combo",
+				width: 20,
+				store: App.store.create({
+					fields: ["id","value"],
+					displayField: "value",
+					valueField: "id",
+					data: [{id:"J",value:"J"},{id:"M",value:"M"},{id:"A",value:"A"}]
+				}),
+				
+			},
+			{
 				xtype: "datefield",
 				margin: {
 					left: 5
