@@ -103,6 +103,8 @@ App.controller.define('CMain', {
 		App.get(p,'combo#p0').setValue('J');
 		App.get(p,'combo#p1').setValue('J');
 		App.get(p,'combo#salle').getStore().load();		
+		App.get(p,'checkboxfield#c1').checked();
+		App.get(p,'checkboxfield#c2').checked();
 	},
 	site_onselect: function(p)
 	{
