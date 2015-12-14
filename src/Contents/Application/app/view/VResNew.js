@@ -131,7 +131,7 @@ App.view.define('VResNew', {
 			store: App.store.create('reservation_salles://choix',{autoLoad: true})
 		},
 		{
-			xtype: "htmleditor",
+			xtype: "textarea",
 			flex: 1,
 			fieldLabel: "Commentaires",
 			labelAlign: "top",
@@ -149,6 +149,18 @@ App.view.define('VResNew', {
 				fieldLabel: 'Préparation',
 				labelWidth: 65,
 				itemId: "check_preparation"
+            },
+			{
+				xtype: "checkboxfield",
+				fieldLabel: 'Valider',
+				labelWidth: 65,
+				itemId: "check_valider"
+            },
+			{
+				xtype: "checkboxfield",
+				fieldLabel: 'Afficher',
+				labelWidth: 65,
+				itemId: "check_afficher"
             }
 			]
 		}
