@@ -65,6 +65,7 @@ App.view.define('VResNew', {
 			items: [
 			{
 				xtype: "datefield",
+				itemId: "d0",
 				fieldLabel: "Début",
 				labelAlign: "top",
 				editable: false,
@@ -91,6 +92,7 @@ App.view.define('VResNew', {
 			},
 			{
 				xtype: "datefield",
+				itemId: "d1",
 				margin: {
 					left: 5
 				},
