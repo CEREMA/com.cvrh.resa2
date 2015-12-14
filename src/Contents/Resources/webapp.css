@@ -265,3 +265,13 @@
 	margin-right: auto !important;
 	margin-left: auto !important;	
 }
+
+.plus_res
+{
+	background-image:url(webapp/plus.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;
+}
