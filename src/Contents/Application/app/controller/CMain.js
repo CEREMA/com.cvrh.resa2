@@ -126,7 +126,7 @@ App.controller.define('CMain', {
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
-			id_site: App.get(p.getValue()
+			id_site: App.get(p.getValue())
 		};
 		App.get(p,'combo#salle').getStore().load();		
 	},
