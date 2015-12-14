@@ -153,14 +153,14 @@ App.view.define('VResNew', {
             },
 			{
 				xtype: "checkboxfield",
-				fieldLabel: 'Valider',
+				boxLabel: 'Valider',
 				labelWidth: 65,
 				flex: 1,
 				itemId: "check_valider"
             },
 			{
 				xtype: "checkboxfield",
-				fieldLabel: 'Afficher',
+				boxLabel: 'Afficher',
 				labelWidth: 65,
 				flex: 1,
 				itemId: "check_afficher"
