@@ -32,6 +32,7 @@ App.view.define('VResNew', {
 			{
 				xtype: "combo",
 				displayField: "nomsalle",
+				editable: false,
 				valueField: "id_site",
 				store: App.store.create('reservation_salles://site',{autoLoad: true})
 			},
@@ -41,11 +42,37 @@ App.view.define('VResNew', {
 					left: 5
 				},
 				displayField: "nomSalle",
+				editable: false,
 				valueField: "id_salle",
 				flex: 1,
 				store: App.store.create('reservation_salles://salle')
 			}
 			]
+		},
+		{
+			layout: "hbox",
+			border: false,
+			padding: 10,
+			width: "100%",
+			items: [
+			{
+				xtype: "datefield",
+				fieldLabel: "Début",
+				labelAlign: "top",
+				editable: false,
+				valueField: "id_site"
+			},
+			{
+				xtype: "datefield",
+				margin: {
+					left: 5
+				},
+				fieldLabel: "Fin",
+				labelAlign: "top",
+				editable: false,
+				valueField: "id_salle"
+			}
+			]			
 		}
 		];
 
