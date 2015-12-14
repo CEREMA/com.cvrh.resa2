@@ -238,7 +238,8 @@ App.view.define('VCreateEvenement', {
 						border: false,
 						tbar: [
 						{
-							text: "Nouvelle ressource"
+							text: "Nouvelle ressource",
+							iconCls: "plus_res"
 						}
 						],
 						columns: [
