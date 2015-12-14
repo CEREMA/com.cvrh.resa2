@@ -60,7 +60,13 @@ App.controller.define('CMain', {
 			*/ 
 			"TOpenEvenement": {
 				render: "TOpenEvenement_onShow"
-			}			
+			}
+			/*
+			VResNew
+			*/
+			"VResNew": {
+				show: "VResNew_onshow"
+			}
 		});
 		
 		App.init('VMain',this.onLoad);
@@ -71,6 +77,12 @@ App.controller.define('CMain', {
     
     EVT_CURRENT: {},
     
+	// VResNew
+	VResNew_onshow: function(p)
+	{
+		console.log(p);
+	},
+	
 	// TOpenEvenement
 	
 	TOpenEvenement_onShow: function()
