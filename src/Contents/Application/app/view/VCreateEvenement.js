@@ -145,19 +145,6 @@ App.view.define('VCreateEvenement', {
 			items: [
 				{
 					xtype: "VResaModule"
-				},
-				{
-					xtype: "VResaModule"
-				},			
-				{
-					width: "100%",
-					title: 'Module 3',
-					flex: 1
-				},
-				{
-					width: "100%",
-					title: 'Module 4',
-					flex: 1
 				}			
 			]
 		}
