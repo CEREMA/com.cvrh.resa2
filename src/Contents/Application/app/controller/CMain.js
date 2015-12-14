@@ -62,6 +62,12 @@ App.controller.define('CMain', {
 				render: "TOpenEvenement_onShow"
 			},
 			/*
+			VCreateEvenement
+			*/
+			"VCreateEvenement": {
+				show: "VCreateEvenement_onshow"
+			},			
+			/*
 			VResNew
 			*/
 			"VResNew": {
@@ -77,6 +83,13 @@ App.controller.define('CMain', {
     
     EVT_CURRENT: {},
     
+	// VCreateEvenement
+	VCreateEvenement_onshow: function(p)
+	{
+		console.log(p);
+		alert(p.session);
+	},
+	
 	// VResNew
 	VResNew_onshow: function(p)
 	{
