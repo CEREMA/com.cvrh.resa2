@@ -29,7 +29,12 @@ App.view.define('VResaModule', {
 						fieldLabel: 'Début',
 						labelAlign: "top",
 						flex: 1,
-						labelWidth: 50
+						labelWidth: 50,
+						listeners: {
+							select: function(me) {
+								App.get(me.up('window'),'datefield#finModule').setMinValue(me.getValue());
+							}
+						}
 					}, 
 					{
 						xtype: "datefield",
