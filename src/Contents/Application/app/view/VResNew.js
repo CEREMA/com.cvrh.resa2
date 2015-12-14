@@ -21,6 +21,25 @@ App.view.define('VResNew', {
         };
 
         this.items = [
+		{
+			layout: "hbox",
+			border: false,
+			padding: 10,
+			items: [
+			{
+				xtype: "combo",
+				displayField: "nomsalle",
+				valueField: "id_site",
+				store: App.store.create('reservation_salles://site',{autoLoad: true})
+			},
+			{
+				xtype: "combo",
+				displayField: "",
+				valueField: "",
+				store: App.store.create('reservation_salles://salle')
+			}
+			]
+		}
 		];
 
         this.callParent();
