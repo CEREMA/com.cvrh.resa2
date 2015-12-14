@@ -76,7 +76,13 @@ App.controller.define('CMain', {
 			},
 			"VResNew combo#site": {
 				select: "site_onselect"
-			}
+			},
+			"VResNew datefield#d0": {
+				select: "d0_select"
+			},
+			"VResNew datefield#d1": {
+				select: "d1_select"
+			}			
 		});
 		
 		App.init('VMain',this.onLoad);
@@ -97,6 +103,24 @@ App.controller.define('CMain', {
 	},
 	
 	// VResNew
+	d0_select: function(p)
+	{
+		App.get(p,'combo#salle').getStore().getProxy().extraParams={
+			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
+			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
+			id_site: App.get(p.up('window'),'combo#site').getValue()
+		};	
+		App.get(p,'combo#salle').getStore().load();
+	},
+	d1_select: function(p)
+	{
+		App.get(p,'combo#salle').getStore().getProxy().extraParams={
+			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
+			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
+			id_site: App.get(p.up('window'),'combo#site').getValue()
+		};	
+		App.get(p,'combo#salle').getStore().load();
+	},
 	VResNew_onshow: function(p)
 	{
 		App.get(p,'combo#site').setValue(1);
