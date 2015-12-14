@@ -87,8 +87,8 @@ App.controller.define('CMain', {
 	VCreateEvenement_onshow: function(p)
 	{
 		console.log(p);
-		alert(p.session);
 		App.get(p,'combo#cboSession').setValue(p.session);
+		App.get(p,'combo#cboTypologie').setValue(1);
 	},
 	
 	// VResNew
