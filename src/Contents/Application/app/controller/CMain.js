@@ -86,7 +86,6 @@ App.controller.define('CMain', {
 	// VCreateEvenement
 	VCreateEvenement_onshow: function(p)
 	{
-		console.log(p);
 		App.get(p,'combo#cboSession').setValue(p.session);
 		App.get(p,'combo#cboTypologie').setValue(1);
 		App.get(p,'combo#cboCP').setValue(Auth.User.id);
@@ -96,7 +95,8 @@ App.controller.define('CMain', {
 	// VResNew
 	VResNew_onshow: function(p)
 	{
-		console.log(p);
+		alert('x');
+		App.get(p,'combo#site').setValue(1);
 	},
 	
 	// TOpenEvenement
