@@ -80,7 +80,7 @@ App.view.define('VCreateEvenement', {
 								fields: ["id","session"],
 								data: [
 								{
-									id: 0,
+									id: 1,
 									session: "Session 1"
 								}
 								],

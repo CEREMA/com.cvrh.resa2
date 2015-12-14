@@ -88,6 +88,7 @@ App.controller.define('CMain', {
 	{
 		console.log(p);
 		alert(p.session);
+		App.get(p,'combo#cboSession').setValue(p.session);
 	},
 	
 	// VResNew
