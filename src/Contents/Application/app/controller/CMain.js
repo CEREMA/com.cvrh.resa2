@@ -106,19 +106,29 @@ App.controller.define('CMain', {
 		App.get(p,'combo#salle').getStore().load();		
 		App.get(p,'checkboxfield#check_valider').setValue(true);
 		App.get(p,'checkboxfield#check_afficher').setValue(true);
-		App.get(p,'datefield#d0').setValue(p.d0);
+		App.get(p,'datefield#d0').setValue(p.d0);		
+		App.get(p,'datefield#d0').minValue(p.d0);		
 		App.get(p,'datefield#d1').setValue(p.d1);
+		App.get(p,'datefield#d1').maxValue(p.d1);
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
 			id_site: App.get(p,'combo#site').getValue()
 		};
+		
 		App.get(p,'combo#salle').getStore().load();
 	},
 	site_onselect: function(p)
 	{
+		App.get(p,'combo#salle').setValue('');
 		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams.id_site=p.getValue();
 		App.get(p.up('window'),'combo#salle').getStore().load();
+		App.get(p,'combo#salle').getStore().getProxy().extraParams={
+			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
+			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
+			id_site: App.get(p.getValue()
+		};
+		App.get(p,'combo#salle').getStore().load();		
 	},
 	
 	// TOpenEvenement
