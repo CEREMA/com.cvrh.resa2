@@ -217,7 +217,8 @@ App.controller.define('CMain', {
 	do_new_evt: function()
 	{
 		App.view.create('VCreateEvenement',{
-			modal: true
+			modal: true,
+			session: 1
 		}).show();
 	},
 	do_open_evt: function()
