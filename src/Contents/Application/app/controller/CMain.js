@@ -99,6 +99,8 @@ App.controller.define('CMain', {
 	VResNew_onshow: function(p)
 	{
 		App.get(p,'combo#site').setValue(1);
+		App.get(p,'combo#salle').getStore().getProxy().extraParams.id_site=1;
+		App.get(p,'combo#salle').getStore().load();		
 	},
 	site_onselect: function(p)
 	{
