@@ -4,6 +4,7 @@ App.controller.define('CMain', {
 		"VMain",
 		"VOpenEvenement",
 		"VCreateEvenement",
+		"VResaModule",
 		"admin.VDayOff",
 		"admin.VBackoffice"
 	],
