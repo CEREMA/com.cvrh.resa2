@@ -72,6 +72,9 @@ App.controller.define('CMain', {
 			*/
 			"VResNew": {
 				show: "VResNew_onshow"
+			},
+			"VResNew combo#site": {
+				select: "site_onselect"
 			}
 		});
 		
@@ -96,6 +99,11 @@ App.controller.define('CMain', {
 	VResNew_onshow: function(p)
 	{
 		App.get(p,'combo#site').setValue(1);
+	},
+	site_onselect: function(p)
+	{
+		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams.id_site=p.getValue();
+		App.get(p.up('window'),'combo#salle').getStore().load();
 	},
 	
 	// TOpenEvenement
