@@ -86,7 +86,7 @@ App.view.define('VResaModule', {
 					{ 				
 						xtype: 'radiogroup',
 						fieldLabel: 'Avis de parution',
-						/*width: 400,*/
+						width: 200,
 						padding: 10,
 						itemId: "rdAvis",
 						columns: 5,
