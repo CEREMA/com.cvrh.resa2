@@ -72,20 +72,20 @@ App.view.define('VResNew', {
 				editable: false,
 				valueField: "id_salle"
 			},
-			{
-				xtype: "boxselect",
-				itemId: "cboChoix",
-				flex: 1,
-				fieldLabel: "Choix",
-				labelAlign: "top",
-				allowBlank: false,
-				editable: false,
-				displayField: "nomChoix",
-				valueField: "id_choix",
-				store: App.store.create('reservation_salles://choix',{autoLoad: true})
-            }			
 			]			
-		}
+		},
+		{
+			xtype: "boxselect",
+			itemId: "cboChoix",
+			flex: 1,
+			fieldLabel: "Choix",
+			labelAlign: "top",
+			allowBlank: false,
+			editable: false,
+			displayField: "nomChoix",
+			valueField: "id_choix",
+			store: App.store.create('reservation_salles://choix',{autoLoad: true})
+		}					
 		];
 
         this.callParent();
