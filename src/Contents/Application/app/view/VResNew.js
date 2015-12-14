@@ -150,21 +150,18 @@ App.view.define('VResNew', {
 			items: [
 			{
 				xtype: "checkboxfield",
-				itemId: "c0",
 				boxLabel: 'Préparation',
 				flex: 1,
 				itemId: "check_preparation"
             },
 			{
 				xtype: "checkboxfield",
-				itemId: "c1",
 				boxLabel: 'Valider',
 				flex: 1,
 				itemId: "check_valider"
             },
 			{
 				xtype: "checkboxfield",
-				itemId: "c2",
 				boxLabel: 'Afficher',
 				flex: 1,
 				itemId: "check_afficher"
