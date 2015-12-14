@@ -241,7 +241,9 @@ App.view.define('VCreateEvenement', {
 							text: "Nouvelle ressource",
 							iconCls: "plus_res",
 							handler: function() {
-								App.view.create('VResNew',{modal: true}).show();
+								App.view.create('VResNew',{
+									modal: true
+								}).show();
 							}
 						}
 						],

@@ -60,7 +60,7 @@ App.controller.define('CMain', {
 			*/ 
 			"TOpenEvenement": {
 				render: "TOpenEvenement_onShow"
-			}
+			},
 			/*
 			VResNew
 			*/
