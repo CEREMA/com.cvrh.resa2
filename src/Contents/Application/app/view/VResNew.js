@@ -14,7 +14,12 @@ App.view.define('VResNew', {
         this.bbar = [
 		'->',
 		{
-			text: "Enregistrer"
+			text: "Enregistrer",
+			handler: function(p)
+			{
+				var grid=p.up('window').grid;
+				console.log(grid);
+			}
 		}
         ];
 		
