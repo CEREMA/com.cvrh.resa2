@@ -168,7 +168,55 @@ App.view.define('VCreateEvenement', {
 						width: 100,
 						labelWidth: 100,
 						fieldLabel: "participants"
-					}											
+					},
+				{
+					layout: "hbox",
+					width: "100%",
+					border: false,
+					items: [
+					{ 				
+						xtype: 'radiogroup',
+						fieldLabel: 'Avis de parution',						
+						width: 350,
+						padding: 10,
+						itemId: "rdAvis",
+						columns: 5,
+						vertical: false,
+						items: [
+						{
+							boxLabel: 'Non',
+							itemId: "RA1",
+							name: 'ra',
+							inputValue: '1',
+							checked: true,
+							listeners: {
+								change: function(me) {
+									App.get(me.up('window'),'datefield#date_avis').show();
+								}
+							}
+						},
+						{
+							boxLabel: 'Oui',
+							itemId: "RA0",
+							name: 'ra',
+							inputValue: '0',
+							listeners: {
+								change: function(me) {
+									App.get(me.up('window'),'datefield#date_avis').hide();
+								}
+							}
+						}
+						]
+					},
+					{
+						xtype: "datefield",
+						itemId: "date_avis",
+						padding: 10,
+						hidden: true,
+						flex: 1
+					}
+					]
+				}					
                     ]
                 }
             ]
