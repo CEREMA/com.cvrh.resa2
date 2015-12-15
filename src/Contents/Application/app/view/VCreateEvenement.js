@@ -33,6 +33,38 @@ App.view.define('VCreateEvenement', {
 			width: "100%",
             border: false,
             items: [
+                { 
+                    layout: "hbox",
+                    border: false,
+                    width: "100%",
+                    items: [
+					{
+						xtype: 'numberfield',
+						margin: {
+							left: 10
+						},
+						itemId: "insert_numGeff",
+						fieldLabel: "GEFF",
+						labelAlign: "top",
+						minValue: 0,
+						width: 70,
+						labelWidth: 50
+					},
+					{
+						xtype: "numberfield",
+						margin: {
+							left: 10
+						},							
+						itemId: "participant",
+						labelAlign: "top",
+						allowBlank: false,
+						minValue: 0,
+						width: 100,
+						labelWidth: 100,
+						fieldLabel: "Nb participants"
+					}
+                    ]
+                },
                 //------------ EVENEMENT -------------------------------------------------------
                 {
                     layout: "vbox",
