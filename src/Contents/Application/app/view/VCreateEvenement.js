@@ -113,6 +113,7 @@ App.view.define('VCreateEvenement', {
 						{
 							xtype: "numberfield",
 							margin: {
+								bottom: 10,
 								left: 10
 							},							
 							itemId: "participant",
