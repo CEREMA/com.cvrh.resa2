@@ -49,7 +49,7 @@ App.view.define('VResNew', {
 				itemId: "site",
 				fieldLabel: "Site",
 				labelAlign: "top",
-				displayField: "nomsalle",
+				displayField: "nomsalle",				
 				editable: false,
 				valueField: "id_site",
 				store: App.store.create('reservation_salles://site',{autoLoad: true})
@@ -58,6 +58,7 @@ App.view.define('VResNew', {
 				xtype: "combo",
 				itemId: "salle",
 				fieldLabel: "Salle",
+				bind: "id_salle",
 				labelAlign: "top",
 				margin: {
 					left: 5
@@ -88,6 +89,7 @@ App.view.define('VResNew', {
 			{
 				xtype:"combo",
 				itemId: "p0",
+				bind: "p0",
 				editable: false,
 				fieldLabel: "Période",
 				labelAlign: "top",
@@ -106,6 +108,7 @@ App.view.define('VResNew', {
 			{
 				xtype: "datefield",
 				itemId: "d1",
+				bind: "d1",
 				margin: {
 					left: 5
 				},
@@ -118,6 +121,7 @@ App.view.define('VResNew', {
 			{
 				xtype:"combo",
 				itemId: "p1",
+				bind: "p1",
 				editable: false,
 				fieldLabel: "Période",
 				labelAlign: "top",
@@ -143,7 +147,7 @@ App.view.define('VResNew', {
 			width: "100%",
 			fieldLabel: "Choix",
 			labelAlign: "top",
-			allowBlank: false,
+			allowBlank: true,
 			editable: false,
 			displayField: "nomChoix",
 			valueField: "id_choix",
