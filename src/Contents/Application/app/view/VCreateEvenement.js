@@ -155,7 +155,20 @@ App.view.define('VCreateEvenement', {
 						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent+}', {
 							autoLoad: true
 						})
-                    }
+                    },
+					{
+						xtype: "numberfield",
+						margin: {
+							bottom: 10
+						},							
+						itemId: "participant",
+						labelAlign: "left",
+						allowBlank: false,
+						minValue: 0,
+						width: 100,
+						labelWidth: 100,
+						fieldLabel: "participants"
+					}											
                     ]
                 }
             ]
