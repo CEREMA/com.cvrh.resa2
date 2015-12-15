@@ -80,6 +80,7 @@ App.view.define('VResNew', {
 			{
 				xtype: "datefield",
 				itemId: "d0",
+				bind: "d0",
 				fieldLabel: "Début",
 				labelAlign: "top",
 				editable: false,
@@ -146,6 +147,7 @@ App.view.define('VResNew', {
 			padding: 10,
 			width: "100%",
 			fieldLabel: "Choix",
+			bind: "choix",
 			labelAlign: "top",
 			allowBlank: true,
 			editable: false,
@@ -156,6 +158,7 @@ App.view.define('VResNew', {
 		{
 			xtype: "textarea",
 			flex: 1,
+			bind: "comment",
 			fieldLabel: "Commentaires",
 			labelAlign: "top",
 			width: "100%",
