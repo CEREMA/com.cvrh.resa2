@@ -33,26 +33,6 @@ App.view.define('VCreateEvenement', {
 			width: "100%",
             border: false,
             items: [
-                { 
-                    layout: "hbox",
-                    border: false,
-                    width: "100%",
-                    items: [
-					{
-						xtype: "numberfield",
-						margin: {
-							left: 10
-						},							
-						itemId: "participant",
-						labelAlign: "top",
-						allowBlank: false,
-						minValue: 0,
-						width: 100,
-						labelWidth: 100,
-						fieldLabel: "Nb participants"
-					}
-                    ]
-                },
                 //------------ EVENEMENT -------------------------------------------------------
                 {
                     layout: "vbox",
@@ -129,6 +109,19 @@ App.view.define('VCreateEvenement', {
 								],
 								autoLoad: true
 							})
+						},
+						{
+							xtype: "numberfield",
+							margin: {
+								left: 10
+							},							
+							itemId: "participant",
+							labelAlign: "top",
+							allowBlank: false,
+							minValue: 0,
+							width: 100,
+							labelWidth: 100,
+							fieldLabel: "Nb participants"
 						}						
 						]
 					},
