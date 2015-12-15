@@ -64,6 +64,11 @@ App.view.define('VCreateEvenement', {
 						}
 						]
 					},
+						{
+						layout: "hbox",
+						border: false,
+						width: "100%",
+						items: [
 					{
 							xtype: 'numberfield',
 							width: "100%",
@@ -80,11 +85,6 @@ App.view.define('VCreateEvenement', {
 							labelWidth: 50*/
 							
 					},
-						{
-						layout: "hbox",
-						border: false,
-						width: "100%",
-						items: [
 
 						{
 							xtype: "combo",
@@ -110,21 +110,7 @@ App.view.define('VCreateEvenement', {
 								],
 								autoLoad: true
 							})
-						},
-						{
-							xtype: "numberfield",
-							margin: {
-								bottom: 10,
-								left: 10
-							},							
-							itemId: "participant",
-							labelAlign: "left",
-							allowBlank: false,
-							minValue: 0,
-							width: 100,
-							labelWidth: 100,
-							fieldLabel: "participants"
-						}						
+						}
 						]
 					},
 					{
