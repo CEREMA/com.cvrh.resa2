@@ -165,9 +165,9 @@ App.view.define('VCreateEvenement', {
 						labelAlign: "left",
 						allowBlank: false,
 						minValue: 0,
-						width: 100,
+						width: 200,
 						labelWidth: 100,
-						fieldLabel: "participants"
+						fieldLabel: "Participants"
 					},
 				{
 					layout: "hbox",
