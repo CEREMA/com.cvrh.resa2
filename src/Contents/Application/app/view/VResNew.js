@@ -18,7 +18,15 @@ App.view.define('VResNew', {
 			handler: function(p)
 			{
 				var grid=p.up('window').grid;
-				console.log(grid);
+				var dta=App.getData(p.up('window'));
+				console.log(dta);
+				/*var data=[
+				{
+					d0: App.get(p.up('window').
+				}
+				];*/
+				/*grid.getStore().loadData(data);
+				p.up('window').close();*/
 			}
 		}
         ];
