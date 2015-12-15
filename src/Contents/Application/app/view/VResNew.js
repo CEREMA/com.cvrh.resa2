@@ -149,7 +149,6 @@ App.view.define('VResNew', {
 			fieldLabel: "Choix",
 			bind: "choix",
 			labelAlign: "top",
-			allowBlank: true,
 			editable: false,
 			displayField: "nomChoix",
 			valueField: "id_choix",
