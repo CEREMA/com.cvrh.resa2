@@ -39,7 +39,7 @@ App.view.define('VResNew', {
 				}
 				];
 				console.log(data);
-				grid.getStore().loadData(data);
+				grid.getStore().add(data);
 				p.up('window').close();
 			}
 		}
