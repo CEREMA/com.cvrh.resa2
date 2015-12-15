@@ -51,31 +51,6 @@ App.view.define('VResaModule', {
 						labelAlign: "top",
 						flex: 1,
 						labelWidth: 50
-					},
-					{
-						xtype: 'numberfield',
-						margin: {
-							left: 10
-						},
-						itemId: "insert_numGeff",
-						fieldLabel: "GEFF",
-						labelAlign: "top",
-						minValue: 0,
-						width: 70,
-						labelWidth: 50
-					},
-					{
-						xtype: "numberfield",
-						margin: {
-							left: 10
-						},							
-						itemId: "participant",
-						labelAlign: "top",
-						allowBlank: false,
-						minValue: 0,
-						width: 100,
-						labelWidth: 100,
-						fieldLabel: "Nb participants"
 					}
 					]
 				},
