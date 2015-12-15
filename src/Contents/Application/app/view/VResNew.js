@@ -20,11 +20,18 @@ App.view.define('VResNew', {
 				var grid=p.up('window').grid;
 				var dta=App.getData(p.up('window'));
 				console.log(dta);
-				/*var data=[
+				if (dta.p0=="J") dta.d0=dta.d0.setHours(8);
+				if (dta.p0=="M") dta.d0=dta.d0.setHours(8);
+				if (dta.p0=="A") dta.d0=dta.d0.setHours(14);
+				if (dta.p1=="J") dta.d1=dta.d1.setHours(8);
+				if (dta.p1=="M") dta.d1=dta.d1.setHours(8);
+				if (dta.p1=="A") dta.d1=dta.d1.setHours(14);
+				var data=[
 				{
-					d0: App.get(p.up('window').
+					d0: dta.d0,
+					d1: 
 				}
-				];*/
+				];
 				/*grid.getStore().loadData(data);
 				p.up('window').close();*/
 			}
