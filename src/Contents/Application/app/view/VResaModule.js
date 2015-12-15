@@ -153,11 +153,13 @@ App.view.define('VResaModule', {
 					},
 					{
 						header: "Début",
+                        type: 'date',
 						width: 100,
 						dataIndex: "d0"
 					},
 					{
 						header: "Fin",
+                        type: 'date',
 						width: 100,
 						dataIndex: "d1"
 					}
