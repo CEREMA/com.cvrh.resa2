@@ -117,12 +117,12 @@ App.view.define('VCreateEvenement', {
 								left: 10
 							},							
 							itemId: "participant",
-							labelAlign: "top",
+							labelAlign: "left",
 							allowBlank: false,
 							minValue: 0,
 							width: 100,
 							labelWidth: 100,
-							fieldLabel: "Nb participants"
+							fieldLabel: "participants"
 						}						
 						]
 					},
