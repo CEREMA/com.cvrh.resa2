@@ -154,15 +154,15 @@ App.view.define('VResaModule', {
 					{
 						header: "Début",
                         type: 'date',
-                        renderer: Ext.util.Format.dateRenderer('d/m/Y h:mm'),
-						width: 100,
+                        renderer: Ext.util.Format.dateRenderer('d/m/Y h:i'),
+						width: 150,
 						dataIndex: "d0"
 					},
 					{
 						header: "Fin",
                         type: 'date',
-                        renderer: Ext.util.Format.dateRenderer('d/m/Y h:mm'),
-						width: 100,
+                        renderer: Ext.util.Format.dateRenderer('d/m/Y h:i'),
+						width: 150,
 						dataIndex: "d1"
 					}
 					],
