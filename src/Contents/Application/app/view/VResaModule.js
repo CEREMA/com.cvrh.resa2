@@ -129,6 +129,7 @@ App.view.define('VResaModule', {
 				}, 
 				{
 					xtype: "grid",
+					itemId: "res",
 					border: false,
 					tbar: [
 					{
@@ -138,7 +139,8 @@ App.view.define('VResaModule', {
 							App.view.create('VResNew',{
 								modal: true,
 								d0: App.get(me.up('window'),'datefield#debutModule').getValue(),
-								d1: App.get(me.up('window'),'datefield#finModule').getValue()
+								d1: App.get(me.up('window'),'datefield#finModule').getValue(),
+								grid: App.get(me.up('window'),'grid#res')
 							}).show();
 						}
 					}
