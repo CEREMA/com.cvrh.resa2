@@ -29,9 +29,9 @@ App.view.define('VResNew', {
 				var data=[
 				{
 					id_salle: dta.id_salle,
-					nom_salle: App.get(p.up('window'),'combo#salle').getRawValue(),
-					d0: dta.d0.getValue(),
-					d1: dta.d1.getValue()/*,
+					nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
+					d0: dta.d0,
+					d1: dta.d1/*,
 					afficher: dta.,
 					valider: ,
 					preparation:,
