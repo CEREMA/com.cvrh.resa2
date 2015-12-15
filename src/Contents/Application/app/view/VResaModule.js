@@ -9,6 +9,7 @@ App.view.define('VResaModule', {
         };
 		
 		this.title = 'Module 1';
+		
 		this.width = "100%";
 			
         this.items = [
@@ -144,54 +145,35 @@ App.view.define('VResaModule', {
 					],
 					columns: [
 					{
-						header: "Site",
-						width: 100,
-						dataIndex: "id_site",
-						editor: {
-							xtype: 'combobox',
-							typeAhead: true,
-							triggerAction: 'all',
-							selectOnTab: true,
-							displayField: "nomsalle",
-							valueField: "id_site",
-							store: App.store.create("reservation_salles://site"),
-							lazyRender: true,
-							listClass: 'x-combo-list-small',
-							listeners: {
-								select: function(combo, recs, opts){
-									combo.fireEvent('blur');
-								}								
-							}
-						}							
+						header: "Salle",
+						flex: 1,
+						dataIndex: "nomSalle"
 					},
 					{
-						header: "Salle",
-						width: 150,
-						field: {
-							xtype: 'combobox',
-							typeAhead: true,
-							triggerAction: 'all',
-							selectOnTab: true,
-							displayField: "salle",
-							valueField: "id_salle",
-							store: App.store.create("reservation_salles://salle{id_salle,nomSalle+' ('+lieu+')'=salle}?id_site=1"),
-							lazyRender: true,
-							listClass: 'x-combo-list-small'
-						}							
+						header: "Début",
+						width: 100,
+						dataIndex: "d0"
+					},
+					{
+						header: "Fin",
+						width: 100,
+						dataIndex: "d1"
 					}
-					],
-					plugins: [
-						Ext.create('Ext.grid.plugin.CellEditing',{clicksToEdit: 1})
 					],
 					store: App.store.create({
 					fields:[
-						"id_site"
+						"id_salle",
+						"nomSalle",
+						"d0",
+						"d1",
+						"afficher",
+						"valider",
+						"preparation",
+						"choix"
 					],
 					data:[
-						{
-							id_site: ""
-						}
-					]}),
+					]
+					}),
 					flex: 1,
 					width: "100%"
 				}	
