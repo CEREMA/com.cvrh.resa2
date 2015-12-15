@@ -65,6 +65,22 @@ App.view.define('VCreateEvenement', {
 						]
 					},
 					{
+							xtype: 'numberfield',
+							width: "100%",
+							itemId: "cboTypologie",
+							margin: {
+								bottom: 10
+							},
+							flex: 1,
+							fieldLabel: "Typologie",
+							itemId: "insert_numGeff",
+							fieldLabel: "GEFF",
+							minValue: 0/*,
+							width: 70,
+							labelWidth: 50*/
+							
+					},
+						{
 						layout: "hbox",
 						border: false,
 						width: "100%",
