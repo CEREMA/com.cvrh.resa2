@@ -172,6 +172,7 @@ App.view.define('VResNew', {
 			{
 				xtype: "checkboxfield",
 				boxLabel: 'Préparation',
+				allowBlank: true,
 				bind: "preparation",
 				flex: 1,
 				itemId: "check_preparation"
@@ -180,6 +181,7 @@ App.view.define('VResNew', {
 				xtype: "checkboxfield",
 				boxLabel: 'Valider',
 				bind: "valider",
+				allowBlank: true,
 				flex: 1,
 				itemId: "check_valider"
             },
@@ -187,6 +189,7 @@ App.view.define('VResNew', {
 				xtype: "checkboxfield",
 				boxLabel: 'Afficher',
 				bind: "afficher",
+				allowBlank: true,
 				flex: 1,
 				itemId: "check_afficher"
             }
