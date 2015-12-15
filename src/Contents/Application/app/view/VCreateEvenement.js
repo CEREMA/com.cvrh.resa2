@@ -39,18 +39,6 @@ App.view.define('VCreateEvenement', {
                     width: "100%",
                     items: [
 					{
-						xtype: 'numberfield',
-						margin: {
-							left: 10
-						},
-						itemId: "insert_numGeff",
-						fieldLabel: "GEFF",
-						labelAlign: "top",
-						minValue: 0,
-						width: 70,
-						labelWidth: 50
-					},
-					{
 						xtype: "numberfield",
 						margin: {
 							left: 10
@@ -72,6 +60,17 @@ App.view.define('VCreateEvenement', {
                     hidden: false,
                     border: false,
                     items: [
+					{
+						xtype: 'numberfield',
+						margin: {
+							left: 10
+						},
+						itemId: "insert_numGeff",
+						fieldLabel: "GEFF",
+						minValue: 0,
+						width: 70,
+						labelWidth: 50
+					},
 					{
 						layout: "hbox",
 						border: false,
