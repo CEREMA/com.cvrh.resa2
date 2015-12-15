@@ -28,12 +28,19 @@ App.view.define('VResNew', {
 				if (dta.p1=="A") dta.d1=dta.d1.setHours(14);
 				var data=[
 				{
+					id_salle: dta.id_salle,
+					nom_salle: App.get(p.up('window'),'combo#salle').getRawValue(),
 					d0: dta.d0,
-					d1: 
+					d1: dta.d1/*,
+					afficher: dta.,
+					valider: ,
+					preparation:,
+					choix: */
 				}
 				];
-				/*grid.getStore().loadData(data);
-				p.up('window').close();*/
+				console.log(data);
+				grid.getStore().loadData(data);
+				p.up('window').close();
 			}
 		}
         ];
