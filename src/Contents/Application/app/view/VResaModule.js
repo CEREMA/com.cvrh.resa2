@@ -14,6 +14,48 @@ App.view.define('VResaModule', {
 			
         this.items = [
 				{
+					layout: "hbox",
+                    hidden: true,
+					padding: 10,
+					border: false,
+					width: "100%",
+					height: 60,
+					items: [
+					{
+						xtype: "datefield",
+						renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+						itemId: "debutModule",
+						allowBlank: false,
+						startDay: 1,
+						editable: false,
+						fieldLabel: 'Début',
+						labelAlign: "top",
+						flex: 1,
+						labelWidth: 50,
+						listeners: {
+							select: function(me) {
+								App.get(me.up('window'),'datefield#finModule').setMinValue(me.getValue());
+							}
+						}
+					}, 
+					{
+						xtype: "datefield",
+						margin: {
+							left: 10
+						},
+						renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+						itemId: "finModule",
+						startDay: 1,
+						allowBlank: false,
+						editable: false,
+						fieldLabel: 'Fin',
+						labelAlign: "top",
+						flex: 1,
+						labelWidth: 50
+					}
+					]
+				},
+				{
 					xtype: "grid",
 					itemId: "res",
 					border: false,
@@ -24,7 +66,8 @@ App.view.define('VResaModule', {
 						handler: function(me) {
 							App.view.create('VResNew',{
 								modal: true,
-								d0: new Date(),
+								d0: App.get(me.up('window'),'datefield#debutModule').getValue(),
+								d1: App.get(me.up('window'),'datefield#finModule').getValue(),
 								grid: App.get(me.up('window'),'grid#res')
 							}).show();
 						}
