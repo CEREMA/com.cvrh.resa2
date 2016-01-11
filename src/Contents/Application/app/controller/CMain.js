@@ -117,7 +117,16 @@ App.controller.define('CMain', {
     
 	// VCreateEvenement
     insert_evenement: function(p)
-    {        
+    {
+        var obj={
+            id_site: 3,
+            id_typologie: App.get(p.up('window'),'combo#cboTypologie').getValue(),
+            nomEvenement: App.get(p.up('window','textfield#insert_evenement')).getValue()
+        };
+        App.DB.post('reservation_salles://evenement',obj,function(){
+            
+            
+        });
         p.up('window').close();
     },
 	VCreateEvenement_onshow: function(p)
