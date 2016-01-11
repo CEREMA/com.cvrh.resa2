@@ -1,4 +1,8 @@
 GEFF = {
+	essai: function(o,cb)
+	{
+		console.log('essai 2');
+	},
 	import: function(o,cb) {
 		console.log('essai 1');
 /*		function doSQL(sql,ndx,cb) {
