@@ -59,6 +59,7 @@ GEFF = {
 					if (len[i]=="") break;
 				};
 				len=i;
+                console.log(o);
 				sql.push("TRUNCATE geff_imports;");
 				for (var i=1;i<o.length;i++) {
 					var items=o[i].split(';');
