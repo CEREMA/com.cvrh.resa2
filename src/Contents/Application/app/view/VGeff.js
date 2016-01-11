@@ -22,6 +22,7 @@ App.view.define('VGeff', {
         this.items = [
             {
                 xtype: "grid",
+                itemId: "geff",
                 columns: [
                     {
                         text: "GEFF",
