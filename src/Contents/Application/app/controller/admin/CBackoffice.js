@@ -1,4 +1,3 @@
-alert('x');
 App.controller.define('admin.CBackoffice', {
 
 	views: [
