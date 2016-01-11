@@ -1,12 +1,16 @@
 GEFF = {
 	import: function(o,cb) {
+        console.log('* begin import geff')
 		function doSQL(sql,ndx,cb) {
 			var db=GEFF.using('db');
 			if (ndx<sql.length) {
 				db.query('reservation_salles',sql[ndx],function(e,o) {
 					doSQL(sql,ndx+1,cb);
 				});
-			} else cb();
+			} else {
+                 console.log('* end import geff')
+                 cb();
+            }
 		};
 		var iconvlite = GEFF.using('iconv-lite');
 		var fs = require('fs');
