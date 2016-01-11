@@ -121,7 +121,7 @@ App.controller.define('CMain', {
         var obj={
             id_site: 3,
             id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
-            nomEvenement: App.get('VCreateEvenement textfield#insert_evenement')).getValue()
+            nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue()
         };
         console.log(obj);
         App.DB.post('reservation_salles://evenement',obj,function(){
