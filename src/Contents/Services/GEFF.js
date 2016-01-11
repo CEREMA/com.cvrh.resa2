@@ -1,7 +1,8 @@
 GEFF = {
 	essai: function(o,cb)
 	{
-		console.log('essai 2');
+		var db=GEFF.using('db');
+		console.log(db);
 	},
 	import: function(o,cb) {
 		console.log('essai 1');
