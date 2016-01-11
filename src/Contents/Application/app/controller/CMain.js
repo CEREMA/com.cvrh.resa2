@@ -117,7 +117,7 @@ App.controller.define('CMain', {
     
 	// VCreateEvenement
     insert_evenement: function(p)
-    {
+    {        
         p.up('window').close();
     },
 	VCreateEvenement_onshow: function(p)
