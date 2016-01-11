@@ -2,8 +2,8 @@ App.view.define('VGeff', {
     extend: "Ext.window.Window",
     alias: 'widget.VGeff',
     initComponent: function() {
-        this.width = 1024;
-        this.height = 660;
+        this.width = 800;
+        this.height = 460;
 
         this.layout = {
             type: 'fit'
@@ -29,19 +29,12 @@ App.view.define('VGeff', {
                     },
                     {
                         text: "Titre formation",
-                        dataIndex: "Titre_formation"
-                    },
-                    {
-                        text: "Session",
-                        dataIndex: "session"
-                    },
-                    {
-                        text: "Module",
-                        dataIndex: "module"
+                        dataIndex: "Titre_formation",
+                        flex: 1
                     }
                 ],
                 plugins: ["bufferedrenderer"],
-                store: App.store.create('reservation_salles://geff_imports{NumGEFF+,Titre_formation,session+,module+}?YEAR(Date_debut)=2016/NumGEFF/session/module',{autoLoad: true})
+                store: App.store.create('reservation_salles://geff_imports{NumGEFF+,Titre_formation}?YEAR(Date_debut)=2016',{autoLoad: true})
             }
 		];
 
