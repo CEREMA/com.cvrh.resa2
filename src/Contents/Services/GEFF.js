@@ -73,6 +73,7 @@ GEFF = {
 					};
 					str=str+'NOW(),NOW());';
 					sql.push(str);		
+                    console.log(str);
 				};
 				doSQL(sql,0,cb);			
 			} else cb();
