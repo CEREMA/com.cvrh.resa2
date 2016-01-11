@@ -108,6 +108,7 @@ App.controller.define('CMain', {
     geff_select: function(p,store)
     {
         App.get('VCreateEvenement ux-searchbox#insert_numGeff').setValue(store.data.NumGEFF);
+        p.up('window').close();
     },
     
 	// VCreateEvenement
