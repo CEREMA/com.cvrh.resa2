@@ -72,7 +72,13 @@ App.controller.define('CMain', {
 			"VCreateEvenement ux-searchbox#insert_numGeff" : {
 				click: "onGEFF"/*,
 				keyup: "onGEFF"*/
-			},            
+			},
+            /*
+            VGeff
+            */
+            "VGeff grid#geff": {
+                itemdblclick: "geff_select"
+            },
 			/*
 			VResNew
 			*/
@@ -97,6 +103,12 @@ App.controller.define('CMain', {
     // init variables
     
     EVT_CURRENT: {},
+    
+    // VGeff
+    geff_select: function(p,store)
+    {
+        console.log(store);
+    },
     
 	// VCreateEvenement
 	VCreateEvenement_onshow: function(p)
