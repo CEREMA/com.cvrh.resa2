@@ -502,10 +502,8 @@ App.controller.define('CMain', {
 	},
 	onLoad: function(p)
 	{
-         App.GEFF.import({}, function(err, o) {
-            console.log(o);
-        });			
-	}
+
+    }
 	
 	
 });

@@ -1,12 +1,6 @@
 GEFF = {
-	essai: function(o,cb)
-	{
-		var db=GEFF.using('db');
-		console.log(db);
-	},
 	import: function(o,cb) {
-		console.log('essai 1');
-/*		function doSQL(sql,ndx,cb) {
+		function doSQL(sql,ndx,cb) {
 			var db=GEFF.using('db');
 			if (ndx<sql.length) {
 				db.query('reservation_salles',sql[ndx],function(e,o) {
@@ -56,6 +50,7 @@ GEFF = {
 	
 		var db=GEFF.using('db');
 		db.query('reservation_salles','select * from geff_imports where date(geff_imports.createdAt)=date(NOW())',function(e,o) {
+            console.log(o);
 			if (o.length==0) {
 				var fs=require('fs');
 				var o=readFileSync_encoding(__dirname+'/../extraction_stagiaire.csv','latin1').split('\n');
@@ -84,7 +79,7 @@ GEFF = {
 				};
 				doSQL(sql,0,cb);			
 			} else cb();
-		});*/
+		});
 	},
 	
 	 stagiaire: function(o, cb) {
