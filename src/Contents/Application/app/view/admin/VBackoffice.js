@@ -48,6 +48,7 @@ App.view.define('admin.VBackoffice', {
 				xtype: "combo",
 				fieldLabel: "Table",
 				itemId: "combo_db",
+                editable: false,
 				store: App.store.create('reservation_salles://*'),
 				displayField: "TABLE_NAME",
 				valueField: "TABLE_NAME"
