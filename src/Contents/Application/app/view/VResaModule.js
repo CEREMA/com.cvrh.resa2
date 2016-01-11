@@ -15,7 +15,7 @@ App.view.define('VResaModule', {
         this.items = [
 				{
 					layout: "hbox",
-                    hidden: true,
+                    hidden: false,
 					padding: 10,
 					border: false,
 					width: "100%",
