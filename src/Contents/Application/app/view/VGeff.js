@@ -41,7 +41,7 @@ App.view.define('VGeff', {
                     }
                 ],
                 plugins: ["bufferedrenderer"],
-                store: App.store.create('reservation_salles://geff_imports',{autoLoad: true})
+                store: App.store.create('reservation_salles://geff_imports{NumGEFF,Titre_formation,session,module}',{autoLoad: true})
             }
 		];
 
