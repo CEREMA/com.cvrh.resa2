@@ -6,7 +6,7 @@ App.view.define('VGeff', {
         this.height = 660;
 
         this.layout = {
-            type: 'vbox'
+            type: 'fit'
         };
 
         this.bbar = [
