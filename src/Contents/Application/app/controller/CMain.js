@@ -69,8 +69,8 @@ App.controller.define('CMain', {
 				show: "VCreateEvenement_onshow"
 			},
 			"VCreateEvenement ux-searchbox#insert_numGeff" : {
-				click: "onGEFF",
-				keyup: "onGEFF"
+				click: "onGEFF"/*,
+				keyup: "onGEFF"*/
 			},            
 			/*
 			VResNew
@@ -109,7 +109,7 @@ App.controller.define('CMain', {
     {
         var value="";
         if (typeof p=="string") value=p; else value=p.getValue();
-        alert(value);
+        
     },
 	// VResNew
 	d0_select: function(p)
