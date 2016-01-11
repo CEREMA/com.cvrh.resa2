@@ -110,7 +110,9 @@ App.controller.define('CMain', {
     {
         var value="";
         if (typeof p=="string") value=p; else value=p.getValue();
-        
+        App.view.create('VGeff',{
+            modal: true            
+        }).show();
     },
 	// VResNew
 	d0_select: function(p)
