@@ -69,24 +69,19 @@ App.view.define('VCreateEvenement', {
 						border: false,
 						width: "100%",
 						items: [
-					{
-							xtype: 'numberfield',
-							width: "100%",
-							itemId: "cboTypologie",
-							margin: {
-								bottom: 10
-							},
-							flex: 1,
-							fieldLabel: "Typologie",
+                        {
+				            xtype: 'ux-searchbox',
+				            width: "100%",
+				            triggerCls : Ext.baseCSSPrefix + 'form-search-trigger',
+				            itemId: 'searchbox',
+				            flex: 1,
 							itemId: "insert_numGeff",
 							fieldLabel: "GEFF",
-							minValue: 0/*,
-							width: 70,
-							labelWidth: 50*/
-							
-					},
-
-						{
+							margin: {
+								bottom: 10
+							}
+			            },
+				        {
 							xtype: "combo",
 							itemId: "cboSession",
 							flex: 1,
