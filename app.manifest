@@ -65,7 +65,8 @@
     "api": [
         "resources",
         "events",
-        "reservation"
+        "reservation",
+        "GEFF"
     ],
     "db": [
         "reservation_salles"

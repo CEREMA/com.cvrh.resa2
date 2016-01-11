@@ -1,7 +1,5 @@
 GEFF = {
 	import: function(o,cb) {
-		cb();
-		return;
 		function doSQL(sql,ndx,cb) {
 			var db=GEFF.using('db');
 			if (ndx<sql.length) {
@@ -83,8 +81,7 @@ GEFF = {
 	
 	 stagiaire: function(o, cb) {
         var db = reservation.using('db');
-		console.log('select * from geff_imports where NumGEFF="' + o.NumGEFF + '" and session="' + o.Session + '" and module="' + o.Module + '" ');
-        db.model('reservation_salles', 'select * from geff_imports where NumGEFF="' + o.NumGEFF + '" and session="' + o.Session + '" and module="' + o.Module + '" ', cb);
+         db.get('reservation_salles://geff_imports?NumGEFF='+o.NumGEFF+'&session='+o.Session+'&module='+o.Module,cb);
     },
 };
 
