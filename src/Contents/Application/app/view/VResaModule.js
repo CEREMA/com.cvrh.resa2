@@ -24,8 +24,7 @@ App.view.define('VResaModule', {
 						handler: function(me) {
 							App.view.create('VResNew',{
 								modal: true,
-								d0: App.get(me.up('window'),'datefield#debutModule').getValue(),
-								d1: App.get(me.up('window'),'datefield#finModule').getValue(),
+								d0: new Date(),
 								grid: App.get(me.up('window'),'grid#res')
 							}).show();
 						}
