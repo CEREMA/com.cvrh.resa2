@@ -68,9 +68,6 @@
         "reservation",
         "GEFF"
     ],
-    "robots": [
-        "import_geff"
-    ],
     "db": [
         "reservation_salles"
     ],

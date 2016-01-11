@@ -1,6 +1,7 @@
 GEFF = {
 	import: function(o,cb) {
-		function doSQL(sql,ndx,cb) {
+		console.log('essai 1');
+/*		function doSQL(sql,ndx,cb) {
 			var db=GEFF.using('db');
 			if (ndx<sql.length) {
 				db.query('reservation_salles',sql[ndx],function(e,o) {
@@ -78,7 +79,7 @@ GEFF = {
 				};
 				doSQL(sql,0,cb);			
 			} else cb();
-		});
+		});*/
 	},
 	
 	 stagiaire: function(o, cb) {
