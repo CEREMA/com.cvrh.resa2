@@ -73,6 +73,9 @@ App.controller.define('CMain', {
 				click: "onGEFF"/*,
 				keyup: "onGEFF"*/
 			},
+            "VCreateEvenement button#insert_evenement": {
+                click: "insert_evenement"                  
+            },
             /*
             VGeff
             */
@@ -113,6 +116,10 @@ App.controller.define('CMain', {
     },
     
 	// VCreateEvenement
+    insert_evenement: function(p)
+    {
+        p.up('window').close();
+    },
 	VCreateEvenement_onshow: function(p)
 	{
 		App.get(p,'combo#cboSession').setValue(p.session);
