@@ -87,7 +87,10 @@ App.view.define('admin.VDayOff', {
 			'->',
 			{
 				text: "Fermer",
-				itemId: "close_jf"
+				itemId: "close_jf",
+                handler: function(p) {
+                    p.up('window').close();   
+                }
             }
         ];
         this.callParent(arguments);
