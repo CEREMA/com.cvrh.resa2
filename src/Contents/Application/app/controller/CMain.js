@@ -67,7 +67,11 @@ App.controller.define('CMain', {
 			*/
 			"VCreateEvenement": {
 				show: "VCreateEvenement_onshow"
-			},			
+			},
+			"VCreateEvenement ux-searchbox#insert_numGeff" : {
+				click: "onGEFF",
+				keyup: "onGEFF"
+			},            
 			/*
 			VResNew
 			*/
@@ -101,7 +105,10 @@ App.controller.define('CMain', {
 		App.get(p,'combo#cboCP').setValue(Auth.User.id);
 		App.get(p,'combo#cboCP').disable();
 	},
-	
+	onGEFF: function(p)
+    {
+        alert(p.getValue());
+    },
 	// VResNew
 	d0_select: function(p)
 	{
