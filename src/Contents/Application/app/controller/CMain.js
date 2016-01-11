@@ -107,7 +107,9 @@ App.controller.define('CMain', {
 	},
 	onGEFF: function(p)
     {
-        console.log(p);
+        var value="";
+        if (typeof p=="string") value=p; else value=p.getValue();
+        alert(value);
     },
 	// VResNew
 	d0_select: function(p)
