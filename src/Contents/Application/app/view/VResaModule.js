@@ -64,12 +64,11 @@ App.view.define('VResaModule', {
 						text: "Nouvelle ressource",
 						iconCls: "plus_res",
 						handler: function(me) {
-                            console.log(me.up('panel').up('panel'));
 							App.view.create('VResNew',{
 								modal: true,
-								d0: App.get(me.up('panel'),'datefield#debutModule').getValue(),
-								d1: App.get(me.up('panel'),'datefield#finModule').getValue(),
-								grid: App.get(me.up('panel'),'grid#res')
+								d0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
+								d1: App.get(me.up('panel').up('panel'),'datefield#finModule').getValue(),
+								grid: App.get(me.up('panel').up('panel'),'grid#res')
 							}).show();
 						}
 					}
