@@ -175,8 +175,8 @@ App.controller.define('CMain', {
                             var obj={
                                 id_session: r.insertId,
                                 num_module: module,
-                                debutModule: App.get(panel,'datefield#debutModule'),
-                                finModule: App.get(panel,'datefield#finModule'),
+                                debutModule: App.get(panel,'datefield#debutModule').getValue(),
+                                finModule: App.get(panel,'datefield#finModule').getValue(),
                                 status: "I",
                                 statutResa: "FFFF00"
                             };
