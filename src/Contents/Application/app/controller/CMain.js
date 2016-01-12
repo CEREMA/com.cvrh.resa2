@@ -120,7 +120,7 @@ App.controller.define('CMain', {
     resamodule_onshow: function(p)
     {
         console.log(p);
-        alert(p.ID);
+        alert(p.itemID);
         if (p.ID) alert(p.id);
         if (p.ID) p.setTitle('Module '+p.id);
     },
@@ -136,8 +136,7 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     new_module: function(p)
     {
-        console.log(App.get('VCreateEvenement panel#modules').items.items.length);
-        App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{ID: App.get('VCreateEvenement panel#modules').items.items.length}));  
+        App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{itemID: App.get('VCreateEvenement panel#modules').items.items.length}));  
     },
     insert_evenement: function(p)
     {
