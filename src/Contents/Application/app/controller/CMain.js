@@ -185,7 +185,6 @@ App.controller.define('CMain', {
                                 console.log(r);
                             });
                         };
-                        console.log(r);
                         p.up('window').close();
                     });                    
                 });                
