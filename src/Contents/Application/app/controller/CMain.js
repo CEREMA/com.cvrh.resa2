@@ -119,20 +119,37 @@ App.controller.define('CMain', {
     insert_evenement: function(p)
     {
         App.DB.get('reservation_salles://evenement?num_geff='+App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue(),function(e,r) {
-            console.log(r); 
-        });
-        /*var obj={
-            id_site: 3,
-            id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
-            nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
-            num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
-        };
-        console.log(obj);
-        // On crée l'évènement
-        App.DB.post('reservation_salles://evenement',obj,function(){
-            
-        });
-        p.up('window').close();*/
+            if (r.result.data.length>0) {
+                // l'évènement existe déjà !   
+            } else {
+                // on crée l'évènement
+                var obj={
+                    id_site: 3,
+                    id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
+                    nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
+                    num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
+                };                
+                // On crée l'évènement
+                App.DB.post('reservation_salles://evenement',obj,function(r){
+                    // si c'est un nouvel évènement, on crée également une session 1
+                    var obj={
+                        id_evenement: r.insertId,
+                        num_session: 1,
+                        chefProjet: App.get('VCreateEvenement combo#cboCP').getValue(),
+                        assistant: App.get('VCreateEvenement combo#cboAssistant').getValue(),
+                        participant: App.get('VCreateEvenement numberfield#participant').getValue(),
+                        status: 'I',
+                        dateAvis: App.get('VCreateEvenement datefield#date_avis').getValue(),
+                        statutResaSession: "FFFF00"
+                    };
+                    console.log(obj);
+                    App.DB.post('reservation_salles://session',obj,function(r){
+                        console.log(r);
+                        p.up('window').close();
+                    });                    
+                });                
+            }
+        });        
     },
 	VCreateEvenement_onshow: function(p)
 	{
