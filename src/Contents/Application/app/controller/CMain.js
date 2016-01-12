@@ -193,7 +193,7 @@ App.controller.define('CMain', {
     },
 	// VResNew
     resplus: function(me) {
-        if ( (me.up('panel').up('panel'),'datefield#debutModule').getValue()) && (me.up('panel').up('panel'),'datefield#finModule').getValue()) ) {
+        if ( me.up('panel').up('panel'),'datefield#debutModule').getValue() && me.up('panel').up('panel'),'datefield#finModule').getValue() )  {
             App.view.create('VResNew',{
                 modal: true,
                 d0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
