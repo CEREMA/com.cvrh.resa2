@@ -123,6 +123,10 @@ App.view.define('VCreateEvenement', {
 						fieldLabel: "Commentaires",
 						editable: false
 					},
+                    {
+                        width: "100%",
+                        html: '<div style="width:100%;border:1px solid black">Session 1</div>'
+                    },
 					{
 						xtype: "combo",
 						itemId: "cboCP",
