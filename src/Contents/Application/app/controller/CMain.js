@@ -119,7 +119,7 @@ App.controller.define('CMain', {
     // VResaModule
     resamodule_onshow: function(p)
     {
-        p.setTitle('Module '+p.up('tabpanel').items.items.length);
+        p.setTitle('Module x');
     },
     
     // VGeff
