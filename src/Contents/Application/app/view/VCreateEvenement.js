@@ -16,6 +16,7 @@ App.view.define('VCreateEvenement', {
 		},
         {
 			text: "Nouveau module",
+            itemId: "newmodule",
 			hidden: false            
         }
         ];
