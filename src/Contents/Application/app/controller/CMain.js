@@ -99,7 +99,13 @@ App.controller.define('CMain', {
 			},
 			"VResNew datefield#d1": {
 				select: "d1_select"
-			}			
+			},
+            /*
+            VResaModule
+            */
+            "VResaModule": {
+                show: "resamodule_onshow"   
+            }
 		});
 		
 		App.init('VMain',this.onLoad);
@@ -109,6 +115,12 @@ App.controller.define('CMain', {
     // init variables
     
     EVT_CURRENT: {},
+    
+    // VResaModule
+    resamodule_onshow: function(p)
+    {
+        if (p.id) p.setTitle('Module '+p.id);
+    },
     
     // VGeff
     geff_select: function(p,store)
