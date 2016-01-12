@@ -99,10 +99,13 @@ App.controller.define('CMain', {
 			},
 			"VResNew datefield#d1": {
 				select: "d1_select"
-			}
+			},
             /*
             VResaModule
             */
+            "VResaModule": {
+                afterlayout: "resamodule_onshow"   
+            }
 		});
 		
 		App.init('VMain',this.onLoad);
@@ -114,6 +117,12 @@ App.controller.define('CMain', {
     EVT_CURRENT: {},
     
     // VResaModule
+    resamodule_onshow: function(p)
+    {
+        alert(p.ID);
+        if (p.ID) alert(p.id);
+        if (p.ID) p.setTitle('Module '+p.id);
+    },
     
     // VGeff
     geff_select: function(p,store)
@@ -126,16 +135,7 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     new_module: function(p)
     {
-        App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{
-            ID: App.get('VCreateEvenement panel#modules').items.items.length,
-            listeners: {
-                render: function(p) {
-                    alert(p.ID);
-                    if (p.ID) alert(p.id);
-                    if (p.ID) p.setTitle('Module '+p.id);            
-                }
-            }
-        }));  
+        App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{ID: App.get('VCreateEvenement panel#modules').items.items.length}));  
     },
     insert_evenement: function(p)
     {
