@@ -64,6 +64,7 @@ App.view.define('VResaModule', {
 						text: "Nouvelle ressource",
 						iconCls: "plus_res",
 						handler: function(me) {
+                            console.log(me.up('panel'));
 							App.view.create('VResNew',{
 								modal: true,
 								d0: App.get(me.up('panel'),'datefield#debutModule').getValue(),
