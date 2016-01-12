@@ -171,15 +171,16 @@ App.controller.define('CMain', {
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
                         for (var i=0;i<panels.length;i++) {
                             var panel=panels[i];
-                            var module=i+1;
+                            var num_module=i+1;
                             var obj={
                                 id_session: r.insertId,
-                                num_module: module,
+                                num_module: num_module,
                                 debutModule: App.get(panel,'datefield#debutModule').getValue(),
                                 finModule: App.get(panel,'datefield#finModule').getValue(),
                                 status: "I",
                                 statutResa: "FFFF00"
                             };
+                            console.log(obj);
                             App.DB.post('reservation_salles://module',obj,function(r) {
                                 console.log(r);
                             });
