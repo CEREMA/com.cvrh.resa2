@@ -127,7 +127,7 @@ App.controller.define('CMain', {
     new_module: function(p)
     {
         App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{
-            ID: App.get('VCreateEvenement panel#modules').items.items.length
+            ID: App.get('VCreateEvenement panel#modules').items.items.length,
             listeners: {
                 render: function(p) {
                     alert(p.ID);
