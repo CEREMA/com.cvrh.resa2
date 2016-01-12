@@ -103,8 +103,14 @@ App.controller.define('CMain', {
 			},
 			"VResNew datefield#d1": {
 				select: "d1_select"
-			}
-           
+			},
+            /*
+            VResaModule
+            */
+            "VResaModule button#plus_res": {
+                click: "resplus"
+            }
+
 		});
 		
 		App.init('VMain',this.onLoad);
@@ -186,6 +192,14 @@ App.controller.define('CMain', {
         }).show();
     },
 	// VResNew
+    resplus: function(me) {
+        App.view.create('VResNew',{
+            modal: true,
+            d0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
+            d1: App.get(me.up('panel').up('panel'),'datefield#finModule').getValue(),
+            grid: App.get(me.up('panel').up('panel'),'grid#res')
+        }).show();
+    },
 	d0_select: function(p)
 	{
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
@@ -223,8 +237,7 @@ App.controller.define('CMain', {
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
 			id_site: App.get(p,'combo#site').getValue()
-		};
-		
+		};		
 		App.get(p,'combo#salle').getStore().load();
 	},
 	site_onselect: function(p)
