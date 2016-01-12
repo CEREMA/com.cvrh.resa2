@@ -193,17 +193,20 @@ App.controller.define('CMain', {
     },
 	// VResNew
     resplus: function(me) {
-        if (App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue()===null) alert('nul');
-        if ( !App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue() && !App.get(me.up('panel').up('panel'),'datefield#finModule').getValue() )  {
-            App.view.create('VResNew',{
-                modal: true,
-                d0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
-                d1: App.get(me.up('panel').up('panel'),'datefield#finModule').getValue(),
-                grid: App.get(me.up('panel').up('panel'),'grid#res')
-            }).show();
-        } else {
+        if (App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue()===null) {
             alert('Vous devez sélectionner une date de début et de fin du module');
-        }
+            return;
+        };
+        if (App.get(me.up('panel').up('panel'),'datefield#finModule').getValue()===null) {
+            alert('Vous devez sélectionner une date de début et de fin du module');
+            return;
+        };
+        App.view.create('VResNew',{
+            modal: true,
+            d0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
+            d1: App.get(me.up('panel').up('panel'),'datefield#finModule').getValue(),
+            grid: App.get(me.up('panel').up('panel'),'grid#res')
+        }).show();
     },
 	d0_select: function(p)
 	{
