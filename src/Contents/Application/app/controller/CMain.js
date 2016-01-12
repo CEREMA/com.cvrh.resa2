@@ -117,10 +117,7 @@ App.controller.define('CMain', {
     // VResaModule
     resamodule_onshow: function(p)
     {
-        console.log(p);
-        /*alert(p.ID);
-        if (p.ID) alert(p.id);
-        if (p.ID) p.setTitle('Module '+p.id);*/
+        p.items.items[p.items.items.length-1].setTitle('Module '+p.items.items.length);
     },
     
     // VGeff
