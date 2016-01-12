@@ -119,6 +119,7 @@ App.controller.define('CMain', {
     // VResaModule
     resamodule_onshow: function(p)
     {
+        alert(p.id);
         if (p.id) alert(p.id);
         if (p.id) p.setTitle('Module '+p.id);
     },
