@@ -76,6 +76,9 @@ App.controller.define('CMain', {
             "VCreateEvenement button#insert_evenement": {
                 click: "insert_evenement"                  
             },
+            "VCreateEvenement button#newmodule": {
+                click: "new_module"
+            },            
             /*
             VGeff
             */
@@ -116,6 +119,10 @@ App.controller.define('CMain', {
     },
     
 	// VCreateEvenement
+    new_module: function(p)
+    {
+        App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule'));  
+    },
     insert_evenement: function(p)
     {
         App.DB.get('reservation_salles://evenement?num_geff='+App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue(),function(e,r) {
