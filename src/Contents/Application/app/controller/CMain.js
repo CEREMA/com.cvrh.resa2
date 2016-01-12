@@ -155,9 +155,11 @@ App.controller.define('CMain', {
                 };  
                 if (App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()===null) {
                     alert("Le numéro GEFF n'est pas renseigné");  
+                    return;
                 };
                 if (App.get('VCreateEvenement textfield#insert_evenement').getValue()===null) {
                     alert("Le titre de l'évènement n'est pas renseigné");  
+                    return;
                 };
                 App.DB.post('reservation_salles://evenement',obj,function(r){
                     
