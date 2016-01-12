@@ -40,6 +40,18 @@ App.view.define('VCreateEvenement', {
                     hidden: false,
                     border: false,
                     items: [
+                    {
+                        xtype: 'ux-searchbox',
+                        width: "100%",
+                        triggerCls : Ext.baseCSSPrefix + 'form-search-trigger',
+                        itemId: 'searchbox',
+                        width: 200,
+                        itemId: "insert_numGeff",
+                        fieldLabel: "GEFF",
+                        margin: {
+                            bottom: 10
+                        }
+                    },                        
 					{
 						layout: "hbox",
 						border: false,
@@ -64,50 +76,6 @@ App.view.define('VCreateEvenement', {
 						}
 						]
 					},
-						{
-						layout: "hbox",
-						border: false,
-						width: "100%",
-						items: [
-                        {
-				            xtype: 'ux-searchbox',
-				            width: "100%",
-				            triggerCls : Ext.baseCSSPrefix + 'form-search-trigger',
-				            itemId: 'searchbox',
-				            flex: 1,
-							itemId: "insert_numGeff",
-							fieldLabel: "GEFF",
-							margin: {
-								bottom: 10
-							}
-			            },
-				        {
-							xtype: "combo",
-							itemId: "cboSession",
-							flex: 1,
-							margin: {
-								bottom: 10,
-								left: 10
-							},
-							fieldLabel: "Session",
-							labelWidth: 50,
-							editable: false,
-							labelAlign: "left",
-							displayField: "session",
-							valueField: "id",
-							store: App.store.create({
-								fields: ["id","session"],
-								data: [
-								{
-									id: 1,
-									session: "Session 1"
-								}
-								],
-								autoLoad: true
-							})
-						}
-						]
-					},
 					{
 						xtype: 'textfield',
 						itemId: "insert_evenement",
@@ -124,12 +92,29 @@ App.view.define('VCreateEvenement', {
 						editable: false
 					},
                     {
-                        width: "100%",
-                        border: false,
+                        xtype: "combo",
+                        itemId: "cboSession",
+                        flex: 1,
                         margin: {
-                            bottom: 4  
+                            bottom: 10,
+                            left: 10
                         },
-                        html: '<div style="width:100%;border-bottom:1px solid black">Session 1</div>'
+                        fieldLabel: "Session",
+                        labelWidth: 50,
+                        editable: false,
+                        labelAlign: "left",
+                        displayField: "session",
+                        valueField: "id",
+                        store: App.store.create({
+                            fields: ["id","session"],
+                            data: [
+                            {
+                                id: 1,
+                                session: "Session 1"
+                            }
+                            ],
+                            autoLoad: true
+                        })
                     },
 					{
 						xtype: "combo",
