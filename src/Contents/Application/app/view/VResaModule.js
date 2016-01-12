@@ -66,9 +66,9 @@ App.view.define('VResaModule', {
 						handler: function(me) {
 							App.view.create('VResNew',{
 								modal: true,
-								d0: App.get(me.up('window'),'datefield#debutModule').getValue(),
-								d1: App.get(me.up('window'),'datefield#finModule').getValue(),
-								grid: App.get(me.up('window'),'grid#res')
+								d0: App.get(me.up('panel'),'datefield#debutModule').getValue(),
+								d1: App.get(me.up('panel'),'datefield#finModule').getValue(),
+								grid: App.get(me.up('panel'),'grid#res')
 							}).show();
 						}
 					}
