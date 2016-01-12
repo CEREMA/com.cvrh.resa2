@@ -214,6 +214,7 @@ App.view.define('VCreateEvenement', {
 			border: false,
 			flex: 1,
 			layout: "accordion",
+            itemId: "modules",
 			width: "100%",
 			items: [
 				{
