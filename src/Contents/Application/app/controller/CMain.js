@@ -119,10 +119,7 @@ App.controller.define('CMain', {
     // VResaModule
     resamodule_onshow: function(p)
     {
-        console.log(p.up('tabpanel'));
-        alert(p.itemID);
-        if (p.ID) alert(p.id);
-        if (p.ID) p.setTitle('Module '+p.id);
+        p.setTitle('Module '+p.up('tabpanel').items.items.length);
     },
     
     // VGeff
@@ -136,7 +133,7 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     new_module: function(p)
     {
-        App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{itemID: App.get('VCreateEvenement panel#modules').items.items.length}));  
+        App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule'));  
     },
     insert_evenement: function(p)
     {
