@@ -125,7 +125,11 @@ App.view.define('VCreateEvenement', {
 					},
                     {
                         width: "100%",
-                        html: '<div style="width:100%;border:1px solid black">Session 1</div>'
+                        border: false,
+                        margin: {
+                            bottom: 4  
+                        },
+                        html: '<div style="width:100%;border-bottom:1px solid black">Session 1</div>'
                     },
 					{
 						xtype: "combo",
