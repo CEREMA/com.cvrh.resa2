@@ -153,7 +153,6 @@ App.controller.define('CMain', {
                     nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
                     num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
                 };                
-                // On crée l'évènement
                 App.DB.post('reservation_salles://evenement',obj,function(r){
                     // si c'est un nouvel évènement, on crée également une session 1
                     var obj={
@@ -168,7 +167,23 @@ App.controller.define('CMain', {
                     };
                     console.log(obj);
                     App.DB.post('reservation_salles://session',obj,function(r){
-                        // On crée également le module 1 du stage
+                        // On crée également le ou les modules du stage
+                        var panels=App.get('VCreateEvenement panel#modules').items.items;
+                        for (var i=0;i<panels.length;i++) {
+                            var panel=panels[i];
+                            var module=i+1;
+                            var obj={
+                                id_session: r.insertId,
+                                num_module: module,
+                                debutModule: App.get(panel,'datefield#debutModule'),
+                                finModule: App.get(panel,'datefield#finModule'),
+                                status: "I",
+                                statutResa: "FFFF00"
+                            };
+                            App.DB.post('reservation_salles://module',obj,function(r) {
+                                console.log(r);
+                            });
+                        };
                         console.log(r);
                         p.up('window').close();
                     });                    
