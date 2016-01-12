@@ -119,9 +119,9 @@ App.controller.define('CMain', {
     // VResaModule
     resamodule_onshow: function(p)
     {
-        alert(p.id);
-        if (p.id) alert(p.id);
-        if (p.id) p.setTitle('Module '+p.id);
+        alert(p.ID);
+        if (p.ID) alert(p.id);
+        if (p.ID) p.setTitle('Module '+p.id);
     },
     
     // VGeff
