@@ -45,7 +45,7 @@ App.view.define('VCreateEvenement', {
                         width: "100%",
                         triggerCls : Ext.baseCSSPrefix + 'form-search-trigger',
                         itemId: 'searchbox',
-                        width: 200,
+                        width: 250,
                         itemId: "insert_numGeff",
                         fieldLabel: "GEFF",
                         margin: {
@@ -91,15 +91,12 @@ App.view.define('VCreateEvenement', {
 						fieldLabel: "Commentaires",
 						editable: false
 					},
-                    {
-                        xtype: "combo",
-                        itemId: "cboSession",
-                        flex: 1,
-                        margin: {
-                            bottom: 10,
-                            left: 10
-                        },
-                        fieldLabel: "Session",
+					{
+						xtype: 'combo',
+						itemId: "cboSession",
+						width: 250,
+						fieldLabel: "Session",
+						editable: false,
                         labelWidth: 50,
                         editable: false,
                         labelAlign: "left",
@@ -115,7 +112,7 @@ App.view.define('VCreateEvenement', {
                             ],
                             autoLoad: true
                         })
-                    },
+					},                        
 					{
 						xtype: "combo",
 						itemId: "cboCP",
