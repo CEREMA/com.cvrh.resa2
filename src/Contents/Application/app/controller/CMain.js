@@ -119,7 +119,7 @@ App.controller.define('CMain', {
     // VResaModule
     resamodule_onshow: function(p)
     {
-        console.log(p);
+        console.log(p.up('tabpanel'));
         alert(p.itemID);
         if (p.ID) alert(p.id);
         if (p.ID) p.setTitle('Module '+p.id);
