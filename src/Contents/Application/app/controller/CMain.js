@@ -144,6 +144,7 @@ App.controller.define('CMain', {
                     };
                     console.log(obj);
                     App.DB.post('reservation_salles://session',obj,function(r){
+                        // On crée également le module 1 du stage
                         console.log(r);
                         p.up('window').close();
                     });                    
