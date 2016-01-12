@@ -13,7 +13,11 @@ App.view.define('VCreateEvenement', {
 		{
 			text: "Nouvelle session",
 			hidden: true
-		}
+		},
+        {
+			text: "Nouveau module",
+			hidden: false            
+        }
         ];
 		
         this.defaults = {
