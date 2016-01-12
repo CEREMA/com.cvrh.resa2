@@ -104,7 +104,7 @@ App.controller.define('CMain', {
             VResaModule
             */
             "VResaModule": {
-                show: "resamodule_onshow"   
+                render: "resamodule_onshow"   
             }
 		});
 		
