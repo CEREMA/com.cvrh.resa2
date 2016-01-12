@@ -80,7 +80,7 @@ App.controller.define('CMain', {
                 click: "new_module"
             },            
             "VCreateEvenement panel#modules": {
-                add: "new_module"
+                add: "resamodule_onshow"
             },            
             /*
             VGeff
