@@ -7,7 +7,8 @@ App.controller.define('CMain', {
 		"VResaModule",
         "VGeff",
 		"admin.VDayOff",
-		"admin.VBackoffice"
+		"admin.VBackoffice",
+        "VResNew"
 	],
 	
 	models: [
