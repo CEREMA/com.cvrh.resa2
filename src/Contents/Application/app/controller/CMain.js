@@ -118,17 +118,21 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     insert_evenement: function(p)
     {
-        var obj={
+        App.DB.get('reservation_salles://evenement?num_geff='+App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue(),function(e,r) {
+            console.log(r); 
+        });
+        /*var obj={
             id_site: 3,
             id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
-            nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue()
+            nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
+            num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
         };
         console.log(obj);
+        // On crée l'évènement
         App.DB.post('reservation_salles://evenement',obj,function(){
             
-            
         });
-        p.up('window').close();
+        p.up('window').close();*/
     },
 	VCreateEvenement_onshow: function(p)
 	{
