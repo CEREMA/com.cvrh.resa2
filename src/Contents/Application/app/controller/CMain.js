@@ -230,9 +230,6 @@ App.controller.define('CMain', {
 	resa_record: function(p) {
         var grid=p.up('window').grid;
         var dta=App.getData(p.up('window'));
-        console.log('-------------');
-        console.log(dta);
-        console.log('-------------');
         if (dta.p0=="J") dta.d0.setHours(8);
         if (dta.p0=="M") dta.d0.setHours(8);
         if (dta.p0=="A") dta.d0.setHours(14);
@@ -241,14 +238,16 @@ App.controller.define('CMain', {
         if (dta.p1=="A") dta.d1.setHours(14);
         var data=[
         {
+            id_site: App.get(p.up('window'),'combo#site').getValue(),
             id_salle: App.get(p.up('window'),'combo#salle').getValue(),
             nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
             d0: dta.d0,
-            d1: dta.d1/*,
-            afficher: dta.,
-            valider: ,
-            preparation:,
-            choix: */
+            d1: dta.d1,
+            afficher: dta.afficher,
+            valider: dta.valider,
+            preparation: dta.preparation,
+            choix: choix.join(','),
+            comments: dta.comment
         }
         ];
         console.log(data);
