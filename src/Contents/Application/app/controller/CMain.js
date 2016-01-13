@@ -289,6 +289,7 @@ App.controller.define('CMain', {
 	},
 	VResNew_onshow: function(p)
 	{
+		console.log(p);
 		App.get(p,'combo#site').setValue(1);
 		App.get(p,'combo#p0').setValue('J');
 		App.get(p,'combo#p1').setValue('J');
