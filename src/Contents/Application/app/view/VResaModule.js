@@ -89,6 +89,7 @@ App.view.define('VResaModule', {
 					],
 					store: App.store.create({
 					fields:[
+                        "id_site",
 						"id_salle",
 						"nomSalle",
 						"d0",
@@ -96,7 +97,8 @@ App.view.define('VResaModule', {
 						"afficher",
 						"valider",
 						"preparation",
-						"choix"
+						"choix",
+                        "comments"
 					],
 					data:[
 					]
