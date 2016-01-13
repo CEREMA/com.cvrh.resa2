@@ -242,8 +242,8 @@ App.controller.define('CMain', {
         if (dta.p1=="A") dta.d1.setHours(14);
         var data=[
         {
-            id_salle: App.get(p.up('window'),'combo#salle').getValue(),
-            nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
+            id_salle: App.get(p.up('window'),'combo#res_salle').getValue(),
+            nomSalle: App.get(p.up('window'),'combo#res_salle').getRawValue(),
             d0: dta.d0,
             d1: dta.d1/*,
             afficher: dta.,
