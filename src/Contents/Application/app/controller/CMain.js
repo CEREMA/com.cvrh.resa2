@@ -109,8 +109,10 @@ App.controller.define('CMain', {
             */
             "VResaModule button#plus_res": {
                 click: "resplus"
+            },
+            "VResaModule grid": {
+                itemdblclick: "resamodule_click"   
             }
-
 		});
 		
 		App.init('VMain',this.onLoad);
@@ -122,6 +124,14 @@ App.controller.define('CMain', {
     EVT_CURRENT: {},
     
     // VResaModule
+    resamodule_click: function(grid)
+    {
+        var s=grid.getSelectionModel().getSelection();
+        console.log(s);
+        /*App.view.create('VResNew',{
+            itemID:    
+        }*/
+    },
     resamodule_onshow: function(p)
     {
         p.items.items[p.items.items.length-1].setTitle('Module '+p.items.items.length);
