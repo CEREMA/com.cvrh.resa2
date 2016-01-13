@@ -230,7 +230,9 @@ App.controller.define('CMain', {
 	resa_record: function(p) {
         var grid=p.up('window').grid;
         var dta=App.getData(p.up('window'));
+        console.log('-------------');
         console.log(dta);
+        console.log('-------------');
         if (dta.p0=="J") dta.d0.setHours(8);
         if (dta.p0=="M") dta.d0.setHours(8);
         if (dta.p0=="A") dta.d0.setHours(14);
@@ -289,7 +291,7 @@ App.controller.define('CMain', {
 	},
 	VResNew_onshow: function(p)
 	{
-		
+		console.log(p);
 		App.get(p,'combo#site').setValue(1);
 		App.get(p,'combo#p0').setValue('J');
 		App.get(p,'combo#p1').setValue('J');
