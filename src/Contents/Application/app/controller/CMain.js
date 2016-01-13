@@ -104,6 +104,9 @@ App.controller.define('CMain', {
 			"VResNew datefield#d1": {
 				select: "d1_select"
 			},
+            "VResNew button#record": {
+                click: "resa_record"  
+            },
             /*
             VResaModule
             */
@@ -227,6 +230,32 @@ App.controller.define('CMain', {
         }).show();
     },
 	// VResNew
+	resa_record: function(p) {
+        var grid=p.up('window').grid;
+        var dta=App.getData(p.up('window'));
+        console.log(dta);
+        if (dta.p0=="J") dta.d0.setHours(8);
+        if (dta.p0=="M") dta.d0.setHours(8);
+        if (dta.p0=="A") dta.d0.setHours(14);
+        if (dta.p1=="J") dta.d1.setHours(8);
+        if (dta.p1=="M") dta.d1.setHours(8);
+        if (dta.p1=="A") dta.d1.setHours(14);
+        var data=[
+        {
+            id_salle: App.get(p.up('window'),'combo#salle').getValue(),
+            nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
+            d0: dta.d0,
+            d1: dta.d1/*,
+            afficher: dta.,
+            valider: ,
+            preparation:,
+            choix: */
+        }
+        ];
+        console.log(data);
+        grid.getStore().add(data);
+        p.up('window').close();
+    },
     resplus: function(me) {
         if (App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue()===null) {
             alert('Vous devez sélectionner une date de début et de fin du module');
