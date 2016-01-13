@@ -107,6 +107,12 @@ App.controller.define('CMain', {
             "VResNew button#record": {
                 click: "resa_record"  
             },
+            "VResNew combo#select": {
+                select: function(p){
+                    alert(p.getValue());
+                    console.log(p);
+                }
+            },
             /*
             VResaModule
             */
