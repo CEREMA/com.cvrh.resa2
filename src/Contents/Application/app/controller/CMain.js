@@ -299,8 +299,10 @@ App.controller.define('CMain', {
 	VResNew_onshow: function(p)
 	{
 		App.get(p,'combo#site').setValue(1);
+		//App.get(p,'combo#salle').getStore().getProxy().extraParams.id_site=1;
 		App.get(p,'combo#p0').setValue('J');
 		App.get(p,'combo#p1').setValue('J');
+		App.get(p,'combo#site').getStore().load();		
 		App.get(p,'checkboxfield#check_valider').setValue(true);
 		App.get(p,'checkboxfield#check_afficher').setValue(true);
 		App.get(p,'datefield#d0').setMinValue(p.d0);		
