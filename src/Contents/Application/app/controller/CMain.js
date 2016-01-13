@@ -315,6 +315,7 @@ App.controller.define('CMain', {
 			FinRessource: App.get(p,'datefield#d1').getValue(),
 			id_site: 1
 		};
+        alert('x');
 		App.get(p,'combo#salle').getStore().load();
 	},
 	site_onselect: function(p)
