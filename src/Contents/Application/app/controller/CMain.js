@@ -246,7 +246,7 @@ App.controller.define('CMain', {
             afficher: dta.afficher,
             valider: dta.valider,
             preparation: dta.preparation,
-            choix: choix.join(','),
+            choix: dta.choix.join(','),
             comments: dta.comment
         }
         ];
