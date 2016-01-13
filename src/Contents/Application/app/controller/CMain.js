@@ -311,11 +311,11 @@ App.controller.define('CMain', {
 		App.get(p,'datefield#d1').setMaxValue(p.d1);
 		App.get(p,'datefield#d0').setValue(p.d0);		
 		App.get(p,'datefield#d1').setValue(p.d1);
-		App.get(p,'combo#salle').getStore().getProxy().extraParams={
+		/*App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
 			id_site: App.get(p,'combo#site').getValue()
-		};
+		};*/
 		App.get(p,'combo#salle').getStore().load();
 	},
 	site_onselect: function(p)
