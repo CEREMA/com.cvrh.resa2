@@ -107,12 +107,6 @@ App.controller.define('CMain', {
             "VResNew button#record": {
                 click: "resa_record"  
             },
-            "VResNew combo#select": {
-                select: function(p){
-                    alert(p.getValue());
-                    console.log(p);
-                }
-            },
             /*
             VResaModule
             */
@@ -136,10 +130,7 @@ App.controller.define('CMain', {
     resamodule_click: function(grid)
     {
         var s=grid.getSelectionModel().getSelection();
-        console.log(s);
-        /*App.view.create('VResNew',{
-            itemID:    
-        }*/
+        App.view.create('VResNew',s[0].data).show();
     },
     resamodule_onshow: function(p)
     {
