@@ -131,6 +131,7 @@ App.controller.define('CMain', {
     {
         var s=grid.getSelectionModel().getSelection();
         var obj=s[0].data;
+        console.log(grid.up('panel'));
         obj.dd0=App.get(grid.up('panel'),'datefield#debutModule').getValue();
         obj.dd1=App.get(grid.up('panel'),'datefield#finModule').getValue();
         obj.grid=App.get(grid);
