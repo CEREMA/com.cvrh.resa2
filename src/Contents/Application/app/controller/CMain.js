@@ -228,10 +228,8 @@ App.controller.define('CMain', {
     },
 	// VResNew
 	resa_record: function(p) {
-        var grid=p.grid;
-        
-        console.log(grid);
-        
+        var grid=p.up('window').grid;
+            
         var dta=App.getData(p.up('window'));
         if (dta.p0=="J") dta.d0.setHours(8);
         if (dta.p0=="M") dta.d0.setHours(8);
