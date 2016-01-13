@@ -337,6 +337,11 @@ App.controller.define('CMain', {
         App.get(p,'datefield#d0').setValue(p.dd1);
         if (p.comments) App.get(p,'textarea#comment').setValue(p.comments);
         if (p.choix) App.get(p,'boxselect#cboChoix').setValue(p.choix.split(','));
+        console.log({
+			DebutRessource: App.get(p,'datefield#d0').getValue(),
+			FinRessource: App.get(p,'datefield#d1').getValue(),
+			id_site: 1
+		});
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
