@@ -55,7 +55,7 @@ App.view.define('VResNew', {
 				editable: false,
 				valueField: "id_salle",
 				flex: 1,
-				store: App.store.create('App.reservation.getFree',{
+				store: App.store.create('reservation_salles://salle',{
                     listeners: {
                         load: function(v) {
                                 alert('x');
