@@ -340,7 +340,7 @@ App.controller.define('CMain', {
         if (p.comments) App.get(p,'textarea#comment').setValue(p.comments);
         if (p.choix) {
             var tab=p.choix.split(',');
-            console.log(tab);
+            for (var z=0;z<tab.length;z++) tab[z]=tab[z]*1;
             App.get(p,'boxselect#cboChoix').setValue(tab);
         };        
         if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);
