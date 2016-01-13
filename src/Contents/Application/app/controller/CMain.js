@@ -130,7 +130,11 @@ App.controller.define('CMain', {
     resamodule_click: function(grid)
     {
         var s=grid.getSelectionModel().getSelection();
-        App.view.create('VResNew',s[0].data).show();
+        var obj=s[0].data;
+        obj.dd0=App.get(grid.up('panel'),'datefield#debutModule').getValue();
+        obj.dd1=App.get(grid.up('panel'),'datefield#finModule').getValue();
+        obj.grid=App.get(grid);
+        App.view.create('VResNew',obj).show();
     },
     resamodule_onshow: function(p)
     {
