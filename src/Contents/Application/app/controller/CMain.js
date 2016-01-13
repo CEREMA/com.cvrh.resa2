@@ -334,7 +334,7 @@ App.controller.define('CMain', {
         if (p.d1)
 		App.get(p,'datefield#d1').setValue(p.d1);
         else
-        App.get(p,'datefield#d0').setValue(p.dd1);
+        App.get(p,'datefield#d1').setValue(p.dd1);
         if (p.comments) App.get(p,'textarea#comment').setValue(p.comments);
         if (p.choix) App.get(p,'boxselect#cboChoix').setValue(p.choix.split(','));
         console.log({
