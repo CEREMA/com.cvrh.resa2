@@ -232,7 +232,7 @@ App.controller.define('CMain', {
 	// VResNew
 	resa_record: function(p) {
         console.log(App.get(p.up('window'),'combo#salle'));
-        alert(App.get(p.up('window'),'combo#salle').getValue();
+        alert(App.get(p.up('window'),'combo#salle').getValue());
         var grid=p.up('window').grid;
         var dta=App.getData(p.up('window'));
         console.log(dta);
