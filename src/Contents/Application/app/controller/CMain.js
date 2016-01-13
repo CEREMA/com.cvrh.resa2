@@ -338,8 +338,11 @@ App.controller.define('CMain', {
         else
         App.get(p,'datefield#d1').setValue(p.dd1);
         if (p.comments) App.get(p,'textarea#comment').setValue(p.comments);
-        if (p.choix) App.get(p,'boxselect#cboChoix').setValue(p.choix.split(','));
-        App.get(p,'boxselect#cboChoix').setValue([1]);
+        if (p.choix) {
+            var tab=p.choix.split(',');
+            console.log(tab);
+            App.get(p,'boxselect#cboChoix').setValue(tab);
+        };        
         if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);
         
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
