@@ -280,26 +280,25 @@ App.controller.define('CMain', {
     },
 	d0_select: function(p)
 	{
-		/*App.get(p,'combo#salle').getStore().getProxy().extraParams={
+		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
 			id_site: App.get(p.up('window'),'combo#site').getValue()
 		};	
-		App.get(p,'combo#salle').getStore().load();*/
+		App.get(p,'combo#salle').getStore().load();
 	},
 	d1_select: function(p)
 	{
-		/*App.get(p,'combo#salle').getStore().getProxy().extraParams={
+		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
 			id_site: App.get(p.up('window'),'combo#site').getValue()
 		};	
-		App.get(p,'combo#salle').getStore().load();*/
+		App.get(p,'combo#salle').getStore().load();
 	},
 	VResNew_onshow: function(p)
 	{
 		App.get(p,'combo#site').setValue(1);
-		//App.get(p,'combo#salle').getStore().getProxy().extraParams.id_site=1;
 		App.get(p,'combo#p0').setValue('J');
 		App.get(p,'combo#p1').setValue('J');
 		App.get(p,'combo#site').getStore().load();		
@@ -314,7 +313,7 @@ App.controller.define('CMain', {
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
-			id_site: App.get(p,'combo#site').getValue()
+			id_site: 1
 		};
 		App.get(p,'combo#salle').getStore().load();
 	},
