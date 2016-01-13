@@ -243,6 +243,8 @@ App.controller.define('CMain', {
             nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
             d0: dta.d0,
             d1: dta.d1,
+            p0: dta.p0,
+            p1: dta.p1,
             afficher: dta.afficher,
             valider: dta.valider,
             preparation: dta.preparation,
@@ -290,7 +292,21 @@ App.controller.define('CMain', {
 	},
 	VResNew_onshow: function(p)
 	{
-		console.log(p);
+/*
+            id_site: App.get(p.up('window'),'combo#site').getValue(),
+            id_salle: App.get(p.up('window'),'combo#salle').getValue(),
+            nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
+            d0: dta.d0,
+            d1: dta.d1,
+            afficher: dta.afficher,
+            valider: dta.valider,
+            preparation: dta.preparation,
+            choix: dta.choix.join(','),
+            comments: dta.comment
+*/
+        if (p.id_site)
+        App.get(p,'combo#site').setValue(p.id_site);
+        else
 		App.get(p,'combo#site').setValue(1);
 		App.get(p,'combo#p0').setValue('J');
 		App.get(p,'combo#p1').setValue('J');
