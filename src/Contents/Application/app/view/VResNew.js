@@ -54,7 +54,8 @@ App.view.define('VResNew', {
 				displayField: "nomSalle",
 				editable: false,
 				valueField: "id_salle",
-				flex: 1
+				flex: 1,
+				store: App.store.create('App.reservation.getFree')
 			}
 			]
 		},
