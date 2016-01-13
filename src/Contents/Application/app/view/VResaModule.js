@@ -94,6 +94,8 @@ App.view.define('VResaModule', {
 						"nomSalle",
 						"d0",
 						"d1",
+                        "p0",
+                        "p1",
 						"afficher",
 						"valider",
 						"preparation",
