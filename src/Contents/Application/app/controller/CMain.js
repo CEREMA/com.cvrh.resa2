@@ -248,8 +248,8 @@ App.controller.define('CMain', {
         if (dta.p1=="A") dta.d1.setHours(14);
         var data=[
         {
-            id_salle: App.get(p.up('window'),'combo#res_salle').getValue(),
-            nomSalle: App.get(p.up('window'),'combo#res_salle').getRawValue(),
+            id_salle: App.get(p.up('window'),'combo#salle').getValue(),
+            nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
             d0: dta.d0,
             d1: dta.d1/*,
             afficher: dta.,
@@ -299,10 +299,8 @@ App.controller.define('CMain', {
 	VResNew_onshow: function(p)
 	{
 		App.get(p,'combo#site').setValue(1);
-		App.get(p,'combo#salle').getStore().getProxy().extraParams.id_site=1;
 		App.get(p,'combo#p0').setValue('J');
 		App.get(p,'combo#p1').setValue('J');
-		App.get(p,'combo#salle').getStore().load();		
 		App.get(p,'checkboxfield#check_valider').setValue(true);
 		App.get(p,'checkboxfield#check_afficher').setValue(true);
 		App.get(p,'datefield#d0').setMinValue(p.d0);		
@@ -311,11 +309,9 @@ App.controller.define('CMain', {
 		App.get(p,'datefield#d1').setMaxValue(p.d1);
 		App.get(p,'datefield#d0').setValue(p.d0);		
 		App.get(p,'datefield#d1').setValue(p.d1);
-		/*App.get(p,'combo#salle').getStore().getProxy().extraParams={
-			DebutRessource: App.get(p,'datefield#d0').getValue(),
-			FinRessource: App.get(p,'datefield#d1').getValue(),
-			id_site: App.get(p,'combo#site').getValue()
-		};*/
+        App.get(p,'combo#salle').getStore().getProxy().extraParams.DebutRessource=App.get(p,'datefield#d0').getValue();
+        App.get(p,'combo#salle').getStore().getProxy().extraParams.FinRessource=App.get(p,'datefield#d1').getValue();
+        App.get(p,'combo#salle').getStore().getProxy().extraParams.id_site=App.get(p,'combo#site').getValue();
 		App.get(p,'combo#salle').getStore().load();
 	},
 	site_onselect: function(p)
