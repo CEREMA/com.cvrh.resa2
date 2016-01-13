@@ -236,6 +236,7 @@ App.controller.define('CMain', {
         if (dta.p1=="J") dta.d1.setHours(8);
         if (dta.p1=="M") dta.d1.setHours(8);
         if (dta.p1=="A") dta.d1.setHours(14);
+        console.log(dta.choix);
         var data=[
         {
             id_site: App.get(p.up('window'),'combo#site').getValue(),
@@ -338,11 +339,8 @@ App.controller.define('CMain', {
         App.get(p,'datefield#d1').setValue(p.dd1);
         if (p.comments) App.get(p,'textarea#comment').setValue(p.comments);
         if (p.choix) App.get(p,'boxselect#cboChoix').setValue(p.choix.split(','));
-        console.log({
-			DebutRessource: App.get(p,'datefield#d0').getValue(),
-			FinRessource: App.get(p,'datefield#d1').getValue(),
-			id_site: 1
-		});
+        if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);
+        
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
