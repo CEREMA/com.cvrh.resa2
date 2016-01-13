@@ -306,6 +306,7 @@ App.controller.define('CMain', {
             choix: dta.choix.join(','),
             comments: dta.comment
 */
+        console.log(p);
         if (p.id_site)
         App.get(p,'combo#site').setValue(p.id_site);
         else
