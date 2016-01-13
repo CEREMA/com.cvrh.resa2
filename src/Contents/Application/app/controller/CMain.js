@@ -267,8 +267,8 @@ App.controller.define('CMain', {
         };
         App.view.create('VResNew',{
             modal: true,
-            d0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
-            d1: App.get(me.up('panel').up('panel'),'datefield#finModule').getValue(),
+            dd0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
+            dd1: App.get(me.up('panel').up('panel'),'datefield#finModule').getValue(),
             grid: App.get(me.up('panel').up('panel'),'grid#res')
         }).show();
     },
@@ -296,7 +296,9 @@ App.controller.define('CMain', {
             id_site: App.get(p.up('window'),'combo#site').getValue(),
             id_salle: App.get(p.up('window'),'combo#salle').getValue(),
             nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
+            p0: dta.p0,
             d0: dta.d0,
+            p1: dta.p1,
             d1: dta.d1,
             afficher: dta.afficher,
             valider: dta.valider,
@@ -308,17 +310,33 @@ App.controller.define('CMain', {
         App.get(p,'combo#site').setValue(p.id_site);
         else
 		App.get(p,'combo#site').setValue(1);
+        if (p.p0)
+        App.get(p,'combo#p0').setValue(p.p0);
+        else
 		App.get(p,'combo#p0').setValue('J');
+        if (p.p1)
+        App.get(p,'combo#p1').setValue(p.p1);
+        else
 		App.get(p,'combo#p1').setValue('J');
 		App.get(p,'combo#site').getStore().load();		
-		App.get(p,'checkboxfield#check_valider').setValue(true);
-		App.get(p,'checkboxfield#check_afficher').setValue(true);
-		App.get(p,'datefield#d0').setMinValue(p.d0);		
-		App.get(p,'datefield#d0').setMaxValue(p.d1);
-		App.get(p,'datefield#d1').setMinValue(p.d0);		
-		App.get(p,'datefield#d1').setMaxValue(p.d1);
+        
+        if (p.valider) App.get(p,'checkboxfield#check_valider').setValue(true);
+		if (p.afficher) App.get(p,'checkboxfield#check_afficher').setValue(true);
+        if (p.preparation) App.get(p,'checkboxfield#check_preparation').setValue(true);
+		App.get(p,'datefield#d0').setMinValue(p.dd0);	
+		App.get(p,'datefield#d0').setMaxValue(p.dd1);
+		App.get(p,'datefield#d1').setMinValue(p.dd0);		
+		App.get(p,'datefield#d1').setMaxValue(p.dd1);
+        if (p.d0)
 		App.get(p,'datefield#d0').setValue(p.d0);		
+        else
+        App.get(p,'datefield#d0').setValue(p.dd0);		
+        if (p.d1)
 		App.get(p,'datefield#d1').setValue(p.d1);
+        else
+        App.get(p,'datefield#d0').setValue(p.dd1);
+        if (p.comments) App.get(p,'textarea#comment').setValue(p.comments);
+        if (p.choix) App.get(p,'boxselect#cboChoix').setValue(p.choix.split(','));
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
