@@ -212,6 +212,7 @@ App.controller.define('CMain', {
                 var obj={
                     id_site: 3,
                     id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
+                    status: 'I',
                     nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
                     num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
                 };  
