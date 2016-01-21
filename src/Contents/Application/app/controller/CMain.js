@@ -157,7 +157,7 @@ App.controller.define('CMain', {
     updateResources: function(data,ndx,cb)
     {
         var me=this;
-        var dta=data[i].data;
+        var dta=data[ndx].data;
         // on poste les évènements dans le scheduler
         var obj={
             id_salle: dta.id_salle,
@@ -182,8 +182,7 @@ App.controller.define('CMain', {
     updateModules: function(panels,r,ndx,cb)
     {
         var me=this;
-        var panel=panels[i];
-        console.log(panel);
+        var panel=panels[ndx];
         var num_module=i+1;
         var obj={
             id_session: r.insertId,
