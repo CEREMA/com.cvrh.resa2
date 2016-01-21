@@ -309,6 +309,7 @@ App.controller.define('CMain', {
             afficher: dta.afficher
         };
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
+            data[0].id_res=e.insertId;
             grid.getStore().add(data);        
             p.up('window').close();            
         });        
