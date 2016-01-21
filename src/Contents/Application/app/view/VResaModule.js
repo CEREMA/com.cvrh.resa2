@@ -84,6 +84,7 @@ App.view.define('VResaModule', {
 					],
 					store: App.store.create({
 					fields:[
+                        "id_res",
                         "id_site",
 						"id_salle",
 						"nomSalle",
