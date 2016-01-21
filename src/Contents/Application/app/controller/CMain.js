@@ -631,7 +631,7 @@ App.controller.define('CMain', {
 		};
 
 		var scheduler=App.get('schedulergrid#schedule');		
-		scheduler.setTimeColumnWidth(70);
+		scheduler.setTimeColumnWidth(10);
 		
 		var year=now.getFullYear();
 		
