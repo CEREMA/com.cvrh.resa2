@@ -215,7 +215,7 @@ App.controller.define('CMain', {
             choix
             comments*/
                             App.DB.post('reservation_salles://module',obj,function(r) {
-                                var store=App.get(panel,'grid#res').getStore();
+                                var store=App.get(panel,'grid');
                                 console.log(store);
                                 return;
                                 // on poste les évènements dans le scheduler
@@ -239,7 +239,7 @@ App.controller.define('CMain', {
                                 console.log(r);*/
                             });
                         };
-                        p.up('window').close();
+                       //p.up('window').close();
                     });                    
                 });                
             }
