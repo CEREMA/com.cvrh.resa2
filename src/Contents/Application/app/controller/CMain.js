@@ -168,10 +168,10 @@ App.controller.define('CMain', {
                     nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
                     num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
                 };  
-                if (App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()=="") {
+                /*if (App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()=="") {
                     alert("Le numéro GEFF n'est pas renseigné");  
                     return;
-                };
+                };*/
                 if (App.get('VCreateEvenement textfield#insert_evenement').getValue()=="") {
                     alert("Le titre de l'évènement n'est pas renseigné");  
                     return;
