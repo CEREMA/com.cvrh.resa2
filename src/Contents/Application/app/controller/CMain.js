@@ -290,10 +290,28 @@ App.controller.define('CMain', {
             comments: dta.comment
         }
         ];
-        
-        grid.getStore().add(data);
-        
-        p.up('window').close();
+
+        var dta=data[0];
+        // on poste les évènements dans le scheduler
+        var obj={
+            id_salle: dta.id_salle,
+            id_site: dta.id_site,
+            id_choix: dta.choix,
+            debutRessource: dta.d0,
+            periode: dta.p0,
+            finRessource: dta.d1,
+            periodef: dta.p1,
+            preparation: dta.preparation,
+            salleValide: dta.valider,
+            status: "I",
+            commentaire: dta.comments,
+            clsRessource: "yellow",
+            afficher: dta.afficher
+        };
+        App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
+            grid.getStore().add(data);        
+            p.up('window').close();            
+        });        
     },
     resplus: function(me) {
         if (App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue()===null) {
