@@ -202,8 +202,40 @@ App.controller.define('CMain', {
                                 status: "I",
                                 statutResa: "FFFF00"
                             };
-                            console.log(obj);
+/*            id_site:
+            id_salle:
+            nomSalle:
+            d0:
+            d1:
+            p0:
+            p1:
+            afficher
+            valider
+            preparation
+            choix
+            comments*/
                             App.DB.post('reservation_salles://module',obj,function(r) {
+                                var store=App.get(panel,'grid#res').getStore();
+                                console.log(store);
+                                return;
+                                // on poste les évènements dans le scheduler
+                                var obj={
+                                    id_salle: ,
+                                    id_site: ,
+                                    id_choix: ,
+                                    id_module: ,
+                                    debutRessource: ,
+                                    periode: ,
+                                    finRessource: ,
+                                    periodef: ,
+                                    preparation: ,
+                                    salleValide: ,
+                                    status: "I",
+                                    commentaire: ,
+                                    clsRessource: "yellow",
+                                    afficher: ,
+                                    mail:                              
+                                };
                                 console.log(r);
                             });
                         };
@@ -256,7 +288,6 @@ App.controller.define('CMain', {
             comments: dta.comment
         }
         ];
-        console.log(data);
         
         grid.getStore().add(data);
         
