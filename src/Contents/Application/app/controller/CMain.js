@@ -177,8 +177,6 @@ App.controller.define('CMain', {
                     return;
                 };
                 App.DB.post('reservation_salles://evenement',obj,function(r){
-                    console.log(r);
-                    return;
                     // si c'est un nouvel évènement, on crée également une session 1
                     var obj={
                         id_evenement: r.insertId,
@@ -191,6 +189,8 @@ App.controller.define('CMain', {
                         statutResaSession: "FFFF00"
                     };
                     console.log(obj);
+                    console.log(r);
+                    return;
                     App.DB.post('reservation_salles://session',obj,function(r){
                         console.log(r);
                         // On crée également le ou les modules du stage
