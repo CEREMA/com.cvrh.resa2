@@ -238,7 +238,7 @@ App.controller.define('CMain', {
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // On crée également le ou les modules du stage
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
-                        me.updateEvents(panels,0,function() {
+                        me.updateModules(panels,0,function() {
                             p.up('window').close();   
                         });
                     });                    
