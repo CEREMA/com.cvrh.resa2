@@ -219,7 +219,7 @@ App.controller.define('CMain', {
                                 console.log(store);
                                 return;
                                 // on poste les évènements dans le scheduler
-                                var obj={
+                                /*var obj={
                                     id_salle: ,
                                     id_site: ,
                                     id_choix: ,
@@ -236,7 +236,7 @@ App.controller.define('CMain', {
                                     afficher: ,
                                     mail:                              
                                 };
-                                console.log(r);
+                                console.log(r);*/
                             });
                         };
                         p.up('window').close();
