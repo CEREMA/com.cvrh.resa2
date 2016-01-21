@@ -183,7 +183,7 @@ App.controller.define('CMain', {
     {
         var me=this;
         var panel=panels[i];
-        console.log(panel.query('datefield'));
+        console.log(panel);
         var num_module=i+1;
         var obj={
             id_session: r.insertId,
