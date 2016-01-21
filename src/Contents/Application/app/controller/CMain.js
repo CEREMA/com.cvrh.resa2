@@ -179,7 +179,7 @@ App.controller.define('CMain', {
             if (ndx+1<data.length) me.updateResources(data,ndx+1,cb); else cb();
         });
     },
-    updateModules: function(panels,ndx,cb)
+    updateModules: function(panels,r,ndx,cb)
     {
         var me=this;
         var panel=panels[i];
