@@ -154,7 +154,7 @@ App.controller.define('CMain', {
     {
         App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{ID: App.get('VCreateEvenement panel#modules').items.items.length}));  
     },
-    updateResources: function(data,ndx,cb)
+    updateResources: function(data,r,ndx,cb)
     {
         var me=this;
         var dta=data[ndx].data;
@@ -176,7 +176,7 @@ App.controller.define('CMain', {
             afficher: dta.afficher
         };
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
-            if (ndx+1<data.length) me.updateResources(data,ndx+1,cb); else cb();
+            if (ndx+1<data.length) me.updateResources(data,r,ndx+1,cb); else cb();
         });
     },
     updateModules: function(panels,r,ndx,cb)
@@ -194,7 +194,7 @@ App.controller.define('CMain', {
         };
         App.DB.post('reservation_salles://module',obj,function(r) {
             var data=App.get(panel,'grid').getStore().data.items;
-            me.updateResources(data,0,function() {
+            me.updateResources(data,r,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
             });
         });
