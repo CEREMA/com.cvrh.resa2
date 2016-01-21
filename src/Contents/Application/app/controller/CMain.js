@@ -202,41 +202,46 @@ App.controller.define('CMain', {
                                 status: "I",
                                 statutResa: "FFFF00"
                             };
-/*            id_site:
-            id_salle:
-            nomSalle:
-            d0:
-            d1:
-            p0:
-            p1:
-            afficher
-            valider
-            preparation
-            choix
-            comments*/
+/*            id_site: 1 
+            id_salle: 1
+            nomSalle: 
+            d0: 1
+            d1: 1
+            p0: 1
+            p1: 1
+            afficher 1
+            valider 1
+            preparation 1
+            choix 1
+            comments 1
+            */
                             App.DB.post('reservation_salles://module',obj,function(r) {
-                                var store=App.get(panel,'grid').getStore();
-                                console.log(store);
-                                return;
-                                // on poste les évènements dans le scheduler
-                                /*var obj={
-                                    id_salle: ,
-                                    id_site: ,
-                                    id_choix: ,
-                                    id_module: ,
-                                    debutRessource: ,
-                                    periode: ,
-                                    finRessource: ,
-                                    periodef: ,
-                                    preparation: ,
-                                    salleValide: ,
-                                    status: "I",
-                                    commentaire: ,
-                                    clsRessource: "yellow",
-                                    afficher: ,
-                                    mail:                              
+                                var data=App.get(panel,'grid').getStore().data.items;
+                                for (var i=0;i<data.length;i++) {
+                                    var dta=data[i];
+                                    // on poste les évènements dans le scheduler
+                                    var obj={
+                                        id_salle: dta.id_salle,
+                                        id_site: dta.id_site,
+                                        id_choix: dta.choix,
+                                        id_module: r.insertId,
+                                        debutRessource: dta.d0,
+                                        periode: dta.p0,
+                                        finRessource: dta.d1,
+                                        periodef: dta.p1,
+                                        preparation: dta.preparation,
+                                        salleValide: dta.valider,
+                                        status: "I",
+                                        commentaire: dta.comments,
+                                        clsRessource: "yellow",
+                                        afficher: dta.afficher
+                                    };
+                                    console.log(obj);
+                                    App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
+                                        console.log(r); 
+                                    });
                                 };
-                                console.log(r);*/
+                                return;
                             });
                         };
                        //p.up('window').close();
