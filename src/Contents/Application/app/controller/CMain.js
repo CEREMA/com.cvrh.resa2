@@ -218,7 +218,7 @@ App.controller.define('CMain', {
                             App.DB.post('reservation_salles://module',obj,function(r) {
                                 var data=App.get(panel,'grid').getStore().data.items;
                                 for (var i=0;i<data.length;i++) {
-                                    var dta=data[i];
+                                    var dta=data[i].data;
                                     // on poste les évènements dans le scheduler
                                     var obj={
                                         id_salle: dta.id_salle,
