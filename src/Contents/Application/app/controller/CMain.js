@@ -160,20 +160,8 @@ App.controller.define('CMain', {
         var dta=data[ndx].data;
         // on poste les évènements dans le scheduler
         var obj={
-            id_salle: dta.id_salle,
-            id_site: dta.id_site,
-            id_choix: dta.choix,
-            id_module: r.insertId,
-            debutRessource: dta.d0,
-            periode: dta.p0,
-            finRessource: dta.d1,
-            periodef: dta.p1,
-            preparation: dta.preparation,
-            salleValide: dta.valider,
-            status: "I",
-            commentaire: dta.comments,
-            clsRessource: "yellow",
-            afficher: dta.afficher
+            id_res: dta.id_res,
+            id_module: r.insertId
         };
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
             if (ndx+1<data.length) me.updateResources(data,r,ndx+1,cb); else cb();
