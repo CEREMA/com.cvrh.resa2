@@ -181,7 +181,7 @@ App.view.define('VMain', {
             itemId: "schedule",
 			timeAxis: new MyTimeAxis(),
 			enableEventDragDrop:false,
-            columnWidth: 0.5,
+            columnWidth: 2,
             viewPreset:'CVRH_VIEW',
             rowHeight: 32,
 			allowOverlap: false,
