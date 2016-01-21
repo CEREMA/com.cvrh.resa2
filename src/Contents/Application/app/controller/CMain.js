@@ -188,11 +188,9 @@ App.controller.define('CMain', {
                         dateAvis: App.get('VCreateEvenement datefield#date_avis').getValue(),
                         statutResaSession: "FFFF00"
                     };
-                    console.log(obj);
-                    console.log(r);
-                    return;
                     App.DB.post('reservation_salles://session',obj,function(r){
                         console.log(r);
+                        return;
                         // On crée également le ou les modules du stage
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
                         for (var i=0;i<panels.length;i++) {
