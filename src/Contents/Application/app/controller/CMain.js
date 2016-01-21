@@ -71,8 +71,7 @@ App.controller.define('CMain', {
 				show: "VCreateEvenement_onshow"
 			},
 			"VCreateEvenement ux-searchbox#insert_numGeff" : {
-				click: "onGEFF"/*,
-				keyup: "onGEFF"*/
+				click: "onGEFF"
 			},
             "VCreateEvenement button#insert_evenement": {
                 click: "insert_evenement"                  
@@ -160,6 +159,7 @@ App.controller.define('CMain', {
         App.DB.get('reservation_salles://evenement?num_geff='+App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue(),function(e,r) {
             if (r.result.data.length>0) {
                 // l'évènement existe déjà !   
+                alert('existe');
             } else {
                 // on crée l'évènement
                 var obj={
