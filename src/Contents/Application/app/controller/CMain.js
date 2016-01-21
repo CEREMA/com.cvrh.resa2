@@ -229,7 +229,7 @@ App.controller.define('CMain', {
                                 };
                             });
                         };
-                       p.up('window').close();
+                       //p.up('window').close();
                     });                    
                 });                
             }
