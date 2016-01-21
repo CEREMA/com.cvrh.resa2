@@ -154,8 +154,54 @@ App.controller.define('CMain', {
     {
         App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{ID: App.get('VCreateEvenement panel#modules').items.items.length}));  
     },
+    updateResources: function(data,ndx,cb)
+    {
+        var me=this;
+        var dta=data[i].data;
+        // on poste les évènements dans le scheduler
+        var obj={
+            id_salle: dta.id_salle,
+            id_site: dta.id_site,
+            id_choix: dta.choix,
+            id_module: r.insertId,
+            debutRessource: dta.d0,
+            periode: dta.p0,
+            finRessource: dta.d1,
+            periodef: dta.p1,
+            preparation: dta.preparation,
+            salleValide: dta.valider,
+            status: "I",
+            commentaire: dta.comments,
+            clsRessource: "yellow",
+            afficher: dta.afficher
+        };
+        App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
+            if (ndx+1<data.length) me.updateResources(data,ndx+1,cb); else cb();
+        });
+    },
+    updateModules: function(panels,ndx,cb)
+    {
+        var me=this;
+        var panel=panels[i];
+        var num_module=i+1;
+        var obj={
+            id_session: r.insertId,
+            num_module: num_module,
+            debutModule: App.get(panel,'datefield#debutModule').getValue(),
+            finModule: App.get(panel,'datefield#finModule').getValue(),
+            status: "I",
+            statutResa: "FFFF00"
+        };
+        App.DB.post('reservation_salles://module',obj,function(r) {
+            var data=App.get(panel,'grid').getStore().data.items;
+            me.updateResources(data,0,function() {
+                if (ndx+1<panels.length) me.updateModules(panels,ndx+1,cb); else cb();
+            });
+    },
     insert_evenement: function(p)
     {
+        var me=this;
+        p.setDisabled(true);
         App.DB.get('reservation_salles://evenement?num_geff='+App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue(),function(e,r) {
             if (r.result.data.length>0) {
                 // l'évènement existe déjà !   
@@ -191,45 +237,9 @@ App.controller.define('CMain', {
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // On crée également le ou les modules du stage
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
-                        for (var i=0;i<panels.length;i++) {
-                            var panel=panels[i];
-                            var num_module=i+1;
-                            var obj={
-                                id_session: r.insertId,
-                                num_module: num_module,
-                                debutModule: App.get(panel,'datefield#debutModule').getValue(),
-                                finModule: App.get(panel,'datefield#finModule').getValue(),
-                                status: "I",
-                                statutResa: "FFFF00"
-                            };
-                            App.DB.post('reservation_salles://module',obj,function(r) {
-                                var data=App.get(panel,'grid').getStore().data.items;
-                                for (var i=0;i<data.length;i++) {
-                                    var dta=data[i].data;
-                                    // on poste les évènements dans le scheduler
-                                    var obj={
-                                        id_salle: dta.id_salle,
-                                        id_site: dta.id_site,
-                                        id_choix: dta.choix,
-                                        id_module: r.insertId,
-                                        debutRessource: dta.d0,
-                                        periode: dta.p0,
-                                        finRessource: dta.d1,
-                                        periodef: dta.p1,
-                                        preparation: dta.preparation,
-                                        salleValide: dta.valider,
-                                        status: "I",
-                                        commentaire: dta.comments,
-                                        clsRessource: "yellow",
-                                        afficher: dta.afficher
-                                    };
-                                    App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
-                                        
-                                    });
-                                };
-                            });
-                        };
-                       //p.up('window').close();
+                        me.updateEvents(panels,0,function() {
+                            p.up('window').close();   
+                        });
                     });                    
                 });                
             }
