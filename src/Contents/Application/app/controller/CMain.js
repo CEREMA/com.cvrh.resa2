@@ -197,6 +197,7 @@ App.controller.define('CMain', {
             me.updateResources(data,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,ndx+1,cb); else cb();
             });
+        });
     },
     insert_evenement: function(p)
     {
