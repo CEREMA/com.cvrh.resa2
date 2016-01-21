@@ -178,6 +178,7 @@ App.controller.define('CMain', {
                 };
                 App.DB.post('reservation_salles://evenement',obj,function(r){
                     console.log(r);
+                    return;
                     // si c'est un nouvel évènement, on crée également une session 1
                     var obj={
                         id_evenement: r.insertId,
