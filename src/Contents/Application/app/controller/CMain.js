@@ -215,7 +215,7 @@ App.controller.define('CMain', {
             choix
             comments*/
                             App.DB.post('reservation_salles://module',obj,function(r) {
-                                var store=App.get(panel,'grid');
+                                var store=App.get(panel,'grid').getStore();
                                 console.log(store);
                                 return;
                                 // on poste les évènements dans le scheduler
