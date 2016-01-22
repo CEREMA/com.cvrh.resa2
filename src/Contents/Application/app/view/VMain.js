@@ -293,7 +293,7 @@ App.view.define('VMain', {
                 sortable: true,
                 field: new Ext.form.TextField()
             }],            
-            eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, StartDate, EndDate, User, IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
+            eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, StartDate, EndDate, User, 'yellow'=Cls}"),
             resourceStore: App.resourcestore.create("App.resources.getAll",{autLoad: true})
         }]
     }]
