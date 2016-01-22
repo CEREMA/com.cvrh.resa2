@@ -313,7 +313,7 @@ App.controller.define('CMain', {
         };
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;            
-            grid.getStore().add(data);        
+            grid.getStore().add(data);    
             p.up('window').close();            
         });        
     },
