@@ -338,21 +338,21 @@ App.controller.define('CMain', {
     },
 	d0_select: function(p)
 	{
-		App.get(p,'combo#salle').getStore().getProxy().extraParams={
+		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
 			id_site: App.get(p.up('window'),'combo#site').getValue()
 		};	
-		App.get(p,'combo#salle').getStore().load();
+		App.get(p.up('window'),'combo#salle').getStore().load();
 	},
 	d1_select: function(p)
 	{
-		App.get(p,'combo#salle').getStore().getProxy().extraParams={
+		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
 			id_site: App.get(p.up('window'),'combo#site').getValue()
 		};	
-		App.get(p,'combo#salle').getStore().load();
+		App.get(p.up('window'),'combo#salle').getStore().load();
 	},
 	VResNew_onshow: function(p)
 	{
