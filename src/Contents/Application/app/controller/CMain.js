@@ -170,7 +170,6 @@ App.controller.define('CMain', {
     {
         var me=this;
         var panel=panels[ndx];        
-        alert(panel.title);
         var obj={
             id_session: r.insertId,
             num_module: panel.title.split('Module ')[1],
@@ -432,7 +431,7 @@ App.controller.define('CMain', {
     
 	grid_dblclick: function(v,rec)
     {
-        console.log(rec);
+        console.log(rec.data);
     },
 	select_month: function(p)
 	{
