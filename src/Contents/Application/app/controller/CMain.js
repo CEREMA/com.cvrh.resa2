@@ -53,10 +53,8 @@ App.controller.define('CMain', {
                 dragcreateend: "no_grid_drag_end",
                 eventdrop: "no_grid_drop",
                 eventmouseleave: "grid_mouse_leave",
-                eventmouseenter: "grid_mouse_enter"                
-                /*
-                eventdblclick: "grid_dblclick",
-				*/
+                eventmouseenter: "grid_mouse_enter",
+                eventdblclick: "grid_dblclick"
             },
 			/*
 			OpenEvenement
@@ -429,7 +427,11 @@ App.controller.define('CMain', {
 	},
 	
 	// Main Screen events ///////////////////////////////////////////////////////
-	
+    
+	grid_dblclick: function(v,rec)
+    {
+        console.log(rec);
+    },
 	select_month: function(p)
 	{
 		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),p.getValue(),1));
