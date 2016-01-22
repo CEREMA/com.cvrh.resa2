@@ -346,7 +346,7 @@ App.controller.define('CMain', {
 	},
 	VResNew_onshow: function(p)
 	{
-        var s=grid.getSelectionModel().getSelection();
+        var s=p.grid.getSelectionModel().getSelection();
         if (s.length>0) {
             App.get(p,'panel#resa_site').hide();  
         };
