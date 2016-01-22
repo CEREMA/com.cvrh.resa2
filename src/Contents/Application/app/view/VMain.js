@@ -271,7 +271,7 @@ App.view.define('VMain', {
 				}
 			],
             plugins: [
-                Ext.create("Ext.ux.Scheduler.plugin.Zones", {
+                /*Ext.create("Ext.ux.Scheduler.plugin.Zones", {
                     showHeaderElements: true,
                     innerTpl: '<span class="zone-type">{Type}</span>',
                     store: App.store.create({
@@ -282,7 +282,7 @@ App.view.define('VMain', {
                             ]
                         })
                     })
-                })
+                })*/
             ],
             heigth: 2000,
             columns: [{
