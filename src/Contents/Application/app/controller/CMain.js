@@ -524,8 +524,8 @@ App.controller.define('CMain', {
                         str = str.replace('{num_session}', r.data.num_session);
                         str = str.replace('{num_module}', r.data.num_module);
                         str = str.replace('{initial}', r.data.initial);
-                        str = str.replace('{debut}', r.data.debut.toDate().toString('dd/mm/yyyy'));
-                        str = str.replace('{fin}', r.data.fin.toDate().toString('dd/mm/yyyy'));
+                        str = str.replace('{debut}', r.data.debut.toDate().toString('dd/mmm/yyyy'));
+                        str = str.replace('{fin}', r.data.fin.toDate().toString('dd/mmm/yyyy'));
                         str = str.replace('{nom}', r.data.nom);
                         str = str.replace('{prenom}', r.data.prenom);
                         if (r.data.dateAvis)
