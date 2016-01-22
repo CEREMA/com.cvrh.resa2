@@ -170,9 +170,10 @@ App.controller.define('CMain', {
     {
         var me=this;
         var panel=panels[ndx];        
+        alert(panel.title);
         var obj={
             id_session: r.insertId,
-            num_module: panel.title.split('module ')[1],
+            num_module: panel.title.split('Module ')[1],
             debutModule: App.get(panel,'datefield#debutModule').getValue(),
             finModule: App.get(panel,'datefield#finModule').getValue(),
             status: "I",
