@@ -699,7 +699,7 @@ App.controller.define('CMain', {
 					Type: "Week-end"
 				});
 			};
-			scheduler.plugins[0].store.loadData(r.result.data);
+			//scheduler.plugins[0].store.loadData(r.result.data);
 		});
 	},
 	
