@@ -70,7 +70,8 @@
         "GEFF"
     ],
     "db": [
-        "reservation_salles"
+        "reservation_salles",
+        "sapei"
     ],
     "packages": [
         "nodemailer",
