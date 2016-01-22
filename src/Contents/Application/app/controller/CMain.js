@@ -158,10 +158,10 @@ App.controller.define('CMain', {
     {
         var me=this;
         var dta=data[ndx].data;
-        console.log(dta);
+        
         // on poste les évènements dans le scheduler
         var obj={
-            id_res: dta.id_res,
+            id_ressource: dta.id_res,
             id_module: r.insertId
         };
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
