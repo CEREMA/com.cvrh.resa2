@@ -284,8 +284,11 @@ App.controller.define('CMain', {
         ];
         if (old_obj) {
             data[0].id_salle=old_obj.id_salle;
-            data[0].nomSalle=old_obj.nom_salle;
-        };
+            data[0].nomSalle=old_obj.nomSalle;
+        } else {
+            data[0].id_salle=App.get(p,'combo#salle').getValue();
+            data[0].nomSalle=App.get(p,'combo#salle').getRawValue();
+        }
 
         var dta=data[0];
         // on poste les évènements dans le scheduler
