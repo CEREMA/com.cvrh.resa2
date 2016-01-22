@@ -297,6 +297,7 @@ App.controller.define('CMain', {
             clsRessource: "yellow",
             afficher: dta.afficher
         };
+        alert(grid.id_res);
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
             data[0].id_res=e.insertId;
             grid.getStore().add(data);        
