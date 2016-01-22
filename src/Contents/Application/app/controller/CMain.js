@@ -227,6 +227,8 @@ App.controller.define('CMain', {
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
                         me.updateModules(panels,r,0,function() {
                             p.up('window').close();   
+                            // on raffraichit la grid
+                            App.get('mainform schedulergrid#schedule').getEventStore().load();
                         });
                     });                    
                 });                
