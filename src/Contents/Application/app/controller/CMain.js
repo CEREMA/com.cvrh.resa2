@@ -303,7 +303,7 @@ App.controller.define('CMain', {
             clsRessource: "yellow",
             afficher: dta.afficher
         };
-        if (old_obj.id_res) obj.id_res=old_obj.id_res;
+        if (old_obj) obj.id_res=old_obj.id_res;
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);        
