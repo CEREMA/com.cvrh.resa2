@@ -307,10 +307,10 @@ App.controller.define('CMain', {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
         };
-        alert(obj.id_res);
+        /*alert(obj.id_res);*/
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;            
-            alert(data[0].id_res);
+            /*alert(data[0].id_res);*/
             grid.getStore().add(data);    
             p.up('window').close();            
         });        
