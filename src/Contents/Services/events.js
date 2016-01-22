@@ -22,19 +22,7 @@ events = {
 
             for (var i = 0; i < r.data.length; i++) {
                 var debut = r.data[i].StartDate;
-                /*var mm = ((debut.getMonth() + 1) >= 10) ? (debut.getMonth() + 1) : '0' + (debut.getMonth() + 1);
-                var dd = ((debut.getDate()) >= 10) ? (debut.getDate()) : '0' + (debut.getDate());
-                var yyyy = debut.getFullYear();
-                var h = debut.getHours()
-                var dateDebut = dd + "/" + mm + "/" + yyyy + " " + h + " h"; //yyyy-mm-dd
-                */
                 var fin = r.data[i].EndDate;
-                /*
-                var mm = ((fin.getMonth() + 1) >= 10) ? (fin.getMonth() + 1) : '0' + (fin.getMonth() + 1);
-                var dd = ((fin.getDate()) >= 10) ? (fin.getDate()) : '0' + (fin.getDate());
-                var yyyy = fin.getFullYear();
-                var h = fin.getHours()
-                var dateFin = dd + "/" + mm + "/" + yyyy + " " + h + " h"; //yyyy-mm-dd*/
 				r.data[i].nomprenom=r.data[i].prenom+' '+r.data[i].nom;
                 r.data[i].debut = debut;
                 r.data[i].fin = fin;
