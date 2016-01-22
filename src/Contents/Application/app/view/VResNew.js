@@ -29,6 +29,7 @@ App.view.define('VResNew', {
 		{
 			layout: "hbox",
 			border: false,
+            itemId: "resa_site",
 			padding: 10,
 			width: "100%",
 			items: [
