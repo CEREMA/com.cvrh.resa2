@@ -169,11 +169,10 @@ App.controller.define('CMain', {
     updateModules: function(panels,r,ndx,cb)
     {
         var me=this;
-        var panel=panels[ndx];
-        var num_module=i+1;
+        var panel=panels[ndx];        
         var obj={
             id_session: r.insertId,
-            num_module: num_module,
+            num_module: panel.title.split('module ')[1],
             debutModule: App.get(panel,'datefield#debutModule').getValue(),
             finModule: App.get(panel,'datefield#finModule').getValue(),
             status: "I",
