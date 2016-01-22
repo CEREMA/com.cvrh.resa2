@@ -270,25 +270,11 @@ App.view.define('VMain', {
 					itemId: "Legendes"
 				}
 			],
-            plugins: [
-                /*Ext.create("Ext.ux.Scheduler.plugin.Zones", {
-                    showHeaderElements: true,
-                    innerTpl: '<span class="zone-type">{Type}</span>',
-                    store: App.store.create({
-                        model: App.model.create({
-                            extend: 'Ext.ux.Scheduler.model.Range',
-                            fields: [
-                                'Type'
-                            ]
-                        })
-                    })
-                })*/
-            ],
             heigth: 2000,
             columns: [{
                 header: 'Salles',
                 dataIndex: 'Name',
-                width: 150,
+                /*width: 150,*/
                 tdCls: 'user',
                 sortable: true,
                 field: new Ext.form.TextField()
