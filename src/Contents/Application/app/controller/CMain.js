@@ -660,8 +660,8 @@ App.controller.define('CMain', {
 			scheduler.getResourceStore().getProxy().extraParams.fin = fin;
 			scheduler.getResourceStore().getProxy().extraParams.NumLogin = agent;
 			scheduler.getResourceStore().load();
-			/*scheduler.getEventStore().getProxy().extraParams.NumLogin = agent;
-			scheduler.getEventStore().load();			*/
+			scheduler.getEventStore().getProxy().extraParams.NumLogin = agent;
+			scheduler.getEventStore().load();
 		};
 		if (!agent) App.get('combo#selectAgent').setValue(0);
 		
