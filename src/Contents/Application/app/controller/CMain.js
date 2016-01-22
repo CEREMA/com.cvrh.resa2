@@ -254,6 +254,12 @@ App.controller.define('CMain', {
 	// VResNew
 	resa_record: function(p) {
         var grid=p.up('window').grid;
+        var s=grid.getSelectionModel().getSelection();
+        var old_obj=s[0].data;
+        
+        console.log('------------------');
+        console.log(old_obj);
+        console.log('------------------');
             
         var dta=App.getData(p.up('window'));
         if (dta.p0=="J") dta.d0.setHours(8);
@@ -297,7 +303,7 @@ App.controller.define('CMain', {
             clsRessource: "yellow",
             afficher: dta.afficher
         };
-        alert(grid.id_res);
+        
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
             data[0].id_res=e.insertId;
             grid.getStore().add(data);        
