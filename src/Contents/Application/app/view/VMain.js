@@ -181,10 +181,10 @@ App.view.define('VMain', {
             itemId: "schedule",
 			timeAxis: new MyTimeAxis(),
 			enableEventDragDrop:false,
-            /*columnWidth: 2,*/
+            columnWidth: 2,
             viewPreset:'CVRH_VIEW',
-            /*rowHeight: 32,*/
-			/*allowOverlap: false,*/
+            rowHeight: 32,
+			allowOverlap: false,
             tbar: [
 			{
                 xtype: "combo",
@@ -270,16 +270,30 @@ App.view.define('VMain', {
 					itemId: "Legendes"
 				}
 			],
+            plugins: [
+                Ext.create("Ext.ux.Scheduler.plugin.Zones", {
+                    showHeaderElements: true,
+                    innerTpl: '<span class="zone-type">{Type}</span>',
+                    store: App.store.create({
+                        model: App.model.create({
+                            extend: 'Ext.ux.Scheduler.model.Range',
+                            fields: [
+                                'Type'
+                            ]
+                        })
+                    })
+                })
+            ],
             heigth: 2000,
             columns: [{
                 header: 'Salles',
                 dataIndex: 'Name',
                 width: 150,
-                /*tdCls: 'user',*/
+                tdCls: 'user',
                 sortable: true,
                 field: new Ext.form.TextField()
             }],            
-            eventStore: App.eventstore.create("reservation_salles://ressourcesalles{id_ressource=Id,id_salle=ResourceId,debutRessource=StartDate,finRessource=EndDate,'000'=User,'yellow'=Cls}"),
+            eventStore: App.eventstore.create("reservation_salles://ressourcesalles{id_ressource=Id,id_salle=ResourceId,debutRessource=StartDate,finRessource=EndDate,'000'=User,'yellow'=Cls}",{autoLoad: true}),
             resourceStore: App.resourcestore.create("App.resources.getAll",{autLoad: true})
         }]
     }]
