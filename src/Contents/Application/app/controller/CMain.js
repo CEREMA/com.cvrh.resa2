@@ -255,7 +255,11 @@ App.controller.define('CMain', {
 	resa_record: function(p) {
         var grid=p.up('window').grid;
         var s=grid.getSelectionModel().getSelection();
-        if (s.length>0) var old_obj=s[0].data;
+        if (s.length>0) {
+                var old_obj=s[0].data;
+                var row = grid.getStore().indexOf(s[0]);
+                alert(row);
+        };
         
         console.log('------------------');
         console.log(old_obj);
@@ -269,12 +273,29 @@ App.controller.define('CMain', {
         if (dta.p1=="M") dta.d1.setHours(8);
         if (dta.p1=="A") dta.d1.setHours(14);
         
+        var data=[
+        {
+            id_site: App.get(p.up('window'),'combo#site').getValue(),
+            id_salle: App.get(p.up('window'),'combo#salle').getValue(),
+            nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
+            d0: dta.d0,
+            d1: dta.d1,
+            p0: dta.p0,
+            p1: dta.p1,
+            afficher: dta.afficher,
+            valider: dta.valider,
+            preparation: dta.preparation,
+            choix: dta.choix.join(','),
+            comments: dta.comment
+        }
+        ];
+
+        var dta=data[0];
         // on poste les évènements dans le scheduler
         var obj={
-            id_salle: App.get(p.up('window'),'combo#salle').getValue(),
-            id_site: App.get(p.up('window'),'combo#site').getValue(),
-            id_choix: dta.choix.join(','),
-            nom_salle: App.get(p.up('window'),'combo#salle').getRawValue(),
+            id_salle: dta.id_salle,
+            id_site: dta.id_site,
+            id_choix: dta.choix,
             debutRessource: dta.d0,
             periode: dta.p0,
             finRessource: dta.d1,
@@ -289,7 +310,7 @@ App.controller.define('CMain', {
         if (old_obj) obj.id_res=old_obj.id_res;
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
-            grid.getStore().load();        
+            grid.getStore().add(data);        
             p.up('window').close();            
         });        
     },
