@@ -346,21 +346,10 @@ App.controller.define('CMain', {
 	},
 	VResNew_onshow: function(p)
 	{
-/*
-            id_site: App.get(p.up('window'),'combo#site').getValue(),
-            id_salle: App.get(p.up('window'),'combo#salle').getValue(),
-            nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
-            p0: dta.p0,
-            d0: dta.d0,
-            p1: dta.p1,
-            d1: dta.d1,
-            afficher: dta.afficher,
-            valider: dta.valider,
-            preparation: dta.preparation,
-            choix: dta.choix.join(','),
-            comments: dta.comment
-*/
-        console.log(p);
+        var s=grid.getSelectionModel().getSelection();
+        if (s.length>0) {
+            App.get(p,'panel#resa_site').hide();  
+        };
         if (p.id_site)
         App.get(p,'combo#site').setValue(p.id_site);
         else
