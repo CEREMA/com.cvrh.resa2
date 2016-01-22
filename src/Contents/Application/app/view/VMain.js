@@ -181,10 +181,10 @@ App.view.define('VMain', {
             itemId: "schedule",
 			timeAxis: new MyTimeAxis(),
 			enableEventDragDrop:false,
-            columnWidth: 2,
+            /*columnWidth: 2,*/
             viewPreset:'CVRH_VIEW',
-            rowHeight: 32,
-			allowOverlap: false,
+            /*rowHeight: 32,*/
+			/*allowOverlap: false,*/
             tbar: [
 			{
                 xtype: "combo",
