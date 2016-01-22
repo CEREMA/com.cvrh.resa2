@@ -291,6 +291,7 @@ App.controller.define('CMain', {
             id_salle: dta.id_salle,
             id_site: dta.id_site,
             id_choix: dta.choix,
+            nom_salle: App.get(p.up('window'),'combo#salle').getRawValue(),
             debutRessource: dta.d0,
             periode: dta.p0,
             finRessource: dta.d1,
