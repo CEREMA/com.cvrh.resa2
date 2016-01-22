@@ -550,8 +550,6 @@ App.controller.define('CMain', {
 	
 	do_new_evt: function()
 	{
-        App.get('mainform schedulergrid#schedule').getEventStore().load();
-        return;
 		App.view.create('VCreateEvenement',{
 			modal: true,
 			session: 1
