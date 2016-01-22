@@ -275,7 +275,7 @@ App.view.define('VMain', {
                 header: 'Salles',
                 dataIndex: 'Name',
                 width: 150,
-                tdCls: 'user',
+                /*tdCls: 'user',*/
                 sortable: true,
                 field: new Ext.form.TextField()
             }],            
