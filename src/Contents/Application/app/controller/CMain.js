@@ -436,7 +436,7 @@ App.controller.define('CMain', {
 	},
 	select_agent: function(p)
 	{
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),2,App.get('combo#selectAgent').getValue());
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0,App.get('combo#selectAgent').getValue());
 	},
 	select_year: function(p)
 	{
@@ -645,7 +645,7 @@ App.controller.define('CMain', {
 		};
 
 		var scheduler=App.get('schedulergrid#schedule');		
-		//scheduler.setTimeColumnWidth(10);
+		scheduler.setTimeColumnWidth(10);
 		
 		var year=now.getFullYear();
 		
@@ -663,7 +663,8 @@ App.controller.define('CMain', {
 			scheduler.getEventStore().getProxy().extraParams.NumLogin = agent;
 			scheduler.getEventStore().load();
 		};
-		if (!agent) App.get('combo#selectAgent').setValue(0);
+		
+        if (!agent) App.get('combo#selectAgent').setValue(0);
 		
 		scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
 		scheduler.getResourceStore().load();	
@@ -700,6 +701,7 @@ App.controller.define('CMain', {
 			scheduler.plugins[0].store.loadData(r.result.data);
             scheduler.getEventStore().load();
 		});
+        
 	},
 	
 	// Authentication ////////////////////////////////////////////////////////////////
