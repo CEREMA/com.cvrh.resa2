@@ -286,8 +286,8 @@ App.controller.define('CMain', {
             data[0].id_salle=old_obj.id_salle;
             data[0].nomSalle=old_obj.nomSalle;
         } else {
-            data[0].id_salle=App.get(p,'combo#salle').getValue();
-            data[0].nomSalle=App.get(p,'combo#salle').getRawValue();
+            data[0].id_salle=App.get(p.up('window'),'combo#salle').getValue();
+            data[0].nomSalle=App.get(p.up('window'),'combo#salle').getRawValue();
         }
 
         var dta=data[0];
