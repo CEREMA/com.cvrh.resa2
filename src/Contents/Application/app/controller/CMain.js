@@ -650,18 +650,20 @@ App.controller.define('CMain', {
 		var year=now.getFullYear();
 		
 		if (!salle) var salle=0; else {
-			if (salle==1) App.get('schedulergrid#schedule').columns[0].setText("Salles Campus");
-			var mmm=App.get('combo#selectMonth').getValue()+1;
-			if (mmm<10) mmm="0"+mmm;
-            var debut = now.getFullYear() +'-'+ mmm  + "-01";
-            var fin = now.getFullYear() +'-'+ mmm + "-" + days_in_month(App.get('combo#selectMonth').getValue(),year);
-			scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
-	        scheduler.getResourceStore().getProxy().extraParams.debut = debut;
-			scheduler.getResourceStore().getProxy().extraParams.fin = fin;
-			scheduler.getResourceStore().getProxy().extraParams.NumLogin = agent;
-			scheduler.getResourceStore().load();
-			scheduler.getEventStore().getProxy().extraParams.NumLogin = agent;
-			scheduler.getEventStore().load();
+            if (salle!=0) {
+                if (salle==1) App.get('schedulergrid#schedule').columns[0].setText("Salles Campus");
+                var mmm=App.get('combo#selectMonth').getValue()+1;
+                if (mmm<10) mmm="0"+mmm;
+                var debut = now.getFullYear() +'-'+ mmm  + "-01";
+                var fin = now.getFullYear() +'-'+ mmm + "-" + days_in_month(App.get('combo#selectMonth').getValue(),year);
+                scheduler.getResourceStore().getProxy().extraParams._cfg = salle;
+                scheduler.getResourceStore().getProxy().extraParams.debut = debut;
+                scheduler.getResourceStore().getProxy().extraParams.fin = fin;
+                scheduler.getResourceStore().getProxy().extraParams.NumLogin = agent;
+                scheduler.getResourceStore().load();
+                scheduler.getEventStore().getProxy().extraParams.NumLogin = agent;
+                scheduler.getEventStore().load();
+            }
 		};
 		
         if (!agent) App.get('combo#selectAgent').setValue(0);
