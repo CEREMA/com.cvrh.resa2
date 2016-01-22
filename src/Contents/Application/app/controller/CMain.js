@@ -258,13 +258,8 @@ App.controller.define('CMain', {
         if (s.length>0) {
                 var old_obj=s[0].data;
                 var row = grid.getStore().indexOf(s[0]);
-                alert(row);
         };
-        
-        console.log('------------------');
-        console.log(old_obj);
-        console.log('------------------');
-            
+                    
         var dta=App.getData(p.up('window'));
         if (dta.p0=="J") dta.d0.setHours(8);
         if (dta.p0=="M") dta.d0.setHours(8);
