@@ -279,7 +279,7 @@ App.view.define('VMain', {
                 sortable: true,
                 field: new Ext.form.TextField()
             }],            
-            eventStore: App.eventstore.create("reservation_salles://ressourcesalles{id_ressource=Id,id_salle=ResourceId,debutRessource=StartDate,finRessource=EndDate,'000'=User,'yellow'=Cls}",{autoLoad: true}),
+            eventStore: App.eventstore.create("reservation_salles://ressourcesalles{id_ressource=Id,id_salle=ResourceId,debutRessource=StartDate,finRessource=EndDate,'000'=User,'yellow'=Cls}"),
             resourceStore: App.resourcestore.create("App.resources.getAll",{autLoad: true})
         }]
     }]
