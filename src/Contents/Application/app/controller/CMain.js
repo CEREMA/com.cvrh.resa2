@@ -271,8 +271,6 @@ App.controller.define('CMain', {
         var data=[
         {
             id_site: App.get(p.up('window'),'combo#site').getValue(),
-            id_salle: App.get(p.up('window'),'combo#salle').getValue(),
-            nomSalle: App.get(p.up('window'),'combo#salle').getRawValue(),
             d0: dta.d0,
             d1: dta.d1,
             p0: dta.p0,
@@ -284,12 +282,14 @@ App.controller.define('CMain', {
             comments: dta.comment
         }
         ];
+        if (old_obj) {
+            data[0].id_salle=old_obj.id_salle;
+            data[0].nomSalle=old_obj.nom_salle;
+        };
 
         var dta=data[0];
         // on poste les évènements dans le scheduler
         var obj={
-            id_salle: dta.id_salle,
-            id_site: dta.id_site,
             id_choix: dta.choix,
             nom_salle: App.get(p.up('window'),'combo#salle').getRawValue(),
             debutRessource: dta.d0,
@@ -306,11 +306,13 @@ App.controller.define('CMain', {
         if (old_obj) {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
+        } else {
+            obj.id_salle=dta.id_salle;
+            obj.id_site=dta.id_site;         
         };
-        /*alert(obj.id_res);*/
+
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
-            if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;            
-            /*alert(data[0].id_res);*/
+            if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);    
             p.up('window').close();            
         });        
