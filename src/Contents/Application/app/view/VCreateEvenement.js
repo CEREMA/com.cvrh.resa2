@@ -46,6 +46,11 @@ App.view.define('VCreateEvenement', {
                     border: false,
                     items: [
                     {
+                        xtype: "textfield",
+                        itemId: "num_evt",
+                        bind: "id_evenement"
+                    },
+                    {
                         xtype: 'ux-searchbox',
                         width: "100%",
                         triggerCls : Ext.baseCSSPrefix + 'form-search-trigger',
@@ -53,6 +58,7 @@ App.view.define('VCreateEvenement', {
                         width: 250,
                         itemId: "insert_numGeff",
                         fieldLabel: "GEFF",
+                        bind: "num_geff",
                         margin: {
                             bottom: 10
                         }
@@ -75,6 +81,7 @@ App.view.define('VCreateEvenement', {
 							editable: false,
 							displayField: "nomTypologie",
 							valueField: "id_typologie",
+                            bind: "id_typologie",
 							store: App.store.create('reservation_salles://typologie', {
 								autoLoad: true
 							})
@@ -86,6 +93,7 @@ App.view.define('VCreateEvenement', {
 						itemId: "insert_evenement",
 						width: "100%",
 						fieldLabel: "Nom évènement",
+                        bind: "nomEvenement",
 						allowBlank: false,
 						editable: false,
 					}, 
@@ -94,6 +102,7 @@ App.view.define('VCreateEvenement', {
 						itemId: "insert_descriptif",
 						width: "100%",
 						fieldLabel: "Commentaires",
+                        bind: "descriptifEvenement",
 						editable: false
 					},
 					{
