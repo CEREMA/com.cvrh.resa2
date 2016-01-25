@@ -238,7 +238,7 @@ App.controller.define('CMain', {
 	VCreateEvenement_onshow: function(p)
 	{
         if (p.id_evenement) {
-            alert('x');
+            alert(p.id_evenement);
         } else {
             App.get(p,'combo#cboSession').setValue(p.session);
             App.get(p,'combo#cboTypologie').setValue(1);
