@@ -118,12 +118,7 @@ App.view.define('VCreateEvenement', {
                         store: App.store.create({
                             fields: ["id","session"],
                             data: [
-                            {
-                                id: 1,
-                                session: "Session 1"
-                            }
-                            ],
-                            autoLoad: true
+                            ]
                         })
 					},                        
 					{
