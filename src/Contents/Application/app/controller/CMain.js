@@ -432,6 +432,9 @@ App.controller.define('CMain', {
 	grid_dblclick: function(v,rec)
     {
         console.log(rec.data);
+        App.view.create('VCreateEvenement',{
+            modal: true
+        }).show();
     },
 	select_month: function(p)
 	{
