@@ -238,9 +238,10 @@ App.controller.define('CMain', {
 	VCreateEvenement_onshow: function(p)
 	{
         if (p.id_evenement) {            
-            console.log(p);
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
-                console.log(o);
+                App.DB.get('reservation_salles://session{id_session,num_session+}?id_evenement='+p.id_evenement,function(e,r) {
+                    
+                });
             });
         } else {
             App.get(p,'combo#cboSession').setValue(p.session);
