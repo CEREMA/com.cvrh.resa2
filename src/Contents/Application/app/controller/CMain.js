@@ -237,10 +237,14 @@ App.controller.define('CMain', {
     },
 	VCreateEvenement_onshow: function(p)
 	{
-		App.get(p,'combo#cboSession').setValue(p.session);
-		App.get(p,'combo#cboTypologie').setValue(1);
-		App.get(p,'combo#cboCP').setValue(Auth.User.id);
-		App.get(p,'combo#cboCP').disable();
+        if (p.id_evenement) {
+            alert('x');
+        } else {
+            App.get(p,'combo#cboSession').setValue(p.session);
+            App.get(p,'combo#cboTypologie').setValue(1);
+            App.get(p,'combo#cboCP').setValue(Auth.User.id);
+            App.get(p,'combo#cboCP').disable();            
+        }
 	},
 	onGEFF: function(p)
     {
@@ -433,6 +437,8 @@ App.controller.define('CMain', {
     {
         console.log(rec.data);
         App.view.create('VCreateEvenement',{
+            id_evenement: rec.data.id_evenement,
+            id_res: rec.data.id,
             modal: true
         }).show();
     },
