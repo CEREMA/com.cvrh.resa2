@@ -249,6 +249,7 @@ App.controller.define('CMain', {
                     App.get(p,'combo#cboSession').setValue(p.session);
                     App.get(p,'combo#cboCP').setValue(p.chefProjet);
                     App.get(p,'combo#cboAssistant').setValue(p.assistant);
+                    App.get(p,'combo#cboCP').disable();
                 });
             });
         } else {
