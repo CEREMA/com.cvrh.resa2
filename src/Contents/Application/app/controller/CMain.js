@@ -237,9 +237,9 @@ App.controller.define('CMain', {
     },
 	VCreateEvenement_onshow: function(p)
 	{
-        if (p.id_evenement) {
-            alert(p.id_evenement);
-            App.DB.get('sapei://evenement',p,function(o) {
+        if (p.id_evenement) {            
+            console.log(p);
+            App.DB.get('sapei://evenement?id_evenement='+p.id_evenement,p,function(o) {
              
             });
         } else {
