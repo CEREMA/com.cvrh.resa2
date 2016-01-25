@@ -240,16 +240,8 @@ App.controller.define('CMain', {
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
             App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r) {
                     var data=[];                    
-                    for (var i=0;i<r.result.data.length;i++) data.push({
-                        id: r.result.data[i].num_session,
-                        session: 'Session '+r.result.data[i].num_session
-                    });
-                    console.log(data);
+                    for (var i=0;i<r.result.data.length;i++) data.push([r.result.data[i].num_session,'Session'+r.result.data[i].num_session]);
                     App.get(p,'combo#cboSession').getStore().loadData(data);
-                App.get(p,'combo#cboSession').getStore().on('load',function() {
-                   alert('x'); 
-                });
-                    App.get(p,'combo#cboSession').getStore().load();
                     App.get(p,'combo#cboSession').setValue(p.session);
 /*                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
                     App.get(p,'combo#cboAssistant').setValue(p.assistant);
