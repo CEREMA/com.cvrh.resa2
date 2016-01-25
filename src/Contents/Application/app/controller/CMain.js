@@ -242,8 +242,8 @@ App.controller.define('CMain', {
                     var data=[];
                     console.log(r);
                     for (var i=0;i<r.result.data.length;i++) data.push({
-                        id: r.result.data[i],
-                        session: 'Session '+r.result.data[i]
+                        id: r.result.data[i].num_session,
+                        session: 'Session '+r.result.data[i].num_session
                     });
                     App.get(p,'combo#cboSession').getStore().loadData(data);
                     App.get(p,'combo#cboSession').getStore().load();
