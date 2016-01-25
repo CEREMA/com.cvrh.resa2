@@ -239,7 +239,7 @@ App.controller.define('CMain', {
 	{
         if (p.id_evenement) {            
             console.log(p);
-            App.DB.get('sapei://evenement?id_evenement='+p.id_evenement,p,function(o) {
+            App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
                 console.log(o);
             });
         } else {
