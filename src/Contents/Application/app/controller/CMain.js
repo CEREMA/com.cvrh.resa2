@@ -239,6 +239,9 @@ App.controller.define('CMain', {
 	{
         if (p.id_evenement) {
             alert(p.id_evenement);
+            App.DB.get('sapei://evenement',p,function(o) {
+             
+            });
         } else {
             App.get(p,'combo#cboSession').setValue(p.session);
             App.get(p,'combo#cboTypologie').setValue(1);
