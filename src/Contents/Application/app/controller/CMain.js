@@ -247,6 +247,8 @@ App.controller.define('CMain', {
                     App.get(p,'combo#cboSession').getStore().loadData(data);
                     App.get(p,'combo#cboSession').getStore().load();
                     App.get(p,'combo#cboSession').setValue(p.session);
+                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
+                    App.get(p,'combo#cboAssistant').setValue(p.assistant);
                 });
             });
         } else {
