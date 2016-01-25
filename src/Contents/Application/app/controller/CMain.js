@@ -452,6 +452,8 @@ App.controller.define('CMain', {
             id_res: rec.data.Id,
             session: rec.data.num_session,
             module: rec.data.num_module,
+            chefProjet: rec.data.chefProjet,
+            assitant: rec.data.assistant,
             modal: true
         }).show();
     },
