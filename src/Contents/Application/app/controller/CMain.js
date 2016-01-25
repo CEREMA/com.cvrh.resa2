@@ -239,9 +239,16 @@ App.controller.define('CMain', {
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
                 App.DB.get('reservation_salles://ressourcesalles{module.id_module,session.id_session,session.num_session+}?id_ressource='+p.id_res,function(e,r) {
+                    var data=[];
+                    for (var i=0;i<r.result.data.length;i++) data.push({
+                        id: r.result.data[i],
+                        session: 'Session '+r.result.data[i]
+                    });
+                    App.get(p,'combo#cboSession').getStore().loadData(data);
                 });
             });
         } else {
+            // C'est un nouvel évènement
             App.get(p,'combo#cboSession').setValue(p.session);
             App.get(p,'combo#cboTypologie').setValue(1);
             App.get(p,'combo#cboCP').setValue(Auth.User.id);
@@ -437,10 +444,12 @@ App.controller.define('CMain', {
     
 	grid_dblclick: function(v,rec)
     {
-        //console.log(rec.data);
+        console.log(rec.data);
         App.view.create('VCreateEvenement',{
             id_evenement: rec.data.id_evenement,
             id_res: rec.data.Id,
+            session: -1,
+            module: -1,
             modal: true
         }).show();
     },
