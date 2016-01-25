@@ -239,8 +239,6 @@ App.controller.define('CMain', {
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
                 App.DB.get('reservation_salles://ressourcesalles{module.id_module,session.id_session,session.num_session+}?id_ressource='+p.id_res,function(e,r) {
-                    console.log(e);
-                    console.log(r);
                 });
             });
         } else {
@@ -439,7 +437,7 @@ App.controller.define('CMain', {
     
 	grid_dblclick: function(v,rec)
     {
-        console.log(rec.data);
+        //console.log(rec.data);
         App.view.create('VCreateEvenement',{
             id_evenement: rec.data.id_evenement,
             id_res: rec.data.Id,
