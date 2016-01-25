@@ -238,7 +238,7 @@ App.controller.define('CMain', {
 	{
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
-                App.DB.get('reservation_salles://ressourcesalles{module.id_module,session.id_session,session.participant,session.num_session+}?id_ressource='+p.id_res,function(e,r) {
+            App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r) {
                     var data=[];
                     for (var i=0;i<r.result.data.length;i++) data.push({
                         id: r.result.data[i],
@@ -247,9 +247,11 @@ App.controller.define('CMain', {
                     App.get(p,'combo#cboSession').getStore().loadData(data);
                     App.get(p,'combo#cboSession').getStore().load();
                     App.get(p,'combo#cboSession').setValue(p.session);
-                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
+/*                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
                     App.get(p,'combo#cboAssistant').setValue(p.assistant);
-                    App.get(p,'combo#cboCP').disable();
+                    App.get(p,'combo#cboCP').disable();*/
+                    // ensuite on met à jour la session
+                    
                 });
             });
         } else {
