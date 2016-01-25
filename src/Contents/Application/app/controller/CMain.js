@@ -239,8 +239,9 @@ App.controller.define('CMain', {
 	{
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
-                App.DB.get('reservation_salles://session{id_session,num_session+}?id_evenement='+p.id_evenement,function(e,r) {
-                    
+                App.DB.get('reservation_salles://ressourcesalles{module.id_module,session.id_session,session.num_session+}?id_ressource='+p.id_res,function(e,r) {
+                    console.log(e);
+                    console.log(r);
                 });
             });
         } else {
