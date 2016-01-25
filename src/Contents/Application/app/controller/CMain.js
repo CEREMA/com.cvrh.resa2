@@ -241,7 +241,7 @@ App.controller.define('CMain', {
             App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r) {
                     var data=[];                    
                     for (var i=0;i<r.result.data.length;i++) data.push({
-                        id: r.result.data[i].num_session,
+                        /*id: r.result.data[i].num_session,*/
                         session: 'Session '+r.result.data[i].num_session
                     });
                     console.log(data);
