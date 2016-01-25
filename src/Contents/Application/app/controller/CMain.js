@@ -238,7 +238,7 @@ App.controller.define('CMain', {
 	{
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
-                App.DB.get('reservation_salles://ressourcesalles{module.id_module,session.id_session,session.num_session+}?id_ressource='+p.id_res,function(e,r) {
+                App.DB.get('reservation_salles://ressourcesalles{module.id_module,session.id_session,session.participant,session.num_session+}?id_ressource='+p.id_res,function(e,r) {
                     var data=[];
                     for (var i=0;i<r.result.data.length;i++) data.push({
                         id: r.result.data[i],
