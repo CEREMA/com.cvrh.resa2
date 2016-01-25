@@ -48,7 +48,8 @@ App.view.define('VCreateEvenement', {
                     {
                         xtype: "textfield",
                         itemId: "num_evt",
-                        bind: "id_evenement"
+                        bind: "id_evenement",
+                        hidden: true
                     },
                     {
                         xtype: 'ux-searchbox',
