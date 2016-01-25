@@ -449,8 +449,8 @@ App.controller.define('CMain', {
         App.view.create('VCreateEvenement',{
             id_evenement: rec.data.id_evenement,
             id_res: rec.data.Id,
-            session: num_session,
-            module: num_module,
+            session: rec.data.num_session,
+            module: rec.data.num_module,
             modal: true
         }).show();
     },
