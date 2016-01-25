@@ -240,6 +240,7 @@ App.controller.define('CMain', {
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
             App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r) {
                     var data=[];
+                    console.log(r);
                     for (var i=0;i<r.result.data.length;i++) data.push({
                         id: r.result.data[i],
                         session: 'Session '+r.result.data[i]
