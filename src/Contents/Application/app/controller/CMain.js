@@ -245,6 +245,7 @@ App.controller.define('CMain', {
                         session: 'Session '+r.result.data[i]
                     });
                     App.get(p,'combo#cboSession').getStore().loadData(data);
+                    App.get(p,'combo#cboSession').setValue(p.session);
                 });
             });
         } else {
@@ -448,8 +449,8 @@ App.controller.define('CMain', {
         App.view.create('VCreateEvenement',{
             id_evenement: rec.data.id_evenement,
             id_res: rec.data.Id,
-            session: -1,
-            module: -1,
+            session: num_session,
+            module: num_module,
             modal: true
         }).show();
     },
