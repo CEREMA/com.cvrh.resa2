@@ -242,7 +242,7 @@ App.controller.define('CMain', {
                     var data=[];                    
                     for (var i=0;i<r.result.data.length;i++) data.push([r.result.data[i].num_session,'Session'+r.result.data[i].num_session]);
                     App.get(p,'combo#cboSession').getStore().loadData(data);
-                    App.get(p,'combo#cboSession').setValue(p.session);
+                    //App.get(p,'combo#cboSession').setValue(p.session);
 /*                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
                     App.get(p,'combo#cboAssistant').setValue(p.assistant);
                     App.get(p,'combo#cboCP').disable();*/
