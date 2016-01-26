@@ -237,10 +237,16 @@ App.controller.define('CMain', {
     updateSession: function(p)
     {
         App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
+            // on met à jour le chef de projet et l'assistant
+            App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
+            App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
+            App.get(p,'combo#cboCP').disable();            
+            // on met à jour les modules
             var modules=[];
             for (var i=0;i<r.result.data.length;i++) {
                 if (modules.indexOf(r.result.data[i].num_module)==-1) modules.push(r.result.data[i].num_module);
             };
+            // on clear le panel modules
             while(f = App.get('VCreateEvenement panel#modules').items.first()){
                 App.get('VCreateEvenement panel#modules').remove(f, true);
             };
@@ -265,11 +271,6 @@ App.controller.define('CMain', {
                     });
                     App.get(p,'combo#cboSession').getStore().loadData(data);
                     App.get(p,'combo#cboSession').setValue(p.session);                    
-                    /*                    
-                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
-                    App.get(p,'combo#cboAssistant').setValue(p.assistant);
-                    App.get(p,'combo#cboCP').disable();
-                    */
                     // ensuite on met à jour la session
                     me.updateSession(p);
                 });
