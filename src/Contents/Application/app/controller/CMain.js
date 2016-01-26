@@ -236,7 +236,7 @@ App.controller.define('CMain', {
     },
     updateSession: function(p)
     {
-       alert('y'); App.DB.get('reservation_salles://ressourcesalles{*,module{id_module,id_session,num_module+,debutModule,finModule,status,statutResa},session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
+ App.DB.get('reservation_salles://ressourcesalles{*,module{id_module,id_session,num_module+,debutModule,finModule,status,statutResa},session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
             console.log(e);
             console.log(r);
             alert('x');
