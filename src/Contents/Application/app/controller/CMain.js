@@ -239,7 +239,7 @@ App.controller.define('CMain', {
         App.DB.get('reservation_salles://module{*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
             console.log(e);
             console.log(r);
-        }
+        });
     },
 	VCreateEvenement_onshow: function(p)
 	{
