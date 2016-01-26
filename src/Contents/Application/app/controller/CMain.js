@@ -234,11 +234,18 @@ App.controller.define('CMain', {
             }
         });        
     },
+    updateSession: function(p)
+    {
+        App.DB.get('reservation_salles://module{*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
+            console.log(e);
+            console.log(r);
+        }
+    },
 	VCreateEvenement_onshow: function(p)
 	{
+        var me=this;
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
-                alert('x');
                 App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                  {
                     
                     var data=[];                    
@@ -246,16 +253,16 @@ App.controller.define('CMain', {
                         session_id: r.result.data[i].num_session,
                         session: 'Session '+r.result.data[i].num_session
                     });
-                    console.log(data);
                     App.get(p,'combo#cboSession').getStore().loadData(data);
-                    /*App.get(p,'combo#cboSession').getStore().load();*/
-                    //App.get(p,'combo#cboSession').setValue(p.session);
-/*                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
+                    App.get(p,'combo#cboSession').setValue(p.session);
+                    /*                    
+                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
                     App.get(p,'combo#cboAssistant').setValue(p.assistant);
-                    App.get(p,'combo#cboCP').disable();*/
+                    App.get(p,'combo#cboCP').disable();
+                    */
                     // ensuite on met à jour la session
-                    
-                    });
+                    me.updateSession(p);
+                });
             });
         } else {
             // C'est un nouvel évènement
