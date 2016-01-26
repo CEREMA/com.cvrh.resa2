@@ -241,6 +241,7 @@ App.controller.define('CMain', {
             for (var i=0;i<r.length;i++) {
                 if (modules.indexOf(r[i].num_module)==-1) modules.push(r[i].num_module);
             };
+            alert(modules.length);
             for (var i=0;i<modules.length;i++) {
                 var mod=App.view.create('VResaModule',{ID: i});
                 App.get('VCreateEvenement panel#modules').add(mod);
