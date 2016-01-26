@@ -238,10 +238,11 @@ App.controller.define('CMain', {
     {
         App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
             var modules=[];
-            for (var i=0;i<r.length;i++) {
-                if (modules.indexOf(r[i].num_module)==-1) modules.push(r[i].num_module);
+            for (var i=0;i<r.result.data.length;i++) {
+                if (modules.indexOf(r.result.data[i].num_module)==-1) modules.push(r.result.data[i].num_module);
             };
             alert(modules.length);
+            App.get('VCreateEvenement panel#modules').items.clear();
             for (var i=0;i<modules.length;i++) {
                 var mod=App.view.create('VResaModule',{ID: i});
                 App.get('VCreateEvenement panel#modules').add(mod);
@@ -261,7 +262,7 @@ App.controller.define('CMain', {
                         session: 'Session '+r.result.data[i].num_session
                     });
                     App.get(p,'combo#cboSession').getStore().loadData(data);
-                    App.get(p,'combo#cboSession').setValue(p.session);
+                    App.get(p,'combo#cboSession').setValue(p.session);                    
                     /*                    
                     App.get(p,'combo#cboCP').setValue(p.chefProjet);
                     App.get(p,'combo#cboAssistant').setValue(p.assistant);
