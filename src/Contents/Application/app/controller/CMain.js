@@ -241,7 +241,9 @@ App.controller.define('CMain', {
             for (var i=0;i<r.result.data.length;i++) {
                 if (modules.indexOf(r.result.data[i].num_module)==-1) modules.push(r.result.data[i].num_module);
             };
-            App.get('VCreateEvenement panel#modules').items.clear();
+            while(f = App.get('VCreateEvenement panel#modules').items.first()){
+                App.get('VCreateEvenement panel#modules').remove(f, true);
+            };
             App.get('VCreateEvenement panel#modules').doLayout();
             for (var i=0;i<modules.length;i++) {
                 var mod=App.view.create('VResaModule',{ID: i});
