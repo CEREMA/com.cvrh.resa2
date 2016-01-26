@@ -1,3 +1,64 @@
+var sort_by;
+(function() {
+    // utility functions
+    var default_cmp = function(a, b) {
+        if (a == b) return 0;
+        return a < b ? -1 : 1;
+    },
+        getCmpFunc = function(primer, reverse) {
+            var cmp = default_cmp;
+            if (primer) {
+                cmp = function(a, b) {
+                    return default_cmp(primer(a), primer(b));
+                };
+            }
+            if (reverse) {
+                return function(a, b) {
+                    return -1 * cmp(a, b);
+                };
+            }
+            return cmp;
+        };
+
+    // actual implementation
+    sort_by = function() {
+        var fields = [],
+            n_fields = arguments.length,
+            field, name, reverse, cmp;
+
+        // preprocess sorting options
+        for (var i = 0; i < n_fields; i++) {
+            field = arguments[i];
+            if (typeof field === 'string') {
+                name = field;
+                cmp = default_cmp;
+            }
+            else {
+                name = field.name;
+                cmp = getCmpFunc(field.primer, field.reverse);
+            }
+            fields.push({
+                name: name,
+                cmp: cmp
+            });
+        }
+
+        return function(A, B) {
+            var a, b, name, cmp, result;
+            for (var i = 0, l = n_fields; i < l; i++) {
+                result = 0;
+                field = fields[i];
+                name = field.name;
+                cmp = field.cmp;
+
+                result = cmp(A[name], B[name]);
+                if (result !== 0) break;
+            }
+            return result;
+        }
+    }
+}());
+
 App.controller.define('CMain', {
 
 	views: [
@@ -236,41 +297,40 @@ App.controller.define('CMain', {
     },
     updateSession: function(p)
     {
-        alert('x');
  App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
-            console.log(e);
-            console.log(r);
-
+            r.result.data.sort(sort_by('num_module'));
             // on met à jour le chef de projet et l'assistant
             App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
             App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
-            App.get(p,'combo#cboCP').disable();            
+            App.get(p,'combo#cboCP').disable();
+     
             // on met à jour les modules
             var modules=[];
-            var module={};
+            var module=[];
             for (var i=0;i<r.result.data.length;i++) {
                 if (modules.indexOf(r.result.data[i].num_module)==-1) {
                         modules.push(r.result.data[i].num_module);
-                        module[i]={
+                        module.push({
                             date_debut: r.result.data[i].debutModule,
                             date_fin: r.result.data[i].finModule
-                        };
+                        });
                 }
             };
-            console.log('--------------------');
-            console.log(module);
-            console.log('--------------------');
+     
             // on clear le panel modules
             while(f = App.get('VCreateEvenement panel#modules').items.first()){
                 App.get('VCreateEvenement panel#modules').remove(f, true);
             };
             App.get('VCreateEvenement panel#modules').doLayout();
+     
             for (var i=0;i<modules.length;i++) {
                 var mod=App.view.create('VResaModule',{ID: i});
                 App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
                 App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                
                 App.get('VCreateEvenement panel#modules').add(mod);
             };
+     
         });
     },
 	VCreateEvenement_onshow: function(p)
