@@ -114,8 +114,8 @@ App.view.define('VCreateEvenement', {
                         editable: false,
                         labelAlign: "left",
                         displayField: "session",
-                        valueField: "id",
-                        mode: "local",
+                        valueField: "session_id",
+                        queryMode: 'local',
                         store: App.store.create({
                             fields: ["session_id","session"],
                             data: [
