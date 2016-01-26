@@ -247,15 +247,7 @@ App.controller.define('CMain', {
                         session: 'Session '+r.result.data[i].num_session
                     });
                     console.log(data);
-                    var store=App.store.create({
-                        fields: ['session_id','session'],
-                        data: []
-                    });
-                    store.loadData(data);
-                    App.get(p,'combo#cboSession').bindStore(store);
-                    App.get(p,'combo#cboSession').getStore().on('load',function() {
-                       alert('x'); 
-                    });
+                    App.get(p,'combo#cboSession').getStore().loadData(data);
                     /*App.get(p,'combo#cboSession').getStore().load();*/
                     //App.get(p,'combo#cboSession').setValue(p.session);
 /*                    App.get(p,'combo#cboCP').setValue(p.chefProjet);
