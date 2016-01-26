@@ -240,6 +240,7 @@ App.controller.define('CMain', {
         };
         App.DB.post('reservation_salles://module',obj,function(r) {
             var data=App.get(panel,'grid').getStore().data.items;
+            console.log(data);
             me.updateResources(data,r,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
             });
