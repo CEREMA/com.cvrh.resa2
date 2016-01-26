@@ -237,7 +237,7 @@ App.controller.define('CMain', {
 	VCreateEvenement_onshow: function(p)
 	{
         if (p.id_evenement) {            
-            App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
+            //App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
             App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r) {
                     var data=[];                    
                     for (var i=0;i<r.result.data.length;i++) data.push({
@@ -253,8 +253,8 @@ App.controller.define('CMain', {
                     App.get(p,'combo#cboCP').disable();*/
                     // ensuite on met à jour la session
                     
-                });
             });
+            //});
         } else {
             // C'est un nouvel évènement
             App.get(p,'combo#cboSession').setValue(p.session);
