@@ -240,7 +240,6 @@ App.controller.define('CMain', {
         };
         App.DB.post('reservation_salles://module',obj,function(r) {
             var data=App.get(panel,'grid').getStore().data.items;
-            console.log(data);
             me.updateResources(data,r,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
             });
@@ -326,15 +325,41 @@ App.controller.define('CMain', {
             App.get('VCreateEvenement panel#modules').doLayout();
             for (var i=0;i<modules.length;i++) {
                 var mod=App.view.create('VResaModule',{ID: i});
+                App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
+                App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                var grid=App.get(mod,'grid');
+                var data=[];
+                for (var j=0;j<r.result.data.length;j++) {
+                    if (r.result.data[j].num_module==i+1) {
+                        // on ajoute les éléments à la grid
+                        data.push({
+                              "id_res": r.result.data[j].id_ressource,
+                              "id_site": r.result.data[j].id_site,
+						      "id_salle": r.result.data[j].id_salle,
+						      "nomSalle": r.result.data[j].nom_salle,
+						      "d0": r.result.data[j].debutRessource,
+						      "d1": r.result.data[j].finRessource,
+                              "p0": r.result.data[j].periode,
+                              "p1": r.result.data[j].periodef,
+						      "afficher": r.result.data[j].afficher,
+						      "valider": r.result.data[j].valider,
+						      "preparation": r.result.data[j].preparation,
+						      "choix": r.result.data[j].id_choix,
+                              "comments": r.result.data[j].commentaire
+                        })
+                    }
+                };
+                // on bind data a la grid
+                grid.getStore().loadData(data);
                 App.get('VCreateEvenement panel#modules').add(mod);
             };
             // On crée également le ou les modules du stage
             var panels=App.get('VCreateEvenement panel#modules').items.items;
-            me.updateModules(panels,r,0,function() {
+            /*me.updateModules(panels,r,0,function() {
                 p.up('window').close();   
                 // on raffraichit la grid
                 App.get('mainform schedulergrid#schedule').getEventStore().load();
-            });
+            });*/
      
         });
     },
