@@ -297,6 +297,7 @@ App.controller.define('CMain', {
     },
     updateSession: function(p)
     {
+        var me=this;
  App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
             r.result.data.sort(sort_by('num_module'));
             // on met à jour le chef de projet et l'assistant
