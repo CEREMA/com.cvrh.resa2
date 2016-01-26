@@ -237,10 +237,10 @@ App.controller.define('CMain', {
     updateSession: function(p)
     {
         alert('x');
- App.DB.get('reservation_salles://ressourcesalles{*,id_module->module{id_module,id_session,num_module+,debutModule,finModule,status,statutResa},session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
+ App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
             console.log(e);
             console.log(r);
-     alert('y');
+
             // on met à jour le chef de projet et l'assistant
             App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
             App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
