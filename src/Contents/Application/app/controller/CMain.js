@@ -256,6 +256,7 @@ App.controller.define('CMain', {
                         });
                 }
             };
+            console.log(module);
             // on clear le panel modules
             while(f = App.get('VCreateEvenement panel#modules').items.first()){
                 App.get('VCreateEvenement panel#modules').remove(f, true);
