@@ -118,6 +118,10 @@ App.view.define('VCreateEvenement', {
                         store: App.store.create({
                             fields: ["session_id","session"],
                             data: [
+                                {
+                                 session_id: "7",
+                                    session: "dfklflskjdfklsj"
+                                }
                             ]
                         })
 					},                        
