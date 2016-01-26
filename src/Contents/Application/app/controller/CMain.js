@@ -247,17 +247,19 @@ App.controller.define('CMain', {
             App.get(p,'combo#cboCP').disable();            
             // on met à jour les modules
             var modules=[];
-            var module=[];
+            var module={};
             for (var i=0;i<r.result.data.length;i++) {
                 if (modules.indexOf(r.result.data[i].num_module)==-1) {
                         modules.push(r.result.data[i].num_module);
-                        module.push({
+                        module[i]={
                             date_debut: r.result.data[i].debutModule,
                             date_fin: r.result.data[i].finModule
-                        });
+                        };
                 }
             };
-
+            console.log('--------------------');
+            console.log(module);
+            console.log('--------------------');
             // on clear le panel modules
             while(f = App.get('VCreateEvenement panel#modules').items.first()){
                 App.get('VCreateEvenement panel#modules').remove(f, true);
