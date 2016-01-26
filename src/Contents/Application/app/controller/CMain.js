@@ -237,8 +237,14 @@ App.controller.define('CMain', {
     updateSession: function(p)
     {
         App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
-            console.log(e);
-            console.log(r);
+            var modules=[];
+            for (var i=0;i<r.length;i++) {
+                if (modules.indexOf(r[i].num_module)==-1) modules.push(r[i].num_module);
+            };
+            for (var i=0;i<modules.length;i++) {
+                var mod=App.view.create('VResaModule',{ID: i});
+                App.get('VCreateEvenement panel#modules').add(mod);
+            };
         });
     },
 	VCreateEvenement_onshow: function(p)
