@@ -236,15 +236,22 @@ App.controller.define('CMain', {
     },
     updateSession: function(p)
     {
-        App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
+        App.DB.get('reservation_salles://ressourcesalles{*,module{id_module,id_session,num_module+,debutModule,finModule,status,statutResa},session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
             // on met à jour le chef de projet et l'assistant
             App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
             App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
             App.get(p,'combo#cboCP').disable();            
             // on met à jour les modules
             var modules=[];
+            var module=[];
             for (var i=0;i<r.result.data.length;i++) {
-                if (modules.indexOf(r.result.data[i].num_module)==-1) modules.push(r.result.data[i].num_module);
+                if (modules.indexOf(r.result.data[i].num_module)==-1) {
+                        modules.push(r.result.data[i].num_module);
+                        module.push({
+                            date_debut: r.result.data[i].debutModule,
+                            date_fin: r.result.data[i].finModule
+                        });
+                }
             };
             // on clear le panel modules
             while(f = App.get('VCreateEvenement panel#modules').items.first()){
@@ -253,6 +260,8 @@ App.controller.define('CMain', {
             App.get('VCreateEvenement panel#modules').doLayout();
             for (var i=0;i<modules.length;i++) {
                 var mod=App.view.create('VResaModule',{ID: i});
+                App.get(mod,'datefield#debutModule').setValue(module[i].date_debut);
+                App.get(mod,'datefield#finModule').setValue(module[i].date_fin);
                 App.get('VCreateEvenement panel#modules').add(mod);
             };
         });
