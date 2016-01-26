@@ -322,14 +322,17 @@ App.controller.define('CMain', {
                 App.get('VCreateEvenement panel#modules').remove(f, true);
             };
             App.get('VCreateEvenement panel#modules').doLayout();
-     
             for (var i=0;i<modules.length;i++) {
                 var mod=App.view.create('VResaModule',{ID: i});
-                App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
-                App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
-                
                 App.get('VCreateEvenement panel#modules').add(mod);
             };
+            // On crée également le ou les modules du stage
+            var panels=App.get('VCreateEvenement panel#modules').items.items;
+            me.updateModules(panels,r,0,function() {
+                p.up('window').close();   
+                // on raffraichit la grid
+                App.get('mainform schedulergrid#schedule').getEventStore().load();
+            });
      
         });
     },
