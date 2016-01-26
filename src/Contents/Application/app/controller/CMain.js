@@ -342,7 +342,7 @@ App.controller.define('CMain', {
                               "p0": r.result.data[j].periode,
                               "p1": r.result.data[j].periodef,
 						      "afficher": r.result.data[j].afficher,
-						      "valider": r.result.data[j].valider,
+						      "valider": r.result.data[j].salleValide,
 						      "preparation": r.result.data[j].preparation,
 						      "choix": r.result.data[j].id_choix,
                               "comments": r.result.data[j].commentaire
