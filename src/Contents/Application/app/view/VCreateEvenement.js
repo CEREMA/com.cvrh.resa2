@@ -116,7 +116,7 @@ App.view.define('VCreateEvenement', {
                         displayField: "session",
                         valueField: "id",
                         store: App.store.create({
-                            fields: ["id","session"],
+                            fields: ["session_id","session"],
                             data: [
                             ]
                         })
