@@ -223,7 +223,7 @@ App.controller.define('CMain', {
             id_module: r.insertId,
             id_site: dta.id_site,
             debutRessource: dta.d0,
-            finRessource: dta.d0,
+            finRessource: dta.d1,
             periode: dta.p0,
             periodef: dta.p1,
             afficher: dta.afficher,
