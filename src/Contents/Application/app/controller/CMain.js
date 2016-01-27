@@ -541,6 +541,7 @@ App.controller.define('CMain', {
             modal: true,
             dd0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
             dd1: App.get(me.up('panel').up('panel'),'datefield#finModule').getValue(),
+            isNew: true,
             grid: App.get(me.up('panel').up('panel'),'grid#res')
         }).show();
     },
@@ -564,8 +565,8 @@ App.controller.define('CMain', {
 	},
 	VResNew_onshow: function(p)
 	{
-        var s=p.grid.getSelectionModel().getSelection();
-        if (s.length>0) {
+        var s=p.grid.getSelectionModel().getSelection();        
+        if (p.isNew) {
             App.get(p,'panel#resa_site').hide();  
         };
         if (p.id_site)
