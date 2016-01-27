@@ -210,6 +210,7 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     new_module: function(p)
     {
+        alert(p.up('window').id_session);
         App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{ID: App.get('VCreateEvenement panel#modules').items.items.length}));  
     },
     updateResources: function(data,r,ndx,cb)
