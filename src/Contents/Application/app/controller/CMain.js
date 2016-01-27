@@ -229,7 +229,7 @@ App.controller.define('CMain', {
     updateModules: function(panels,r,ndx,cb)
     {
         var me=this;
-        var panel=panels[ndx];        
+        var panel=panels[ndx];  
         var obj={
             id_session: r.insertId,
             num_module: panel.title.split('Module ')[1],
@@ -239,6 +239,9 @@ App.controller.define('CMain', {
             statutResa: "FFFF00"
         };
         if (panel.moduleID) obj.id_module=panel.moduleID;
+        alert(panel.moduleID);
+        alert(obj.id_module);
+        return;
         App.DB.post('reservation_salles://module',obj,function(r) {
             var data=App.get(panel,'grid').getStore().data.items;
             if (!r.insertId) r.insertId=panel.moduleID;
