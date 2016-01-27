@@ -216,8 +216,8 @@ App.controller.define('CMain', {
     {
         var me=this;
         var dta=data[ndx].data;
-        alert(r.insertId);
-        console.log(r);
+        /*alert(r.insertId);
+        console.log(r);*/
         // on poste les évènements dans le scheduler
         var obj={
             id_ressource: dta.id_res,
@@ -468,8 +468,8 @@ App.controller.define('CMain', {
         var grid=p.up('window').grid;
         var s=grid.getSelectionModel().getSelection();
         if (s.length>0) {
-                var old_obj=s[0].data;
-                var row = grid.getStore().indexOf(s[0]);
+            var old_obj=s[0].data;
+            var row = grid.getStore().indexOf(s[0]);
         };
                     
         var dta=App.getData(p.up('window'));
@@ -503,6 +503,8 @@ App.controller.define('CMain', {
         }
 
         var dta=data[0];
+        console.log(dta);
+        console.log(p.up('window'));
         // on poste les évènements dans le scheduler
         var obj={
             id_choix: dta.choix,
