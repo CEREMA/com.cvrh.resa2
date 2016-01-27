@@ -284,11 +284,12 @@ App.controller.define('CMain', {
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // update modules !
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
-                        me.updateModules(panels,r,0,function() {
+                        alert(panels[0].moduleID);
+                        /*me.updateModules(panels,r,0,function() {
                             p.up('window').close();   
                             // on raffraichit la grid
                             App.get('mainform schedulergrid#schedule').getEventStore().load();
-                        });                        
+                        });                        */
                     });
                 });
             });
