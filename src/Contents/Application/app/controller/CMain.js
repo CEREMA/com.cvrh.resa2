@@ -241,10 +241,8 @@ App.controller.define('CMain', {
         if (panel.moduleID) obj.id_module=panel.moduleID;
         App.DB.post('reservation_salles://module',obj,function(r) {
             var data=App.get(panel,'grid').getStore().data.items;
-            if (!r.insertId) r.insertId=panel.moduleID;
-            alert(r.insertId);
-            return;
-            me.updateResources(data,r,0,function() {
+            if (!r.insertId) var x=panel.moduleID; else x=r.insertId;            
+            me.updateResources(data,x,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
             });
         });
