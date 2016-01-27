@@ -239,12 +239,11 @@ App.controller.define('CMain', {
             statutResa: "FFFF00"
         };
         if (panel.moduleID) obj.id_module=panel.moduleID;
-        alert(panel.moduleID);
-        alert(obj.id_module);
-        return;
         App.DB.post('reservation_salles://module',obj,function(r) {
             var data=App.get(panel,'grid').getStore().data.items;
             if (!r.insertId) r.insertId=panel.moduleID;
+            alert(r.insertId);
+            return;
             me.updateResources(data,r,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
             });
