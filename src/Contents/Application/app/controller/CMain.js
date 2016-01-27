@@ -503,8 +503,10 @@ App.controller.define('CMain', {
         }
 
         var dta=data[0];
+        console.log('--------------------------');
         console.log(dta);
         console.log(p.up('window'));
+        console.log('--------------------------');
         // on poste les évènements dans le scheduler
         var obj={
             id_choix: dta.choix,
