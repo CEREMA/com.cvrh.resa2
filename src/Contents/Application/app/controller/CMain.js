@@ -441,11 +441,15 @@ App.controller.define('CMain', {
                     
                     var data=[];                    
                     for (var i=0;i<r.result.data.length;i++) data.push({
+                        session_uid: r.result.data[i].id_session,
                         session_id: r.result.data[i].num_session,
                         session: 'Session '+r.result.data[i].num_session
-                    });
+                    });                    
                     App.get(p,'combo#cboSession').getStore().loadData(data);
-                    App.get(p,'combo#cboSession').setValue(p.session);                    
+                    App.get(p,'combo#cboSession').setValue(p.session);  
+                    for (var i=0;i<data.length;i++) {
+                        if (data[i].session_id==p.session) p.id_session=data[i].session_uid;  
+                    };
                     // ensuite on met à jour la session
                     me.updateSession(p);
                 });
