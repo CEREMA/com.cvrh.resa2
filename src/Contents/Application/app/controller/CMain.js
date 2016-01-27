@@ -216,11 +216,21 @@ App.controller.define('CMain', {
     {
         var me=this;
         var dta=data[ndx].data;
-        
+        console.log(dta);
         // on poste les évènements dans le scheduler
         var obj={
             id_ressource: dta.id_res,
-            id_module: r.insertId
+            id_module: r.insertId,
+            id_site: dta.id_site,
+            debutRessource: dta.d0,
+            finRessource: dta.d0,
+            periode: dta.p0,
+            periodef: dta.p1,
+            afficher: dta.afficher,
+            valider: dta.valider,
+            preparation: dta.preparation,
+            id_choix: dta.choix,
+            commentaire: dta.comments
         };
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
             if (ndx+1<data.length) me.updateResources(data,r,ndx+1,cb); else cb();
