@@ -515,7 +515,8 @@ App.controller.define('CMain', {
             status: "I",
             commentaire: dta.comments,
             clsRessource: "yellow",
-            afficher: dta.afficher
+            afficher: dta.afficher,
+            id_module: p.up('window').moduleID
         };
         if (old_obj) {
             grid.getStore().removeAt(row);
