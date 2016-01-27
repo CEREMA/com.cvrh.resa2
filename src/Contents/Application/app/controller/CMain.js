@@ -238,8 +238,10 @@ App.controller.define('CMain', {
             status: "I",
             statutResa: "FFFF00"
         };
+        if (panel.moduleID) obj.id_module=panel.moduleID;
         App.DB.post('reservation_salles://module',obj,function(r) {
             var data=App.get(panel,'grid').getStore().data.items;
+            if (!r.insertId) r.insertId=panel.moduleID;
             me.updateResources(data,r,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
             });
@@ -284,12 +286,15 @@ App.controller.define('CMain', {
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // update modules !
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
-                        alert(panels[0].moduleID);
-                        /*me.updateModules(panels,r,0,function() {
+                        var r={
+                            insertId: id_session  
+                        };
+                        
+                        me.updateModules(panels,r,0,function() {
                             p.up('window').close();   
                             // on raffraichit la grid
                             App.get('mainform schedulergrid#schedule').getEventStore().load();
-                        });                        */
+                        });
                     });
                 });
             });
