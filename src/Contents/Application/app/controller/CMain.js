@@ -266,7 +266,7 @@ App.controller.define('CMain', {
             // on met à jour l'évènement
             App.DB.post('reservation_salles://evenement',obj,function(r){
                 var session=App.get(p.up('window'),"combo#cboSession").getValue();
-                App.DB.get('reservation_salles://session{id_session}?id_evenement='+p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
+                App.DB.get('reservation_salles://session{id_session}?id_evenement='+App.get(p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
                     if (r.result.data.length>0) {
                             var id_session=r.result.data[0].id_session;
                     };
