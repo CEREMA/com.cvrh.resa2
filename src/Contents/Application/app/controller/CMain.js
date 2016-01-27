@@ -298,9 +298,8 @@ App.controller.define('CMain', {
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // update modules !
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
-                        var r={
-                            insertId: id_session  
-                        };
+                        alert(id_session);
+                        if (!r.insertId) r.insertId=id_session;
                         
                         me.updateModules(panels,r,0,function() {
                             p.up('window').close();   
