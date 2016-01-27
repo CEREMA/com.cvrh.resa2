@@ -216,7 +216,7 @@ App.controller.define('CMain', {
     {
         var me=this;
         var dta=data[ndx].data;
-        
+        alert(r.insertId);
         // on poste les évènements dans le scheduler
         var obj={
             id_ressource: dta.id_res,
