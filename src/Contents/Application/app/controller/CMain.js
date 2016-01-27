@@ -251,9 +251,9 @@ App.controller.define('CMain', {
             statutResa: "FFFF00"
         };
         if (panel.moduleID) obj.id_module=panel.moduleID;
-        App.DB.post('reservation_salles://module',obj,function(r) {
+        App.DB.post('reservation_salles://module',obj,function(rr) {
             var data=App.get(panel,'grid').getStore().data.items;
-            if (!r.insertId) var x=panel.moduleID; else x=r.insertId;            
+            if (!rr.insertId) var x=panel.moduleID; else x=rr.insertId;            
             me.updateResources(data,x,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
             });
@@ -298,7 +298,7 @@ App.controller.define('CMain', {
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // update modules !
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
-                        alert(id_session);
+                        
                         if (!r.insertId) r.insertId=id_session;
                         
                         me.updateModules(panels,r,0,function() {
