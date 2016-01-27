@@ -288,6 +288,7 @@ App.controller.define('CMain', {
                     if (r.result.data.length>0) {
                             var id_session=r.result.data[0].id_session;
                     };
+                    p.up('window').id_session=id_session;
                     var obj={
                         id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
                         num_session: 1,
