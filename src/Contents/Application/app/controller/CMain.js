@@ -282,7 +282,13 @@ App.controller.define('CMain', {
                     };
                     if (id_session) obj.id_session=id_session;
                     App.DB.post('reservation_salles://session',obj,function(r){
-                        alert('x');
+                        // update modules !
+                        var panels=App.get('VCreateEvenement panel#modules').items.items;
+                        me.updateModules(panels,r,0,function() {
+                            p.up('window').close();   
+                            // on raffraichit la grid
+                            App.get('mainform schedulergrid#schedule').getEventStore().load();
+                        });                        
                     });
                 });
             });
@@ -351,7 +357,8 @@ App.controller.define('CMain', {
                         modules.push(r.result.data[i].num_module);
                         module.push({
                             date_debut: r.result.data[i].debutModule,
-                            date_fin: r.result.data[i].finModule
+                            date_fin: r.result.data[i].finModule,
+                            id_module: r.result.data[i].id_module
                         });
                 }
             };
@@ -363,6 +370,7 @@ App.controller.define('CMain', {
             App.get('VCreateEvenement panel#modules').doLayout();
             for (var i=0;i<modules.length;i++) {
                 var mod=App.view.create('VResaModule',{ID: i});
+                mod.moduleID=module[i].id_module;
                 App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
                 App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
                 var grid=App.get(mod,'grid');
