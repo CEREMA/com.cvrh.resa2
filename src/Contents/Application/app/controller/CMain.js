@@ -259,7 +259,9 @@ App.controller.define('CMain', {
         };
         if (panel.moduleID) obj.id_module=panel.moduleID;
         var data=App.get(panel,'grid').getStore().data.items;
-        var x=panel.moduleID;
+        var x={
+            insertId: panel.moduleID
+        }
         if (data.length>0) {
             me.updateResources(data,x,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
