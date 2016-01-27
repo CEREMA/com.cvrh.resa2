@@ -537,6 +537,7 @@ App.controller.define('CMain', {
             alert('Vous devez sélectionner une date de début et de fin du module');
             return;
         };
+        alert('x');
         App.view.create('VResNew',{
             modal: true,
             dd0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
