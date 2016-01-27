@@ -216,7 +216,7 @@ App.controller.define('CMain', {
     {
         var me=this;
         var dta=data[ndx].data;
-        alert('x');
+        
         // on poste les évènements dans le scheduler
         var obj={
             id_ressource: dta.id_res,
@@ -232,8 +232,11 @@ App.controller.define('CMain', {
             id_choix: dta.choix,
             commentaire: dta.comments
         };
-        App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
-            if (ndx+1<data.length) me.updateResources(data,r,ndx+1,cb); else cb();
+        App.DB.get('reservation_salles://ressourcesalles?id_ressource='+dta.id_res,function(e,r) {
+            if (r.result.data.length==0) delete obj.id_ressource;
+            App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
+                if (ndx+1<data.length) me.updateResources(data,r,ndx+1,cb); else cb();
+            });            
         });
     },
     updateModules: function(panels,r,ndx,cb)
