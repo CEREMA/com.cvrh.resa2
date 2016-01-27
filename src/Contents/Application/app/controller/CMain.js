@@ -249,6 +249,8 @@ App.controller.define('CMain', {
     {
         var me=this;
         p.setDisabled(true);
+        alert(App.get(p.up('window'),'').getValue());
+        return;
         App.DB.get('reservation_salles://evenement?num_geff='+App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue(),function(e,r) {
             if (r.result.data.length>0) {
                 // l'évènement existe déjà !   
