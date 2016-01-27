@@ -552,6 +552,7 @@ App.controller.define('CMain', {
             dd0: App.get(me.up('panel').up('panel'),'datefield#debutModule').getValue(),
             dd1: App.get(me.up('panel').up('panel'),'datefield#finModule').getValue(),
             isNew: true,
+            moduleID: me.up('panel').up('panel').moduleID,
             grid: App.get(me.up('panel').up('panel'),'grid#res')
         }).show();
         
