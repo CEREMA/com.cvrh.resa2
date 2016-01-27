@@ -266,7 +266,25 @@ App.controller.define('CMain', {
             // on met à jour l'évènement
             App.DB.post('reservation_salles://evenement',obj,function(r){
                 var session=App.get(p.up('window'),"combo#cboSession").getValue();
-                alert(session);
+                App.DB.get('reservation_salles://session{id_session}?id_evenement='+p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
+                    if (r.result.data.length>0) {
+                            var id_session=r.result.data[0].id_session;
+                    };
+                    var obj={
+                        id_evenement: p.up('window'),'textfield#num_evt').getValue(),
+                        num_session: 1,
+                        chefProjet: App.get('VCreateEvenement combo#cboCP').getValue(),
+                        assistant: App.get('VCreateEvenement combo#cboAssistant').getValue(),
+                        participant: App.get('VCreateEvenement numberfield#participant').getValue(),
+                        status: 'I',
+                        dateAvis: App.get('VCreateEvenement datefield#date_avis').getValue(),
+                        statutResaSession: "FFFF00"
+                    };
+                    if (id_session) obj.id_session=id_session;
+                    App.DB.post('reservation_salles://session',obj,function(r){
+                        alert('x');
+                    });
+                });
             });
             
         } else {
