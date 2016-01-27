@@ -210,8 +210,14 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     new_module: function(p)
     {
-        alert(p.up('window').id_session);
-        App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{ID: App.get('VCreateEvenement panel#modules').items.items.length}));  
+        App.DB.post('reservation_salles://module',{
+            id_session: p.up('window').id_session,
+            status: "I",
+            num_module: App.get('VCreateEvenement panel#modules').items.items.length
+        },function(e,r) {
+            App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{moduleID: r.insertId, ID: App.get('VCreateEvenement panel#modules').items.items.length}));              
+        });
+        
     },
     updateResources: function(data,r,ndx,cb)
     {
