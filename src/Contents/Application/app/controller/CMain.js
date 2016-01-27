@@ -249,7 +249,29 @@ App.controller.define('CMain', {
     {
         var me=this;
         p.setDisabled(true);
-        if (App.get(p.up('window'),'textfield#num_evt').getValue()) alert('existe'); else alert('nexistepa');
+        if (App.get(p.up('window'),'textfield#num_evt').getValue()) {
+            // UPDATE
+            var obj={
+                id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
+                id_site: 3,
+                id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
+                status: 'I',
+                nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
+                num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
+            };  
+            if (App.get('VCreateEvenement textfield#insert_evenement').getValue()=="") {
+                alert("Le titre de l'évènement n'est pas renseigné");  
+                return;
+            };
+            // on met à jour l'évènement
+            App.DB.post('reservation_salles://evenement',obj,function(r){
+                var session=App.DB.get(p.up('window',"combo#cboSession").getValue();
+                alert(session);
+            });
+            
+        } else {
+            // INSERT
+        }
         return;
         App.DB.get('reservation_salles://evenement?num_geff='+App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue(),function(e,r) {
             if (r.result.data.length>0) {
@@ -264,10 +286,6 @@ App.controller.define('CMain', {
                     nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
                     num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
                 };  
-                /*if (App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()=="") {
-                    alert("Le numéro GEFF n'est pas renseigné");  
-                    return;
-                };*/
                 if (App.get('VCreateEvenement textfield#insert_evenement').getValue()=="") {
                     alert("Le titre de l'évènement n'est pas renseigné");  
                     return;
