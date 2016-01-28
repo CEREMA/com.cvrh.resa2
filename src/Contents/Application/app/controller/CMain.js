@@ -249,6 +249,8 @@ App.controller.define('CMain', {
     },
     del_module: function(p)
     {
+        alert(p.up('window').id_session);
+        alert(App.get(p.up('window'),'combo#cboSession').getValue());
         var activeTab = App.get('VCreateEvenement tabpanel').getActiveTab();
         console.log(activeTab);
         
