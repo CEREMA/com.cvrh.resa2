@@ -185,7 +185,7 @@ App.controller.define('CMain', {
             },
             "VResaModule grid": {
                 itemdblclick: "resamodule_click",
-                itemcontextmenu: "module_context",
+                contextmenu: "module_context",
             }
 		});
 		
