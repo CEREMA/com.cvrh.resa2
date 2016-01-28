@@ -131,9 +131,12 @@ App.controller.define('CMain', {
                     var me=this;
                     var panels=App.get('VCreateEvenement tabpanel').items.items;
                     var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
+                    if (activeTabIndex!=panels.length) {
+                        alert('Vous ne pouvez supprimer que le dernier module !');
+                        return false;                        
+                    };
                     Ext.MessageBox.confirm('Suppression d\'un module', 'Vous êtes sur le point de supprimer un module. Voulez vous continuer ?', function(btn){
-                        if(btn === 'yes'){
-                            if (activeTabIndex==panels.length) {
+                            if(btn === 'yes'){                            
                                 // on delete toutes les ressources associées au module
                                 App.DB.get('reservation_salles://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
                                     var res=[];
@@ -145,9 +148,6 @@ App.controller.define('CMain', {
                                         });
                                     });
                                 });
-                            } else {
-                                alert('Vous ne pouvez supprimer que le dernier module !');
-                                return false;
                             }                
                         }
                     });
