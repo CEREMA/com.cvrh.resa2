@@ -224,12 +224,12 @@ App.view.define('VCreateEvenement', {
             height: 50,
             bodyStyle: "background-color:#D5E2F2",
             width: "100%",
-            border: false,
-            padding:10,
+            border: false,            
             items: [
                 {
                     xtype: "button",    
-                    text: "Nouveau module"   
+                    text: "Nouveau module",
+                    padding:10
                 }
             ]
         },
