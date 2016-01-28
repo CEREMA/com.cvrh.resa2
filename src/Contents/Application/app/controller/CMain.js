@@ -131,23 +131,26 @@ App.controller.define('CMain', {
                     var me=this;
                     var panels=App.get('VCreateEvenement tabpanel').items.items;
                     var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
-                    if (activeTabIndex==panels.length) {
-                        // on delete toutes les ressources associées au module
-                        App.DB.get('reservation_salles://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
-                            var res=[];
-                            for (var i=0;i<r.result.data.length;i++) res.push(r.result.data[i].id_ressource);
-                            App.DB.del('reservation_salles://ressourcesalles',res,function(e,r) {
-                                App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
-                                    // on met à jour la session
-                                    me.updateSession(panel.up('window'));
+                    Ext.MessageBox.confirm('Suppression d\'un module', 'Vous êtes sur le point de supprimer un module. Voulez vous continuer ?', function(btn){
+                        if(btn === 'yes'){
+                            if (activeTabIndex==panels.length) {
+                                // on delete toutes les ressources associées au module
+                                App.DB.get('reservation_salles://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
+                                    var res=[];
+                                    for (var i=0;i<r.result.data.length;i++) res.push(r.result.data[i].id_ressource);
+                                    App.DB.del('reservation_salles://ressourcesalles',res,function(e,r) {
+                                        App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
+                                            // on met à jour la session
+                                            me.updateSession(panel.up('window'));
+                                        });
+                                    });
                                 });
-                            });
-                        });
-                        return false;
-                    } else {
-                        alert('Vous ne pouvez supprimer que le dernier module !');
-                        return false;
-                    }                
+                            } else {
+                                alert('Vous ne pouvez supprimer que le dernier module !');
+                                return false;
+                            }                
+                        }
+                    });
                 }  
             },
             "VResaModule datefield": {
