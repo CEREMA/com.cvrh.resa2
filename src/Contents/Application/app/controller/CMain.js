@@ -372,35 +372,32 @@ App.controller.define('CMain', {
     updateSession: function(p)
     {
         var me=this;
- App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_evenement='+p.id_evenement+'&session.num_session='+p.session,function(e,r) {
-            r.result.data.sort(sort_by('num_module'));
-            // on met à jour le chef de projet et l'assistant
-            App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
-            App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
-            App.get(p,'combo#cboCP').disable();
-     
-            // on met à jour les modules
-            var modules=[];
-            var module=[];
-            App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule}?id_session='+p.session,function(e,xx) {
-                console.log(e);
-                console.log(xx);
-                for (var i=0;i<xx.result.data.length;i++) {
-                    modules.push(xx.result.data[i].num_module);
-                    module.push({
-                        date_debut: xx.result.data[i].debutModule,
-                        date_fin: xx.result.data[i].finModule,
-                        id_module: xx.result.data[i].id_module
-                    });                
-                };
-                alert(modules.length);
+        // on met à jour les modules
+        var modules=[];
+        var module=[];
+        App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+p.session+'&session.id_evenement='+p.id_evenement,function(e,xx) {
+            for (var i=0;i<xx.result.data.length;i++) {
+                modules.push(xx.result.data[i].num_module);
+                module.push({
+                    date_debut: xx.result.data[i].debutModule,
+                    date_fin: xx.result.data[i].finModule,
+                    id_module: xx.result.data[i].id_module
+                });                
+            };
+            var session=xx.result.data[0].id_session;
+            App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
+                r.result.data.sort(sort_by('num_module'));    
+                // on met à jour le chef de projet et l'assistant
+                App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
+                App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
+                App.get(p,'combo#cboCP').disable();
                 // on clear le panel modules
                 while(f = App.get('VCreateEvenement panel#modules').items.first()){
                     App.get('VCreateEvenement panel#modules').remove(f, true);
                 };
                 App.get('VCreateEvenement panel#modules').doLayout();
+                // on ajoute les modules
                 for (var i=0;i<modules.length;i++) {
-                    alert(modules[i]);
                     var mod=App.view.create('VResaModule',{ID: modules[i]});
                     mod.moduleID=module[i].id_module;
                     App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
@@ -408,7 +405,7 @@ App.controller.define('CMain', {
                     var grid=App.get(mod,'grid');
                     var data=[];
                     for (var j=0;j<r.result.data.length;j++) {
-                        if (r.result.data[j].num_module==i+1) {
+                        if (r.result.data[j].num_module==modules[i]) {
                             // on ajoute les éléments à la grid
                             data.push({
                                   "id_res": r.result.data[j].id_ressource,
@@ -425,34 +422,14 @@ App.controller.define('CMain', {
                                   "choix": r.result.data[j].id_choix,
                                   "comments": r.result.data[j].commentaire
                             })
-                        }
-                    };
+                        }                        
+                    }
                     // on bind data a la grid
                     grid.getStore().loadData(data);
-                    App.get('VCreateEvenement panel#modules').add(mod);
-                };                
-            });
-            /*for (var i=0;i<r.result.data.length;i++) {
-                if (modules.indexOf(r.result.data[i].num_module)==-1) {
-                    modules.push(r.result.data[i].num_module);
-                    module.push({
-                        date_debut: r.result.data[i].debutModule,
-                        date_fin: r.result.data[i].finModule,
-                        id_module: r.result.data[i].id_module
-                    });
+                    App.get('VCreateEvenement panel#modules').add(mod);                    
                 }
-            };*/
-     
-
-            // On crée également le ou les modules du stage
-            //var panels=App.get('VCreateEvenement panel#modules').items.items;
-            /*me.updateModules(panels,r,0,function() {
-                p.up('window').close();   
-                // on raffraichit la grid
-                App.get('mainform schedulergrid#schedule').getEventStore().load();
-            });*/
-     
-        });
+            });
+        });        
     },
 	VCreateEvenement_onshow: function(p)
 	{
