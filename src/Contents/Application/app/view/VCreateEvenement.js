@@ -221,11 +221,13 @@ App.view.define('VCreateEvenement', {
         },
         {
             layout: "hbox",
-            height: 50,
+            height: 30,
             width: "100%",
+            border: false,
+            padding:10,
             items: [
                 {
-                    xtype: "button",
+                    xtype: "button",    
                     text: "Nouveau module"   
                 }
             ]
