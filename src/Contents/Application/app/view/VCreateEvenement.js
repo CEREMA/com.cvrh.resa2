@@ -221,7 +221,7 @@ App.view.define('VCreateEvenement', {
         },
         {
             layout: "hbox",
-            height: 50,
+            height: 40,
             bodyStyle: "background-color:#D5E2F2",
             width: "100%",
             border: false,            
@@ -229,6 +229,14 @@ App.view.define('VCreateEvenement', {
                 {
                     xtype: "button",    
                     text: "Nouveau module",
+                    margin: {
+                        left: 5,
+                        top: 5
+                    }
+                },
+                {
+                    xtype: "button",    
+                    text: "Supprimer module",
                     margin: {
                         left: 5,
                         top: 5
