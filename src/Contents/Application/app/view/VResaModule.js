@@ -27,7 +27,7 @@ App.view.define('VResaModule', {
                     App.DB.del('reservation_salles://ressourcesalles?id_module='+panel.moduleID,function(e,r) {
                         App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
                             // on met à jour la session
-                            me.updateSession(p.up('window'));
+                            me.updateSession(panel.up('window'));
                         });
                     });
                 } else {
