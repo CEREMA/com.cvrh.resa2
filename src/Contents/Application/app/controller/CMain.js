@@ -688,9 +688,9 @@ App.controller.define('CMain', {
 				text: "Supprimer la ressource",
                 handler: function(p) {                    
                     var record = view.getStore().getAt(index);                    
-                    me.detectModule(record.data.id_res,function(valid) {
+                    /*me.detectModule(record.data.id_res,function(valid) {
                         alert(valid);
-                    });
+                    });*/
                     App.DB.del("reservation_salles://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
                         view.getStore().remove(record);
                     });                    
