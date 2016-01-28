@@ -31,6 +31,7 @@ App.view.define('VResaModule', {
                             alert('z');
                         });
                     });
+                    return false;
                 } else {
                     alert('Vous ne pouvez supprimer que le dernier module !');
                     return false;
