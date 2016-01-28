@@ -400,6 +400,7 @@ App.controller.define('CMain', {
             };
             App.get('VCreateEvenement panel#modules').doLayout();
             for (var i=0;i<modules.length;i++) {
+                alert(modules[i]);
                 var mod=App.view.create('VResaModule',{ID: modules[i]});
                 mod.moduleID=module[i].id_module;
                 App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
