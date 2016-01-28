@@ -693,7 +693,10 @@ App.controller.define('CMain', {
         Ext.create('Ext.menu.Menu', {
             items: [
 			{
-				text: "Supprimer la ressource"
+				text: "Supprimer la ressource",
+                handler: function(p) {
+                    console.log(record);   
+                }
 			}]
         }).showAt(e.getXY());        
     },
