@@ -152,6 +152,7 @@ App.controller.define('CMain', {
                             });
                         }                
                     });
+                    return false;
                 }  
             },
             "VResaModule datefield": {
