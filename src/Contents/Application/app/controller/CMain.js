@@ -249,6 +249,7 @@ App.controller.define('CMain', {
     },
     del_module: function(p)
     {
+        var me=this;
         /*alert(p.up('window').id_session);
         alert(App.get(p.up('window'),'combo#cboSession').getValue());*/
         var panels=App.get('VCreateEvenement tabpanel').items.items;
@@ -256,6 +257,13 @@ App.controller.define('CMain', {
         var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
         if (activeTabIndex==panels.length) {
             alert(panel.moduleID);
+            // on delete toutes les ressources associées au module
+            App.DB.del('reservation_salles://ressourcesalles?id_module='+panel.moduleID,function(e,r) {
+                App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
+                    // on met à jour la session
+                    me.updateSession(p);
+                });
+            });
         } else {
             alert('Vous ne pouvez supprimer que le dernier module !');
         }
