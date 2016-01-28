@@ -253,11 +253,12 @@ App.controller.define('CMain', {
         alert(App.get(p.up('window'),'combo#cboSession').getValue());*/
         var panels=App.get('VCreateEvenement tabpanel').items.items;
         var panel=App.get('VCreateEvenement tabpanel').getActiveTab();
-        var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id);
-        alert(activeTabIndex);
-        alert(panels.length);
-        
-        console.log(activeTab);
+        var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
+        if (activeTabIndex==panels.length) {
+            
+        } else {
+            alert('Vous ne pouvez supprimer que le dernier module !');
+        }
         
     },
     updateResources: function(data,r,ndx,cb)
