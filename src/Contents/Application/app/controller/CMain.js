@@ -144,7 +144,7 @@ App.controller.define('CMain', {
             "VCreateEvenement panel#modules": {
                 add: "resamodule_onshow"
             },            
-            "VCreateEvenement tabpanel": {
+            "VCreateEvenement tabpanel#modules": {
                 contextmenu: "tab_context",
             },
             /*
