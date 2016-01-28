@@ -406,8 +406,6 @@ App.controller.define('CMain', {
                 var grid=App.get(mod,'grid');
                 var data=[];
                 for (var j=0;j<r.result.data.length;j++) {
-                    alert(r.result.data[j].num_module);
-                    alert(i+1);
                     if (r.result.data[j].num_module==i+1) {
                         // on ajoute les éléments à la grid
                         data.push({
