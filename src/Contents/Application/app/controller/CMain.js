@@ -532,8 +532,7 @@ App.controller.define('CMain', {
         } else {
             obj.id_salle=dta.id_salle;
             obj.id_site=dta.id_site;         
-        };
-
+        };        
         App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);    
@@ -688,9 +687,6 @@ App.controller.define('CMain', {
 				text: "Supprimer la ressource",
                 handler: function(p) {                    
                     var record = view.getStore().getAt(index);                    
-                    /*me.detectModule(record.data.id_res,function(valid) {
-                        alert(valid);
-                    });*/
                     App.DB.del("reservation_salles://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
                         view.getStore().remove(record);
                     });                    
