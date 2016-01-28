@@ -16,7 +16,24 @@ App.view.define('VResaModule', {
         
         this.listeners={
             beforeclose: function(p){
-                return false;   
+                var me=this;
+                /*alert(p.up('window').id_session);
+                alert(App.get(p.up('window'),'combo#cboSession').getValue());*/
+                var panels=App.get('VCreateEvenement tabpanel').items.items;
+                var panel=App.get('VCreateEvenement tabpanel').getActiveTab();
+                var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
+                if (activeTabIndex==panels.length) {
+                    // on delete toutes les ressources associées au module
+                    App.DB.del('reservation_salles://ressourcesalles?id_module='+panel.moduleID,function(e,r) {
+                        App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
+                            // on met à jour la session
+                            me.updateSession(p.up('window'));
+                        });
+                    });
+                } else {
+                    alert('Vous ne pouvez supprimer que le dernier module !');
+                    return false;
+                }                
             }
         };
         
