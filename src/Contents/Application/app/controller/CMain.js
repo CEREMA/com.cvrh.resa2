@@ -249,9 +249,14 @@ App.controller.define('CMain', {
     },
     del_module: function(p)
     {
-        alert(p.up('window').id_session);
-        alert(App.get(p.up('window'),'combo#cboSession').getValue());
-        var activeTab = App.get('VCreateEvenement tabpanel').getActiveTab();
+        /*alert(p.up('window').id_session);
+        alert(App.get(p.up('window'),'combo#cboSession').getValue());*/
+        var panels=App.get('VCreateEvenement tabpanel').items.items;
+        var panel=App.get('VCreateEvenement tabpanel').getActiveTab();
+        var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id): 
+        alert(activeTabIndex);
+        alert(panels.length);
+        
         console.log(activeTab);
         
     },
