@@ -225,6 +225,7 @@ App.view.define('VCreateEvenement', {
             width: "100%",
             items: [
                 {
+                    xtype: "button",
                     text: "Nouveau module"   
                 }
             ]
