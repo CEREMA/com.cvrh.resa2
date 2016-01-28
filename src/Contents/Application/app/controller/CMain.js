@@ -690,12 +690,16 @@ App.controller.define('CMain', {
 	},
     module_context: function(view,record,item,index,e) {
         e.stopEvent();
+        var me=this;
         Ext.create('Ext.menu.Menu', {
             items: [
 			{
 				text: "Supprimer la ressource",
                 handler: function(p) {                    
                     var record = view.getStore().getAt(index);                    
+                    me.detectModule(record.data.id_res,function(valid) {
+                        alert(valid);
+                    });
                     App.DB.del("reservation_salles://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
                         view.getStore().remove(record);
                     });                    
