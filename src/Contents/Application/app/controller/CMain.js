@@ -384,12 +384,13 @@ App.controller.define('CMain', {
             var module=[];
             for (var i=0;i<r.result.data.length;i++) {
                 if (modules.indexOf(r.result.data[i].num_module)==-1) {
-                        modules.push(r.result.data[i].num_module);
-                        module.push({
-                            date_debut: r.result.data[i].debutModule,
-                            date_fin: r.result.data[i].finModule,
-                            id_module: r.result.data[i].id_module
-                        });
+                    modules.push(r.result.data[i].num_module);
+                    module.push({
+                        date_debut: r.result.data[i].debutModule,
+                        date_fin: r.result.data[i].finModule,
+                        id_module: r.result.data[i].id_module
+                    });
+                    console.log(module);
                 }
             };
      
