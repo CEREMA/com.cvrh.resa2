@@ -391,6 +391,43 @@ App.controller.define('CMain', {
                         id_module: xx.result.data[i].id_module
                     });                
                 };
+                // on clear le panel modules
+                while(f = App.get('VCreateEvenement panel#modules').items.first()){
+                    App.get('VCreateEvenement panel#modules').remove(f, true);
+                };
+                App.get('VCreateEvenement panel#modules').doLayout();
+                for (var i=0;i<modules.length;i++) {
+                    alert(modules[i]);
+                    var mod=App.view.create('VResaModule',{ID: modules[i]});
+                    mod.moduleID=module[i].id_module;
+                    App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
+                    App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                    var grid=App.get(mod,'grid');
+                    var data=[];
+                    for (var j=0;j<r.result.data.length;j++) {
+                        if (r.result.data[j].num_module==i+1) {
+                            // on ajoute les éléments à la grid
+                            data.push({
+                                  "id_res": r.result.data[j].id_ressource,
+                                  "id_site": r.result.data[j].id_site,
+                                  "id_salle": r.result.data[j].id_salle,
+                                  "nomSalle": r.result.data[j].nom_salle,
+                                  "d0": r.result.data[j].debutRessource.toDate(),
+                                  "d1": r.result.data[j].finRessource.toDate(),
+                                  "p0": r.result.data[j].periode,
+                                  "p1": r.result.data[j].periodef,
+                                  "afficher": r.result.data[j].afficher,
+                                  "valider": r.result.data[j].salleValide,
+                                  "preparation": r.result.data[j].preparation,
+                                  "choix": r.result.data[j].id_choix,
+                                  "comments": r.result.data[j].commentaire
+                            })
+                        }
+                    };
+                    // on bind data a la grid
+                    grid.getStore().loadData(data);
+                    App.get('VCreateEvenement panel#modules').add(mod);
+                };                
             });
             /*for (var i=0;i<r.result.data.length;i++) {
                 if (modules.indexOf(r.result.data[i].num_module)==-1) {
@@ -403,45 +440,9 @@ App.controller.define('CMain', {
                 }
             };*/
      
-            // on clear le panel modules
-            while(f = App.get('VCreateEvenement panel#modules').items.first()){
-                App.get('VCreateEvenement panel#modules').remove(f, true);
-            };
-            App.get('VCreateEvenement panel#modules').doLayout();
-            for (var i=0;i<modules.length;i++) {
-                alert(modules[i]);
-                var mod=App.view.create('VResaModule',{ID: modules[i]});
-                mod.moduleID=module[i].id_module;
-                App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
-                App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
-                var grid=App.get(mod,'grid');
-                var data=[];
-                for (var j=0;j<r.result.data.length;j++) {
-                    if (r.result.data[j].num_module==i+1) {
-                        // on ajoute les éléments à la grid
-                        data.push({
-                              "id_res": r.result.data[j].id_ressource,
-                              "id_site": r.result.data[j].id_site,
-						      "id_salle": r.result.data[j].id_salle,
-						      "nomSalle": r.result.data[j].nom_salle,
-						      "d0": r.result.data[j].debutRessource.toDate(),
-						      "d1": r.result.data[j].finRessource.toDate(),
-                              "p0": r.result.data[j].periode,
-                              "p1": r.result.data[j].periodef,
-						      "afficher": r.result.data[j].afficher,
-						      "valider": r.result.data[j].salleValide,
-						      "preparation": r.result.data[j].preparation,
-						      "choix": r.result.data[j].id_choix,
-                              "comments": r.result.data[j].commentaire
-                        })
-                    }
-                };
-                // on bind data a la grid
-                grid.getStore().loadData(data);
-                App.get('VCreateEvenement panel#modules').add(mod);
-            };
+
             // On crée également le ou les modules du stage
-            var panels=App.get('VCreateEvenement panel#modules').items.items;
+            //var panels=App.get('VCreateEvenement panel#modules').items.items;
             /*me.updateModules(panels,r,0,function() {
                 p.up('window').close();   
                 // on raffraichit la grid
