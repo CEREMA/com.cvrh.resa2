@@ -139,7 +139,9 @@ App.controller.define('CMain', {
                 click: "new_module"
             },            
             "VCreateEvenement button#delmodule": {
-                click: "del_module"
+                click: function() {
+                    alert('x');   
+                }
             },                        
             "VCreateEvenement panel#modules": {
                 add: "resamodule_onshow"
