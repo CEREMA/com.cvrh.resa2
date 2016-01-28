@@ -383,6 +383,8 @@ App.controller.define('CMain', {
             var modules=[];
             var module=[];
             App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule}?id_session='+p.session,function(e,xx) {
+                console.log(e);
+                console.log(xx);
                 for (var i=0;i<xx.result.data.length;i++) {
                     modules.push(xx.result.data[i].num_module);
                     module.push({
