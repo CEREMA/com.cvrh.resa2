@@ -222,7 +222,7 @@ App.view.define('VCreateEvenement', {
         {
             layout: "hbox",
             height: 50,
-            bodyStyle: "background-color:#A6D1FB",
+            bodyStyle: "background-color:#D5E2F2",
             width: "100%",
             border: false,
             padding:10,
