@@ -13,12 +13,7 @@ App.view.define('VCreateEvenement', {
 		{
 			text: "Nouvelle session",
 			hidden: true
-		},
-        {
-			text: "Nouveau module",
-            itemId: "newmodule",
-			hidden: false            
-        }
+		}
         ];
 		
         this.defaults = {
@@ -232,7 +227,8 @@ App.view.define('VCreateEvenement', {
                     margin: {
                         left: 5,
                         top: 5
-                    }
+                    },
+                    itemId: "newmodule"
                 },
                 {
                     xtype: "button",    
