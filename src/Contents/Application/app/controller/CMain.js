@@ -139,9 +139,7 @@ App.controller.define('CMain', {
                 click: "new_module"
             },            
             "VCreateEvenement button#delmodule": {
-                click: function() {
-                    alert('x');   
-                }
+                click: "del_module"
             },                        
             "VCreateEvenement panel#modules": {
                 add: "resamodule_onshow"
@@ -251,7 +249,6 @@ App.controller.define('CMain', {
     },
     del_module: function(p)
     {
-        alert('x');
         var activeTab = App.get('VCreateEvenement panel#tabpanel').getActiveTab();
         console.log(activeTab);
         
