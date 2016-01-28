@@ -246,40 +246,38 @@ App.view.define('VCreateEvenement', {
 			border: false,
 			flex: 1,
 			xtype: 'tabpanel',
-            plugins: {
-                Ext.create('Ext.ux.TabCloseMenu', {
-                    extraItemsTail: [
-                        '-',
-                        {
-                            text: 'Closable',
-                            checked: true,
-                            hideOnClick: true,
-                            handler: function (item) {
-                                currentItem.tab.setClosable(item.checked);
-                            }
-                        },
-                        '-',
-                        {
-                            text: 'Enabled',
-                            checked: true,
-                            hideOnClick: true,
-                            handler: function(item) {
-                                currentItem.tab.setDisabled(!item.checked);
-                            }
+            plugins: Ext.create('Ext.ux.TabCloseMenu', {
+                extraItemsTail: [
+                    '-',
+                    {
+                        text: 'Closable',
+                        checked: true,
+                        hideOnClick: true,
+                        handler: function (item) {
+                            currentItem.tab.setClosable(item.checked);
                         }
-                    ],
-                    listeners: {
-                        aftermenu: function () {
-                            currentItem = null;
-                        },
-                        beforemenu: function (menu, item) {
-                            menu.child('[text="Closable"]').setChecked(item.closable);
-                            menu.child('[text="Enabled"]').setChecked(!item.tab.isDisabled());
-                            currentItem = item;
+                    },
+                    '-',
+                    {
+                        text: 'Enabled',
+                        checked: true,
+                        hideOnClick: true,
+                        handler: function(item) {
+                            currentItem.tab.setDisabled(!item.checked);
                         }
                     }
-                })
-            },
+                ],
+                listeners: {
+                    aftermenu: function () {
+                        currentItem = null;
+                    },
+                    beforemenu: function (menu, item) {
+                        menu.child('[text="Closable"]').setChecked(item.closable);
+                        menu.child('[text="Enabled"]').setChecked(!item.tab.isDisabled());
+                        currentItem = item;
+                    }
+                }
+            }),
             itemId: "modules",
 			width: "100%",
 			items: [
