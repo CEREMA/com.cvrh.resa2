@@ -237,7 +237,7 @@ App.view.define('VCreateEvenement', {
                         left: 5,
                         top: 5
                     },
-                    itemId: "delModule"
+                    itemId: "delmodule"
                 }
             ]
         },
