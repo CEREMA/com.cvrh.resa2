@@ -14,6 +14,12 @@ App.view.define('VResaModule', {
         
         this.closable = true;
         
+        this.listeners={
+            beforeclose: function(p){
+                return false;   
+            }
+        };
+        
         this.items = [
 				{
 					layout: "hbox",
