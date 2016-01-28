@@ -695,7 +695,9 @@ App.controller.define('CMain', {
 			{
 				text: "Supprimer la ressource",
                 handler: function(p) {
-                    console.log(record);   
+                    console.log(index);
+                    var record = p.up('grid').getStore().getAt(index);
+                    p.up('grid').getStore().remove(record);
                 }
 			}]
         }).showAt(e.getXY());        
