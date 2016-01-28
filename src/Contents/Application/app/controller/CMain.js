@@ -171,6 +171,9 @@ App.controller.define('CMain', {
             /*
             VResaModule
             */
+            "VResaModule datefield": {
+                select: "resamodule_onchange"  
+            },
             "VResaModule button#plus_res": {
                 click: "resplus"
             },
@@ -189,6 +192,16 @@ App.controller.define('CMain', {
     EVT_CURRENT: {},
     
     // VResaModule
+    resamodule_onchange: function(p)
+    {
+        alert(p.up('panel').moduleID);
+        var obj={
+            id_module: p.up('panel').moduleID,
+            debutModule: App.get(p.up('panel'),"datefield#debutModule").getValue(),
+            finModule: App.get(p.up('panel'),"datefield#finModule").getValue()
+        };
+        console.log(obj);
+    },
     resamodule_click: function(grid)
     {
         var s=grid.getSelectionModel().getSelection();
@@ -473,16 +486,6 @@ App.controller.define('CMain', {
         }).show();
     },
 	// VResNew
-    resnew_datefield_change: function(p)
-    {
-        alert(p.up('panel').moduleID);
-        var obj={
-            id_module: p.up('panel').moduleID,
-            debutModule: App.get(p.up('panel'),"datefield#debutModule").getValue(),
-            finModule: App.get(p.up('panel'),"datefield#finModule").getValue()
-        };
-        console.log(obj);
-    },
 	resa_record: function(p) {
         var grid=p.up('window').grid;
         var s=grid.getSelectionModel().getSelection();
