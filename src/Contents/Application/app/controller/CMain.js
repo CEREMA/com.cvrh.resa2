@@ -85,14 +85,14 @@ App.controller.define('CMain', {
             },            
             "VCreateEvenement tabpanel#modules": {
                 afterlayout: function(x) {
-                    console.log(x);
-                    x.mon(this.tabBar.el, {
+                    /*console.log(x);
+                    this.tabPanel.mon(this.tabBar.el, {
                         scope: this,
                         contextmenu: function(event, target)  {
                             alert('x');
                         },
                         delegate: 'div.x-tab'
-                    });                    
+                    });                    */
                 },
             },
             /*
