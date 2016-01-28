@@ -172,7 +172,8 @@ App.controller.define('CMain', {
                 click: "resplus"
             },
             "VResaModule grid": {
-                itemdblclick: "resamodule_click"   
+                itemdblclick: "resamodule_click",
+                itemcontextmenu: "ressource_context",
             }
 		});
 		
@@ -687,6 +688,15 @@ App.controller.define('CMain', {
 	{
 		this.display_scheduler(new Date(p.getValue(),App.get('combo#selectMonth').getValue(),1));
 	},
+    ressource_context: function(view,record,item,index,e) {
+        e.stopEvent();
+        Ext.create('Ext.menu.Menu', {
+            items: [
+			{
+				text: "Supprimer la ressource"
+			}]
+        }).showAt(e.getXY());        
+    },
     resource_context: function(view, record, item, index, e) {
         e.stopEvent();
         Ext.create('Ext.menu.Menu', {
