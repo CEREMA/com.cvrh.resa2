@@ -695,7 +695,7 @@ App.controller.define('CMain', {
 			{
 				text: "Supprimer la ressource",
                 handler: function(p) {
-                    console.log(index);
+                    console.log(record);
                     var record = view.getStore().getAt(index);
                     view.getStore().remove(record);
                 }
