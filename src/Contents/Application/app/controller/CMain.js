@@ -194,7 +194,7 @@ App.controller.define('CMain', {
     // VResaModule
     resamodule_onchange: function(p)
     {
-        alert(p.up('panel').moduleID);
+        console.log(p.up('panel'));
         var obj={
             id_module: p.up('panel').moduleID,
             debutModule: App.get(p.up('panel'),"datefield#debutModule").getValue(),
