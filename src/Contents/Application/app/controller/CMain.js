@@ -391,6 +391,7 @@ App.controller.define('CMain', {
                         id_module: xx.result.data[i].id_module
                     });                
                 };
+                alert(modules.length);
                 // on clear le panel modules
                 while(f = App.get('VCreateEvenement panel#modules').items.first()){
                     App.get('VCreateEvenement panel#modules').remove(f, true);
