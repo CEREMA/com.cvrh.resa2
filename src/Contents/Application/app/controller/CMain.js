@@ -216,7 +216,6 @@ App.controller.define('CMain', {
             status: "I",
             num_module: App.get('VCreateEvenement panel#modules').items.items.length+1
         },function(r) {
-            alert(r.insertId);
             App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{moduleID: r.insertId,ID:App.get('VCreateEvenement panel#modules').items.items.length}));              
         });
         
@@ -263,7 +262,7 @@ App.controller.define('CMain', {
         var data=App.get(panel,'grid').getStore().data.items;
         var x={
             insertId: panel.moduleID
-        }
+        };
         if (data.length>0) {
             me.updateResources(data,x,0,function() {
                 if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
@@ -383,7 +382,17 @@ App.controller.define('CMain', {
             // on met à jour les modules
             var modules=[];
             var module=[];
-            for (var i=0;i<r.result.data.length;i++) {
+            App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule}?id_session='+p.session,function(e,xx) {
+                for (var i=0;i<xx.result.data.length;i++) {
+                    modules.push(xx.result.data[i].num_module);
+                    module.push({
+                        date_debut: xx.result.data[i].debutModule,
+                        date_fin: xx.result.data[i].finModule,
+                        id_module: xx.result.data[i].id_module
+                    });                
+                };
+            });
+            /*for (var i=0;i<r.result.data.length;i++) {
                 if (modules.indexOf(r.result.data[i].num_module)==-1) {
                     modules.push(r.result.data[i].num_module);
                     module.push({
@@ -392,7 +401,7 @@ App.controller.define('CMain', {
                         id_module: r.result.data[i].id_module
                     });
                 }
-            };
+            };*/
      
             // on clear le panel modules
             while(f = App.get('VCreateEvenement panel#modules').items.first()){
