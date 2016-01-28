@@ -165,6 +165,9 @@ App.controller.define('CMain', {
             "VResNew button#record": {
                 click: "resa_record"  
             },
+            "VResNew datefield": {
+                select: "resnew_datefield_change"  
+            },
             /*
             VResaModule
             */
@@ -470,6 +473,16 @@ App.controller.define('CMain', {
         }).show();
     },
 	// VResNew
+    resnew_datefield_change: function(p)
+    {
+        alert(p.up('panel').moduleID);
+        var obj={
+            id_module: p.up('panel').moduleID,
+            debutModule: App.get(p.up('panel'),"datefield#debutModule").getValue(),
+            finModule: App.get(p.up('panel'),"datefield#finModule").getValue()
+        };
+        console.log(obj);
+    },
 	resa_record: function(p) {
         var grid=p.up('window').grid;
         var s=grid.getSelectionModel().getSelection();
