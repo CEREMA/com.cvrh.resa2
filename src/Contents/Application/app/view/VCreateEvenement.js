@@ -226,6 +226,11 @@ App.view.define('VCreateEvenement', {
 			xtype: 'tabpanel',
             itemId: "modules",
 			width: "100%",
+            tbar: [
+                {
+                    text: "Nouveau module"   
+                }
+            ]
 			items: [
 				{
 					xtype: "VResaModule"
