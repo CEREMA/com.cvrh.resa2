@@ -219,6 +219,14 @@ App.view.define('VCreateEvenement', {
                 }
             ]
         },
+        {
+            layout: "hbox",
+            items: [
+                {
+                    text: "Nouveau module"   
+                }
+            ]
+        },
 		//------------ MODULE -------------------------------------------------------
 		{
 			border: false,
@@ -226,11 +234,6 @@ App.view.define('VCreateEvenement', {
 			xtype: 'tabpanel',
             itemId: "modules",
 			width: "100%",
-            tbar: [
-                {
-                    text: "Nouveau module"   
-                }
-            ],
 			items: [
 				{
 					xtype: "VResaModule"
