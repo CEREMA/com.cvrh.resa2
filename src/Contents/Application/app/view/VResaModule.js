@@ -15,12 +15,12 @@ App.view.define('VResaModule', {
         this.closable = true;
         
         this.listeners={
-            beforeclose: function(p){
+            beforeclose: function(panel){
                 var me=this;
+                console.log(panel);
                 /*alert(p.up('window').id_session);
                 alert(App.get(p.up('window'),'combo#cboSession').getValue());*/
                 var panels=App.get('VCreateEvenement tabpanel').items.items;
-                var panel=App.get('VCreateEvenement tabpanel').getActiveTab();
                 var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
                 if (activeTabIndex==panels.length) {
                     // on delete toutes les ressources associées au module
