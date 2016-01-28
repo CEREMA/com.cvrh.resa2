@@ -249,7 +249,7 @@ App.controller.define('CMain', {
     },
     del_module: function(p)
     {
-        var activeTab = App.get('VCreateEvenement panel#tabpanel').getActiveTab();
+        var activeTab = App.get('VCreateEvenement tabpanel').getActiveTab();
         console.log(activeTab);
         
     },
