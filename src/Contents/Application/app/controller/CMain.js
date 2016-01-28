@@ -173,7 +173,7 @@ App.controller.define('CMain', {
             },
             "VResaModule grid": {
                 itemdblclick: "resamodule_click",
-                itemcontextmenu: "ressource_context",
+                itemcontextmenu: "module_context",
             }
 		});
 		
@@ -688,7 +688,7 @@ App.controller.define('CMain', {
 	{
 		this.display_scheduler(new Date(p.getValue(),App.get('combo#selectMonth').getValue(),1));
 	},
-    ressource_context: function(view,record,item,index,e) {
+    module_context: function(view,record,item,index,e) {
         e.stopEvent();
         Ext.create('Ext.menu.Menu', {
             items: [
