@@ -221,6 +221,8 @@ App.view.define('VCreateEvenement', {
         },
         {
             layout: "hbox",
+            height: 50,
+            width: "100%",
             items: [
                 {
                     text: "Nouveau module"   
