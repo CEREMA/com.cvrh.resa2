@@ -246,7 +246,7 @@ App.view.define('VCreateEvenement', {
 			border: false,
 			flex: 1,
 			xtype: 'tabpanel',
-            plugins: [
+            plugins: {
                 Ext.create('Ext.ux.TabCloseMenu', {
                     extraItemsTail: [
                         '-',
@@ -279,7 +279,7 @@ App.view.define('VCreateEvenement', {
                         }
                     }
                 })
-            ],
+            },
             itemId: "modules",
 			width: "100%",
 			items: [
