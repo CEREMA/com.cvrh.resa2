@@ -694,10 +694,10 @@ App.controller.define('CMain', {
             items: [
 			{
 				text: "Supprimer la ressource",
-                handler: function(p) {
-                    console.log(record);
+                handler: function(p) {                    
                     var record = view.getStore().getAt(index);
-                    view.getStore().remove(record);
+                    console.log(record);
+                    //view.getStore().remove(record);
                 }
 			}]
         }).showAt(e.getXY());        
