@@ -135,21 +135,22 @@ App.controller.define('CMain', {
                         alert('Vous ne pouvez supprimer que le dernier module !');
                         return false;                        
                     };
-                    Ext.MessageBox.confirm('Suppression d\'un module', 'Vous êtes sur le point de supprimer un module. Voulez vous continuer ?', function(btn){
-                            if(btn === 'yes'){                            
-                                // on delete toutes les ressources associées au module
-                                App.DB.get('reservation_salles://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
-                                    var res=[];
-                                    for (var i=0;i<r.result.data.length;i++) res.push(r.result.data[i].id_ressource);
-                                    App.DB.del('reservation_salles://ressourcesalles',res,function(e,r) {
-                                        App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
-                                            // on met à jour la session
-                                            me.updateSession(panel.up('window'));
-                                        });
+                    var title='Suppression d\'un module';
+                    var msg='Vous êtes sur le point de supprimer un module. Voulez vous continuer ?';
+                    Ext.MessageBox.confirm(title, msg, function(btn){
+                        if(btn === 'yes'){
+                            // on delete toutes les ressources associées au module
+                            App.DB.get('reservation_salles://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
+                                var res=[];
+                                for (var i=0;i<r.result.data.length;i++) res.push(r.result.data[i].id_ressource);
+                                App.DB.del('reservation_salles://ressourcesalles',res,function(e,r) {
+                                    App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
+                                        // on met à jour la session
+                                        me.updateSession(panel.up('window'));
                                     });
                                 });
-                            }                
-                        }
+                            });
+                        }                
                     });
                 }  
             },
