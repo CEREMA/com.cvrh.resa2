@@ -145,7 +145,7 @@ App.controller.define('CMain', {
                 add: "resamodule_onshow"
             },            
             "VCreateEvenement tabpanel": {
-                itemcontextmenu: "tab_context",
+                contextmenu: "tab_context",
             },
             /*
             VGeff
@@ -185,7 +185,7 @@ App.controller.define('CMain', {
             },
             "VResaModule grid": {
                 itemdblclick: "resamodule_click",
-                contextmenu: "module_context",
+                itemcontextmenu: "module_context",
             }
 		});
 		
