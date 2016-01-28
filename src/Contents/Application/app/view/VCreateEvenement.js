@@ -247,7 +247,7 @@ App.view.define('VCreateEvenement', {
 			flex: 1,
 			xtype: 'tabpanel',
             plugins: [
-                "contextmenu"
+                Ext.create("Ext.ux.tab.ContextMenu")
             ],
             itemId: "modules",
 			width: "100%",
