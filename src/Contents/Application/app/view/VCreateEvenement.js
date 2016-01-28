@@ -229,7 +229,10 @@ App.view.define('VCreateEvenement', {
                 {
                     xtype: "button",    
                     text: "Nouveau module",
-                    padding:10
+                    margin: {
+                        left: 5,
+                        top: 5
+                    }
                 }
             ]
         },
