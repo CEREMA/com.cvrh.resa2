@@ -230,7 +230,7 @@ App.view.define('VCreateEvenement', {
                 {
                     text: "Nouveau module"   
                 }
-            ]
+            ],
 			items: [
 				{
 					xtype: "VResaModule"
