@@ -25,6 +25,7 @@ App.view.define('VResaModule', {
                 if (activeTabIndex==panels.length) {
                     // on delete toutes les ressources associées au module
                     App.DB.del('reservation_salles://ressourcesalles?id_module='+panel.moduleID,function(e,r) {
+                        alert('x');
                         App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
                             // on met à jour la session
                             me.updateSession(panel.up('window'));
