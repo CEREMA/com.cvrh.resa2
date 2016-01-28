@@ -144,6 +144,9 @@ App.controller.define('CMain', {
             "VCreateEvenement panel#modules": {
                 add: "resamodule_onshow"
             },            
+            "VCreateEvenement tabpanel": {
+                itemcontextmenu: "tab_context",
+            },
             /*
             VGeff
             */
@@ -229,6 +232,24 @@ App.controller.define('CMain', {
     },
     
 	// VCreateEvenement
+    tab_context: function(view,record,item,index,e)
+    {
+        e.stopEvent();
+        var me=this;
+        Ext.create('Ext.menu.Menu', {
+            items: [
+			{
+				text: "Supprimer",
+                handler: function(p) {       
+                    alert('x');
+                    /*var record = view.getStore().getAt(index);                    
+                    App.DB.del("reservation_salles://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
+                        view.getStore().remove(record);
+                    });                    */
+                }
+			}]
+        }).showAt(e.getXY());        
+    },
     new_module: function(p)
     {
         var debutModule=new Date();
@@ -256,7 +277,6 @@ App.controller.define('CMain', {
         var panel=App.get('VCreateEvenement tabpanel').getActiveTab();
         var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
         if (activeTabIndex==panels.length) {
-            alert(panel.moduleID);
             // on delete toutes les ressources associées au module
             App.DB.del('reservation_salles://ressourcesalles?id_module='+panel.moduleID,function(e,r) {
                 App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
