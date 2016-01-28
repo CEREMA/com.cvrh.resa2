@@ -24,6 +24,7 @@ App.view.define('VResaModule', {
                 var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
                 if (activeTabIndex==panels.length) {
                     // on delete toutes les ressources associées au module
+                    alert(panel.moduleID);
                     App.DB.del('reservation_salles://ressourcesalles?id_module='+panel.moduleID,function(e,r) {
                         App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
                             // on met à jour la session
