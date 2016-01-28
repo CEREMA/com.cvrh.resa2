@@ -138,6 +138,9 @@ App.controller.define('CMain', {
             "VCreateEvenement button#newmodule": {
                 click: "new_module"
             },            
+            "VCreateEvenement button#delmodule": {
+                click: "del_module"
+            },                        
             "VCreateEvenement panel#modules": {
                 add: "resamodule_onshow"
             },            
@@ -242,6 +245,12 @@ App.controller.define('CMain', {
             App.get(mod,"datefield#finModule").setValue(finModule);
             App.get('VCreateEvenement panel#modules').add(mod);              
         });
+        
+    },
+    del_module: function(p)
+    {
+        var activeTab = App.get('VCreateEvenement panel#tabpanel').getActiveTab();
+        console.log(activeTab);
         
     },
     updateResources: function(data,r,ndx,cb)
