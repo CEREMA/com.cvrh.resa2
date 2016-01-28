@@ -84,8 +84,9 @@ App.controller.define('CMain', {
                 add: "resamodule_onshow"
             },            
             "VCreateEvenement tabpanel#modules": {
-                afterlayout: function() {
-                    this.tabPanel.mon(this.tabBar.el, {
+                afterlayout: function(x) {
+                    console.log(x);
+                    x.mon(this.tabBar.el, {
                         scope: this,
                         contextmenu: function(event, target)  {
                             alert('x');
