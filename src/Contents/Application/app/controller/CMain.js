@@ -194,13 +194,14 @@ App.controller.define('CMain', {
     // VResaModule
     resamodule_onchange: function(p)
     {
-        console.log(p.up('panel').up('panel'));
         var obj={
-            id_module: p.up('panel').moduleID,
+            id_module: p.up('panel').up('panel').moduleID,
             debutModule: App.get(p.up('panel'),"datefield#debutModule").getValue(),
             finModule: App.get(p.up('panel'),"datefield#finModule").getValue()
         };
-        console.log(obj);
+        App.DB.post('reservation_salles://module',obj,function(e,r) {
+            
+        });
     },
     resamodule_click: function(grid)
     {
