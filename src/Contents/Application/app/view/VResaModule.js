@@ -11,7 +11,9 @@ App.view.define('VResaModule', {
 		this.title = 'Module 1';
 		
 		this.width = "100%";
-			
+        
+        this.closable = true;
+        
         this.items = [
 				{
 					layout: "hbox",
