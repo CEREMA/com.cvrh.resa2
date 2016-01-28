@@ -215,7 +215,8 @@ App.controller.define('CMain', {
             status: "I",
             num_module: App.get('VCreateEvenement panel#modules').items.items.length+1
         },function(e,r) {
-            App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{moduleID: r.insertId, ID: App.get('VCreateEvenement panel#modules').items.items.length}));              
+            alert(r.insertId);
+            App.get('VCreateEvenement panel#modules').add(App.view.create('VResaModule',{moduleID: r.insertId   , ID: App.get('VCreateEvenement panel#modules').items.items.length}));              
         });
         
     },
