@@ -255,7 +255,7 @@ App.controller.define('CMain', {
         var panel=App.get('VCreateEvenement tabpanel').getActiveTab();
         var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
         if (activeTabIndex==panels.length) {
-            
+            alert(panel.moduleID);
         } else {
             alert('Vous ne pouvez supprimer que le dernier module !');
         }
