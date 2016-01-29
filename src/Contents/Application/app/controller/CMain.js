@@ -479,7 +479,10 @@ App.controller.define('CMain', {
                                 try {
                                     App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
                                     App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
-                                }catch(e){};
+                                }catch(e){
+                                    App.get(mod,'datefield#debutModule').setValue(new Date());
+                                    App.get(mod,'datefield#finModule').setValue(new Date());
+                                };
                                 var grid=App.get(mod,'grid');
                                 var data=[];
                                 for (var j=0;j<r.result.data.length;j++) {
