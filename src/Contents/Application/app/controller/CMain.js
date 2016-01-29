@@ -249,8 +249,8 @@ App.controller.define('CMain', {
                 }); 
                 App.get(p.up('window'),'combo#cboSession').getStore().loadData(data);
                 App.get(p.up('window'),'combo#cboSession').setValue(count+1);
-                p.id_session=x.insertId;
-                p.session=count+1;
+                p.up('window').id_session=x.insertId;
+                p.up('window').session=count+1;
                 me.updateSession(p);
             });            
         });
