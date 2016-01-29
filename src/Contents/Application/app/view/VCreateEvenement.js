@@ -192,7 +192,8 @@ App.view.define('VCreateEvenement', {
         this.tbar = [
 		{
 			text: "Nouvelle session",
-			hidden: true
+            itemId: "newSession",
+			hidden: false
 		}
         ];
 		
