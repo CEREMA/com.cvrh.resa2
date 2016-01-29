@@ -234,6 +234,7 @@ App.controller.define('CMain', {
     new_session_click: function(p)
     {
         var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
+        var me=this;
         App.DB.post('reservation_salles://session',{
             id_evenement: p.up('window').id_evenement,
             num_session: count+1,
@@ -250,7 +251,7 @@ App.controller.define('CMain', {
                 App.get(p.up('window'),'combo#cboSession').setValue(count+1);
                 p.id_session=x.insertId;
                 p.session=count+1;
-                updateSession(p);
+                me.updateSession(p);
             });            
         });
     },
