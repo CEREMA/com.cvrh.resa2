@@ -396,12 +396,14 @@ App.view.define('VCreateEvenement', {
         },
         {
             layout: "hbox",
-            height: 40,
+            height: 35,
             bodyStyle: "background-color:#D5E2F2",
             width: "100%",
             border: false,            
             items: [
-                '->',
+                {
+                    flex: 1   
+                },
                 {
                     xtype: "button",    
                     text: "Nouveau module",
