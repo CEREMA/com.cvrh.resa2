@@ -551,8 +551,7 @@ App.controller.define('CMain', {
         var me=this;
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
-                App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                  {
-                    
+                App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                       {
                     var data=[];                    
                     for (var i=0;i<r.result.data.length;i++) data.push({
                         session_uid: r.result.data[i].id_session,
@@ -573,7 +572,24 @@ App.controller.define('CMain', {
             App.get(p,'combo#cboSession').setValue(p.session);
             App.get(p,'combo#cboTypologie').setValue(1);
             App.get(p,'combo#cboCP').setValue(Auth.User.id);
-            App.get(p,'combo#cboCP').disable();            
+            App.get(p,'combo#cboCP').disable();
+            // on insère ce nouvel évènement provisoire
+            App.DB.post('reservation_salles://evenement',{
+                id_typologie: 1,
+                nomEvenement: "XXX"
+            },function(r) {
+                // On crée la nouvelle session attachée a cet évènement
+                App.DB.post('reservation_salles://session',{
+                    id_evenement: r.insertId,
+                    num_session: 1,
+                    chefProjet: Auth.User.id
+                },function(s) {
+                    p.session=1;
+                    p.id_session=s.insertId;
+                    p.id_evenement=r.insertId;
+                    me.new_module(p);
+                });
+            });
         }
 	},
 	onGEFF: function(p)
