@@ -401,6 +401,7 @@ App.controller.define('CMain', {
             };
             App.get('VCreateEvenement panel#modules').doLayout();        
             App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+p.session+'&session.id_evenement='+p.id_evenement,function(e,xx) {
+                alert(xx.result.data.length);
                 if (xx.result.data.length==0) {
                     // pas de module !!! on en crée un !
                     var debutModule=new Date();
