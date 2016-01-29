@@ -471,12 +471,14 @@ App.controller.define('CMain', {
                     return;
                 };
                 for (var i=0;i<xx.result.data.length;i++) {
-                    modules.push(xx.result.data[i].num_module);
-                    module.push({
-                        date_debut: xx.result.data[i].debutModule,
-                        date_fin: xx.result.data[i].finModule,
-                        id_module: xx.result.data[i].id_module
-                    });                
+                    if (modules.indexOf(xx.result.data[i].num_module)==-1) {
+                        modules.push(xx.result.data[i].num_module);
+                        module.push({
+                            date_debut: xx.result.data[i].debutModule,
+                            date_fin: xx.result.data[i].finModule,
+                            id_module: xx.result.data[i].id_module
+                        });                
+                    }
                 }; 
                 var session=xx.result.data[0].id_session;
                 App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
