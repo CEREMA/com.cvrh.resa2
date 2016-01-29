@@ -480,7 +480,7 @@ App.controller.define('CMain', {
                         });                
                     }
                 }; 
-                console.log(modules);
+                console.log(module);
                 var session=xx.result.data[0].id_session;
                 App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
                     if (r.result.data.length>0) {
