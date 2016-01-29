@@ -123,6 +123,12 @@ App.controller.define('CMain', {
                 click: "resa_record"  
             },
             /*
+            TOpenEvenement
+            */
+            "TOpenEvenement":{
+                show: "TOpenEvenement_onshow"
+            },
+            /*
             VResaModule
             */
             "VResaModule": {
@@ -927,7 +933,11 @@ App.controller.define('CMain', {
             }
         }).showAt(e.getXY());     
     },
-    
+    // VOpenEvenement
+    TOpenEvenement_onshow: function()
+    {
+      
+    },
 	// Menu ////////////////////////////////////////////////////////////////////
 	
 	do_new_evt: function()
