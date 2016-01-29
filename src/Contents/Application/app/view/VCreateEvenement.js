@@ -255,9 +255,9 @@ App.view.define('VCreateEvenement', {
                         currentItem = null;
                     },
                     beforemenu: function (menu, item) {
-                        /*menu.child('[text="Closable"]').setChecked(item.closable);
+                        menu.child('[text="Closable"]').setChecked(item.closable);
                         menu.child('[text="Enabled"]').setChecked(!item.tab.isDisabled());
-                        currentItem = item;*/
+                        currentItem = item;
                     }
                 }
             }),
