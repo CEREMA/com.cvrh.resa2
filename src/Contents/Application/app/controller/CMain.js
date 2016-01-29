@@ -251,7 +251,6 @@ App.controller.define('CMain', {
             App.get(mod,"datefield#finModule").setValue(finModule);
             App.get('VCreateEvenement panel#modules').add(mod);              
         });
-        
     },
     del_module: function(p)
     {
@@ -378,110 +377,151 @@ App.controller.define('CMain', {
         } else {
             // INSERT
         }
-        return;
-        App.DB.get('reservation_salles://evenement?num_geff='+App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue(),function(e,r) {
-            if (r.result.data.length>0) {
-                // l'évènement existe déjà !   
-                alert('existe');
-            } else {
-                // on crée l'évènement
-                var obj={
-                    id_site: 3,
-                    id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
-                    status: 'I',
-                    nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
-                    num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
-                };  
-                if (App.get('VCreateEvenement textfield#insert_evenement').getValue()=="") {
-                    alert("Le titre de l'évènement n'est pas renseigné");  
-                    return;
-                };
-                App.DB.post('reservation_salles://evenement',obj,function(r){
-                    // si c'est un nouvel évènement, on crée également une session 1
-                    var obj={
-                        id_evenement: r.insertId,
-                        num_session: 1,
-                        chefProjet: App.get('VCreateEvenement combo#cboCP').getValue(),
-                        assistant: App.get('VCreateEvenement combo#cboAssistant').getValue(),
-                        participant: App.get('VCreateEvenement numberfield#participant').getValue(),
-                        status: 'I',
-                        dateAvis: App.get('VCreateEvenement datefield#date_avis').getValue(),
-                        statutResaSession: "FFFF00"
-                    };
-                    App.DB.post('reservation_salles://session',obj,function(r){
-                        // On crée également le ou les modules du stage
-                        var panels=App.get('VCreateEvenement panel#modules').items.items;
-                        me.updateModules(panels,r,0,function() {
-                            p.up('window').close();   
-                            // on raffraichit la grid
-                            App.get('mainform schedulergrid#schedule').getEventStore().load();
-                        });
-                    });                    
-                });                
-            }
-        });        
+       
     },
     updateSession: function(p)
     {
         var me=this;
-        // on met à jour les modules
-        var modules=[];
-        var module=[];
-        App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+p.session+'&session.id_evenement='+p.id_evenement,function(e,xx) {
-            for (var i=0;i<xx.result.data.length;i++) {
-                modules.push(xx.result.data[i].num_module);
-                module.push({
-                    date_debut: xx.result.data[i].debutModule,
-                    date_fin: xx.result.data[i].finModule,
-                    id_module: xx.result.data[i].id_module
-                });                
+        // on grab la session_id
+        App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.up('window').id_evenement, function(e,r) {
+            // on fait remonter au niveau de la fenêtre l'information
+            p.up('window').id_session=r.result.data[0].id_session;
+            
+            
+            
+            
+            
+            // on met à jour les modules
+            var modules=[];
+            var module=[];
+            // on clear le panel modules
+            while(f = App.get('VCreateEvenement panel#modules').items.first()){
+                App.get('VCreateEvenement panel#modules').remove(f, true);
             };
-            var session=xx.result.data[0].id_session;
-            App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
-                r.result.data.sort(sort_by('num_module'));    
-                // on met à jour le chef de projet et l'assistant
-                App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
-                App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
-                App.get(p,'combo#cboCP').disable();
-                // on clear le panel modules
-                while(f = App.get('VCreateEvenement panel#modules').items.first()){
-                    App.get('VCreateEvenement panel#modules').remove(f, true);
+            App.get('VCreateEvenement panel#modules').doLayout();        
+            App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+p.session+'&session.id_evenement='+p.id_evenement,function(e,xx) {
+                if (xx.result.data.length==0) {
+                    // pas de module !!! on en crée un !
+                    var debutModule=new Date();
+                    var finModule=debutModule.addDays(1);
+                    App.DB.post('reservation_salles://module',{
+                        id_session: p.up('window').id_session,
+                        status: "I",
+                        num_module: 1,
+                        debutModule: debutModule,
+                        finModule: finModule
+                    },function(r) {
+                        modules.push(xx.result.data[i].num_module);
+                        module.push({
+                            date_debut: debutModule,
+                            date_fin: finModule,
+                            id_module: r.insertId
+                        });                         
+                        var session=p.up('window').id_session;
+                        App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
+                            r.result.data.sort(sort_by('num_module'));    
+                            // on met à jour le chef de projet et l'assistant
+                            App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
+                            App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
+                            App.get(p,'combo#cboCP').disable();
+                            // on ajoute les modules
+                            for (var i=0;i<modules.length;i++) {
+                                var mod=App.view.create('VResaModule',{ID: modules[i]});
+                                mod.moduleID=module[i].id_module;
+                                App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
+                                App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                                var grid=App.get(mod,'grid');
+                                var data=[];
+                                for (var j=0;j<r.result.data.length;j++) {
+                                    if (r.result.data[j].num_module==modules[i]) {
+                                        // on ajoute les éléments à la grid
+                                        data.push({
+                                              "id_res": r.result.data[j].id_ressource,
+                                              "id_site": r.result.data[j].id_site,
+                                              "id_salle": r.result.data[j].id_salle,
+                                              "nomSalle": r.result.data[j].nom_salle,
+                                              "d0": r.result.data[j].debutRessource.toDate(),
+                                              "d1": r.result.data[j].finRessource.toDate(),
+                                              "p0": r.result.data[j].periode,
+                                              "p1": r.result.data[j].periodef,
+                                              "afficher": r.result.data[j].afficher,
+                                              "valider": r.result.data[j].salleValide,
+                                              "preparation": r.result.data[j].preparation,
+                                              "choix": r.result.data[j].id_choix,
+                                              "comments": r.result.data[j].commentaire
+                                        })
+                                    }                        
+                                }
+                                // on bind data a la grid
+                                grid.getStore().loadData(data);
+                                App.get('VCreateEvenement panel#modules').add(mod);                    
+                            }
+                        });
+                    }); 
+                    return;
                 };
-                App.get('VCreateEvenement panel#modules').doLayout();
-                // on ajoute les modules
-                for (var i=0;i<modules.length;i++) {
-                    var mod=App.view.create('VResaModule',{ID: modules[i]});
-                    mod.moduleID=module[i].id_module;
-                    App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
-                    App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
-                    var grid=App.get(mod,'grid');
-                    var data=[];
-                    for (var j=0;j<r.result.data.length;j++) {
-                        if (r.result.data[j].num_module==modules[i]) {
-                            // on ajoute les éléments à la grid
-                            data.push({
-                                  "id_res": r.result.data[j].id_ressource,
-                                  "id_site": r.result.data[j].id_site,
-                                  "id_salle": r.result.data[j].id_salle,
-                                  "nomSalle": r.result.data[j].nom_salle,
-                                  "d0": r.result.data[j].debutRessource.toDate(),
-                                  "d1": r.result.data[j].finRessource.toDate(),
-                                  "p0": r.result.data[j].periode,
-                                  "p1": r.result.data[j].periodef,
-                                  "afficher": r.result.data[j].afficher,
-                                  "valider": r.result.data[j].salleValide,
-                                  "preparation": r.result.data[j].preparation,
-                                  "choix": r.result.data[j].id_choix,
-                                  "comments": r.result.data[j].commentaire
-                            })
-                        }                        
+                for (var i=0;i<xx.result.data.length;i++) {
+                    modules.push(xx.result.data[i].num_module);
+                    module.push({
+                        date_debut: xx.result.data[i].debutModule,
+                        date_fin: xx.result.data[i].finModule,
+                        id_module: xx.result.data[i].id_module
+                    });                
+                }; 
+                var session=xx.result.data[0].id_session;
+                App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
+                    r.result.data.sort(sort_by('num_module'));    
+                    // on met à jour le chef de projet et l'assistant
+                    App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
+                    App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
+                    App.get(p,'combo#cboCP').disable();
+                    // on ajoute les modules
+                    for (var i=0;i<modules.length;i++) {
+                        var mod=App.view.create('VResaModule',{ID: modules[i]});
+                        mod.moduleID=module[i].id_module;
+                        App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
+                        App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                        var grid=App.get(mod,'grid');
+                        var data=[];
+                        for (var j=0;j<r.result.data.length;j++) {
+                            if (r.result.data[j].num_module==modules[i]) {
+                                // on ajoute les éléments à la grid
+                                data.push({
+                                      "id_res": r.result.data[j].id_ressource,
+                                      "id_site": r.result.data[j].id_site,
+                                      "id_salle": r.result.data[j].id_salle,
+                                      "nomSalle": r.result.data[j].nom_salle,
+                                      "d0": r.result.data[j].debutRessource.toDate(),
+                                      "d1": r.result.data[j].finRessource.toDate(),
+                                      "p0": r.result.data[j].periode,
+                                      "p1": r.result.data[j].periodef,
+                                      "afficher": r.result.data[j].afficher,
+                                      "valider": r.result.data[j].salleValide,
+                                      "preparation": r.result.data[j].preparation,
+                                      "choix": r.result.data[j].id_choix,
+                                      "comments": r.result.data[j].commentaire
+                                })
+                            }                        
+                        }
+                        // on bind data a la grid
+                        grid.getStore().loadData(data);
+                        App.get('VCreateEvenement panel#modules').add(mod);                    
                     }
-                    // on bind data a la grid
-                    grid.getStore().loadData(data);
-                    App.get('VCreateEvenement panel#modules').add(mod);                    
-                }
-            });
-        });        
+                });
+            });        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        });
     },
 	VCreateEvenement_onshow: function(p)
 	{
