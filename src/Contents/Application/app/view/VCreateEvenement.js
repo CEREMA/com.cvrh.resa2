@@ -402,6 +402,7 @@ App.view.define('VCreateEvenement', {
             border: false,            
             items: [
                 {
+                    bodyStyle: "background-color:#D5E2F2",
                     html: "Modules",
                     flex: 1,
                     border: false
