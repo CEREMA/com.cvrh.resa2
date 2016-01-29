@@ -229,15 +229,6 @@ App.view.define('VCreateEvenement', {
                         top: 5
                     },
                     itemId: "newmodule"
-                },
-                {
-                    xtype: "button",    
-                    text: "Supprimer module",
-                    margin: {
-                        left: 5,
-                        top: 5
-                    },
-                    itemId: "delmodule"
                 }
             ]
         },
