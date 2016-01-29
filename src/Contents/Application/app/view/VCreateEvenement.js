@@ -417,6 +417,12 @@ App.view.define('VCreateEvenement', {
 			border: false,
 			flex: 1,
 			xtype: 'tabpanel',
+            tabBar:[{
+                dockedItems:[{ 
+                    xtype: 'button',
+                    text : 'Test Button'
+                }]
+            }],             
             plugins: new Ext.create('Ext.ux.TabCloseMenu', {
                 extraItemsTail: [
                     {
