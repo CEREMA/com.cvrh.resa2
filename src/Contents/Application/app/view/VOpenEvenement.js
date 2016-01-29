@@ -26,7 +26,7 @@ App.view.define('VOpenEvenement', {
                 multiSelect: false,
                 singleExpand: false,
                 columns: [{
-					xtype: 'treecolumn', //this is so we know which column will show the tree
+					xtype: 'treecolumn',
 					text: 'Evènement',
 					width: 250,
 					sortable: true,
@@ -50,9 +50,8 @@ App.view.define('VOpenEvenement', {
 					return '<span style="background-color:#'+val+';">&nbsp;&nbsp;&nbsp;&nbsp;</span>';
 				},
             },			
-			{
-              
-                text: 'Début formation',
+			{              
+                text: 'Début',
 				width: 90,
                 //flex: 1,
 				align: 'center',
@@ -61,7 +60,7 @@ App.view.define('VOpenEvenement', {
             },
 			{
               
-                text: 'Fin formation',
+                text: 'Fin',
                 flex: 1,
 				align: 'center',
                 sortable: true,
@@ -74,7 +73,9 @@ App.view.define('VOpenEvenement', {
 			 this.bbar = ['->',{
                     xtype: "button",
                     text: "Quitter",
-                    itemId: "CANCEL_Open_evenement"
+                    handler: function(p) {
+                        p.close();   
+                    }
                 },
             ],
             this.callParent(arguments);
