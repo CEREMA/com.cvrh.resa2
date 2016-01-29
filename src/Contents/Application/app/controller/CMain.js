@@ -478,6 +478,13 @@ App.controller.define('CMain', {
                         App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
                         App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
                         App.get(p,'combo#cboCP').disable();
+                    } else {
+                        App.DB.get('reservation_salles://ressourcesalles{session.*}?session.id_session='+session,function(e,r) {
+                            // on met à jour le chef de projet et l'assistant
+                            App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
+                            App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
+                            App.get(p,'combo#cboCP').disable();                            
+                        });
                     };
                     // on ajoute les modules
                     for (var i=0;i<modules.length;i++) {
