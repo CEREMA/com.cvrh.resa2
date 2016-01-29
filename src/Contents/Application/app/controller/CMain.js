@@ -387,7 +387,7 @@ App.controller.define('CMain', {
         App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.id_evenement, function(e,r) {
             // on fait remonter au niveau de la fenêtre l'information
             p.id_session=r.result.data[0].id_session;
-            alert(p.id_session);
+            p.session=App.get('VCreateEvenement combo#cboSession').getValue();
             
             
             
@@ -400,7 +400,7 @@ App.controller.define('CMain', {
                 App.get('VCreateEvenement panel#modules').remove(f, true);
             };
             App.get('VCreateEvenement panel#modules').doLayout();        
-            App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&session.id_evenement='+p.id_evenement,function(e,xx) {
+            App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+p.session+'&session.id_evenement='+p.id_evenement,function(e,xx) {
                 if (xx.result.data.length==0) {
                     // pas de module !!! on en crée un !
                     var debutModule=new Date();
@@ -538,9 +538,9 @@ App.controller.define('CMain', {
                         session: 'Session '+r.result.data[i].num_session
                     });                    
                     App.get(p,'combo#cboSession').getStore().loadData(data);
-                    App.get(p,'combo#cboSession').setValue(App.get('VCreateEvenement combo#cboSession').getValue());  
+                    App.get(p,'combo#cboSession').setValue(p.session);  
                     for (var i=0;i<data.length;i++) {
-                        if (data[i].session_id==App.get('VCreateEvenement combo#cboSession').getValue()) p.id_session=data[i].session_uid;  
+                        if (data[i].session_id==p.session) p.id_session=data[i].session_uid;  
                     };
                     // ensuite on met à jour la session
                     me.updateSession(p);
@@ -548,7 +548,7 @@ App.controller.define('CMain', {
             });
         } else {
             // C'est un nouvel évènement
-            App.get(p,'combo#cboSession').setValue(App.get('VCreateEvenement combo#cboSession').getValue());
+            App.get(p,'combo#cboSession').setValue(p.session);
             App.get(p,'combo#cboTypologie').setValue(1);
             App.get(p,'combo#cboCP').setValue(Auth.User.id);
             App.get(p,'combo#cboCP').disable();            
