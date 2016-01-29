@@ -141,6 +141,10 @@ App.controller.define('CMain', {
                         alert('Vous ne pouvez supprimer que le dernier module !');
                         return false;                        
                     };
+                    if (activeTabIndex==1) {
+                        alert('Vous ne pouvez pas supprimer module 1 !');
+                        return false;                        
+                    };
                     var title='Suppression d\'un module';
                     var msg='Vous êtes sur le point de supprimer un module. Voulez vous continuer ?';
                     Ext.MessageBox.confirm(title, msg, function(btn){
