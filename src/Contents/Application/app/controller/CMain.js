@@ -68,6 +68,9 @@ App.controller.define('CMain', {
 			"VCreateEvenement": {
 				show: "VCreateEvenement_onshow"
 			},
+            "VCreateEvenement combo#cboSession": {
+                select: "cboSessionSelect"  
+            },
 			"VCreateEvenement ux-searchbox#insert_numGeff" : {
 				click: "onGEFF"
 			},
