@@ -60,9 +60,7 @@
         "Ext.ux.form.SearchBox",
         "Ext.ux.form.field.BoxSelect",
         "Ext.ux.grid.plugin.RowEditing",
-        "Ext.ux.callout.Callout",
-        "Ext.ux.tab.ContextMenu",
-        "Ext.ux.TabCloseMenu"
+        "Ext.ux.callout.Callout"
     ],
     "plugins": [],
     "api": [

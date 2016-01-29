@@ -12,12 +12,12 @@ Ext.define('Ext.ux.TabCloseMenu', {
      * @cfg {String} closeTabText
      * The text for closing the current tab.
      */
-    closeTabText: 'Close Tab',
+    closeTabText: 'Fermer',
     /**
      * @cfg {Boolean} showCloseOthers
      * Indicates whether to show the 'Close Others' option.
      */
-    showCloseOthers: true,
+    showCloseOthers: false,
     /**
      * @cfg {String} closeOthersTabsText
      * The text for closing all tabs except the current one.
@@ -27,7 +27,7 @@ Ext.define('Ext.ux.TabCloseMenu', {
      * @cfg {Boolean} showCloseAll
      * Indicates whether to show the 'Close All' option.
      */
-    showCloseAll: true,
+    showCloseAll: false,
     /**
      * @cfg {String} closeAllTabsText
      * The text for closing all tabs.
