@@ -387,7 +387,7 @@ App.controller.define('CMain', {
         App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.id_evenement, function(e,r) {
             // on fait remonter au niveau de la fenêtre l'information
             p.id_session=r.result.data[0].id_session;
-            
+            alert(p.id_session);
             
             
             
