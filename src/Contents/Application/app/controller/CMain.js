@@ -960,6 +960,7 @@ App.controller.define('CMain', {
 	},
 	Menu_onClick: function(p)
 	{
+        alert('x');
         if (p.itemId) {
             App.get('panel#DISPLAY').hide();
             App.get('schedulergrid#schedule').show();
