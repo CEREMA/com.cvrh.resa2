@@ -242,6 +242,7 @@ App.view.define('VCreateEvenement', {
                     '-',
                     {
                         text: 'Ajouter',
+                        itemId: "AddMe"
                         handler: function (item) {
                             currentItem.tab.setClosable(item.checked);
                         }
@@ -249,6 +250,7 @@ App.view.define('VCreateEvenement', {
                     '-',
                     {
                         text: 'Supprimer',
+                        itemId: "DelMe"
                         handler: function(item) {
                             currentItem.tab.setDisabled(!item.checked);
                         }
