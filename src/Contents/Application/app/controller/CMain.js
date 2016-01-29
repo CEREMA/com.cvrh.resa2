@@ -233,6 +233,7 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     new_session_click: function(p)
     {
+        var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
         App.DB.post('reservation_salles://session',{
             id_evenement: p.up('window').id_evenement,
             num_session: count+1,
