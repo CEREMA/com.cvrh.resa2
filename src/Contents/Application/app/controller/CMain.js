@@ -215,7 +215,7 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     cboSessionSelect: function(p)
     {
-        this.updateSession(p);
+        this.updateSession(p.up('window'));
     },
     tab_context: function(view,record,item,index,e)
     {
