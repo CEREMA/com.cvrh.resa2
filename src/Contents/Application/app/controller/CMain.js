@@ -181,7 +181,7 @@ App.controller.define('CMain', {
     // VResaModule
     addMe: function(p)
     {
-        console.log(p.up('panel'));
+        console.log(p.up('panel').up('panel'));
         this.new_module(p.up('panel').up('window'));
     },
     delMe: function()
