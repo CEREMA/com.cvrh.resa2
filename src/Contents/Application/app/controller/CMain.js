@@ -82,7 +82,18 @@ App.controller.define('CMain', {
             },            
             "VCreateEvenement button#delmodule": {
                 click: "del_module"
-            },                        
+            },       
+            "VCreateEvenement button#addMe": {
+                click: function(p) {
+                    alert('add');   
+                }
+            },       
+            "VCreateEvenement button#delMe": {
+                click: function(p) {
+                    alert('del');
+                }
+            },       
+            
             "VCreateEvenement panel#modules": {
                 add: "resamodule_onshow"
             },            
