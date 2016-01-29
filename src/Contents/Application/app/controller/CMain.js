@@ -698,8 +698,10 @@ App.controller.define('CMain', {
 			id_site: App.get(p.up('window'),'combo#site').getValue()
 		};
 		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
-        console.log(obj);
 		App.get(p.up('window'),'combo#salle').getStore().load();
+        App.get(p.up('window'),'combo#salle').getStore().on('load',function() {
+            alert('loaded'); 
+        });
 	},
 	d1_select: function(p)
 	{
