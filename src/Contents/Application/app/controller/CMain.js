@@ -502,6 +502,7 @@ App.controller.define('CMain', {
                         mod.moduleID=module[i].id_module;
                         App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
                         App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                        alert('x');
                         var grid=App.get(mod,'grid');
                         var data=[];
                         for (var j=0;j<r.result.data.length;j++) {
