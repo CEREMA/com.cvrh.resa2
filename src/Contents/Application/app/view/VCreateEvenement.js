@@ -106,11 +106,12 @@ Ext.define('Ext.ux.TabCloseMenu', {
     createMenu : function() {
         var me = this;
         if (!me.menu) {
-            var items = [{
+            /*var items = [{
                 text: me.closeTabText,
                 scope: me,
                 handler: me.onClose
-            }];
+            }];*/
+            var items=[];
             if (me.showCloseAll || me.showCloseOthers) {
                 items.push('-');
             }
