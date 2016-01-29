@@ -404,8 +404,8 @@ App.view.define('VCreateEvenement', {
                 {
                     bodyStyle: "background-color:#D5E2F2",
                     margin: {
-                        top:-3,
-                        left: 3
+                        bottom:5,
+                        left: 5
                     },
                     html: "<h3>Modules</h3>",
                     flex: 1,
