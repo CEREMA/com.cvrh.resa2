@@ -396,19 +396,20 @@ App.view.define('VCreateEvenement', {
         },
         {
             layout: "hbox",
-            height: 35,
+            height: 33,
             bodyStyle: "background-color:#D5E2F2",
             width: "100%",
             border: false,            
             items: [
                 {
-                    flex: 1   
+                    flex: 1,
+                    border: false
                 },
                 {
                     xtype: "button",    
                     text: "Nouveau module",
                     margin: {
-                        left: 5,
+                        right: 5,
                         top: 5
                     },
                     itemId: "newmodule"
