@@ -213,6 +213,11 @@ App.controller.define('CMain', {
     },
     
 	// VCreateEvenement
+    cboSessionSelect: function(p)
+    {
+        e.stopEvent();
+        this.updateSession(p);
+    },
     tab_context: function(view,record,item,index,e)
     {
         e.stopEvent();
