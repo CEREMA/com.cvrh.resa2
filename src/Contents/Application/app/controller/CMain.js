@@ -431,12 +431,16 @@ App.controller.define('CMain', {
                             id_module: r.insertId
                         });                         
                         var session=p.id_session;
-                        App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
-                            r.result.data.sort(sort_by('num_module'));    
-                            // on met à jour le chef de projet et l'assistant
-                            App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
-                            App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
-                            App.get(p,'combo#cboCP').disable();
+                        App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {                                 if (r.result.data.length>0) {
+                                r.result.data.sort(sort_by('num_module'));    
+                                // on met à jour le chef de projet et l'assistant
+                                App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
+                                App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
+                                App.get(p,'combo#cboCP').disable();
+                            } else {
+                                App.get(p,'combo#cboCP').setValue(Auth.User.id);
+                                App.get(p,'combo#cboCP').disable();
+                            };
                             // on ajoute les modules
                             for (var i=0;i<modules.length;i++) {
                                 var mod=App.view.create('VResaModule',{ID: modules[i]});
