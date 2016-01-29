@@ -82,18 +82,7 @@ App.controller.define('CMain', {
             },            
             "VCreateEvenement button#delmodule": {
                 click: "del_module"
-            },       
-            "VCreateEvenement button#addMe": {
-                click: function(p) {
-                    alert('add');   
-                }
-            },       
-            "VCreateEvenement button#delMe": {
-                click: function(p) {
-                    alert('del');
-                }
-            },       
-            
+            },                   
             "VCreateEvenement panel#modules": {
                 add: "resamodule_onshow"
             },            
@@ -190,6 +179,14 @@ App.controller.define('CMain', {
     EVT_CURRENT: {},
     
     // VResaModule
+    addMe: function(p)
+    {
+        new_module(p);
+    },
+    delMe: function()
+    {
+        
+    },
     resamodule_onchange: function(p)
     {
         var obj={
@@ -959,12 +956,17 @@ App.controller.define('CMain', {
 		App.get('schedulergrid#schedule').hide();	
 	},
 	Menu_onClick: function(p)
-	{
-        alert('x');
+	{        
         if (p.itemId) {
             App.get('panel#DISPLAY').hide();
             App.get('schedulergrid#schedule').show();
 			switch (p.itemId) {
+                case "addMe" :
+                    this.addMe(p);
+                    break;
+                case "delMe" :
+                    this.delMe(p);
+                    break;
 				case "MNU_DISPLAY" :
 					this.do_display();
 					break;
