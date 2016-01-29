@@ -181,8 +181,7 @@ App.controller.define('CMain', {
     // VResaModule
     addMe: function(p,item)
     {
-        console.log(item);
-        this.new_module(item.up('window'));
+        this.new_module(App.get('VCreateEvenement'));
     },
     delMe: function(p,item)
     {
