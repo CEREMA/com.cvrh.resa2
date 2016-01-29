@@ -692,12 +692,13 @@ App.controller.define('CMain', {
     },
 	d0_select: function(p)
 	{
-		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams={
+        var obj={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
 			id_site: App.get(p.up('window'),'combo#site').getValue()
-		};	
-        alert(App.get(p.up('window'),'combo#salle'));
+		};
+		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
+        console.log(obj);
 		App.get(p.up('window'),'combo#salle').getStore().load();
 	},
 	d1_select: function(p)
