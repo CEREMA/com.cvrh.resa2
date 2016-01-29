@@ -401,7 +401,7 @@ App.controller.define('CMain', {
             };
             App.get('VCreateEvenement panel#modules').doLayout();        
             App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+p.session+'&session.id_evenement='+p.id_evenement,function(e,xx) {
-                alert(xx.result.data.length);
+                
                 if (xx.result.data.length==0) {
                     // pas de module !!! on en crée un !
                     var debutModule=new Date();
@@ -472,11 +472,13 @@ App.controller.define('CMain', {
                 }; 
                 var session=xx.result.data[0].id_session;
                 App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
-                    r.result.data.sort(sort_by('num_module'));    
-                    // on met à jour le chef de projet et l'assistant
-                    App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
-                    App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
-                    App.get(p,'combo#cboCP').disable();
+                    if (r.result.data.length>0) {
+                        r.result.data.sort(sort_by('num_module'));    
+                        // on met à jour le chef de projet et l'assistant
+                        App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
+                        App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
+                        App.get(p,'combo#cboCP').disable();
+                    };
                     // on ajoute les modules
                     for (var i=0;i<modules.length;i++) {
                         var mod=App.view.create('VResaModule',{ID: modules[i]});
