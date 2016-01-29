@@ -402,6 +402,7 @@ App.view.define('VCreateEvenement', {
             border: false,            
             items: [
                 {
+                    html: "<h2>Modules</h2>",
                     flex: 1,
                     border: false
                 },
