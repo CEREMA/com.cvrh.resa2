@@ -956,17 +956,17 @@ App.controller.define('CMain', {
 		$('.my_display').attr('src', "/display");
 		App.get('schedulergrid#schedule').hide();	
 	},
-	Menu_onClick: function(p)
+	Menu_onClick: function(p,item)
 	{        
         if (p.itemId) {
             App.get('panel#DISPLAY').hide();
             App.get('schedulergrid#schedule').show();
 			switch (p.itemId) {
                 case "addMe" :
-                    this.addMe(p);
+                    this.addMe(p,item);
                     break;
                 case "delMe" :
-                    this.delMe(p);
+                    this.delMe(p,item);
                     break;
 				case "MNU_DISPLAY" :
 					this.do_display();
