@@ -74,7 +74,7 @@ App.view.define('VOpenEvenement', {
                     xtype: "button",
                     text: "Quitter",
                     handler: function(p) {
-                        p.close();   
+                        p.up('window').close();   
                     }
                 },
             ],
