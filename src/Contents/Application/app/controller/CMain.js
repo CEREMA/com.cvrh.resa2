@@ -215,9 +215,6 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     cboSessionSelect: function(p)
     {
-        console.log('------');
-        console.log(p);
-        console.log('------');
         this.updateSession(p);
     },
     tab_context: function(view,record,item,index,e)
@@ -387,9 +384,9 @@ App.controller.define('CMain', {
         
         var me=this;
         // on grab la session_id
-        App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.up('window').id_evenement, function(e,r) {
+        App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.id_evenement, function(e,r) {
             // on fait remonter au niveau de la fenêtre l'information
-            p.up('window').id_session=r.result.data[0].id_session;
+            p.id_session=r.result.data[0].id_session;
             
             
             
@@ -409,7 +406,7 @@ App.controller.define('CMain', {
                     var debutModule=new Date();
                     var finModule=debutModule.addDays(1);
                     App.DB.post('reservation_salles://module',{
-                        id_session: p.up('window').id_session,
+                        id_session: p.id_session,
                         status: "I",
                         num_module: 1,
                         debutModule: debutModule,
@@ -421,7 +418,7 @@ App.controller.define('CMain', {
                             date_fin: finModule,
                             id_module: r.insertId
                         });                         
-                        var session=p.up('window').id_session;
+                        var session=p.id_session;
                         App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
                             r.result.data.sort(sort_by('num_module'));    
                             // on met à jour le chef de projet et l'assistant
