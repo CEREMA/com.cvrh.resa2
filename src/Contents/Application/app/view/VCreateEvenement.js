@@ -431,12 +431,12 @@ App.view.define('VCreateEvenement', {
                 ],
                 listeners: {
                     aftermenu: function () {
-                        currentItem = null;
+                        //currentItem = null;
                     },
                     beforemenu: function (menu, item) {
-                        menu.child('[text="Closable"]').setChecked(item.closable);
+                        /*menu.child('[text="Closable"]').setChecked(item.closable);
                         menu.child('[text="Enabled"]').setChecked(!item.tab.isDisabled());
-                        currentItem = item;
+                        currentItem = item;*/
                     }
                 }
             }),
