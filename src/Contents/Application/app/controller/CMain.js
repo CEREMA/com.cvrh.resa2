@@ -215,6 +215,9 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     cboSessionSelect: function(p)
     {
+        console.log('------');
+        console.log(p);
+        console.log('------');
         this.updateSession(p);
     },
     tab_context: function(view,record,item,index,e)
@@ -381,7 +384,7 @@ App.controller.define('CMain', {
     },
     updateSession: function(p)
     {
-        console.log(p);
+        
         var me=this;
         // on grab la session_id
         App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.up('window').id_evenement, function(e,r) {
