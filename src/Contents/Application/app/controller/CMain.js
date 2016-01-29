@@ -239,7 +239,7 @@ App.controller.define('CMain', {
             num_session: count+1,
             status: "I",
             chefProjet: Auth.User.id
-        },function(r) {
+        },function(x) {
             var data=[];
             App.DB.get('reservation_salles://session{num_session+}?id_evenement='+p.up('window').id_evenement,function(e,r) {
                 for (var i=0;i<r.result.data.length;i++) data.push({
@@ -248,6 +248,8 @@ App.controller.define('CMain', {
                 }); 
                 App.get(p.up('window'),'combo#cboSession').getStore().loadData(data);
                 App.get(p.up('window'),'combo#cboSession').setValue(count+1);
+                p.id_session=x.insertId;
+                p.session=count+1;
                 updateSession(p);
             });            
         });
