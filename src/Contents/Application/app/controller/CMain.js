@@ -480,6 +480,7 @@ App.controller.define('CMain', {
                         });                
                     }
                 }; 
+                console.log(modules);
                 var session=xx.result.data[0].id_session;
                 App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
                     if (r.result.data.length>0) {
@@ -502,7 +503,6 @@ App.controller.define('CMain', {
                         mod.moduleID=module[i].id_module;
                         App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
                         App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
-                        alert(module[i].date_debut.toDate());
                         var grid=App.get(mod,'grid');
                         var data=[];
                         for (var j=0;j<r.result.data.length;j++) {
