@@ -956,7 +956,7 @@ App.controller.define('CMain', {
 		$('.my_display').attr('src', "/display");
 		App.get('schedulergrid#schedule').hide();	
 	},
-	Menu_onClick: function(p,item)
+	Menu_onClick: function(p,i,item)
 	{        
         if (p.itemId) {
             App.get('panel#DISPLAY').hide();
