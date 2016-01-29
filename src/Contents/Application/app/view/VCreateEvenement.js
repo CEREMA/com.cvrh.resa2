@@ -419,12 +419,10 @@ App.view.define('VCreateEvenement', {
 			xtype: 'tabpanel',
             plugins: new Ext.create('Ext.ux.TabCloseMenu', {
                 extraItemsTail: [
-                    '-',
                     {
                         text: 'Ajouter',
                         itemId: "addMe"
                     },
-                    '-',
                     {
                         text: 'Supprimer',
                         itemId: "delMe"
