@@ -179,12 +179,12 @@ App.controller.define('CMain', {
     EVT_CURRENT: {},
     
     // VResaModule
-    addMe: function(p)
+    addMe: function(p,item)
     {
-        console.log(p.up('panel').up('panel'));
-        this.new_module(p.up('panel').up('window'));
+        console.log(item);
+        this.new_module(item.up('window'));
     },
-    delMe: function()
+    delMe: function(p,item)
     {
         
     },
