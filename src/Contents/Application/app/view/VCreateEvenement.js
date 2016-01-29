@@ -80,7 +80,7 @@ Ext.define('Ext.ux.TabCloseMenu', {
             index = me.tabBar.items.indexOf(tab);
         me.item = me.tabPanel.getComponent(index);
         me.ctab=me.item;
-        menu.child('*[text="' + me.closeTabText + '"]').setDisabled(!me.item.closable);
+        //menu.child('*[text="' + me.closeTabText + '"]').setDisabled(!me.item.closable);
         if (me.showCloseAll || me.showCloseOthers) {
             me.tabPanel.items.each(function(item) {
                 if (item.closable) {
