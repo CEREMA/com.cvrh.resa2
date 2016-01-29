@@ -446,9 +446,7 @@ App.view.define('VCreateEvenement', {
             itemId: "modules",
 			width: "100%",
 			items: [
-				{
-					xtype: "VResaModule"
-				}			
+		
 			]
 		}
 		];
