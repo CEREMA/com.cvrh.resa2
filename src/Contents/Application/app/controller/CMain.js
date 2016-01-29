@@ -934,9 +934,13 @@ App.controller.define('CMain', {
         }).showAt(e.getXY());     
     },
     // VOpenEvenement
-    TOpenEvenement_onshow: function()
+    TOpenEvenement_onshow: function(p)
     {
-      
+        App.get(p,'treepanel#tree1').getStore().getProxy().extraParams.userId = Auth.User.uid;
+        App.get(p,'treepanel#tree1').getStore().load();
+		App.get(p,'treepanel#tree1').getStore().on('load',function() {
+			App.get(p,'treepanel#tree1').getRootNode().expand(true);	
+		});		      
     },
 	// Menu ////////////////////////////////////////////////////////////////////
 	
