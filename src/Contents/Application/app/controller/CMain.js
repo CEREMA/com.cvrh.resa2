@@ -476,8 +476,10 @@ App.controller.define('CMain', {
                             for (var i=0;i<modules.length;i++) {
                                 var mod=App.view.create('VResaModule',{ID: modules[i]});
                                 mod.moduleID=module[i].id_module;
-                                App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
-                                App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                                try {
+                                    App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
+                                    App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                                }catch(e){};
                                 var grid=App.get(mod,'grid');
                                 var data=[];
                                 for (var j=0;j<r.result.data.length;j++) {
