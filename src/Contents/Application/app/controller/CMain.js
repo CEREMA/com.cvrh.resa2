@@ -122,9 +122,6 @@ App.controller.define('CMain', {
             "VResNew button#record": {
                 click: "resa_record"  
             },
-            "VResNew datefield": {
-                select: "resnew_datefield_change"  
-            },
             /*
             VResaModule
             */
@@ -699,9 +696,6 @@ App.controller.define('CMain', {
 		};
 		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
 		App.get(p.up('window'),'combo#salle').getStore().load();
-        App.get(p.up('window'),'combo#salle').getStore().on('load',function() {
-            alert('loaded'); 
-        });
 	},
 	d1_select: function(p)
 	{
@@ -709,8 +703,7 @@ App.controller.define('CMain', {
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
 			id_site: App.get(p.up('window'),'combo#site').getValue()
-		};	
-        
+		};	        
 		App.get(p.up('window'),'combo#salle').getStore().load();
 	},
 	VResNew_onshow: function(p)
