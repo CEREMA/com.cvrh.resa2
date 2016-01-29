@@ -581,6 +581,7 @@ App.controller.define('CMain', {
                     num_session: 1,
                     chefProjet: Auth.User.id
                 },function(s) {
+                    App.get(p,'textfield#num_evt').setValue(r.insertId);
                     p.session=1;
                     p.id_session=s.insertId;
                     p.id_evenement=r.insertId;
