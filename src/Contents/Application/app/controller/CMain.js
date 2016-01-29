@@ -421,7 +421,7 @@ App.controller.define('CMain', {
                         debutModule: debutModule,
                         finModule: finModule
                     },function(r) {
-                        modules.push(xx.result.data[i].num_module);
+                        modules.push(1);
                         module.push({
                             date_debut: debutModule,
                             date_fin: finModule,
