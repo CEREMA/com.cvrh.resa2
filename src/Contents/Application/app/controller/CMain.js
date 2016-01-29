@@ -470,6 +470,7 @@ App.controller.define('CMain', {
                     }); 
                     return;
                 };
+                console.log(xx.result.data);
                 for (var i=0;i<xx.result.data.length;i++) {
                     if (modules.indexOf(xx.result.data[i].num_module)==-1) {
                         modules.push(xx.result.data[i].num_module);
@@ -480,7 +481,7 @@ App.controller.define('CMain', {
                         });                
                     }
                 }; 
-                console.log(module);
+                
                 var session=xx.result.data[0].id_session;
                 App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
                     if (r.result.data.length>0) {
