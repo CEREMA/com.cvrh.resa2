@@ -240,6 +240,7 @@ App.controller.define('CMain', {
             status: "I",
             chefProjet: Auth.User.id
         },function(r) {
+            App.get(p.up('window'),'combo#cboSession').getStore().load();
             App.get(p.up('window'),'combo#cboSession').setValue(count);
         });
     },
