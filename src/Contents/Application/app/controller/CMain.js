@@ -587,6 +587,8 @@ App.controller.define('CMain', {
                     p.session=1;
                     p.id_session=s.insertId;
                     p.id_evenement=r.insertId;
+                    alert(p.id_session);
+                    alert(p.id_evenement);
                     me.new_module(p);
                 });
             });
