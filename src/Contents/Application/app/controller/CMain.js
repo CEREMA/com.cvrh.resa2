@@ -233,15 +233,21 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     new_session_click: function(p)
     {
-        var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
         App.DB.post('reservation_salles://session',{
             id_evenement: p.up('window').id_evenement,
             num_session: count+1,
             status: "I",
             chefProjet: Auth.User.id
         },function(r) {
-            App.get(p.up('window'),'combo#cboSession').getStore().load();
-            App.get(p.up('window'),'combo#cboSession').setValue(count);
+            var data=[];
+            App.DB.get('reservation_salles://session{num_session+}?id_evenement='+p.up('window').id_evenement,function(e,r) {
+                for (var i=0;i<r.result.data.length;i++) data.push({
+                    session_id: r.result.data[i].num_session,
+                    session: "Session "+r.result.data[i].num_session
+                }); 
+                App.get(p.up('window'),'combo#cboSession').getStore().loadData(data);
+                App.get(p.up('window'),'combo#cboSession').setValue(r.result.data[i].num_session);
+            });            
         });
     },
     cboSessionSelect: function(p)
