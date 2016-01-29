@@ -68,6 +68,9 @@ App.controller.define('CMain', {
 			"VCreateEvenement": {
 				show: "VCreateEvenement_onshow"
 			},
+            "VCreateEvenement button#newSession": {
+                click: "new_session_click"  
+            },
             "VCreateEvenement combo#cboSession": {
                 select: "cboSessionSelect"  
             },
@@ -228,6 +231,18 @@ App.controller.define('CMain', {
     },
     
 	// VCreateEvenement
+    new_session_click: function(p)
+    {
+        var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
+        App.DB.post('reservation_salles://session',{
+            id_evenement: p.up('window').id_session,
+            num_session: count+1,
+            status: "I",
+            chefProjet: Auth.User.id
+        },function(r) {
+            App.get(p.up('window'),'combo#cboSession').setValue(count);
+        });
+    },
     cboSessionSelect: function(p)
     {
         this.updateSession(p.up('window'));
