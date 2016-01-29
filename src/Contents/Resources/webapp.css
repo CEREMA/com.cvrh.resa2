@@ -275,3 +275,11 @@
 	width: 16px;
 	height: 16px;
 }
+
+.modules
+{
+    font-family: tahoma;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
