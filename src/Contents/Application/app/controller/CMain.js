@@ -570,7 +570,7 @@ App.controller.define('CMain', {
                             // on met à jour le chef de projet et l'assistant
                             App.get(p,'combo#cboCP').setValue(x.result.data[0].chefProjet);
                             App.get(p,'combo#cboAssistant').setValue(x.result.data[0].assistant);
-                            App.get(p,'numberfield#participant').setValue(r.result.data[0].participant);
+                            App.get(p,'numberfield#participant').setValue(x.result.data[0].participant);
                             App.get(p,'combo#cboCP').disable();                            
                         });
                     };
