@@ -264,7 +264,7 @@ App.controller.define('CMain', {
                     p.up('window').id_session=id_session;
                     var obj={
                         id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
-                        num_session: session,
+                        num_session: 1,
                         chefProjet: App.get('VCreateEvenement combo#cboCP').getValue(),
                         assistant: App.get('VCreateEvenement combo#cboAssistant').getValue(),
                         participant: App.get('VCreateEvenement numberfield#participant').getValue(),
@@ -272,7 +272,10 @@ App.controller.define('CMain', {
                         dateAvis: App.get('VCreateEvenement datefield#date_avis').getValue(),
                         statutResaSession: "FFFF00"
                     };
-                    if (id_session) obj.id_session=id_session;
+                    if (id_session) {
+                        obj.id_session=id_session;
+                        delete obj.num_session;
+                    };
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // update modules !
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
