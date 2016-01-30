@@ -258,8 +258,10 @@ App.controller.define('CMain', {
             App.DB.post('reservation_salles://evenement',obj,function(r){
                 var session=App.get(p.up('window'),"combo#cboSession").getValue();
                 App.DB.get('reservation_salles://session{id_session}?id_evenement='+App.get(p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
+                    console.log(r.result.data)
+                    return;
                     if (r.result.data.length>0) {
-                            var id_session=r.result.data[0].id_session;
+                        var id_session=r.result.data[0].id_session;
                     };
                     p.up('window').id_session=id_session;
                     var obj={
