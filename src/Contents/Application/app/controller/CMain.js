@@ -703,8 +703,12 @@ App.controller.define('CMain', {
             alert("Vous devez sélectionner une salle pour continuer.");
             return;
         };
+        if (!App.get(p.up('window'),"combo#salle").getValue()=="") {
+            alert("Vous devez sélectionner une salle pour continuer.");
+            return;
+        };
         var grid=p.up('window').grid;
-        var s=grid.getSelectionModel().getSelection();
+        var s=grid.getSelectionModel().getSelection()
         if (s.length>0) {
             var old_obj=s[0].data;
             var row = grid.getStore().indexOf(s[0]);
