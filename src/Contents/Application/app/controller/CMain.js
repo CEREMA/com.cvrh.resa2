@@ -456,7 +456,7 @@ App.controller.define('CMain', {
         App.get(p,'datefield#date_avis').setValue('');
         App.get(p,'datefield#date_avis').hide();
         
-        App.get(p,'radio#RA1').setChecked(true);
+        App.get(p,'radio#RA1').setValue(true);
         
 
         // on grab la session_id
