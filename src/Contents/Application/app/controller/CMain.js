@@ -844,7 +844,6 @@ App.controller.define('CMain', {
             for (var z=0;z<tab.length;z++) tab[z]=tab[z]*1;
             App.get(p,'boxselect#cboChoix').setValue(tab);
         };        
-        if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);
         
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
@@ -852,6 +851,9 @@ App.controller.define('CMain', {
 			id_site: 1
 		};
 		App.get(p,'combo#salle').getStore().load();
+        App.get(p,'combo#salle').getStore().on('load',function() {
+            if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);            
+        });
 	},
 	site_onselect: function(p)
 	{
