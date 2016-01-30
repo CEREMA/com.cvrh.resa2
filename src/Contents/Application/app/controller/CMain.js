@@ -333,8 +333,8 @@ App.controller.define('CMain', {
     cboSessionSelect: function(p)
     {
         var me=this;
-        p.up('window').session=p.getValue();
-        
+        //p.up('window').session=p.getValue();
+        //alert(p.up('window').session);
         // On enregistre la session courante avant
         this.insert_evenement(App.get("VCreateEvenement button#insert_evenement"),function() {
             me.updateSession(p.up('window'));    
