@@ -458,7 +458,10 @@ App.view.define('VCreateEvenement', {
 		{
                     xtype: "button",
                     text: "Annuler",
-                    itemId: "CANCEL_evenement"
+                    itemId: "CANCEL_evenement",
+                    handler: function(p) {
+                        p.up('window').close();
+                    }
         },
         '->', 
 		{
