@@ -809,9 +809,6 @@ App.controller.define('CMain', {
 	VResNew_onshow: function(p)
 	{
         var s=p.grid.getSelectionModel().getSelection();        
-        if (!p.isNew) {
-            App.get(p,'panel#resa_site').hide();  
-        };
         if (p.id_site)
         App.get(p,'combo#site').setValue(p.id_site);
         else
