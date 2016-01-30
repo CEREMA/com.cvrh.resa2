@@ -93,6 +93,16 @@ App.controller.define('CMain', {
             },                   
             "VCreateEvenement panel#modules": {
                 add: "resamodule_onshow"
+            },     
+            "VCreateEvenement button#delSession": {
+                click: function(){
+                    // !! TODO
+                }
+            },
+            "VCreateEvenement button#delEvent": {
+                click: function(){
+                    // !! TODO
+                }                
             },            
             "VCreateEvenement tabpanel#modules": {
                 afterlayout: function(x) {
@@ -276,7 +286,10 @@ App.controller.define('CMain', {
                         obj.id_session=id_session;
                         delete obj.num_session;
                     };
-                    
+                    if (App.get('VCreateEvenement datefield#date_avis').getValue()) {
+                        // s'il y a un avis, on met à jour les couleurs de toutes les ressources 
+                        // !! TODO
+                    };
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // update modules !
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
