@@ -851,6 +851,9 @@ App.controller.define('CMain', {
 			FinRessource: App.get(p,'datefield#d1').getValue(),
 			id_site: 1
 		};
+        App.get(p,'combo#salle').on('select',function(){
+            alert(App.get(p,'combo#salle').getValue());
+        });
 		App.get(p,'combo#salle').getStore().load();
         App.get(p,'combo#salle').getStore().on('load',function(){
             if (p.id_salle) App.get(p,'combo#salle').setValue(3);    
