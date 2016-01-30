@@ -699,7 +699,7 @@ App.controller.define('CMain', {
     },
 	// VResNew
 	resa_record: function(p) {
-        if (App.get(p.up('window'),"combo#salle").getValue()) {
+        if (App.get(p.up('window'),"combo#salle").getValue()=="") {
             alert("Vous devez sélectionner une salle pour continuer.");
             return;
         };
