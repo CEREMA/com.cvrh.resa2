@@ -452,8 +452,7 @@ App.controller.define('CMain', {
             p.id_session=r.result.data[0].id_session;
             p.session=App.get('VCreateEvenement combo#cboSession').getValue();
             
-            alert(p.id_session);
-            alert(p.session)
+
             
             
             // on met à jour les modules
