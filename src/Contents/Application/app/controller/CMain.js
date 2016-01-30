@@ -453,6 +453,11 @@ App.controller.define('CMain', {
         App.get(p,'combo#cboCP').setValue("");
         App.get(p,'combo#cboAssistant').setValue("");
         App.get(p,'numberfield#participant').setValue("");
+        App.get(p,'datefield#date_avis').setValue('');
+        App.get(p,'datefield#date_avis').hide();
+        
+        App.get(p,'radio#RA1').setChecked(true);
+        
 
         // on grab la session_id
         App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.id_evenement, function(e,r) {
