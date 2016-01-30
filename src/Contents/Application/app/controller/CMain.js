@@ -458,7 +458,6 @@ App.controller.define('CMain', {
         
         App.get(p,'radio#RA1').setValue(true);
         
-
         // on grab la session_id
         App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.id_evenement, function(e,r) {
             // on fait remonter au niveau de la fenêtre l'information
@@ -503,6 +502,11 @@ App.controller.define('CMain', {
                                 App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
                                 App.get(p,'numberfield#participant').setValue(r.result.data[0].participant);
                                 App.get(p,'combo#cboCP').disable();
+                                if (r.result.data[0].dateAvis) {
+                                    App.get(p,'datefield#date_avis').setValue(r.result.data[0].dateAvis.toDate());
+                                    App.get(p,'datefield#date_avis').show();
+                                    App.get(p,'radio#RA0').setValue(true);                                    
+                                }
                             } else {
                                 App.get(p,'combo#cboCP').setValue(Auth.User.id);
                                 App.get(p,'combo#cboCP').disable();
