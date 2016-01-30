@@ -585,7 +585,7 @@ App.controller.define('CMain', {
                             App.get(p,'combo#cboAssistant').setValue(x.result.data[0].assistant);
                             App.get(p,'numberfield#participant').setValue(x.result.data[0].participant);
                             App.get(p,'combo#cboCP').disable();                            
-                            if (r.result.data[0].dateAvis) {
+                            if (x.result.data[0].dateAvis) {
                                 App.get(p,'datefield#date_avis').setValue(x.result.data[0].dateAvis.toDate());
                                 App.get(p,'datefield#date_avis').show();
                                 App.get(p,'radio#RA0').setValue(true);                                    
