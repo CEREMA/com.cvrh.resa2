@@ -479,6 +479,7 @@ App.controller.define('CMain', {
                                 // on met à jour le chef de projet et l'assistant
                                 App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
                                 App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
+                                App.get(p,'numberfield#participant').setValue(r.result.data[0].participant);
                                 App.get(p,'combo#cboCP').disable();
                             } else {
                                 App.get(p,'combo#cboCP').setValue(Auth.User.id);
