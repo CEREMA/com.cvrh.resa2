@@ -235,6 +235,8 @@ App.controller.define('CMain', {
     {
         var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
         var me=this;
+        // Attention ! Il faut enregistrer la session courante sinon c'est perdu !!!
+        
         App.DB.post('reservation_salles://session',{
             id_evenement: p.up('window').id_evenement,
             num_session: count+1,
@@ -254,6 +256,7 @@ App.controller.define('CMain', {
                 me.updateSession(p.up('window'));
             });            
         });
+        
     },
     cboSessionSelect: function(p)
     {
@@ -612,7 +615,6 @@ App.controller.define('CMain', {
             });
         } else {
             // C'est un nouvel évènement
-            App.get(p,'combo#cboSession').setValue(p.session);
             App.get(p,'combo#cboTypologie').setValue(1);
             App.get(p,'combo#cboCP').setValue(Auth.User.id);
             App.get(p,'combo#cboCP').disable();
@@ -628,6 +630,7 @@ App.controller.define('CMain', {
                     chefProjet: Auth.User.id
                 },function(s) {
                     App.get(p,'textfield#num_evt').setValue(r.insertId);
+                    App.get(p,'combo#cboSession').setValue(p.session);
                     p.session=1;
                     p.id_session=s.insertId;
                     p.id_evenement=r.insertId;
