@@ -325,7 +325,11 @@ App.controller.define('CMain', {
     },
     cboSessionSelect: function(p)
     {
-        this.updateSession(p.up('window'));
+        var me=this;
+        // On enregistre la session courante avant
+        this.insert_evenement(App.get("VCreateEvenement button#insert_evenement"),function() {
+            me.updateSession(p.up('window'));    
+        });
     },
     tab_context: function(view,record,item,index,e)
     {
