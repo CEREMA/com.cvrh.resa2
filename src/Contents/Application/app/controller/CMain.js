@@ -703,7 +703,7 @@ App.controller.define('CMain', {
             alert("Vous devez sélectionner une salle pour continuer.");
             return;
         };
-        if (!App.get(p.up('window'),"combo#salle").getValue()=="") {
+        if (!App.get(p.up('window'),"combo#salle").getValue()) {
             alert("Vous devez sélectionner une salle pour continuer.");
             return;
         };
