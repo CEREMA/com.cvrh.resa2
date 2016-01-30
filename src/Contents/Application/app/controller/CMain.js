@@ -441,6 +441,11 @@ App.controller.define('CMain', {
     {
         
         var me=this;
+
+        App.get(p,'combo#cboCP').setValue("");
+        App.get(p,'combo#cboAssistant').setValue("");
+        App.get(p,'numberfield#participant').setValue("");
+
         // on grab la session_id
         App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.id_evenement, function(e,r) {
             // on fait remonter au niveau de la fenêtre l'information
