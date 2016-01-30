@@ -300,7 +300,7 @@ App.controller.define('CMain', {
         var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
         var me=this;
         // Attention ! Il faut enregistrer la session courante sinon c'est perdu !!!
-        this.insert_evement(App.get("VCreateEvenement button#insert_evenement"),function() {
+        this.insert_evenement(App.get("VCreateEvenement button#insert_evenement"),function() {
             App.DB.post('reservation_salles://session',{
                 id_evenement: p.up('window').id_evenement,
                 num_session: count+1,
