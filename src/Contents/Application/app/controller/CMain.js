@@ -630,7 +630,7 @@ App.controller.define('CMain', {
                     chefProjet: Auth.User.id
                 },function(s) {
                     App.get(p,'textfield#num_evt').setValue(r.insertId);
-                    App.get(p,'combo#cboSession').setValue(p.session);
+                    App.get(p,'combo#cboSession').setValue(p.session.toString());
                     p.session=1;
                     p.id_session=s.insertId;
                     p.id_evenement=r.insertId;
