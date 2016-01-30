@@ -256,8 +256,7 @@ App.controller.define('CMain', {
             };
             // on met à jour l'évènement
             App.DB.post('reservation_salles://evenement',obj,function(r){
-                var session=p.session;
-                alert(p.session);
+                var session=p.up('window').session;
                 App.DB.get('reservation_salles://session{id_session}?id_evenement='+App.get(p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
                     if (r.result.data.length>0) {
                         var id_session=r.result.data[0].id_session;
@@ -336,7 +335,6 @@ App.controller.define('CMain', {
     {
         var me=this;
         p.up('window').session=p.getValue();
-        alert(p.up('window').session);
         // On enregistre la session courante avant
         this.insert_evenement(App.get("VCreateEvenement button#insert_evenement"),function() {
             me.updateSession(p.up('window'));    
