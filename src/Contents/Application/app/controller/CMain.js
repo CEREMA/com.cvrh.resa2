@@ -236,24 +236,25 @@ App.controller.define('CMain', {
         var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
         var me=this;
         // Attention ! Il faut enregistrer la session courante sinon c'est perdu !!!
-        
-        App.DB.post('reservation_salles://session',{
-            id_evenement: p.up('window').id_evenement,
-            num_session: count+1,
-            status: "I",
-            chefProjet: Auth.User.id
-        },function(x) {
-            var data=[];
-            App.DB.get('reservation_salles://session{num_session+}?id_evenement='+p.up('window').id_evenement,function(e,r) {
-                for (var i=0;i<r.result.data.length;i++) data.push({
-                    session_id: r.result.data[i].num_session,
-                    session: "Session "+r.result.data[i].num_session
-                }); 
-                App.get(p.up('window'),'combo#cboSession').getStore().loadData(data);
-                App.get(p.up('window'),'combo#cboSession').setValue(count+1);
-                p.up('window').id_session=x.insertId;
-                p.up('window').session=count+1;
-                me.updateSession(p.up('window'));
+        me.insert_evement(App.get("VCreateEvenement button#insert_evenement"),function() {
+            App.DB.post('reservation_salles://session',{
+                id_evenement: p.up('window').id_evenement,
+                num_session: count+1,
+                status: "I",
+                chefProjet: Auth.User.id
+            },function(x) {
+                var data=[];
+                App.DB.get('reservation_salles://session{num_session+}?id_evenement='+p.up('window').id_evenement,function(e,r) {
+                    for (var i=0;i<r.result.data.length;i++) data.push({
+                        session_id: r.result.data[i].num_session,
+                        session: "Session "+r.result.data[i].num_session
+                    }); 
+                    App.get(p.up('window'),'combo#cboSession').getStore().loadData(data);
+                    App.get(p.up('window'),'combo#cboSession').setValue(count+1);
+                    p.up('window').id_session=x.insertId;
+                    p.up('window').session=count+1;
+                    me.updateSession(p.up('window'));
+                });            
             });            
         });
         
