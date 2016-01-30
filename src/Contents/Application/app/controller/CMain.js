@@ -699,6 +699,10 @@ App.controller.define('CMain', {
     },
 	// VResNew
 	resa_record: function(p) {
+        if (App.get(p.up('window'),"combo#salle").getValue()) {
+            alert("Vous devez sélectionner une salle pour continuer.");
+            return;
+        };
         var grid=p.up('window').grid;
         var s=grid.getSelectionModel().getSelection();
         if (s.length>0) {
