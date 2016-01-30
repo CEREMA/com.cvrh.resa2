@@ -280,7 +280,12 @@ App.controller.define('CMain', {
                         if (!r.insertId) r.insertId=id_session;
                         
                         me.updateModules(panels,r,0,function() {
-                            if (isFunction(cb)) cb(); else {
+                            if (isFunction(cb)) {
+                                // on raffraichit la grid
+                                App.get('mainform schedulergrid#schedule').getEventStore().load();                                
+                                p.setDisabled(false);
+                                cb(); 
+                            } else {
                                 p.up('window').close();   
                                 // on raffraichit la grid
                                 App.get('mainform schedulergrid#schedule').getEventStore().load();                                
