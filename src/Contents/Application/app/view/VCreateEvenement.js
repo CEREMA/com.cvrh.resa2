@@ -194,7 +194,14 @@ App.view.define('VCreateEvenement', {
 			text: "Nouvelle session",
             itemId: "newSession",
 			hidden: false
-		}
+		},
+        {
+            text: "Supprimer la session"
+        },
+        '->',
+        {
+            text: "Supprimer Evènement"
+        }
         ];
 		
         this.defaults = {
