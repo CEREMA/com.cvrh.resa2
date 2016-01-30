@@ -801,6 +801,8 @@ App.controller.define('CMain', {
 	},
 	d1_select: function(p)
 	{
+        App.get(p,'panel#resa_site').show();
+		App.get(p.up('window'),'combo#salle').setValue('');
 		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
