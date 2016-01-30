@@ -853,7 +853,7 @@ App.controller.define('CMain', {
 		};
 		App.get(p,'combo#salle').getStore().load();
         App.get(p,'combo#salle').getStore().on('load',function(){
-            if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);    
+            if (p.id_salle) App.get(p,'combo#salle').setValue(3);    
         });
 	},
 	site_onselect: function(p)
