@@ -236,6 +236,65 @@ App.controller.define('CMain', {
     },
     
 	// VCreateEvenement
+    insert_evenement: function(p,cb)
+    {
+        var me=this;
+        p.setDisabled(true);
+        if (App.get(p.up('window'),'textfield#num_evt').getValue()) {
+            // UPDATE
+            var obj={
+                id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
+                id_site: 3,
+                id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
+                status: 'I',
+                nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
+                num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
+            };  
+            if (App.get('VCreateEvenement textfield#insert_evenement').getValue()=="") {
+                alert("Le titre de l'évènement n'est pas renseigné");  
+                return;
+            };
+            // on met à jour l'évènement
+            App.DB.post('reservation_salles://evenement',obj,function(r){
+                var session=App.get(p.up('window'),"combo#cboSession").getValue();
+                App.DB.get('reservation_salles://session{id_session}?id_evenement='+App.get(p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
+                    if (r.result.data.length>0) {
+                            var id_session=r.result.data[0].id_session;
+                    };
+                    p.up('window').id_session=id_session;
+                    var obj={
+                        id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
+                        num_session: 1,
+                        chefProjet: App.get('VCreateEvenement combo#cboCP').getValue(),
+                        assistant: App.get('VCreateEvenement combo#cboAssistant').getValue(),
+                        participant: App.get('VCreateEvenement numberfield#participant').getValue(),
+                        status: 'I',
+                        dateAvis: App.get('VCreateEvenement datefield#date_avis').getValue(),
+                        statutResaSession: "FFFF00"
+                    };
+                    if (id_session) obj.id_session=id_session;
+                    App.DB.post('reservation_salles://session',obj,function(r){
+                        // update modules !
+                        var panels=App.get('VCreateEvenement panel#modules').items.items;
+                        
+                        if (!r.insertId) r.insertId=id_session;
+                        
+                        me.updateModules(panels,r,0,function() {
+                            if (isFunction(cb)) cb(); else {
+                                p.up('window').close();   
+                                // on raffraichit la grid
+                                App.get('mainform schedulergrid#schedule').getEventStore().load();                                
+                            }
+                        });
+                    });
+                });
+            });
+            
+        } else {
+            // INSERT
+        }
+       
+    },
     new_session_click: function(p)
     {
         var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
@@ -373,65 +432,7 @@ App.controller.define('CMain', {
             if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
         }
     },
-    insert_evenement: function(p,cb)
-    {
-        var me=this;
-        p.setDisabled(true);
-        if (App.get(p.up('window'),'textfield#num_evt').getValue()) {
-            // UPDATE
-            var obj={
-                id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
-                id_site: 3,
-                id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
-                status: 'I',
-                nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
-                num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
-            };  
-            if (App.get('VCreateEvenement textfield#insert_evenement').getValue()=="") {
-                alert("Le titre de l'évènement n'est pas renseigné");  
-                return;
-            };
-            // on met à jour l'évènement
-            App.DB.post('reservation_salles://evenement',obj,function(r){
-                var session=App.get(p.up('window'),"combo#cboSession").getValue();
-                App.DB.get('reservation_salles://session{id_session}?id_evenement='+App.get(p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
-                    if (r.result.data.length>0) {
-                            var id_session=r.result.data[0].id_session;
-                    };
-                    p.up('window').id_session=id_session;
-                    var obj={
-                        id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
-                        num_session: 1,
-                        chefProjet: App.get('VCreateEvenement combo#cboCP').getValue(),
-                        assistant: App.get('VCreateEvenement combo#cboAssistant').getValue(),
-                        participant: App.get('VCreateEvenement numberfield#participant').getValue(),
-                        status: 'I',
-                        dateAvis: App.get('VCreateEvenement datefield#date_avis').getValue(),
-                        statutResaSession: "FFFF00"
-                    };
-                    if (id_session) obj.id_session=id_session;
-                    App.DB.post('reservation_salles://session',obj,function(r){
-                        // update modules !
-                        var panels=App.get('VCreateEvenement panel#modules').items.items;
-                        
-                        if (!r.insertId) r.insertId=id_session;
-                        
-                        me.updateModules(panels,r,0,function() {
-                            if (isFunction(cb)) cb(); else {
-                                p.up('window').close();   
-                                // on raffraichit la grid
-                                App.get('mainform schedulergrid#schedule').getEventStore().load();                                
-                            }
-                        });
-                    });
-                });
-            });
-            
-        } else {
-            // INSERT
-        }
-       
-    },
+
     updateSession: function(p)
     {
         
