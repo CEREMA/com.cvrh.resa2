@@ -844,7 +844,7 @@ App.controller.define('CMain', {
             for (var z=0;z<tab.length;z++) tab[z]=tab[z]*1;
             App.get(p,'boxselect#cboChoix').setValue(tab);
         };        
-        if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle*1);
+        if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle.toString());
         
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
