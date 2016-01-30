@@ -573,6 +573,11 @@ App.controller.define('CMain', {
                         App.get(p,'combo#cboAssistant').setValue(r.result.data[0].assistant);
                         App.get(p,'numberfield#participant').setValue(r.result.data[0].participant);
                         App.get(p,'combo#cboCP').disable();
+                        if (r.result.data[0].dateAvis) {
+                            App.get(p,'datefield#date_avis').setValue(r.result.data[0].dateAvis.toDate());
+                            App.get(p,'datefield#date_avis').show();
+                            App.get(p,'radio#RA0').setValue(true);                                    
+                        }
                     } else {
                         App.DB.get('reservation_salles://session?id_session='+session,function(e,x) {
                             // on met à jour le chef de projet et l'assistant
@@ -580,6 +585,11 @@ App.controller.define('CMain', {
                             App.get(p,'combo#cboAssistant').setValue(x.result.data[0].assistant);
                             App.get(p,'numberfield#participant').setValue(x.result.data[0].participant);
                             App.get(p,'combo#cboCP').disable();                            
+                            if (r.result.data[0].dateAvis) {
+                                App.get(p,'datefield#date_avis').setValue(x.result.data[0].dateAvis.toDate());
+                                App.get(p,'datefield#date_avis').show();
+                                App.get(p,'radio#RA0').setValue(true);                                    
+                            }
                         });
                     };
                     // on ajoute les modules
