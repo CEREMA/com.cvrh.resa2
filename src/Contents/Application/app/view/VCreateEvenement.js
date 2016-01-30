@@ -296,7 +296,7 @@ App.view.define('VCreateEvenement', {
                             fields: ["session_id","session"],
                             data: [
                                 {
-                                 session_id: "1",
+                                 session_id: 1,
                                  session: "Session 1"
                                 }
                             ]
