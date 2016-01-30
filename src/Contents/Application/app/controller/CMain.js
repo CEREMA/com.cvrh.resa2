@@ -1,3 +1,8 @@
+function isFunction(functionToCheck) {
+ var getType = {};
+ return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+};
+
 App.controller.define('CMain', {
 
 	views: [
@@ -236,7 +241,7 @@ App.controller.define('CMain', {
         var count=App.get(p.up('window'),'combo#cboSession').getStore().getCount();
         var me=this;
         // Attention ! Il faut enregistrer la session courante sinon c'est perdu !!!
-        me.insert_evement(App.get("VCreateEvenement button#insert_evenement"),function() {
+        this.insert_evement(App.get("VCreateEvenement button#insert_evenement"),function() {
             App.DB.post('reservation_salles://session',{
                 id_evenement: p.up('window').id_evenement,
                 num_session: count+1,
@@ -368,7 +373,7 @@ App.controller.define('CMain', {
             if (ndx+1<panels.length) me.updateModules(panels,r,ndx+1,cb); else cb();
         }
     },
-    insert_evenement: function(p)
+    insert_evenement: function(p,cb)
     {
         var me=this;
         p.setDisabled(true);
@@ -412,9 +417,11 @@ App.controller.define('CMain', {
                         if (!r.insertId) r.insertId=id_session;
                         
                         me.updateModules(panels,r,0,function() {
-                            p.up('window').close();   
-                            // on raffraichit la grid
-                            App.get('mainform schedulergrid#schedule').getEventStore().load();
+                            if (isFunction(cb)) cb(); else {
+                                p.up('window').close();   
+                                // on raffraichit la grid
+                                App.get('mainform schedulergrid#schedule').getEventStore().load();                                
+                            }
                         });
                     });
                 });
