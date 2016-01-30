@@ -794,7 +794,9 @@ App.controller.define('CMain', {
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
 			id_site: App.get(p.up('window'),'combo#site').getValue()
 		};
-		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
+        App.get(p,'panel#resa_site').show();
+		App.get(p.up('window'),'combo#salle').setValue('');
+        App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
 		App.get(p.up('window'),'combo#salle').getStore().load();
 	},
 	d1_select: function(p)
