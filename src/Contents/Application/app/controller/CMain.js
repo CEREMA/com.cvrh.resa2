@@ -264,7 +264,7 @@ App.controller.define('CMain', {
                     p.up('window').id_session=id_session;
                     var obj={
                         id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
-                        num_session: 1,
+                        num_session: session,
                         chefProjet: App.get('VCreateEvenement combo#cboCP').getValue(),
                         assistant: App.get('VCreateEvenement combo#cboAssistant').getValue(),
                         participant: App.get('VCreateEvenement numberfield#participant').getValue(),
@@ -276,6 +276,7 @@ App.controller.define('CMain', {
                         obj.id_session=id_session;
                         delete obj.num_session;
                     };
+                    
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // update modules !
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
@@ -298,8 +299,6 @@ App.controller.define('CMain', {
                 });
             });
             
-        } else {
-            // INSERT
         }
        
     },
@@ -338,9 +337,6 @@ App.controller.define('CMain', {
         
         // On enregistre la session courante avant
         this.insert_evenement(App.get("VCreateEvenement button#insert_evenement"),function() {
-            App.get('VCreateEvenement combo#cboCP').setValue('');
-            App.get('VCreateEvenement combo#cboAssistant').setValue('');
-            App.get('VCreateEvenement numberfield#participant').setValue('');
             me.updateSession(p.up('window'));    
         });
     },
