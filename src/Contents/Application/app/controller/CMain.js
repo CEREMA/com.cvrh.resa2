@@ -264,7 +264,7 @@ App.controller.define('CMain', {
                     p.up('window').id_session=id_session;
                     var obj={
                         id_evenement: App.get(p.up('window'),'textfield#num_evt').getValue(),
-                        num_session: 1,
+                        num_session: session,
                         chefProjet: App.get('VCreateEvenement combo#cboCP').getValue(),
                         assistant: App.get('VCreateEvenement combo#cboAssistant').getValue(),
                         participant: App.get('VCreateEvenement numberfield#participant').getValue(),
