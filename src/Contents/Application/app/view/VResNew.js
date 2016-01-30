@@ -41,6 +41,7 @@ App.view.define('VResNew', {
 				displayField: "nomsalle",				
 				editable: false,
 				valueField: "id_site",
+                disabled: true,
 				store: App.store.create('reservation_salles://site',{autoLoad: true})
 			},
 			{
