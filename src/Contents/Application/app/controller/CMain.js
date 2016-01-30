@@ -809,6 +809,9 @@ App.controller.define('CMain', {
 	VResNew_onshow: function(p)
 	{
         var s=p.grid.getSelectionModel().getSelection();        
+        if (!p.isNew) {
+            App.get(p,'panel#resa_site').hide();  
+        };
         if (p.id_site)
         App.get(p,'combo#site').setValue(p.id_site);
         else
@@ -844,20 +847,14 @@ App.controller.define('CMain', {
             for (var z=0;z<tab.length;z++) tab[z]=tab[z]*1;
             App.get(p,'boxselect#cboChoix').setValue(tab);
         };        
-        
+        if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);
         
 		App.get(p,'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
 			id_site: 1
 		};
-        App.get(p,'combo#salle').on('select',function(){
-            alert(App.get(p,'combo#salle').getValue());
-        });
 		App.get(p,'combo#salle').getStore().load();
-        App.get(p,'combo#salle').getStore().on('load',function(){
-            if (p.id_salle) App.get(p,'combo#salle').setValue(3);    
-        });
 	},
 	site_onselect: function(p)
 	{
