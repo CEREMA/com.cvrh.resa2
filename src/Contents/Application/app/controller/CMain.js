@@ -335,6 +335,10 @@ App.controller.define('CMain', {
     {
         var me=this;
         p.up('window').session=p.getValue();
+        App.get('VCreateEvenement combo#cboCP').setValue('');
+        App.get('VCreateEvenement combo#cboAssistant').setValue('');
+        App.get('VCreateEvenement numberfield#participant').setValue('');
+        
         // On enregistre la session courante avant
         this.insert_evenement(App.get("VCreateEvenement button#insert_evenement"),function() {
             me.updateSession(p.up('window'));    
