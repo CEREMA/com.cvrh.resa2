@@ -95,25 +95,11 @@ App.controller.define('CMain', {
                 add: "resamodule_onshow"
             },     
             "VCreateEvenement button#delSession": {
-                click: function(){
-                    // !! TODO
-                }
+                click: "del_session"
             },
             "VCreateEvenement button#delEvent": {
                 click: "del_event"         
             },            
-            "VCreateEvenement tabpanel#modules": {
-                afterlayout: function(x) {
-                    /*console.log(x);
-                    this.tabPanel.mon(this.tabBar.el, {
-                        scope: this,
-                        contextmenu: function(event, target)  {
-                            alert('x');
-                        },
-                        delegate: 'div.x-tab'
-                    });                    */
-                },
-            },
             /*
             VGeff
             */
@@ -247,6 +233,23 @@ App.controller.define('CMain', {
     },
     
 	// VCreateEvenement
+    del_session: function(p,cb)
+    {
+        var title='Suppression d\'une session';
+        alert(p.up('window').num_session);
+        alert(App.get(p.up('window'),'combo#cboSession').getStore().getCount());
+        return;
+        var msg="<b>Vous êtes sur le point de supprimer une session.</b><br><br>Cette action aura pour effet de supprimer tous les modules et toutes les ressources associés à cette session.<br>Cette action est irréversible.<br><br>Voulez vous continuer ?";
+        Ext.MessageBox.confirm(title, msg, function(btn){
+                if(btn === 'yes'){
+                    // on delete toutes les ressources associées au module
+                    App.DB.del('reservation_salles://session?id_session='+p.up('window').id_session,function(e,r) {
+                        App.get('mainform schedulergrid#schedule').getEventStore().load(); 
+                        p.up('window').close();
+                    });
+                }                
+        });        
+    },
     del_event: function(p,cb)
     {
         var title='Suppression d\'un évènement';
