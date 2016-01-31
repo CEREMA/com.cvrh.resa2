@@ -6,6 +6,7 @@ events = {
     get: function(o,cb) {
         var db = events.using('db');
         var sql='SELECT * FROM evenement WHERE id_evenement in (SELECT id_evenement FROM session WHERE status="I" and (chefProjet='+o.uid+' or assistant='+o.uid+')';
+        console.log(sql);
         db.model('reservation_salles',sql,cb);
     },
 	getAll: function(o,cb) {
