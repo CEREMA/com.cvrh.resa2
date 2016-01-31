@@ -235,6 +235,7 @@ App.controller.define('CMain', {
 	// VCreateEvenement
     del_session: function(p,cb)
     {
+        var me=this;
         var title='Suppression d\'une session';
         if (p.up('window').session==1) {
             alert("Vous ne pouvez pas supprimer la session 1");
@@ -250,7 +251,7 @@ App.controller.define('CMain', {
                     // on delete toutes les ressources associées au module
                     App.DB.del('reservation_salles://session?id_session='+p.up('window').id_session,function(e,r) {
                         App.get('mainform schedulergrid#schedule').getEventStore().load(); 
-                        p.up('window').close();
+                        me.updateSession(p.up('window'));
                     });
                 }                
         });        
