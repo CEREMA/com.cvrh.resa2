@@ -14,7 +14,19 @@ App.view.define('VOpenEvenement', {
                 xtype: "grid",
                 columns: [
                     {
-                        text: "Evènement"
+                        text: "Evènement",
+                        dataIndex: "nomEvenement",
+                        width: 200
+                    },
+                    {
+                        text: "Descriptif",
+                        dataIndex: "descriptifEvenement",
+                        flex: 1
+                    },
+                    {
+                        text: "GEFF",
+                        dataIndex: "num_geff",
+                        width: 100
                     }
                 ],
                 store: App.store.create("App.events.get")
