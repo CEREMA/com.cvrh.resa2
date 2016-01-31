@@ -193,6 +193,7 @@ App.view.define('VCreateEvenement', {
 		{
 			text: "Nouvelle session",
             itemId: "newSession",
+            iconCls: "new",
 			hidden: false
 		},
         {
