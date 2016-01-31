@@ -100,9 +100,7 @@ App.controller.define('CMain', {
                 }
             },
             "VCreateEvenement button#delEvent": {
-                click: function(){
-                    // !! TODO
-                }                
+                click: "del_event"         
             },            
             "VCreateEvenement tabpanel#modules": {
                 afterlayout: function(x) {
@@ -249,6 +247,21 @@ App.controller.define('CMain', {
     },
     
 	// VCreateEvenement
+    del_event: function(p,cb)
+    {
+        var title='Suppression d\'un évènement';
+        var msg="Vous êtes sur le point de supprimer un évènement.<br>Cette action aura pour effet de supprimer toutes les sessions et tous les modules associés à cet évènement.<br>Cette action est irréversible.<br><br>Voulez vous continuer ?"'";
+        Ext.MessageBox.confirm(title, msg, function(btn){
+                if(btn === 'yes'){
+                    // on delete toutes les ressources associées au module
+                    alert(p.up('window').id_evenement);
+                    App.DB.get('reservation_salles://evenement?id_evenement='+p.up('window').id_evenement,function(e,r) {
+                        App.get('mainform schedulergrid#schedule').getEventStore().load(); 
+                        p.up('window').close();
+                    });
+                }                
+        });
+    },
     insert_evenement: function(p,cb)
     {
         var me=this;
