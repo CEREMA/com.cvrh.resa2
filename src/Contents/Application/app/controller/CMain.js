@@ -236,9 +236,14 @@ App.controller.define('CMain', {
     del_session: function(p,cb)
     {
         var title='Suppression d\'une session';
-        alert(p.up('window').session);
-        alert(App.get(p.up('window'),'combo#cboSession').getStore().getCount());
-        return;
+        if (p.up('window').session==1) {
+            alert("Vous ne pouvez pas supprimer la session 1");
+            return;
+        };
+        if (p.up('window').session!=App.get(p.up('window'),'combo#cboSession').getStore().getCount()) {
+            alert("Vous ne pouvez pas supprimer de session intermédiaire");
+            return;
+        };
         var msg="<b>Vous êtes sur le point de supprimer une session.</b><br><br>Cette action aura pour effet de supprimer tous les modules et toutes les ressources associés à cette session.<br>Cette action est irréversible.<br><br>Voulez vous continuer ?";
         Ext.MessageBox.confirm(title, msg, function(btn){
                 if(btn === 'yes'){
