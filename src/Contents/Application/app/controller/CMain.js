@@ -251,7 +251,7 @@ App.controller.define('CMain', {
                     // on delete toutes les ressources associées au module
                     App.DB.del('reservation_salles://session?id_session='+p.up('window').id_session,function(e,r) {
                         App.get('mainform schedulergrid#schedule').getEventStore().load(); 
-                        me.updateSession(p.up('window'));
+                        p.up('window').close();
                     });
                 }                
         });        
