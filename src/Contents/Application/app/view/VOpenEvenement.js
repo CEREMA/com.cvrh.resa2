@@ -16,7 +16,7 @@ App.view.define('VOpenEvenement', {
                     {
                         text: "Evènement",
                         dataIndex: "nomEvenement",
-                        width: 200
+                        width: 220
                     },
                     {
                         text: "Descriptif",
@@ -26,7 +26,7 @@ App.view.define('VOpenEvenement', {
                     {
                         text: "GEFF",
                         dataIndex: "num_geff",
-                        width: 100
+                        width: 80
                     }
                 ],
                 store: App.store.create("App.events.get")
