@@ -198,11 +198,13 @@ App.view.define('VCreateEvenement', {
 		},
         {
             text: "Supprimer la session",
+            iconCls: "minus",
             itemId: "delSession"
         },
         '->',
         {
             text: "Supprimer Evènement",
+            iconCls: "del",
             itemId: "delEvent"
         }
         ];
