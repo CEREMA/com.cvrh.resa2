@@ -902,7 +902,8 @@ App.controller.define('CMain', {
             session: 1,
             module: 1,
             modal: true
-        }).show();          
+        }).show();   
+        p.up('window').close();
     },
 	// Main Screen events ///////////////////////////////////////////////////////
     
