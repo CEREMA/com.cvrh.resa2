@@ -146,6 +146,9 @@ App.controller.define('CMain', {
             "TOpenEvenement":{
                 show: "TOpenEvenement_onshow"
             },
+            "TOpenEvenement grid": {
+                itemdblclick: "openevent_click"  
+            },
             /*
             VResaModule
             */
@@ -892,7 +895,15 @@ App.controller.define('CMain', {
 			App.get('TOpenEvenement treepanel#tree1').getRootNode().expand(true);	
 		});		
 	},
-	
+	openevent_click: function(p,rec)
+    {
+        App.view.create('VCreateEvenement',{
+            id_evenement: rec.data.id_evenement,
+            session: 1,
+            module: 1,
+            modal: true
+        }).show();          
+    },
 	// Main Screen events ///////////////////////////////////////////////////////
     
 	grid_dblclick: function(v,rec)
