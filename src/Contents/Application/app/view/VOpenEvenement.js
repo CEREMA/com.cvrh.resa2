@@ -17,7 +17,7 @@ App.view.define('VOpenEvenement', {
                         text: "Evènement"
                     }
                 ],
-                store: App.store.create("reservation_salles://evenement{*,session.*}")
+                store: App.store.create("reservation_salles://evenement{*,session.*}?chefProjet="+Auth.User.id+"&status=I")
             }
         ];
         this.bbar = [
