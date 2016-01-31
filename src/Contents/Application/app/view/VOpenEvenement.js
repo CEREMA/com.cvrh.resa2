@@ -9,75 +9,27 @@ App.view.define('VOpenEvenement', {
         this.title = "Choississez un évènement";
         this.bodyCls = "white";
 		this.layout="fit";
-        this.items = [{
-                xtype: "treepanel",
-				border: false,
-                itemId: "tree1",
-                useArrows: true,
-                rootVisible: false,
-                height: "100%",
-                store: App.treestore.create('App.reservation.getAllFormations', {
-					root: {
-                        expanded: true, 
-						children: [],
-						autoLoad: false
+        this.items = [
+            {
+                xtype: "grid",
+                columns: [
+                    {
+                        text: "Evènement"
                     }
-                }),
-                multiSelect: false,
-                singleExpand: false,
-                columns: [{
-					xtype: 'treecolumn',
-					text: 'Evènement',
-					width: 250,
-					sortable: true,
-					dataIndex: 'text'
-				},
-				{
-                text: 'Typologie',
-				width: 130,
-                sortable: true,
-                dataIndex: 'typo'
-				},
-				{
-              
-                text: 'Statut',
-				width: 60,
-                //flex: 1,
-				align: 'center',
-                sortable: true,
-                dataIndex: 'statutResa',
-				renderer : function(val){
-					return '<span style="background-color:#'+val+';">&nbsp;&nbsp;&nbsp;&nbsp;</span>';
-				},
-            },			
-			{              
-                text: 'Début',
-				width: 90,
-                //flex: 1,
-				align: 'center',
-                sortable: true,
-                dataIndex: 'debutModule'
-            },
-			{
-              
-                text: 'Fin',
-                flex: 1,
-				align: 'center',
-                sortable: true,
-                dataIndex: 'finModule'
-            },
-			
-			
-			] 
-            }],
-			 this.bbar = ['->',{
-                    xtype: "button",
-                    text: "Quitter",
-                    handler: function(p) {
-                        p.up('window').close();   
-                    }
-                },
-            ],
-            this.callParent(arguments);
+                ],
+                store: App.store.create("reservation_salles://evenement")
+            }
+        ];
+        this.bbar = [
+            '->',
+            {
+                xtype: "button",
+                text: "Quitter",
+                handler: function(p) {
+                    p.up('window').close();   
+                }
+            }
+        ];
+        this.callParent(arguments);
     }
 });
