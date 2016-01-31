@@ -254,8 +254,7 @@ App.controller.define('CMain', {
         Ext.MessageBox.confirm(title, msg, function(btn){
                 if(btn === 'yes'){
                     // on delete toutes les ressources associées au module
-                    alert(p.up('window').id_evenement);
-                    App.DB.get('reservation_salles://evenement?id_evenement='+p.up('window').id_evenement,function(e,r) {
+                    App.DB.del('reservation_salles://evenement?id_evenement='+p.up('window').id_evenement,function(e,r) {
                         App.get('mainform schedulergrid#schedule').getEventStore().load(); 
                         p.up('window').close();
                     });
