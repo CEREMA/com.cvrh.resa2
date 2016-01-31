@@ -1043,7 +1043,7 @@ App.controller.define('CMain', {
     TOpenEvenement_onshow: function(p)
     {
         App.get(p,'grid').getStore().getProxy().extraParams={
-            status: "I"
+            uid: Auth.User.id
         };
         App.get(p,'grid').getStore().load();
     },
