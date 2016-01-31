@@ -284,3 +284,18 @@
     font-weight: bold;
     padding-top: 7px;
 }
+
+.minus
+{
+    background-image: url(webapp/minus.png)
+}
+
+.new
+{
+    background-image: url(webapp/new.png)
+}
+
+.del
+{
+    background-image: url(webapp/del.png)
+}
