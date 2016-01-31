@@ -261,6 +261,7 @@ App.controller.define('CMain', {
                 id_typologie: App.get('VCreateEvenement combo#cboTypologie').getValue(),
                 status: 'I',
                 nomEvenement: App.get('VCreateEvenement textfield#insert_evenement').getValue(),
+                descriptifEvenement: App.get('VCreateEvenement textfield#insert_descriptif').getValue(),
                 num_geff: App.get('VCreateEvenement ux-searchbox#insert_numGeff').getValue()
             };  
             if (App.get('VCreateEvenement textfield#insert_evenement').getValue()=="") {
