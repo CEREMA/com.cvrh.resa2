@@ -250,7 +250,7 @@ App.controller.define('CMain', {
     del_event: function(p,cb)
     {
         var title='Suppression d\'un évènement';
-        var msg="Vous êtes sur le point de supprimer un évènement.<br>Cette action aura pour effet de supprimer toutes les sessions et tous les modules associés à cet évènement.<br>Cette action est irréversible.<br><br>Voulez vous continuer ?";
+        var msg="<b>Vous êtes sur le point de supprimer un évènement.</b><br><br>Cette action aura pour effet de supprimer toutes les sessions, tous les modules et toutes les ressources associés à cet évènement.<br>Cette action est irréversible.<br><br>Voulez vous continuer ?";
         Ext.MessageBox.confirm(title, msg, function(btn){
                 if(btn === 'yes'){
                     // on delete toutes les ressources associées au module
