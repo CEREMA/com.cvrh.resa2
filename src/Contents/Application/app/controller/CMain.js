@@ -671,7 +671,8 @@ App.controller.define('CMain', {
             // on insère ce nouvel évènement provisoire
             App.DB.post('reservation_salles://evenement',{
                 id_typologie: 1,
-                nomEvenement: "XXX"
+                nomEvenement: "XXX",
+                status: "A"
             },function(r) {
                 // On crée la nouvelle session attachée a cet évènement
                 App.DB.post('reservation_salles://session',{
