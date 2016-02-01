@@ -99,7 +99,13 @@ App.controller.define('CMain', {
             },
             "VCreateEvenement button#delEvent": {
                 click: "del_event"         
-            },            
+            }, 
+            "VCreateEvenement radio#RA0": {
+                change: function(p) {
+                    if (App.get(p.up('window'),'datefield#date_avis').getValue()=="") App.get(p.up('window'),'datefield#date_avis').setValue(new Date());
+                    if (!App.get(p.up('window'),'datefield#date_avis').getValue()) App.get(p.up('window'),'datefield#date_avis').setValue(new Date());      
+                }
+            },
             /*
             VGeff
             */
