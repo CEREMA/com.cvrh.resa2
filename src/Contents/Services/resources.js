@@ -3,6 +3,12 @@ Resources
 */
 
 resources = {
+    update: function(o,cb)
+    {
+        var db=resources.using('db');
+        var sql='UPDATE ressourcesalles SET clsRessource="orange" WHERE id_module in (select id_module from session where id_session='+o.session+')';
+        db.query('reservation_salles',sql,cb);
+    },
 	getAll: function(o,cb) {
 		if (o.NumLogin=='0') o._cfg=0;
 		if (o._cfg==0){ 
