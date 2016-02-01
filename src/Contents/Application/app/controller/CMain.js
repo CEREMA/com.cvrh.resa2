@@ -310,10 +310,13 @@ App.controller.define('CMain', {
                     if (id_session) {
                         obj.id_session=id_session;
                         delete obj.num_session;
-                    };
-                    if (App.get('VCreateEvenement datefield#date_avis').getValue()) {
-                        // s'il y a un avis, on met à jour les couleurs de toutes les ressources 
-                        // !! TODO
+                        if (App.get('VCreateEvenement datefield#date_avis').getValue()) {
+                            // s'il y a un avis, on met à jour les couleurs de toutes les ressources 
+                            App.resources.update({session: id_session},function(e,r){
+                                console.log(e);   
+                                console.log(r);
+                            });
+                        };
                     };
                     App.DB.post('reservation_salles://session',obj,function(r){
                         // update modules !
