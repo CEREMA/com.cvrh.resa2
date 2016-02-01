@@ -6,7 +6,7 @@ resources = {
     update: function(o,cb)
     {
         var db=resources.using('db');
-        var sql='UPDATE ressourcesalles SET clsRessource="orange" WHERE id_module in (select id_module from session where id_session='+o.session+')';
+        var sql='UPDATE ressourcesalles SET clsRessource="orange" WHERE id_module in (select id_module from module where id_session='+o.session+')';
         console.log(sql);
         db.query('reservation_salles',sql,cb);
     },
