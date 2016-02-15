@@ -54,6 +54,7 @@ App.controller.define('admin.CDayOff', {
 			App.get('TAdminJF textfield#type').setValue("");
 			App.notify('Enregistrement OK.');
 			App.get('TAdminJF grid#jf').getStore().load();
+            App.get('VMain schedule#schedulergrid').getEventStore().load();
 		});
 	},
 	do_del_jf: function(p) {
