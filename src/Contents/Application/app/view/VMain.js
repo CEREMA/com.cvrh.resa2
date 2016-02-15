@@ -159,15 +159,8 @@ App.view.define('VMain', {
 	{
         region: "center",
         split: true,
-		layout:"vbox",
-        items: [{
-			xtype: "panel",
-			itemId: "DISPLAY",
-			width: "100%",
-			height: "100%",
-			html: '<iframe class="my_display" src="about:blank" style="width:100%;height:100%"></iframe>',
-			hidden: true
-		},
+		layout:"fit",
+        items: [
 		{
             xtype: "schedulergrid",
             itemId: "schedule",
