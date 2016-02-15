@@ -860,6 +860,7 @@ App.controller.define('CMain', {
         if (!p.isNew) {
             App.get(p,'panel#resa_site').hide();  
         };
+        alert(App.get('combo#cboTypologie').getValue());
         if (p.id_site)
         App.get(p,'combo#site').setValue(p.id_site);
         else
