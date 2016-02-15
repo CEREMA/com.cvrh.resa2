@@ -396,7 +396,7 @@ App.controller.define('CMain', {
 			{
 				text: "Supprimer",
                 handler: function(p) {       
-                    alert('x');
+
                     /*var record = view.getStore().getAt(index);                    
                     App.DB.del("reservation_salles://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
                         view.getStore().remove(record);
@@ -1180,7 +1180,6 @@ App.controller.define('CMain', {
 	// Display Scheduler /////////////////////////////////////////////////////////////
 	display_scheduler: function(now,salle,agent)
 	{
-        alert(agent);
 	    // Private methods
         App.now=now;
 		function isWeekend(d) {
