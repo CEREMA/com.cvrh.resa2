@@ -1225,7 +1225,7 @@ App.controller.define('CMain', {
 		
 		var month = App.get('combo#selectMonth').getValue();
 
-		days_in_month(mm, year);
+		//days_in_month(mm, year);
 		var resultat = days_in_month(mm, year) + 1;
 		this.EVT_CURRENT.resultat = resultat - 1;
 
