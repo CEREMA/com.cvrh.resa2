@@ -54,7 +54,25 @@ App.controller.define('admin.CDayOff', {
 			App.get('TAdminJF textfield#type').setValue("");
 			App.notify('Enregistrement OK.');
 			App.get('TAdminJF grid#jf').getStore().load();
-            App.get('mainform schedule#schedulergrid').getEventStore().load();
+            App.DB.get('reservation_salles://off', function(p,r) {
+                // add weekends to off day
+                var weekends = [];
+                for (var i=0;i<r.result.data.length;i++) {
+                    r.result.data[i].StartDate=r.result.data[i].StartDate.toDate();
+                    r.result.data[i].EndDate=r.result.data[i].EndDate.toDate();
+                };
+                for (var i = 1; i < resultat; i++) {
+                    var d = new Date(year, month, i);
+                    if (isWeekend(d)) r.result.data.push({
+                        StartDate: new Date(year, month, i),
+                        EndDate: new Date(year, month, i + 2),
+                        Type: "Week-end"
+                    });
+                };
+                var scheduler=App.get('mainform schedulergrid#schedule');
+                scheduler.plugins[0].store.loadData(r.result.data);
+                scheduler.getEventStore().load();
+		    });
 		});
 	},
 	do_del_jf: function(p) {
