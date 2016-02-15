@@ -51,7 +51,7 @@ App.controller.define('CMain', {
                 select: "select_year"
             },
             "mainform schedulergrid#schedule": {
-                itemcontextmenu: "resource_context",
+                /*itemcontextmenu: "resource_context",*/
 				/*eventcontextmenu: "event_context",*/
 				beforeeventresize: "no_event_resize",
 				beforedragcreate: "no_drag_create",
