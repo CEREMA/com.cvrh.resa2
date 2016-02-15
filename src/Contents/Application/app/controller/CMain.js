@@ -860,7 +860,10 @@ App.controller.define('CMain', {
         if (!p.isNew) {
             App.get(p,'panel#resa_site').hide();  
         };
-        alert(App.get('combo#cboTypologie').getValue());
+        if (App.get('combo#cboTypologie').getValue()==1) {
+            App.get(p,'checkboxfield#check_valider').hide();
+            App.get(p,'checkboxfield#check_afficher').setValue(true);
+        };
         if (p.id_site)
         App.get(p,'combo#site').setValue(p.id_site);
         else
