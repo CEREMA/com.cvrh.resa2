@@ -68,6 +68,9 @@ App.controller.define('admin.CDayOff', {
                     r.result.data[i].StartDate=r.result.data[i].StartDate.toDate();
                     r.result.data[i].EndDate=r.result.data[i].EndDate.toDate();
                 };
+                var now=App.now;
+                var year=now.getFullYear();
+                var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);                
                 var resultat = days_in_month(mm, year) + 1;
                 for (var i = 1; i < resultat; i++) {
                     var d = new Date(year, month, i);
@@ -106,10 +109,13 @@ App.controller.define('admin.CDayOff', {
                     App.DB.get('reservation_salles://off', function(p,r) {
                         // add weekends to off day
                         var weekends = [];
+                        var now=App.now;
                         for (var i=0;i<r.result.data.length;i++) {
                             r.result.data[i].StartDate=r.result.data[i].StartDate.toDate();
                             r.result.data[i].EndDate=r.result.data[i].EndDate.toDate();
                         };
+                        var year=now.getFullYear();
+                        var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
                         var resultat = days_in_month(mm, year) + 1;
                         for (var i = 1; i < resultat; i++) {
                             var d = new Date(year, month, i);
