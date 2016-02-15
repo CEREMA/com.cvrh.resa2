@@ -1180,7 +1180,7 @@ App.controller.define('CMain', {
 	display_scheduler: function(now,salle,agent)
 	{
 	    // Private methods
-        
+        App.now=now;
 		function isWeekend(d) {
 			return (d.getDay() == 6);
 		};
