@@ -52,7 +52,7 @@ App.controller.define('CMain', {
             },
             "mainform schedulergrid#schedule": {
                 itemcontextmenu: "resource_context",
-				eventcontextmenu: "event_context",
+				/*eventcontextmenu: "event_context",*/
 				beforeeventresize: "no_event_resize",
 				beforedragcreate: "no_drag_create",
                 dragcreateend: "no_grid_drag_end",
@@ -143,38 +143,7 @@ App.controller.define('CMain', {
             VResaModule
             */
             "VResaModule": {
-                beforeclose: function(panel)
-                {
-                    var me=this;
-                    var panels=App.get('VCreateEvenement tabpanel').items.items;
-                    var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
-                    if (activeTabIndex!=panels.length) {
-                        alert('Vous ne pouvez supprimer que le dernier module !');
-                        return false;                        
-                    };
-                    if (activeTabIndex==1) {
-                        alert('Vous ne pouvez pas supprimer module 1 !');
-                        return false;                        
-                    };
-                    var title='Suppression d\'un module';
-                    var msg='Vous êtes sur le point de supprimer un module. Voulez vous continuer ?';
-                    Ext.MessageBox.confirm(title, msg, function(btn){
-                        if(btn === 'yes'){
-                            // on delete toutes les ressources associées au module
-                            App.DB.get('reservation_salles://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
-                                var res=[];
-                                for (var i=0;i<r.result.data.length;i++) res.push(r.result.data[i].id_ressource);
-                                App.DB.del('reservation_salles://ressourcesalles',res,function(e,r) {
-                                    App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
-                                        // on met à jour la session
-                                        me.updateSession(panel.up('window'));
-                                    });
-                                });
-                            });
-                        }                
-                    });
-                    return false;
-                }  
+                beforeclose: "module_beforeclose"
             },
             "VResaModule datefield": {
                 select: "resamodule_onchange"  
@@ -195,6 +164,38 @@ App.controller.define('CMain', {
     // init variables
     
     EVT_CURRENT: {},
+    
+    module_beforeclose: function(panel) {
+        var me=this;
+        var panels=App.get('VCreateEvenement tabpanel').items.items;
+        var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
+        if (activeTabIndex!=panels.length) {
+            alert('Vous ne pouvez supprimer que le dernier module !');
+            return false;                        
+        };
+        if (activeTabIndex==1) {
+            alert('Vous ne pouvez pas supprimer module 1 !');
+            return false;                        
+        };
+        var title='Suppression d\'un module';
+        var msg='Vous êtes sur le point de supprimer un module. Voulez vous continuer ?';
+        Ext.MessageBox.confirm(title, msg, function(btn){
+            if(btn === 'yes'){
+                // on delete toutes les ressources associées au module
+                App.DB.get('reservation_salles://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
+                    var res=[];
+                    for (var i=0;i<r.result.data.length;i++) res.push(r.result.data[i].id_ressource);
+                    App.DB.del('reservation_salles://ressourcesalles',res,function(e,r) {
+                        App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
+                            // on met à jour la session
+                            me.updateSession(panel.up('window'));
+                        });
+                    });
+                });
+            }                
+        });
+        return false;
+    },  
     
     // VResaModule
     addMe: function(p,item)
