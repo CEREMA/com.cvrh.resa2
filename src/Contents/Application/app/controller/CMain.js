@@ -958,7 +958,7 @@ App.controller.define('CMain', {
 	},
 	select_agent: function(p)
 	{
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),App.get('combo#selectAgent').getValue());
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0,App.get('combo#selectAgent').getValue());
 	},
 	select_year: function(p)
 	{
@@ -1180,6 +1180,7 @@ App.controller.define('CMain', {
 	// Display Scheduler /////////////////////////////////////////////////////////////
 	display_scheduler: function(now,salle,agent)
 	{
+        alert(agent);
 	    // Private methods
         App.now=now;
 		function isWeekend(d) {
