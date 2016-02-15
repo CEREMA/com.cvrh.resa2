@@ -1,4 +1,4 @@
-function isFunction(functionToCheck) {
+'function isFunction(functionToCheck) {
  var getType = {};
  return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
 };
@@ -958,7 +958,7 @@ App.controller.define('CMain', {
 	},
 	select_agent: function(p)
 	{
-		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0,App.get('combo#selectAgent').getValue());
+		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),App.get('combo#selectAgent').getValue());
 	},
 	select_year: function(p)
 	{
