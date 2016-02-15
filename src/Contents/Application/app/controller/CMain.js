@@ -1132,14 +1132,12 @@ App.controller.define('CMain', {
 	},
 	do_display: function()
 	{
-		App.get('panel#DISPLAY').show();
 		$('.my_display').attr('src', "/display");
 		App.get('schedulergrid#schedule').hide();	
 	},
 	Menu_onClick: function(p,i,item)
 	{        
         if (p.itemId) {
-            App.get('panel#DISPLAY').hide();
             App.get('schedulergrid#schedule').show();
 			switch (p.itemId) {
                 case "addMe" :
