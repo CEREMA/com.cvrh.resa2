@@ -269,8 +269,6 @@ App.view.define('VMain', {
                     })
                 })
             ],
-            /*heigth: 2000,*/
-            flex: 1,
             columns: [{
                 header: 'Salles',
                 dataIndex: 'Name',
