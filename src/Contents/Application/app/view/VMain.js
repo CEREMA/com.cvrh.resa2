@@ -99,14 +99,6 @@ App.view.define('VMain', {
                 text: "Mes réservations"
             }]
 		},{
-			text: "Affichage",
-			menu: [
-				{
-					itemId: "MNU_DISPLAY",
-					text: "Tableau d'affichage"
-				}
-			]
-		},{
 			text: "Administration",
 			hidden: true,
 			id: "MNU_ADMIN",
@@ -167,7 +159,7 @@ App.view.define('VMain', {
 	{
         region: "center",
         split: true,
-		layout:"fit",
+		layout:"vbox",
         items: [{
 			xtype: "panel",
 			itemId: "DISPLAY",
@@ -284,7 +276,8 @@ App.view.define('VMain', {
                     })
                 })
             ],
-            heigth: 2000,
+            /*heigth: 2000,*/
+            flex: 1,
             columns: [{
                 header: 'Salles',
                 dataIndex: 'Name',
