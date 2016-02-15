@@ -61,6 +61,7 @@ App.controller.define('admin.CDayOff', {
                     r.result.data[i].StartDate=r.result.data[i].StartDate.toDate();
                     r.result.data[i].EndDate=r.result.data[i].EndDate.toDate();
                 };
+                var resultat = days_in_month(mm, year) + 1;
                 for (var i = 1; i < resultat; i++) {
                     var d = new Date(year, month, i);
                     if (isWeekend(d)) r.result.data.push({
