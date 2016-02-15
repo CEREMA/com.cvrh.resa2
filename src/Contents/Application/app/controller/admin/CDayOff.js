@@ -40,6 +40,9 @@ App.controller.define('admin.CDayOff', {
 		App.get('TAdminJF textfield#type').setValue(store.data.Type);
 	},
 	do_rec_jf: function(p) {
+		function isWeekend(d) {
+			return (d.getDay() == 6);
+		};        
 		function days_in_month(month, year) {
 			var m = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 			if (month != 2) return m[month - 1]; //tout sauf février
@@ -88,6 +91,9 @@ App.controller.define('admin.CDayOff', {
 		});
 	},
 	do_del_jf: function(p) {
+		function isWeekend(d) {
+			return (d.getDay() == 6);
+		};        
 		function days_in_month(month, year) {
 			var m = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 			if (month != 2) return m[month - 1]; //tout sauf février
