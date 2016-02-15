@@ -115,6 +115,7 @@ App.controller.define('admin.CDayOff', {
                             r.result.data[i].EndDate=r.result.data[i].EndDate.toDate();
                         };
                         var year=now.getFullYear();
+                        var month = App.get('mainform combo#selectMonth').getValue();
                         var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
                         var resultat = days_in_month(mm, year) + 1;
                         for (var i = 1; i < resultat; i++) {
