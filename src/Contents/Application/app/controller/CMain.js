@@ -1073,9 +1073,9 @@ App.controller.define('CMain', {
                             '<div class=typeInfoSessionModule><table><tr><td>module</td><td><b>{num_module}</b></td></tr></table></div>',
                             '<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></td></tr></table></div>',
                             '<div class=typeInfoDebut><table><tr><td>{dateAvis}</td></tr></table></div>',
+                            '<div class=typeInfoDebut><table><tr><td>Nb participants : <b>{nbparticipants}</b></td></tr></table></div>',
 							'<div class=typeInfoSalle>{prenom} {nom}</div>',
-                            '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',
-                            /*'<div class=typeInfoSalle2>{dateAvis}</div>',*/
+                            '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',                            
 							'</div>'
 						];
                     };
@@ -1091,6 +1091,8 @@ App.controller.define('CMain', {
                         str = str.replace('{fin}', r.data.fin.toDate().toString('dd/MM/yyyy'));
                         str = str.replace('{nom}', r.data.nom);
                         str = str.replace('{prenom}', r.data.prenom);
+                        console.log(r);
+                        str = str.replace('{nbparticipants}', r.data.participant);
                         if (r.data.dateAvis)
                         str = str.replace('{dateAvis}', '<b>Date avis: </b>'+r.data.dateAvis.toString('d MMMM yyyy'));
                         else
