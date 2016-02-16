@@ -582,10 +582,13 @@ App.controller.define('CMain', {
                                     App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
                                     App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
                                     App.get(mod,'datefield#finModule').setMinValue(module[i].date_debut.toDate());
+                                    alert("x");
                                 }catch(e){
                                     App.get(mod,'datefield#debutModule').setValue(new Date());
                                     App.get(mod,'datefield#finModule').setValue(new Date());
-                                    App.get(mod,'datefield#finModule').setMinValue(new Date());
+                                    var d=new Date();
+                                    d.setDate(d.getDate() - 1);
+                                    App.get(mod,'datefield#finModule').setMinValue(d);
                                 };
                                 var grid=App.get(mod,'grid');
                                 var data=[];
