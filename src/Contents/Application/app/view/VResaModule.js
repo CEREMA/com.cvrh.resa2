@@ -74,7 +74,7 @@ App.view.define('VResaModule', {
                         type: 'date',
                         renderer: function(value) {
                             console.log(value);
-                            return value.toString("d/m/Y");
+                            return value.toString("d/MM/yyyy");
                         },
 						width: 150,
 						dataIndex: "d0"
