@@ -73,6 +73,7 @@ App.view.define('VResaModule', {
 						header: "Début",
                         type: 'date',
                         renderer: function(value) {
+                            console.log(value);
                             return value.toString("d/m/Y");
                         },
 						width: 150,
