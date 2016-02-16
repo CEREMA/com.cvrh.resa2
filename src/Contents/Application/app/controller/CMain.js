@@ -173,7 +173,7 @@ App.controller.define('CMain', {
     },
     finModule_click: function(p)
     {
-        alert('y');
+        
     },
     RA_change: function(p) {
         if (App.get(p.up('window'),'datefield#date_avis').getValue()=="") App.get(p.up('window'),'datefield#date_avis').setValue(new Date());
@@ -422,7 +422,7 @@ App.controller.define('CMain', {
     new_module: function(p)
     {
         var debutModule=new Date();
-        var finModule=debutModule.addDays(1);
+        var finModule=debutModule.addDays(1);        
         App.DB.post('reservation_salles://module',{
             id_session: p.up('window').id_session,
             status: "I",
@@ -433,6 +433,7 @@ App.controller.define('CMain', {
             var mod=App.view.create('VResaModule',{moduleID: r.insertId,ID:App.get('VCreateEvenement panel#modules').items.items.length});
             App.get(mod,"datefield#debutModule").setValue(debutModule);
             App.get(mod,"datefield#finModule").setValue(finModule);
+            App.get(mod,'datefield#finModule').setMinValue(debutModule);
             App.get('VCreateEvenement panel#modules').add(mod);              
         });
     },
