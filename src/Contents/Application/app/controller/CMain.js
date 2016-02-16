@@ -170,6 +170,7 @@ App.controller.define('CMain', {
     debutModule_click: function(p)
     {
 		App.get(p.up('window'),'datefield#finModule').setMinValue(p.getValue());
+        if (p.getValue()>App.get(p.up('window'),'datefield#finModule').getValue()) App.get(p.up('window'),'datefield#finModule').setValue(p.getValue());
     },
     finModule_click: function(p)
     {
