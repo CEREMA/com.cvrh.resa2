@@ -173,7 +173,7 @@ App.controller.define('CMain', {
     },
     finModule_click: function(p)
     {
-//        alert('y');
+        alert('y');
     },
     RA_change: function(p) {
         if (App.get(p.up('window'),'datefield#date_avis').getValue()=="") App.get(p.up('window'),'datefield#date_avis').setValue(new Date());
