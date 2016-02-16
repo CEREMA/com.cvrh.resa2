@@ -95,8 +95,14 @@ App.view.define('VResaModule', {
                         "id_site",
 						"id_salle",
 						"nomSalle",
-						"d0",
-						"d1",
+                        {
+                            name: "d0",
+                            type: "date"
+                        },
+                        {
+				            name: "d1",
+                            type: "date"
+                        },
                         "p0",
                         "p1",
 						"afficher",
