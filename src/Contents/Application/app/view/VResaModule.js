@@ -73,7 +73,7 @@ App.view.define('VResaModule', {
 						header: "Début",
                         type: 'date',
                         renderer: function(value) {
-                            console.log(this.up("grid"));
+                            console.log(this);
                             return value.toString("dd/MM/yyyy");
                         },
 						width: 150,
