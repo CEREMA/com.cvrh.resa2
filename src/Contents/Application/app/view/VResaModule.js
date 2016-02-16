@@ -73,7 +73,7 @@ App.view.define('VResaModule', {
 						header: "Début",
                         type: 'date',
                         renderer: function(value, metaData, record, row, col, store, gridView) {
-                            console.log(store);
+                            console.log(record);
                             return value.toString("dd/MM/yyyy");
                         },
 						width: 150,
