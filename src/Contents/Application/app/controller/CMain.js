@@ -227,6 +227,7 @@ App.controller.define('CMain', {
             debutModule: App.get(p.up('panel'),"datefield#debutModule").getValue(),
             finModule: App.get(p.up('panel'),"datefield#finModule").getValue()
         };
+        App.get(p.up('panel'),'datefield#finModule').setMinValue(debutModule);
         App.DB.post('reservation_salles://module',obj,function(e,r) {
             
         });
