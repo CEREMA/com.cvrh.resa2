@@ -226,8 +226,7 @@ App.controller.define('CMain', {
             id_module: p.up('panel').up('panel').moduleID,
             debutModule: App.get(p.up('panel'),"datefield#debutModule").getValue(),
             finModule: App.get(p.up('panel'),"datefield#finModule").getValue()
-        };
-        App.get(p.up('panel'),'datefield#finModule').setMinValue(debutModule);
+        };        
         App.DB.post('reservation_salles://module',obj,function(e,r) {
             
         });
@@ -582,9 +581,11 @@ App.controller.define('CMain', {
                                 try {
                                     App.get(mod,'datefield#debutModule').setValue(module[i].date_debut.toDate());
                                     App.get(mod,'datefield#finModule').setValue(module[i].date_fin.toDate());
+                                    App.get(mod,'datefield#finModule').setMinValue(module[i].date_debut.toDate());
                                 }catch(e){
                                     App.get(mod,'datefield#debutModule').setValue(new Date());
                                     App.get(mod,'datefield#finModule').setValue(new Date());
+                                    App.get(mod,'datefield#finModule').setMinValue(new Date());
                                 };
                                 var grid=App.get(mod,'grid');
                                 var data=[];
