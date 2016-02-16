@@ -100,11 +100,14 @@ App.controller.define('CMain', {
             "VCreateEvenement button#delEvent": {
                 click: "del_event"         
             }, 
+            "VCreateEvenement datefield#debutModule": {
+                select: "debutModule_click" 
+            },
+            "VCreateEvenement datefield#finModule": {
+                select: "finModule_click"
+            },            
             "VCreateEvenement radio#RA0": {
-                change: function(p) {
-                    if (App.get(p.up('window'),'datefield#date_avis').getValue()=="") App.get(p.up('window'),'datefield#date_avis').setValue(new Date());
-                    if (!App.get(p.up('window'),'datefield#date_avis').getValue()) App.get(p.up('window'),'datefield#date_avis').setValue(new Date());      
-                }
+                change: "RA_change"
             },
             /*
             VGeff
@@ -164,7 +167,18 @@ App.controller.define('CMain', {
     // init variables
     
     EVT_CURRENT: {},
-    
+    debutModule_click: function(p)
+    {
+		App.get(p,'datefield#finModule').setMinValue(p.getValue());
+    },
+    finModule_click: function(p)
+    {
+//        alert('y');
+    },
+    RA_change: function(p) {
+        if (App.get(p.up('window'),'datefield#date_avis').getValue()=="") App.get(p.up('window'),'datefield#date_avis').setValue(new Date());
+        if (!App.get(p.up('window'),'datefield#date_avis').getValue()) App.get(p.up('window'),'datefield#date_avis').setValue(new Date());      
+    },
     module_beforeclose: function(panel) {
         var me=this;
         var panels=App.get('VCreateEvenement tabpanel').items.items;
