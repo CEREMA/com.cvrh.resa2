@@ -169,7 +169,7 @@ App.controller.define('CMain', {
     EVT_CURRENT: {},
     debutModule_click: function(p)
     {
-		App.get(p,'datefield#finModule').setMinValue(p.getValue());
+		App.get(p.up('window'),'datefield#finModule').setMinValue(p.getValue());
     },
     finModule_click: function(p)
     {
