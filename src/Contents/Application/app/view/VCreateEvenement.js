@@ -472,6 +472,8 @@ App.view.define('VCreateEvenement', {
                     text: "Annuler",
                     itemId: "CANCEL_evenement",
                     handler: function(p) {
+                        // on raffraichit la grid
+                        App.get('mainform schedulergrid#schedule').getEventStore().load();                         
                         p.up('window').close();
                     }
         },
