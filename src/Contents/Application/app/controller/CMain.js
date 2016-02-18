@@ -983,6 +983,7 @@ App.controller.define('CMain', {
 	},
 	select_agent: function(p)
 	{
+		alert(App.get('combo#selectAgent').getValue());
 		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0,App.get('combo#selectAgent').getValue());
 	},
 	select_year: function(p)
