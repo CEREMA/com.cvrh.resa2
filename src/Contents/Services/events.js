@@ -13,6 +13,7 @@ events = {
         var db = events.using('db');
 		var sql='select e.*, agents.nom, agents.prenom, s.assistant, s.dateAvis, id_ressource Id, id_salle ResourceId, debutRessource StartDate, finRessource EndDate,clsRessource Cls, agents.initial,s.participant,r.afficher,s.chefProjet,t.nomTypologie,site.nomsalle,s.num_session,m.num_module from ressourcesalles r left join module m on r.id_module=m.id_module left join session s on m.id_session=s.id_session left join evenement e on s.id_evenement=e.id_evenement left join site on r.id_site= site.id_site left join agents on agents.Id=s.chefProjet left join typologie t on t.id_typologie=e.id_typologie where e.status<>"D" and r.status<>"D" and m.status<>"D"';
 		if (o.NumLogin) sql+=' and s.chefProjet='+o.NumLogin;
+		console.log(sql);
 		db.model('reservation_salles', sql, function(e, r) {
             r.metaData.fields.push({
                 name: "debut",
