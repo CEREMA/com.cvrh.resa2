@@ -1282,7 +1282,7 @@ App.controller.define('CMain', {
 				});
 			};
 			scheduler.plugins[0].store.loadData(r.result.data);
-            if (agent) scheduler.getEventStore().getProxy().extraParams.NumLogin=agent;
+            if (agent) scheduler.getEventStore().getProxy().extraParams.NumLogin=agent; else delete(scheduler.getEventStore().getProxy().extraParams.NumLogin);
             scheduler.getEventStore().load();
 		});
         
