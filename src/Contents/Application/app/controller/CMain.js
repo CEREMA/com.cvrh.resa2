@@ -967,15 +967,17 @@ App.controller.define('CMain', {
 	grid_dblclick: function(v,rec)
     {
         console.log(rec.data);
-        App.view.create('VCreateEvenement',{
-            id_evenement: rec.data.id_evenement,
-            id_res: rec.data.Id,
-            session: rec.data.num_session,
-            module: rec.data.num_module,
-            chefProjet: rec.data.chefProjet,
-            assitant: rec.data.assistant,
-            modal: true
-        }).show();
+        if ((rec.data.assistant==Auth.User.id) || (rec.data.chefProjet==Auth.User.id)) {
+            App.view.create('VCreateEvenement',{
+                id_evenement: rec.data.id_evenement,
+                id_res: rec.data.Id,
+                session: rec.data.num_session,
+                module: rec.data.num_module,
+                chefProjet: rec.data.chefProjet,
+                assitant: rec.data.assistant,
+                modal: true
+            }).show();
+        }
     },
 	select_month: function(p)
 	{
