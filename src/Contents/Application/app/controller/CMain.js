@@ -931,15 +931,15 @@ App.controller.define('CMain', {
 	},
 	site_onselect: function(p)
 	{
-		App.get(p,'combo#salle').setValue('');
+		App.get(p.up('window'),'combo#salle').setValue('');
 		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams.id_site=p.getValue();
 		App.get(p.up('window'),'combo#salle').getStore().load();
-		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams={
+		/*App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
 			id_site: p.getValue()
 		};
-		App.get(p.up('window'),'combo#salle').getStore().load();		
+		App.get(p.up('window'),'combo#salle').getStore().load();		*/
 	},
 	
 	// TOpenEvenement
