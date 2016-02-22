@@ -836,7 +836,8 @@ App.controller.define('CMain', {
             afficher: dta.afficher,
             id_module: p.up('window').moduleID
         };
-        if (App.get(p,'combo#cboTypologie').value==4) obj.clsRessource="red";
+        alert('x');
+        if (App.get(p,'combo#cboTypologie').getValue()==4) obj.clsRessource="red";
         if (old_obj) {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
