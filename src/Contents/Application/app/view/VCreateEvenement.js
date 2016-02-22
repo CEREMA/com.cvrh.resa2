@@ -358,6 +358,7 @@ App.view.define('VCreateEvenement', {
 					layout: "hbox",
 					width: "100%",
 					border: false,
+                    itemId: "avisparution",
 					items: [
 					{ 				
 						xtype: 'radiogroup',
