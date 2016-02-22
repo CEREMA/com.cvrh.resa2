@@ -715,12 +715,12 @@ App.controller.define('CMain', {
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
                 App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                       {
                     var data=[];    
-                    if (App.get(p.up('window'),'combo#cboTypologie').getValue()>1) {
-                        App.get(p.up('window'),'ux-searchbox#insert_numGeff').hide(); 
-                        App.get(p.up('window'),'panel#avisparution').hide();
+                    if (App.get(p,'combo#cboTypologie').getValue()>1) {
+                        App.get(p,'ux-searchbox#insert_numGeff').hide(); 
+                        App.get(p,'panel#avisparution').hide();
                     } else {
-                        App.get(p.up('window'),'panel#avisparution').show();
-                        App.get(p.up('window'),'ux-searchbox#insert_numGeff').show();   
+                        App.get(p,'panel#avisparution').show();
+                        App.get(p,'ux-searchbox#insert_numGeff').show();   
                     };                    
                     for (var i=0;i<r.result.data.length;i++) data.push({
                         session_uid: r.result.data[i].id_session,
