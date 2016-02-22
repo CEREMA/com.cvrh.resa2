@@ -836,7 +836,7 @@ App.controller.define('CMain', {
             afficher: dta.afficher,
             id_module: p.up('window').moduleID
         };
-        if (App.get(p.up('window'),'combo#cboTypologie').getValue()==4) obj.clsRessource="red";
+        if (App.get('VCreateEvenement combo#cboTypologie').getValue()==4) obj.clsRessource="red";
         if (old_obj) {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
