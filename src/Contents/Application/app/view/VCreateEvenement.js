@@ -243,7 +243,6 @@ App.view.define('VCreateEvenement', {
                         xtype: 'ux-searchbox',
                         width: "100%",
                         triggerCls : Ext.baseCSSPrefix + 'form-search-trigger',
-                        itemId: 'searchbox',
                         width: 250,
                         itemId: "insert_numGeff",
                         fieldLabel: "GEFF",
