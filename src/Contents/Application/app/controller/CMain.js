@@ -73,6 +73,9 @@ App.controller.define('CMain', {
 			"VCreateEvenement": {
 				show: "VCreateEvenement_onshow"
 			},
+            "VCreateEvenement combo#cboTypologie": {
+                select: "cboTypologie_select"  
+            },
             "VCreateEvenement button#newSession": {
                 click: "new_session_click"  
             },
@@ -167,6 +170,10 @@ App.controller.define('CMain', {
     // init variables
     
     EVT_CURRENT: {},
+    cboTypologie_select: function(p)
+    {
+        if (p.getValue()>1) App.get(p.up('window'),'ux-searchbox#insert_numGeff').hide();  
+    },
     debutModule_click: function(p)
     {
 		App.get(p.up('window'),'datefield#finModule').setMinValue(p.getValue());
