@@ -541,9 +541,6 @@ App.controller.define('CMain', {
             p.id_session=r.result.data[0].id_session;
             p.session=App.get('VCreateEvenement combo#cboSession').getValue();
             
-
-            
-            
             // on met à jour les modules
             var modules=[];
             var module=[];
@@ -717,7 +714,14 @@ App.controller.define('CMain', {
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
                 App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                       {
-                    var data=[];                    
+                    var data=[];    
+                    if (App.get(p.up('window'),'combo#cboTypologie').getValue()>1) {
+                        App.get(p.up('window'),'ux-searchbox#insert_numGeff').hide(); 
+                        App.get(p.up('window'),'panel#avisparution').hide();
+                    } else {
+                        App.get(p.up('window'),'panel#avisparution').show();
+                        App.get(p.up('window'),'ux-searchbox#insert_numGeff').show();   
+                    };                    
                     for (var i=0;i<r.result.data.length;i++) data.push({
                         session_uid: r.result.data[i].id_session,
                         session_id: r.result.data[i].num_session,
