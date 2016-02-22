@@ -1355,6 +1355,7 @@ App.controller.define('CMain', {
 	onShow: function(p)
 	{
 		var me=this;
+        alert(Snap);
 		Auth.login(function(user) {
 			me.onAuth(p, user);
 		});	
