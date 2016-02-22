@@ -164,6 +164,7 @@ App.view.define('VResNew', {
 				xtype: "checkboxfield",
 				boxLabel: 'Préparation',
 				allowBlank: true,
+                hidden: true,
 				bind: "preparation",
 				flex: 1,
 				itemId: "check_preparation"
