@@ -172,7 +172,7 @@ App.controller.define('CMain', {
     EVT_CURRENT: {},
     cboTypologie_select: function(p)
     {
-        if (p.getValue()>1) App.get(p.up('window'),'ux-searchbox#insert_numGeff').hide();  
+        if (p.getValue()>1) App.get(p.up('window'),'ux-searchbox#insert_numGeff').hide(); else App.get(p.up('window'),'ux-searchbox#insert_numGeff').show();
     },
     debutModule_click: function(p)
     {
