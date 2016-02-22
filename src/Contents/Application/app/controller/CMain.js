@@ -983,6 +983,7 @@ App.controller.define('CMain', {
                 assitant: rec.data.assistant,
                 modal: true
             }).show();
+            return;
         };
         if (Auth.User.profiles.indexOf('ADMIN')>-1) {
             App.view.create('VCreateEvenement',{
