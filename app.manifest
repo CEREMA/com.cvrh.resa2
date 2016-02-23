@@ -43,7 +43,10 @@
         {
             "name": "jquery",
             "version": "2.1.3",
-            "src": "http://cdnjs.cloudflare.com/ajax/libs/jquery/{version}/jquery.js"
+            "src": [
+                "http://cdnjs.cloudflare.com/ajax/libs/jquery/{version}/jquery.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.15/jquery.touchSwipe.js"
+            ]
         },
         {
             "name": "snapsvg",
@@ -65,8 +68,7 @@
         "Ext.ux.form.SearchBox",
         "Ext.ux.form.field.BoxSelect",
         "Ext.ux.grid.plugin.RowEditing",
-        "Ext.ux.callout.Callout",
-        "https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.15/jquery.touchSwipe.js"
+        "Ext.ux.callout.Callout"
     ],
     "plugins": [],
     "api": [
