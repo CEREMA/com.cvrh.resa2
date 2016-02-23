@@ -65,7 +65,8 @@
         "Ext.ux.form.SearchBox",
         "Ext.ux.form.field.BoxSelect",
         "Ext.ux.grid.plugin.RowEditing",
-        "Ext.ux.callout.Callout"
+        "Ext.ux.callout.Callout",
+        "https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.15/jquery.touchSwipe.js"
     ],
     "plugins": [],
     "api": [
