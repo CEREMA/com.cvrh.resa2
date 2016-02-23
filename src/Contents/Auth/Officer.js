@@ -11,6 +11,7 @@ Officer = {
 				cb({});
 				return;
 			};
+			console.log(profile);
 			Officer.using('db').query('reservation_salles','select Id from agents where mail="'+profile.username.toLowerCase()+'"',function(e,r) {
 				if (r.length==0) {
 					cb({});
