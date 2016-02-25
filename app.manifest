@@ -97,5 +97,8 @@
     },
     "server": {
         "port": 3000
+    },
+    "livereload": {
+        "port": 3030
     }
 }
