@@ -240,6 +240,7 @@
                     require(['io'],function(io) {
                         var socket = io.connect("http://172.23.210.241:9191/");
                         socket.on('connect', function () {
+                            alert('x');
                             try {
                                 App.unblur();
                             } catch(e) {};						
