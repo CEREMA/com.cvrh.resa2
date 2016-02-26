@@ -236,9 +236,9 @@
                         paths: {
                             "io": Settings.LIVERELOAD+'/socket.io/socket.io.js'
                         }
-                    });					
+                    });				
                     require(['io'],function(io) {
-                        var socket = io.connect(Settings.LIVERELOAD);
+                        var socket = io.connect("http://172.23.210.241:9191/");
                         socket.on('connect', function () {
                             try {
                                 App.unblur();
@@ -251,19 +251,19 @@
                             } catch(e) {};
                         });
 						socket.on('log',function(data) {
-							console.log('%c ' + 'SERVERSIDE\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:13px;', data);
+							console.log('%c ' + ' LOG: SERVER\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});						
 						socket.on('info',function(data) {
-							console.info('%c' + 'SERVERSIDE\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:13px;', data);
+							console.info('%c' + ' INFO: SERVER\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
 						socket.on('warn',function(data) {
-							console.warn('%c' + 'SERVERSIDE\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:13px;', data);
+							console.warn('%c' + ' WARN: SERVER\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
 						socket.on('debug',function(data) {
-							console.debug('%c' + 'SERVERSIDE\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:13px;', data);
+							console.debug('%c' + ' DEBUG: SERVER\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
 						socket.on('error',function(data) {
-							console.error('%c' + 'SERVERSIDE\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:13px;', data);
+							console.error('%c' + ' ERROR: SERVER\n', 'color: #00F; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
                         socket.on('session', function (data) {
                             var data=JSON.parse(data);
