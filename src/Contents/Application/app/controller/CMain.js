@@ -73,6 +73,9 @@ App.controller.define('CMain', {
 			"VCreateEvenement": {
 				show: "VCreateEvenement_onshow"
 			},
+            "VCreateEvenement combo#cboTypologie": {
+                select: "cboTypologie_select"  
+            },
             "VCreateEvenement button#newSession": {
                 click: "new_session_click"  
             },
@@ -167,6 +170,16 @@ App.controller.define('CMain', {
     // init variables
     
     EVT_CURRENT: {},
+    cboTypologie_select: function(p)
+    {
+        if (p.getValue()>1) {
+            App.get(p.up('window'),'ux-searchbox#insert_numGeff').hide(); 
+            App.get(p.up('window'),'panel#avisparution').hide();
+        } else {
+            App.get(p.up('window'),'panel#avisparution').show();
+            App.get(p.up('window'),'ux-searchbox#insert_numGeff').show();   
+        }
+    },
     debutModule_click: function(p)
     {
 		App.get(p.up('window'),'datefield#finModule').setMinValue(p.getValue());
@@ -528,9 +541,6 @@ App.controller.define('CMain', {
             p.id_session=r.result.data[0].id_session;
             p.session=App.get('VCreateEvenement combo#cboSession').getValue();
             
-
-            
-            
             // on met à jour les modules
             var modules=[];
             var module=[];
@@ -704,7 +714,14 @@ App.controller.define('CMain', {
         if (p.id_evenement) {            
             App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
                 App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                       {
-                    var data=[];                    
+                    var data=[];    
+                    if (App.get(p,'combo#cboTypologie').getValue()>1) {
+                        App.get(p,'ux-searchbox#insert_numGeff').hide(); 
+                        App.get(p,'panel#avisparution').hide();
+                    } else {
+                        App.get(p,'panel#avisparution').show();
+                        App.get(p,'ux-searchbox#insert_numGeff').show();   
+                    };                    
                     for (var i=0;i<r.result.data.length;i++) data.push({
                         session_uid: r.result.data[i].id_session,
                         session_id: r.result.data[i].num_session,
@@ -819,6 +836,7 @@ App.controller.define('CMain', {
             afficher: dta.afficher,
             id_module: p.up('window').moduleID
         };
+        if (App.get('VCreateEvenement combo#cboTypologie').getValue()==4) obj.clsRessource="red";
         if (old_obj) {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
@@ -931,15 +949,15 @@ App.controller.define('CMain', {
 	},
 	site_onselect: function(p)
 	{
-		App.get(p,'combo#salle').setValue('');
+		App.get(p.up('window'),'combo#salle').setValue('');
 		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams.id_site=p.getValue();
 		App.get(p.up('window'),'combo#salle').getStore().load();
-		App.get(p,'combo#salle').getStore().getProxy().extraParams={
+		/*App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
-			id_site: App.get(p.getValue())
+			id_site: p.getValue()
 		};
-		App.get(p,'combo#salle').getStore().load();		
+		App.get(p.up('window'),'combo#salle').getStore().load();		*/
 	},
 	
 	// TOpenEvenement
@@ -976,6 +994,7 @@ App.controller.define('CMain', {
                 assitant: rec.data.assistant,
                 modal: true
             }).show();
+            return;
         };
         if (Auth.User.profiles.indexOf('ADMIN')>-1) {
             App.view.create('VCreateEvenement',{
@@ -1355,6 +1374,7 @@ App.controller.define('CMain', {
 	onShow: function(p)
 	{
 		var me=this;
+
 		Auth.login(function(user) {
 			me.onAuth(p, user);
 		});	

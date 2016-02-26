@@ -9,7 +9,7 @@
     ],
     "uid": "efa44011-5922-481c-8b83-cf746337b5d2",
     "version": "1.00",
-    "build": 12,
+    "build": 13,
     "copyright": "Copyright (c) 2015 By CVRH",
     "license": "BSD",
     "author": {
@@ -43,7 +43,15 @@
         {
             "name": "jquery",
             "version": "2.1.3",
-            "src": "http://cdnjs.cloudflare.com/ajax/libs/jquery/{version}/jquery.js"
+            "src": [
+                "http://cdnjs.cloudflare.com/ajax/libs/jquery/{version}/jquery.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.15/jquery.touchSwipe.js"
+            ]
+        },
+        {
+            "name": "snapsvg",
+            "version": "0.4.1",
+            "src": "https://cdnjs.cloudflare.com/ajax/libs/snap.svg/{version}/snap.svg.js"
         }
     ],
     "auth": [
@@ -89,5 +97,8 @@
     },
     "server": {
         "port": 3000
+    },
+    "livereload": {
+        "port": 3030
     }
 }

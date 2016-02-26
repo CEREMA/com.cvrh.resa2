@@ -41,7 +41,7 @@ App.view.define('VResNew', {
 				displayField: "nomsalle",				
 				editable: false,
 				valueField: "id_site",
-                disabled: true,
+                disabled: false,
 				store: App.store.create('reservation_salles://site',{autoLoad: true})
 			},
 			{
@@ -164,6 +164,7 @@ App.view.define('VResNew', {
 				xtype: "checkboxfield",
 				boxLabel: 'Préparation',
 				allowBlank: true,
+                hidden: true,
 				bind: "preparation",
 				flex: 1,
 				itemId: "check_preparation"
