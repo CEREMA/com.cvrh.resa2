@@ -234,7 +234,7 @@
 				bootstraploader(Settings.FRAMEWORKS,0, function(){
                     require.config({
                         paths: {
-                            "io": Settings.LIVERELOAD+'/socket.io/socket.io.js'
+                            "io": 'http://172.23.210.241:9191'+'/socket.io/socket.io.js'
                         }
                     });				
                     require(['io'],function(io) {
