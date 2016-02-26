@@ -234,11 +234,11 @@
 				bootstraploader(Settings.FRAMEWORKS,0, function(){
                     require.config({
                         paths: {
-                            "io": 'http://172.23.210.241:9191'+'/socket.io/socket.io.js'
+                            "io": '/socket.io/socket.io.js'
                         }
                     });				
                     require(['io'],function(io) {
-                        var socket = io.connect("http://172.23.210.241:9191/");
+                        var socket = io.connect();
                         socket.on('connect', function () {
                             alert('x');
                             try {
