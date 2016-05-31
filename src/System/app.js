@@ -131,11 +131,9 @@ App = {
 			var day=new Date();
 			day=day.getDay();
 			App.getResaAll(0,[],function(response) {
-				console.log(response);
 				for (var i=0;i<response.length;i++) {
 					var lines=response[i];
-					console.log(lines);
-					for (var j=0;j<lines[j];j++) body.push('\t'+lines[j]);
+					for (var j=0;j<lines.length;j++) body.push('\t'+lines[j]);
 				};
 				res.end(header+body.join('\n')+footer);
 			});
