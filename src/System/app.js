@@ -101,7 +101,7 @@ App = {
 			var footer='</RESALIA>';
 			var body=[];
 			var day=new Date();
-			day=day.dayOfWeek();
+			day=day.getDay();
 			console.log(day);
 			db.query('reservation_salles',db.sql('get_all_xml',{days:0}),function(err,response) {
 				console.log(response);
