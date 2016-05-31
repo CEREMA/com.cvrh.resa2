@@ -100,7 +100,8 @@ App = {
 			var header='<?xml version="1.0"?>\n<RESALIA stamp='+now+'>';
 			var footer='</RESALIA>';
 			var body=[];
-			var day=Date.dayOfWeek(new Date());
+			var day=new Date();
+			day=day.dayOfWeek();
 			console.log(day);
 			db.query('reservation_salles',db.sql('get_all_xml',{days:0}),function(err,response) {
 				console.log(response);
