@@ -25,7 +25,7 @@ App = {
 		App.getResa(day,function(response) {
 			lines.push(response);
 			console.log(day);
-			if (day<=7) App.getResaAll(day+1,cb); else cb(lines);
+			if (day<=7) App.getResaAll(day+1,lines,cb); else cb(lines);
 		});
 	},
 	init: function(app,server) {
