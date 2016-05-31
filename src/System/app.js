@@ -131,7 +131,7 @@ App = {
 			var day=new Date();
 			day=day.getDay();
 			App.getResaAll(0,[],function(response) {
-				for (var i=0;i<response.length,i++) {
+				for (var i=0;i<response.length;i++) {
 					var lines=response[i];
 					for (var j=0;j<lines[j];j++) body.push('\t'+lines[j]);
 				};
