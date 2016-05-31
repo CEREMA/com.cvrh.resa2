@@ -11,7 +11,7 @@ from
 	join agents on agents.Id=session.chefProjet
 	join corresp on corresp.id_resalia=salle.id_salle	
 WHERE 
-	date(DATE_ADD(NOW(), INTERVAL 0 DAY)) BETWEEN date(ressourcesalles.debutRessource) AND date(ressourcesalles.finRessource)
+	date(DATE_ADD(NOW(), INTERVAL {days} DAY)) BETWEEN date(ressourcesalles.debutRessource) AND date(ressourcesalles.finRessource)
 	AND
 	module.status<>"D"
 ORDER BY	
