@@ -93,6 +93,16 @@ App = {
 				res.end(JSON.stringify(response,null,4));
 			});
 		});
+		app.get('/export',function(req,res) {
+			var db=App.using('db');
+			res.header("Content-Type", "text/xml; charset=utf-8");
+			db.query('reservation_salles',db.sql('get_all'),function(err,response) {
+				for (var i=0;i<response.length;i++) {
+					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
+				};
+				res.end(JSON.stringify(response,null,4));
+			});
+		});		
 	}
 };
 
