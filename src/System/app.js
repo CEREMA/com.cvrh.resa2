@@ -2,14 +2,22 @@ App = {
 	getResa: function(day,cb) {
 		var db=App.using('db');
 		var date=new Date();
-		var day=date.setTime( date.getTime() + days * 86400000 );
+		var jour=date.setTime( date.getTime() + day * 86400000 );
 		db.query('reservation_salles',db.sql('get_all_xml',{days:day}),function(err,response) {
-				console.log(response);
-				cb(response);
-				/*for (var i=0;i<response.length;i++) {
-					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
+			var result=[];
+			for (var i=1;i<8;i++) {
+				var status=-1;
+				for (var j=0;j<response.length;j++) {
+					if (response[j].id_salle==i) status=j;
 				};
-				res.end(JSON.stringify(response,null,4));*/
+				if (status==-1) {
+					line='<ORDER day="'+jour+'" room="'+i+'" status="0" from="08:00" to="17:00" />';
+				} else {
+					line='<ORDER day="'+jour+'" room="'+i+'" status="1" from="'+response[status].tdebut+'" to="'+response[status].tfin+'" />';
+				};
+				result.push(line);
+			};
+			cb(result);
 		});	
 	},
 	getResaAll: function(day,cb) {
@@ -122,7 +130,7 @@ App = {
 			var day=new Date();
 			day=day.getDay();
 			console.log(day);
-			App.getResa(0,function(response) {
+			App.getResaAll(0,function(response) {
 				console.log(response);
 				res.end(header+body.join('\n')+footer);
 			});
