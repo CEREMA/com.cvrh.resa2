@@ -96,11 +96,16 @@ App = {
 		app.get('/export',function(req,res) {
 			var db=App.using('db');
 			res.header("Content-Type", "text/xml; charset=utf-8");
-			db.query('reservation_salles',db.sql('get_all'),function(err,response) {
-				for (var i=0;i<response.length;i++) {
+			var now=JSON.stringify(new date());
+			var header='<?xml version="1.0"?>\n<RESALIA stamp="'+now+'">';
+			var footer='</RESALIA>';
+			db.query('reservation_salles',db.sql('get_all_xml',{days:0}),function(err,response) {
+				console.log(response);
+				res.end(header+footer);
+				/*for (var i=0;i<response.length;i++) {
 					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
 				};
-				res.end(JSON.stringify(response,null,4));
+				res.end(JSON.stringify(response,null,4));*/
 			});
 		});		
 	}
