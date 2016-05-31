@@ -1,6 +1,8 @@
 App = {
 	getResa: function(day,cb) {
 		var db=App.using('db');
+		var date=new Date();
+		var day=date.setTime( date.getTime() + days * 86400000 );
 		db.query('reservation_salles',db.sql('get_all_xml',{days:day}),function(err,response) {
 				console.log(response);
 				cb(response);
@@ -9,6 +11,13 @@ App = {
 				};
 				res.end(JSON.stringify(response,null,4));*/
 		});	
+	},
+	getResaAll: function(day,cb) {
+		var lines=[];
+		App.getResa(day,function(response) {
+			lines.push(response);
+			if (day<=7) App.getResaAll(day+1,cb); else cb(lines);
+		});
 	},
 	init: function(app,server) {
 		app.use('/tmp',server.static(__dirname + require('path').sep+'tmp'));		
@@ -113,7 +122,7 @@ App = {
 			var day=new Date();
 			day=day.getDay();
 			console.log(day);
-			App.getResa(1,function(response) {
+			App.getResa(0,function(response) {
 				console.log(response);
 				res.end(header+body.join('\n')+footer);
 			});
