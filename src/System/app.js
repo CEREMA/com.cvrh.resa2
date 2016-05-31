@@ -22,11 +22,11 @@ App = {
 		});	
 	},
 	getResaAll: function(day,cb) {
-		var lines=[];
+		if (!lines) var lines=[];
 		App.getResa(day,function(response) {
 			lines.push(response);
 			console.log(day);
-			if (day<=7) App.getResa(day+1,cb); else cb(lines);
+			if (day<=7) App.getResaAll(day+1,cb); else cb(lines);
 		});
 	},
 	init: function(app,server) {
