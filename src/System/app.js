@@ -1,6 +1,6 @@
 App = {
-	var db=App.using('db');
 	getResa: function(day,cb) {
+		var db=App.using('db');
 		db.query('reservation_salles',db.sql('get_all_xml',{days:day}),function(err,response) {
 				console.log(response);
 				cb(response);
