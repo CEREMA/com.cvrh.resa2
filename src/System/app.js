@@ -1,4 +1,14 @@
 App = {
+	getResa: function(day,cb) {
+		db.query('reservation_salles',db.sql('get_all_xml',{days:day}),function(err,response) {
+				console.log(response);
+				cb(response);
+				/*for (var i=0;i<response.length;i++) {
+					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
+				};
+				res.end(JSON.stringify(response,null,4));*/
+		});	
+	},
 	init: function(app,server) {
 		app.use('/tmp',server.static(__dirname + require('path').sep+'tmp'));		
 		app.use('/display',server.static(__dirname+require('path').sep+'html'));
@@ -103,13 +113,9 @@ App = {
 			var day=new Date();
 			day=day.getDay();
 			console.log(day);
-			db.query('reservation_salles',db.sql('get_all_xml',{days:0}),function(err,response) {
+			App.getDay(1,function(response) {
 				console.log(response);
 				res.end(header+body.join('\n')+footer);
-				/*for (var i=0;i<response.length;i++) {
-					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
-				};
-				res.end(JSON.stringify(response,null,4));*/
 			});
 		});		
 	}
