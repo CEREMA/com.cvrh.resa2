@@ -97,7 +97,7 @@ App = {
 			var db=App.using('db');
 			res.header("Content-Type", "text/xml; charset=utf-8");
 			var now=JSON.stringify(new Date());
-			var header='<?xml version="1.0"?>\n<RESALIA stamp="'+now+'">';
+			var header='<?xml version="1.0"?>\n<RESALIA stamp='+now+'>';
 			var footer='</RESALIA>';
 			db.query('reservation_salles',db.sql('get_all_xml',{days:0}),function(err,response) {
 				console.log(response);
