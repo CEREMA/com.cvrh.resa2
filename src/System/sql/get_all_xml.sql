@@ -14,3 +14,5 @@ WHERE
 	date(DATE_ADD(NOW(), INTERVAL 0 DAY)) BETWEEN date(ressourcesalles.debutRessource) AND date(ressourcesalles.finRessource)
 	AND
 	module.status<>"D"
+ORDER BY	
+	corresp.id_salle
