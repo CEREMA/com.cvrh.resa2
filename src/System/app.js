@@ -25,7 +25,7 @@ App = {
 	getResaAll: function(day,lines,cb) {
 		App.getResa(day,function(response) {
 			lines.push(response);
-			//console.log(day);
+			console.log(day);
 			if (day<=7) App.getResaAll(day+1,lines,cb); else cb(lines);
 		});
 	},
@@ -131,7 +131,6 @@ App = {
 			var body=[];
 			var day=new Date();
 			day=day.getDay();
-			console.log(day);
 			App.getResaAll(0,[],function(response) {
 				console.log(response);
 				res.end(header+body.join('\n')+footer);
