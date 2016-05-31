@@ -99,9 +99,12 @@ App = {
 			var now=JSON.stringify(new Date());
 			var header='<?xml version="1.0"?>\n<RESALIA stamp='+now+'>';
 			var footer='</RESALIA>';
+			var body=[];
+			var day=Date.dayOfWeek(new Date());
+			console.log(day);
 			db.query('reservation_salles',db.sql('get_all_xml',{days:0}),function(err,response) {
 				console.log(response);
-				res.end(header+footer);
+				res.end(header+body.join('\n')+footer);
 				/*for (var i=0;i<response.length;i++) {
 					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
 				};
