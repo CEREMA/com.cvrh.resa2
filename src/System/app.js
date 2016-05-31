@@ -1,4 +1,5 @@
 App = {
+	var db=App.using('db');
 	getResa: function(day,cb) {
 		db.query('reservation_salles',db.sql('get_all_xml',{days:day}),function(err,response) {
 				console.log(response);
@@ -103,8 +104,7 @@ App = {
 				res.end(JSON.stringify(response,null,4));
 			});
 		});
-		app.get('/export',function(req,res) {
-			var db=App.using('db');
+		app.get('/export',function(req,res) {			
 			res.header("Content-Type", "text/xml; charset=utf-8");
 			var now=JSON.stringify(new Date());
 			var header='<?xml version="1.0"?>\n<RESALIA stamp='+now+'>';
