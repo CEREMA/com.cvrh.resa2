@@ -113,7 +113,7 @@ App = {
 			var day=new Date();
 			day=day.getDay();
 			console.log(day);
-			App.getDay(1,function(response) {
+			App.getResa(1,function(response) {
 				console.log(response);
 				res.end(header+body.join('\n')+footer);
 			});
