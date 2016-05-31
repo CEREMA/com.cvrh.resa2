@@ -2,8 +2,8 @@ App = {
 	getResa: function(day,cb) {
 		var db=App.using('db');
 		var date=new Date();
-		var jour=date.setTime( date.getTime() + day * 86400000 );
-		jour=jour.getDay();
+		date=date.setTime( date.getTime() + day * 86400000 );
+		var jour=date.getDay();
 		db.query('reservation_salles',db.sql('get_all_xml',{days:day}),function(err,response) {
 			var result=[];
 			for (var i=1;i<8;i++) {
