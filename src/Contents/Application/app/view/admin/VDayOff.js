@@ -61,7 +61,7 @@ App.view.define('admin.VDayOff', {
 				itemId: "jf",
 				width: "100%",
 				flex: 1,
-				store: App.store.create("reservation_salles://off",{autoLoad: true}),
+				store: App.store.create("resalia://off",{autoLoad: true}),
 				columns: [
 				{
 					text: "Début",
