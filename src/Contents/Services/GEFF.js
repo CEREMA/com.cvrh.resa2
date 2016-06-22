@@ -4,7 +4,7 @@ GEFF = {
 		function doSQL(sql,ndx,cb) {
 			var db=GEFF.using('db');
 			if (ndx<sql.length) {
-				db.query('reservation_salles',sql[ndx],function(e,o) {
+				db.query('resalia',sql[ndx],function(e,o) {
 					doSQL(sql,ndx+1,cb);
 				});
 			} else {
@@ -53,7 +53,7 @@ GEFF = {
 		};
 	
 		var db=GEFF.using('db');
-		db.query('reservation_salles','select * from geff_imports where date(geff_imports.createdAt)=date(NOW())',function(e,o) {
+		db.query('resalia','select * from geff_imports where date(geff_imports.createdAt)=date(NOW())',function(e,o) {
 			if (o.length==0) {
 				var fs=require('fs');
 				var o=readFileSync_encoding(__dirname+'/../extraction_stagiaire.csv','latin1').split('\n');
@@ -85,7 +85,7 @@ GEFF = {
 	
 	 stagiaire: function(o, cb) {
         var db = reservation.using('db');
-         db.get('reservation_salles://geff_imports?NumGEFF='+o.NumGEFF+'&session='+o.Session+'&module='+o.Module,cb);
+         db.get('resalia://geff_imports?NumGEFF='+o.NumGEFF+'&session='+o.Session+'&module='+o.Module,cb);
     },
 };
 
