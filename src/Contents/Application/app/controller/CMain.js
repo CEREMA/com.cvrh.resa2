@@ -86,7 +86,7 @@ App.controller.define('CMain', {
 				click: "onGEFF"
 			},
             "VCreateEvenement button#insert_evenement": {
-                click: "insert_evenement_w_control"                  
+                click: "insert_evenement"                  
             },
             "VCreateEvenement button#newmodule": {
                 click: "new_module"
@@ -377,11 +377,6 @@ App.controller.define('CMain', {
             
         }
        
-    },
-    insert_evenement_w_control: function(p,cb) 
-    {
-        alert(p.up('window').creation)
-        //App.DB.get('resalia://')    
     },
     new_session_click: function(p)
     {
