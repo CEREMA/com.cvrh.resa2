@@ -1165,7 +1165,7 @@ App.controller.define('CMain', {
 		App.view.create('VCreateEvenement',{
 			modal: true,
 			session: 1,
-            
+            creation: true
 		}).show();
 	},
 	do_open_evt: function()
