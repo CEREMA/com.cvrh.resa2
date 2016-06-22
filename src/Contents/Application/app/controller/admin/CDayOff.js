@@ -57,14 +57,14 @@ App.controller.define('admin.CDayOff', {
 			Cls: "yellow"		
 		};
 		if (App.get('TAdminJF textfield#id').getValue()!="") obj.id=App.get('TAdminJF textfield#id').getValue();
-		App.DB.post('reservation_salles://off',obj,function(e,r) {
+		App.DB.post('resalia://off',obj,function(e,r) {
 			App.get('TAdminJF textfield#id').setValue("");
 			App.get('TAdminJF datefield#dd').setValue("");
 			App.get('TAdminJF datefield#df').setValue("");
 			App.get('TAdminJF textfield#type').setValue("");
 			App.notify('Enregistrement OK.');
 			App.get('TAdminJF grid#jf').getStore().load();
-            App.DB.get('reservation_salles://off', function(p,r) {
+            App.DB.get('resalia://off', function(p,r) {
                 // add weekends to off day
                 var weekends = [];
                 for (var i=0;i<r.result.data.length;i++) {
@@ -106,14 +106,14 @@ App.controller.define('admin.CDayOff', {
 		Ext.MessageBox.confirm('Resa', 'Voulez vous vraiment supprimer cet enregistrement ?', function(btn){
 			if(btn === 'yes'){
 				if (selected.length<=0) return;
-				App.DB.del("reservation_salles://off",[selected[0].data.id],function(e,r) {
+				App.DB.del("resalia://off",[selected[0].data.id],function(e,r) {
 					App.notify('Enregistrement supprimé');
 					grid.getStore().load();
 					App.get('TAdminJF textfield#id').setValue("");
 					App.get('TAdminJF datefield#dd').setValue("");
 					App.get('TAdminJF datefield#df').setValue("");
 					App.get('TAdminJF textfield#type').setValue("");					
-                    App.DB.get('reservation_salles://off', function(p,r) {
+                    App.DB.get('resalia://off', function(p,r) {
                         // add weekends to off day
                         var weekends = [];
                         var now=App.now;
