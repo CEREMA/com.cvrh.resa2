@@ -8,7 +8,7 @@ resources = {
         var db=resources.using('db');
         var sql='UPDATE ressourcesalles SET clsRessource="orange" WHERE id_module in (select id_module from module where id_session='+o.session+')';
         console.log(sql);
-        db.query('reservation_salles',sql,cb);
+        db.query('resalia',sql,cb);
     },
 	getAll: function(o,cb) {
 		if (o.NumLogin=='0') o._cfg=0;
@@ -21,7 +21,7 @@ resources = {
             var sql='select distinct salle.id_salle Id, concat(site.nomsalle,": ",salle.nomSalle) Name from ressourcesalles,salle,site where salle.id_salle= ressourcesalles.id_salle and site.id_site=salle.id_site and((debutRessource between "' + o.debut + '" and "' + o.fin + '") or (finRessource between  "' + o.debut + '" and "' + o.fin + '") or ( "' + o.debut + '" between debutRessource and finRessource) or ("' + o.fin + '" between debutRessource and finRessource)) and ressourcesalles.id_site<>1 order by salle.nomSalle';
         };
         console.log(sql);
-        resources.using('db').model('reservation_salles', sql, cb); 
+        resources.using('db').model('resalia', sql, cb); 
 	}
 }
 
