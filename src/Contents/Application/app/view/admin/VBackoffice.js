@@ -49,7 +49,7 @@ App.view.define('admin.VBackoffice', {
 				fieldLabel: "Table",
 				itemId: "combo_db",
                 editable: false,
-				store: App.store.create('reservation_salles://*'),
+				store: App.store.create('resalia://*'),
 				displayField: "TABLE_NAME",
 				valueField: "TABLE_NAME"
         }			
