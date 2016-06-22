@@ -210,11 +210,11 @@ App.controller.define('CMain', {
         Ext.MessageBox.confirm(title, msg, function(btn){
             if(btn === 'yes'){
                 // on delete toutes les ressources associées au module
-                App.DB.get('reservation_salles://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
+                App.DB.get('resalia://ressourcesalles{id_ressource}?id_module='+panel.moduleID,function(e,r) {
                     var res=[];
                     for (var i=0;i<r.result.data.length;i++) res.push(r.result.data[i].id_ressource);
-                    App.DB.del('reservation_salles://ressourcesalles',res,function(e,r) {
-                        App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
+                    App.DB.del('resalia://ressourcesalles',res,function(e,r) {
+                        App.DB.del('resalia://module?id_module='+panel.moduleID,function(e,r) {
                             // on met à jour la session
                             me.updateSession(panel.up('window'));
                         });
@@ -241,7 +241,7 @@ App.controller.define('CMain', {
             debutModule: App.get(p.up('panel'),"datefield#debutModule").getValue(),
             finModule: App.get(p.up('panel'),"datefield#finModule").getValue()
         };        
-        App.DB.post('reservation_salles://module',obj,function(e,r) {
+        App.DB.post('resalia://module',obj,function(e,r) {
             
         });
     },
@@ -284,7 +284,7 @@ App.controller.define('CMain', {
         Ext.MessageBox.confirm(title, msg, function(btn){
                 if(btn === 'yes'){
                     // on delete toutes les ressources associées au module
-                    App.DB.del('reservation_salles://session?id_session='+p.up('window').id_session,function(e,r) {
+                    App.DB.del('resalia://session?id_session='+p.up('window').id_session,function(e,r) {
                         App.get('mainform schedulergrid#schedule').getEventStore().load(); 
                         p.up('window').close();
                     });
@@ -298,7 +298,7 @@ App.controller.define('CMain', {
         Ext.MessageBox.confirm(title, msg, function(btn){
                 if(btn === 'yes'){
                     // on delete toutes les ressources associées au module
-                    App.DB.del('reservation_salles://evenement?id_evenement='+p.up('window').id_evenement,function(e,r) {
+                    App.DB.del('resalia://evenement?id_evenement='+p.up('window').id_evenement,function(e,r) {
                         App.get('mainform schedulergrid#schedule').getEventStore().load(); 
                         p.up('window').close();
                     });
@@ -325,9 +325,9 @@ App.controller.define('CMain', {
                 return;
             };
             // on met à jour l'évènement
-            App.DB.post('reservation_salles://evenement',obj,function(r){
+            App.DB.post('resalia://evenement',obj,function(r){
                 var session=p.up('window').session;
-                App.DB.get('reservation_salles://session{id_session}?id_evenement='+App.get(p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
+                App.DB.get('resalia://session{id_session}?id_evenement='+App.get(p.up('window'),'textfield#num_evt').getValue()+'&num_session='+session,function(e,r) {
                     if (r.result.data.length>0) {
                         var id_session=r.result.data[0].id_session;
                     };
@@ -353,7 +353,7 @@ App.controller.define('CMain', {
                             });
                         };
                     };
-                    App.DB.post('reservation_salles://session',obj,function(r){
+                    App.DB.post('resalia://session',obj,function(r){
                         // update modules !
                         var panels=App.get('VCreateEvenement panel#modules').items.items;
                         
@@ -384,14 +384,14 @@ App.controller.define('CMain', {
         var me=this;
         // Attention ! Il faut enregistrer la session courante sinon c'est perdu !!!
         this.insert_evenement(App.get("VCreateEvenement button#insert_evenement"),function() {
-            App.DB.post('reservation_salles://session',{
+            App.DB.post('resalia://session',{
                 id_evenement: p.up('window').id_evenement,
                 num_session: count+1,
                 status: "I",
                 chefProjet: Auth.User.id
             },function(x) {
                 var data=[];
-                App.DB.get('reservation_salles://session{num_session+}?id_evenement='+p.up('window').id_evenement,function(e,r) {
+                App.DB.get('resalia://session{num_session+}?id_evenement='+p.up('window').id_evenement,function(e,r) {
                     for (var i=0;i<r.result.data.length;i++) data.push({
                         session_id: r.result.data[i].num_session,
                         session: "Session "+r.result.data[i].num_session
@@ -426,7 +426,7 @@ App.controller.define('CMain', {
                 handler: function(p) {       
 
                     /*var record = view.getStore().getAt(index);                    
-                    App.DB.del("reservation_salles://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
+                    App.DB.del("resalia://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
                         view.getStore().remove(record);
                     });                    */
                 }
@@ -437,7 +437,7 @@ App.controller.define('CMain', {
     {
         var debutModule=new Date();
         var finModule=debutModule.addDays(1);        
-        App.DB.post('reservation_salles://module',{
+        App.DB.post('resalia://module',{
             id_session: p.up('window').id_session,
             status: "I",
             num_module: App.get('VCreateEvenement panel#modules').items.items.length+1,
@@ -459,8 +459,8 @@ App.controller.define('CMain', {
         var activeTabIndex = App.get('VCreateEvenement tabpanel').items.findIndex('id', panel.id)+1;
         if (activeTabIndex==panels.length) {
             // on delete toutes les ressources associées au module
-            App.DB.del('reservation_salles://ressourcesalles?id_module='+panel.moduleID,function(e,r) {
-                App.DB.del('reservation_salles://module?id_module='+panel.moduleID,function(e,r) {
+            App.DB.del('resalia://ressourcesalles?id_module='+panel.moduleID,function(e,r) {
+                App.DB.del('resalia://module?id_module='+panel.moduleID,function(e,r) {
                     // on met à jour la session
                     me.updateSession(p.up('window'));
                 });
@@ -489,9 +489,9 @@ App.controller.define('CMain', {
             id_choix: dta.choix,
             commentaire: dta.comments
         };
-        App.DB.get('reservation_salles://ressourcesalles?id_ressource='+dta.id_res,function(e,r) {
+        App.DB.get('resalia://ressourcesalles?id_ressource='+dta.id_res,function(e,r) {
             if (r.result.data.length==0) delete obj.id_ressource;
-            App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {
+            App.DB.post('resalia://ressourcesalles',obj,function(e) {
                 if (ndx+1<data.length) me.updateResources(data,r,ndx+1,cb); else cb();
             });            
         });
@@ -536,7 +536,7 @@ App.controller.define('CMain', {
         App.get(p,'radio#RA1').setValue(true);
         
         // on grab la session_id
-        App.DB.get('reservation_salles://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.id_evenement, function(e,r) {
+        App.DB.get('resalia://session{id_session}?num_session='+App.get('VCreateEvenement combo#cboSession').getValue()+'&id_evenement='+p.id_evenement, function(e,r) {
             // on fait remonter au niveau de la fenêtre l'information
             p.id_session=r.result.data[0].id_session;
             p.session=App.get('VCreateEvenement combo#cboSession').getValue();
@@ -549,13 +549,13 @@ App.controller.define('CMain', {
                 App.get('VCreateEvenement panel#modules').remove(f, true);
             };
             App.get('VCreateEvenement panel#modules').doLayout();        
-            App.DB.get('reservation_salles://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+p.session+'&session.id_evenement='+p.id_evenement,function(e,xx) {
+            App.DB.get('resalia://module{num_module+,id_module,debutModule,finModule,session.id_session}?session.num_session='+p.session+'&session.id_evenement='+p.id_evenement,function(e,xx) {
                 
                 if (xx.result.data.length==0) {
                     // pas de module !!! on en crée un !
                     var debutModule=new Date();
                     var finModule=debutModule.addDays(1);
-                    App.DB.post('reservation_salles://module',{
+                    App.DB.post('resalia://module',{
                         id_session: p.id_session,
                         status: "I",
                         num_module: 1,
@@ -569,7 +569,7 @@ App.controller.define('CMain', {
                             id_module: r.insertId
                         });                         
                         var session=p.id_session;
-                        App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {                                 if (r.result.data.length>0) {
+                        App.DB.get('resalia://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {                                 if (r.result.data.length>0) {
                                 r.result.data.sort(sort_by('num_module'));    
                                 // on met à jour le chef de projet et l'assistant
                                 App.get(p,'combo#cboCP').setValue(r.result.data[0].chefProjet);
@@ -643,7 +643,7 @@ App.controller.define('CMain', {
                 }; 
                 
                 var session=xx.result.data[0].id_session;
-                App.DB.get('reservation_salles://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
+                App.DB.get('resalia://ressourcesalles{*,module.*,session.*}?session.id_session='+session,function(e,r) {           
                     if (r.result.data.length>0) {
                         r.result.data.sort(sort_by('num_module'));    
                         // on met à jour le chef de projet et l'assistant
@@ -657,7 +657,7 @@ App.controller.define('CMain', {
                             App.get(p,'radio#RA0').setValue(true);                                    
                         }
                     } else {
-                        App.DB.get('reservation_salles://session?id_session='+session,function(e,x) {
+                        App.DB.get('resalia://session?id_session='+session,function(e,x) {
                             // on met à jour le chef de projet et l'assistant
                             App.get(p,'combo#cboCP').setValue(x.result.data[0].chefProjet);
                             App.get(p,'combo#cboAssistant').setValue(x.result.data[0].assistant);
@@ -712,8 +712,8 @@ App.controller.define('CMain', {
 	{
         var me=this;
         if (p.id_evenement) {            
-            App.DB.get('reservation_salles://evenement?id_evenement='+p.id_evenement,p,function(o) {
-                App.DB.get('reservation_salles://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                       {
+            App.DB.get('resalia://evenement?id_evenement='+p.id_evenement,p,function(o) {
+                App.DB.get('resalia://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                       {
                     var data=[];    
                     if (App.get(p,'combo#cboTypologie').getValue()>1) {
                         App.get(p,'ux-searchbox#insert_numGeff').hide(); 
@@ -742,13 +742,13 @@ App.controller.define('CMain', {
             App.get(p,'combo#cboCP').setValue(Auth.User.id);
             App.get(p,'combo#cboCP').disable();
             // on insère ce nouvel évènement provisoire
-            App.DB.post('reservation_salles://evenement',{
+            App.DB.post('resalia://evenement',{
                 id_typologie: 1,
                 nomEvenement: "XXX",
                 status: "A"
             },function(r) {
                 // On crée la nouvelle session attachée a cet évènement
-                App.DB.post('reservation_salles://session',{
+                App.DB.post('resalia://session',{
                     id_evenement: r.insertId,
                     num_session: 1,
                     chefProjet: Auth.User.id
@@ -844,7 +844,7 @@ App.controller.define('CMain', {
             obj.id_salle=dta.id_salle;
             obj.id_site=dta.id_site;         
         };        
-        App.DB.post('reservation_salles://ressourcesalles',obj,function(e) {            
+        App.DB.post('resalia://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);    
             p.up('window').close();            
@@ -1030,7 +1030,7 @@ App.controller.define('CMain', {
 				text: "Supprimer la ressource",
                 handler: function(p) {                    
                     var record = view.getStore().getAt(index);                    
-                    App.DB.del("reservation_salles://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
+                    App.DB.del("resalia://ressourcesalles?id_ressource="+record.data.id_res,function(e) {
                         view.getStore().remove(record);
                     });                    
                 }
@@ -1112,7 +1112,7 @@ App.controller.define('CMain', {
 							'</div>'
 						];
                     };
-                    App.DB.get('reservation_salles://agents?Id='+r.data.assistant,function(r2) {                        
+                    App.DB.get('resalia://agents?Id='+r.data.assistant,function(r2) {                        
                         str = str.join('');
                         str = str.replace('{nomTypologie}', r.data.nomTypologie);
                         str = str.replace('{nomsalle}', r.data.nomsalle);
@@ -1297,7 +1297,7 @@ App.controller.define('CMain', {
 		scheduler.setEnd(new Date(year, month, resultat));
 		
 		// load "off" day
-		App.DB.get('reservation_salles://off', function(p,r) {
+		App.DB.get('resalia://off', function(p,r) {
 			// add weekends to off day
 			var weekends = [];
 			for (var i=0;i<r.result.data.length;i++) {
@@ -1339,7 +1339,7 @@ App.controller.define('CMain', {
 			Mail: this.EVT_CURRENT.user,
 		};
 		
-		var store=App.store.create("reservation_salles://agents{Id,prenom+' '+nom=agent+}");
+		var store=App.store.create("resalia://agents{Id,prenom+' '+nom=agent+}");
 		store.on('load',function(p,r) {
 			var rec = { Id: 0, agent: '-- Tous les agents' };
             store.insert(0,rec);			
