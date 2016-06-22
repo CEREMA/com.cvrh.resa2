@@ -380,6 +380,7 @@ App.controller.define('CMain', {
     },
     insert_evenement_w_control: function(p,cb) 
     {
+        alert(p.up('window').creation)
         //App.DB.get('resalia://')    
     },
     new_session_click: function(p)
@@ -715,7 +716,6 @@ App.controller.define('CMain', {
 	VCreateEvenement_onshow: function(p)
 	{
         var me=this;
-        alert(p.creation);
         if (p.id_evenement) {            
             App.DB.get('resalia://evenement?id_evenement='+p.id_evenement,p,function(o) {
                 App.DB.get('resalia://session{id_session,participant,num_session+}?id_evenement='+p.id_evenement,function(e,r)                       {
