@@ -380,7 +380,7 @@ App.controller.define('CMain', {
     },
     insert_evenement_w_control: function(p,cb) 
     {
-        
+        //App.DB.get('resalia://')    
     },
     new_session_click: function(p)
     {
@@ -1164,7 +1164,8 @@ App.controller.define('CMain', {
 	{
 		App.view.create('VCreateEvenement',{
 			modal: true,
-			session: 1
+			session: 1,
+            
 		}).show();
 	},
 	do_open_evt: function()
