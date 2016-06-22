@@ -78,7 +78,7 @@
         "GEFF"
     ],
     "db": [
-        "reservation_salles"
+        "resalia"
     ],
     "packages": [
         "nodemailer",

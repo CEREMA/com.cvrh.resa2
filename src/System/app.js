@@ -5,7 +5,7 @@ App = {
 		date.setTime( date.getTime() + day * 86400000 );
 		var jour=date.getDay();
 		if (jour==0) jour=7;
-		db.query('reservation_salles',db.sql('get_all_xml',{days:day}),function(err,response) {
+		db.query('resalia',db.sql('get_all_xml',{days:day}),function(err,response) {
 			var result=[];
 			for (var i=1;i<8;i++) {
 				var status=-1;
@@ -43,7 +43,7 @@ App = {
 			html.push('<body style="padding:0px;margin:0px"><table style="width:100%" cellspacing=0 cellpadding=5>');
 			var db=App.using('db');
 			res.header("Content-Type", "text/html; charset=utf-8");
-			db.query('reservation_salles',db.sql('get_all'),function(err,response) {
+			db.query('resalia',db.sql('get_all'),function(err,response) {
 				if (response.length==0) {
 					res.redirect('http://intra.cvrh-aix.i2/');
 					return;
@@ -86,7 +86,7 @@ App = {
 			html.push('<body style="padding:0px;margin:0px"><table style="width:100%" cellspacing=0 cellpadding=5>');
 			var db=App.using('db');
 			res.header("Content-Type", "text/html; charset=utf-8");
-			db.query('reservation_salles',db.sql('get_menage'),function(err,response) {
+			db.query('resalia',db.sql('get_menage'),function(err,response) {
 				for (var i=0;i<response.length;i++) {
 					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
 				};		
@@ -115,7 +115,7 @@ App = {
 		app.get('/get',function(req,res) {
 			var db=App.using('db');
 			res.header("Content-Type", "application/json; charset=utf-8");
-			db.query('reservation_salles',db.sql('get_all'),function(err,response) {
+			db.query('resalia',db.sql('get_all'),function(err,response) {
 				for (var i=0;i<response.length;i++) {
 					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
 				};
