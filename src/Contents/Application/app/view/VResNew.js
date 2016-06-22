@@ -42,7 +42,7 @@ App.view.define('VResNew', {
 				editable: false,
 				valueField: "id_site",
                 disabled: false,
-				store: App.store.create('reservation_salles://site',{autoLoad: true})
+				store: App.store.create('resalia://site',{autoLoad: true})
 			},
 			{
 				xtype: "combo",
@@ -142,7 +142,7 @@ App.view.define('VResNew', {
 			editable: false,
 			displayField: "nomChoix",
 			valueField: "id_choix",
-			store: App.store.create('reservation_salles://choix',{autoLoad: true})
+			store: App.store.create('resalia://choix',{autoLoad: true})
 		},
 		{
 			xtype: "textarea",
