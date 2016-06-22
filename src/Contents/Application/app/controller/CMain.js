@@ -86,7 +86,7 @@ App.controller.define('CMain', {
 				click: "onGEFF"
 			},
             "VCreateEvenement button#insert_evenement": {
-                click: "insert_evenement"                  
+                click: "insert_evenement_w_control"                  
             },
             "VCreateEvenement button#newmodule": {
                 click: "new_module"
@@ -377,6 +377,10 @@ App.controller.define('CMain', {
             
         }
        
+    },
+    insert_evenement_w_control: function(p,cb) 
+    {
+        
     },
     new_session_click: function(p)
     {
