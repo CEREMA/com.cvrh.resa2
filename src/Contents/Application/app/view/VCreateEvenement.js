@@ -270,7 +270,7 @@ App.view.define('VCreateEvenement', {
 							displayField: "nomTypologie",
 							valueField: "id_typologie",
                             bind: "id_typologie",
-							store: App.store.create('reservation_salles://typologie', {
+							store: App.store.create('resalia://typologie', {
 								autoLoad: true
 							})
 						}
@@ -323,7 +323,7 @@ App.view.define('VCreateEvenement', {
 						labelAlign: "left",
 						displayField: "agent",
 						valueField: "Id",
-						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent+}', {
+						store: App.store.create('resalia://agents{Id,nom+" "+prenom=agent+}', {
 							autoLoad: true
 						})
 					}, 
@@ -337,7 +337,7 @@ App.view.define('VCreateEvenement', {
 						labelAlign: "left",
 						displayField: "agent",
 						valueField: "Id",
-						store: App.store.create('reservation_salles://agents{Id,nom+" "+prenom=agent+}', {
+						store: App.store.create('resalia://agents{Id,nom+" "+prenom=agent+}', {
 							autoLoad: true
 						})
                     },
