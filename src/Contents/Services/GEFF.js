@@ -1,4 +1,8 @@
 GEFF = {
+    get: function(o,cb) {
+        var db=GEFF.using('db');
+        db.model('resalia','SELECT DISTINCT NumGEFF, Titre_formation FROM geff_imports WHERE GROUP BY Titre_formation ORDER BY NumGEFF',cb);
+    },
 	import: function(o,cb) {
         console.log('* begin import geff')
 		function doSQL(sql,ndx,cb) {

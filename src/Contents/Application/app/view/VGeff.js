@@ -35,7 +35,7 @@ App.view.define('VGeff', {
                     }
                 ],
                 plugins: ["bufferedrenderer"],
-                store: App.store.create('resalia://geff_imports{NumGEFF+,Titre_formation}?YEAR(Date_debut)=2016&NumGEFF<>[evenement{num_geff}]/NumGEFF',{autoLoad: true})
+                store: App.store.create('resalia://geff_imports{NumGEFF+,Titre_formation}?YEAR(Date_debut)=2016/NumGEFF',{autoLoad: true})
             }
 		];
 
