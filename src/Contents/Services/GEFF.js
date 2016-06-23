@@ -1,7 +1,7 @@
 GEFF = {
     get: function(o,cb) {
         var db=GEFF.using('db');
-        db.model('resalia','SELECT DISTINCT NumGEFF, Titre_formation FROM geff_imports WHERE YEAR(date_debut)=2016 GROUP BY Titre_formation ORDER BY NumGEFF',cb);
+        db.model('resalia','SELECT DISTINCT NumGEFF, Titre_formation FROM geff_imports WHERE YEAR(date_debut)=2016 GROUP BY Titre_formation ORDER BY Titre_formation',cb);
     },
 	import: function(o,cb) {
         console.log('* begin import geff')
