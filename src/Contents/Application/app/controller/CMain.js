@@ -1311,10 +1311,10 @@ App.controller.define('CMain', {
 		scheduler.setStart(new Date(year, month, 1));
 		scheduler.setEnd(new Date(year, month, resultat));
         
-        if (FIRST_TIME==1) {
+        /*if (FIRST_TIME==1) {
                 scheduler.scrollToDateCentered( new Date(), true );
             FIRST_TIME=0;
-        };
+        };*/
 		
 		// load "off" day
 		App.DB.get('resalia://off', function(p,r) {
