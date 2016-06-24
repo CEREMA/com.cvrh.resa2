@@ -183,7 +183,7 @@ App.view.define('VCreateEvenement', {
     alias: 'widget.VCreateEvenement',
     initComponent: function() {
         this.width = 540;
-        this.height = 690;
+        this.height = 500;
 
         this.layout = {
             type: 'vbox'
