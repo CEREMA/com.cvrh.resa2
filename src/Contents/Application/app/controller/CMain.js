@@ -820,13 +820,13 @@ App.controller.define('CMain', {
             comments: dta.comment
         }
         ];
-        /*if (old_obj) {
+        if (old_obj) {
             data[0].id_salle=old_obj.id_salle;
             data[0].nomSalle=old_obj.nomSalle;
-        } else {*/
+        } else {
             data[0].id_salle=App.get(p.up('window'),'combo#salle').getValue();
             data[0].nomSalle=App.get(p.up('window'),'combo#salle').getRawValue();
-        //}
+        };
 
         var dta=data[0];
 
@@ -853,7 +853,8 @@ App.controller.define('CMain', {
         } else {
             obj.id_salle=dta.id_salle;
             obj.id_site=dta.id_site;         
-        };        
+        };  
+        console.log(obj);
         App.DB.post('resalia://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);    
