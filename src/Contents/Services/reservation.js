@@ -5,14 +5,14 @@ Reservation
 reservation={
 	getInfo: function(o,cb)
 	{
-        reservation.using('db').model('reservation_salles', 'select Id,profil,LOWER(mail) as mail from agents where mail="' + o.Mail + '"', cb);	
+        reservation.using('db').model('resalia', 'select Id,profil,LOWER(mail) as mail from agents where mail="' + o.Mail + '"', cb);	
 	},
 	getFree: function(o,cb)
 	{
 		o.DebutRessource=o.DebutRessource.split('T')[0]+' 08:00:00';
 		o.FinRessource=o.FinRessource.split('T')[0]+' 18:00:00';
 		console.log("select id_salle, nomSalle from salle where id_site=1 and salle.id_salle not in (select id_salle FROM ressourcesalles WHERE status<>'D' and '"+o.DebutRessource+"' <= finRessource AND '"+o.FinRessource+"' >= debutRessource)");
-        reservation.using('db').model('reservation_salles',"select id_salle, nomSalle from salle where id_site="+o.id_site+" and salle.id_salle not in (select id_salle FROM ressourcesalles WHERE status<>'D' and '"+o.DebutRessource+"' <= finRessource AND '"+o.FinRessource+"' >= debutRessource)", cb);
+        reservation.using('db').model('resalia',"select id_salle, nomSalle from salle where id_site="+o.id_site+" and salle.id_salle not in (select id_salle FROM ressourcesalles WHERE status<>'D' and '"+o.DebutRessource+"' <= finRessource AND '"+o.FinRessource+"' >= debutRessource)", cb);
 	},
 	getAllFormations: function(o,cb) {
 
@@ -77,10 +77,10 @@ reservation={
         var db = reservation.using('db');
 		var t=[];
 		console.log('select * from evenement left join typologie on typologie.id_typologie=evenement.id_typologie left join session on session.id_evenement=evenement.id_evenement where evenement.status="I" and session.chefProjet='+userId+' and (evenement.id_evenement in (select id_evenement from session where id_session in (select id_session from module where finModule>=NOW()))) order by evenement.id_evenement');
-        db.query('reservation_salles', 'select * from evenement left join typologie on typologie.id_typologie=evenement.id_typologie left join session on session.id_evenement=evenement.id_evenement where evenement.status="I" and session.chefProjet='+userId+' and (evenement.id_evenement in (select id_evenement from session where id_session in (select id_session from module where finModule>=NOW()))) order by evenement.id_evenement', function(err, result) {
+        db.query('resalia', 'select * from evenement left join typologie on typologie.id_typologie=evenement.id_typologie left join session on session.id_evenement=evenement.id_evenement where evenement.status="I" and session.chefProjet='+userId+' and (evenement.id_evenement in (select id_evenement from session where id_session in (select id_session from module where finModule>=NOW()))) order by evenement.id_evenement', function(err, result) {
 			console.log(result);
-			db.query('reservation_salles', 'select * from session left join evenement on evenement.id_evenement=session.id_evenement left join typologie on typologie.id_typologie=evenement.id_typologie where session.chefProjet='+userId+' and session.status="I" and id_session in (select id_session from module where module.finModule>=NOW()) order by id_session', function(err2, result2) {
-				db.query('reservation_salles', 'select module.*,evenement.id_typologie,evenement.id_evenement from module left join session on session.id_session=module.id_session left join evenement on evenement.id_evenement=session.id_evenement where session.chefProjet='+userId+' and module.status="I" and finModule>=NOW() order by id_module', function(err3, result3) {
+			db.query('resalia', 'select * from session left join evenement on evenement.id_evenement=session.id_evenement left join typologie on typologie.id_typologie=evenement.id_typologie where session.chefProjet='+userId+' and session.status="I" and id_session in (select id_session from module where module.finModule>=NOW()) order by id_session', function(err2, result2) {
+				db.query('resalia', 'select module.*,evenement.id_typologie,evenement.id_evenement from module left join session on session.id_session=module.id_session left join evenement on evenement.id_evenement=session.id_evenement where session.chefProjet='+userId+' and module.status="I" and finModule>=NOW() order by id_module', function(err3, result3) {
 					
 					for (var i = 0; i < result.length; i++) {
 				
@@ -147,7 +147,7 @@ reservation={
 								finModule:dateFin,
 								numSession:result3[i].num_session
 							});
-							db.query('reservation_salles', 'update module set statutResa="99CC00" where id_module="' + result3[i].id_module + '"', cb);
+							db.query('resalia', 'update module set statutResa="99CC00" where id_module="' + result3[i].id_module + '"', cb);
 						}
 
 						else
