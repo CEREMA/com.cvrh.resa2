@@ -1302,7 +1302,8 @@ App.controller.define('CMain', {
 		scheduler.setStart(new Date(year, month, 1));
 		scheduler.setEnd(new Date(year, month, resultat));
         
-        scheduler.scrollToDateCentered( new Date() );
+        alert('x');
+        scheduler.scrollToDateCentered( new Date(), true );
 		
 		// load "off" day
 		App.DB.get('resalia://off', function(p,r) {
