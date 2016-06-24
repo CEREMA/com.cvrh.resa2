@@ -291,7 +291,7 @@ App.view.define('VCreateEvenement', {
 						width: "100%",
 						fieldLabel: "Commentaires",
                         bind: "descriptifEvenement",
-                        height: 50,
+                        height: 10,
 						editable: false
 					},
 					{
