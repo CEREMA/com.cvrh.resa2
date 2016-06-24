@@ -815,13 +815,13 @@ App.controller.define('CMain', {
             comments: dta.comment
         }
         ];
-        if (old_obj) {
+        /*if (old_obj) {
             data[0].id_salle=old_obj.id_salle;
             data[0].nomSalle=old_obj.nomSalle;
-        } else {
+        } else {*/
             data[0].id_salle=App.get(p.up('window'),'combo#salle').getValue();
             data[0].nomSalle=App.get(p.up('window'),'combo#salle').getRawValue();
-        }
+        //}
 
         var dta=data[0];
 
