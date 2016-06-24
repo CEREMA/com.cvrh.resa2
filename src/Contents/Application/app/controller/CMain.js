@@ -310,7 +310,8 @@ App.controller.define('CMain', {
         var me=this;
         p.setDisabled(true);
         if ((App.get(p.up('window'),'ux-searchbox#insert_numGeff').getValue()=="") && (App.get('VCreateEvenement combo#cboTypologie').getValue()==1)) {
-            alert('Vous devez donner un numéro GEFF à une formation.')
+            alert('Vous devez donner un numéro GEFF à une formation.');
+            p.setDisabled(false);
             return;
         };
         if (App.get(p.up('window'),'textfield#num_evt').getValue()) {
