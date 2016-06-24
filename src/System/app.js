@@ -61,8 +61,12 @@ App = {
 						var color="black";					
 					};
 					var moment="";
-					if (response[i].tdebut.substr(0,5)=="08:00") {
-						if (response[i].tfin.substr(0,5)=="18:00") moment="Journée"; else moment="Matin"
+                    var tdebut=response[i].tdebut.substr(0,5).replace(':','');
+                    tdebut=tdebut*1;
+                    var tfin=response[i].tfin.substr(0,5).replace(':','');
+                    tfin=tfin*1;
+					if (tdebut<1100) {
+						if (tfin>=1600) moment="Journée"; else moment="Matin"
 					} else moment="Après-midi";
 					html.push('<tr>');
 					html.push('<td bgcolor='+bgcolor+'><div style="color:'+color+';font-family:tahoma;font-size:24px">'+moment+'<br>'/*+response[i].tfin.substr(0,5)*/+'</div></td>');
