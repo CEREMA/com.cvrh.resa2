@@ -65,7 +65,7 @@ App = {
                     tdebut=tdebut*1;
                     var tfin=response[i].tfin.substr(0,5).replace(':','');
                     tfin=tfin*1;
-                    console.log(tfin);
+                    console.log(response[i].tfin.substr(0,5));
 					if (tdebut<1100) {
 						if (tfin>=1600) moment="Journée"; else moment="Matin"
 					} else moment="Après-midi";
