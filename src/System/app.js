@@ -48,9 +48,9 @@ App = {
 					res.redirect('http://intra.cvrh-aix.i2/');
 					return;
 				};
-				for (var i=0;i<response.length;i++) {
+				/*for (var i=0;i<response.length;i++) {
 					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
-				};		
+				};*/		
 				var temoin=1;
 				for (var i=0;i<response.length;i++) {
 					if (temoin==1) {
