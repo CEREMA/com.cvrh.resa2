@@ -441,6 +441,7 @@ App.controller.define('CMain', {
     new_module: function(p)
     {
         var debutModule=new Date();
+        debutModule.setDate(debutModule.getDate()-1);
         var finModule=debutModule.addDays(1);        
         App.DB.post('resalia://module',{
             id_session: p.up('window').id_session,
