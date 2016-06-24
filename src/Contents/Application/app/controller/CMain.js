@@ -1312,7 +1312,6 @@ App.controller.define('CMain', {
 		scheduler.setEnd(new Date(year, month, resultat));
         
         if (FIRST_TIME==1) {
-            alert('x');
             scheduler.scrollToDateCentered( new Date(), true );
             FIRST_TIME=0;
         };
