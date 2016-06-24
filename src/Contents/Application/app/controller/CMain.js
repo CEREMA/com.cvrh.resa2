@@ -1327,6 +1327,7 @@ App.controller.define('CMain', {
         
 	},
 	
+    
 	// Authentication ////////////////////////////////////////////////////////////////
 	
 	onAuth: function(p,user) {
