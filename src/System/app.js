@@ -65,7 +65,6 @@ App = {
                     tdebut=tdebut*1;
                     var tfin=response[i].tfin.substr(0,5).replace(':','');
                     tfin=tfin*1;
-                    console.log(response[i].tfin.substr(0,5));
 					if (tdebut<1100) {
 						if (tfin>=1600) moment="Journée"; else moment="Matin"
 					} else moment="Après-midi";
@@ -92,9 +91,9 @@ App = {
 			var db=App.using('db');
 			res.header("Content-Type", "text/html; charset=utf-8");
 			db.query('resalia',db.sql('get_menage'),function(err,response) {
-				for (var i=0;i<response.length;i++) {
+				/*for (var i=0;i<response.length;i++) {
 					if (response[i].dfin!=response[i].ddebut) response[i].tfin="18:00:00";
-				};		
+				};*/		
 				var temoin=1;
 				for (var i=0;i<response.length;i++) {
 					if (temoin==1) {
@@ -106,9 +105,6 @@ App = {
 					};
 					html.push('<tr>');
 					html.push('<td bgcolor='+bgcolor+'><div style="color:'+color+';font-family:tahoma;font-size:24px">'+response[i].nomSalle+'<br>'+response[i].lieu+'</div></td>');
-					/*html.push('<td bgcolor='+bgcolor+'><div style="color:'+color+';font-family:tahoma;font-size:24px">'+response[i].nomEvenement+'</div></td>');
-					html.push('<td bgcolor='+bgcolor+'><div style="color:'+color+';font-family:tahoma;font-size:24px">'+response[i].nomSalle+'<br><small>'+response[i].lieu+'</small></div></td>');
-					html.push('<td bgcolor='+bgcolor+'><div style="color:'+color+';font-family:tahoma;font-size:24px">'+response[i].prenom+' '+response[i].nom+'<br><small>'+response[i].telephone+'</small></div></td>');				*/
 					html.push('</tr>');
 					if (temoin==1) temoin=0; else temoin=1;
 				};
