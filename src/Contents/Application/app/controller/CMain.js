@@ -801,6 +801,10 @@ App.controller.define('CMain', {
         if (dta.p1=="M") dta.d1.setHours(12);
         if (dta.p1=="A") dta.d1.setHours(18);
         
+        if (App.get(p.up('window'),'checkbox#check_valider').getValue()==1) dta.afficher=1;
+        if (App.get(p.up('window'),'checkbox#check_afficher').getValue()==1) dta.valider=1;
+        if (App.get(p.up('window'),'checkbox#check_preparation').getValue()==1) dta.preparation=1;
+        
         var data=[
         {
             id_site: App.get(p.up('window'),'combo#site').getValue(),
