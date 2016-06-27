@@ -856,6 +856,7 @@ App.controller.define('CMain', {
             afficher: dta.afficher,
             id_module: p.up('window').moduleID
         };
+        
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()==4) obj.clsRessource="red";
         if (old_obj) {
             grid.getStore().removeAt(row);
@@ -864,7 +865,7 @@ App.controller.define('CMain', {
             obj.id_salle=dta.id_salle;
             obj.id_site=dta.id_site;         
         };  
-        
+        console.log(obj);
         App.DB.post('resalia://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);    
