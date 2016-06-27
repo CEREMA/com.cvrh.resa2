@@ -133,7 +133,6 @@ App.view.define('VResNew', {
 		{
 			xtype: "boxselect",
 			itemId: "cboChoix",
-			height: 50,
 			padding: 10,
 			width: "100%",
 			fieldLabel: "Choix",
