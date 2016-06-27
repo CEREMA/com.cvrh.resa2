@@ -998,11 +998,11 @@ App.controller.define('CMain', {
         if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);
         
         var obj={
-			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
-			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
-			id_site: App.get(p.up('window'),'combo#site').getValue(),
-            d: App.get(p.up('window'),'combo#p0').getValue(),
-            f: App.get(p.up('window'),'combo#p1').getValue()
+			DebutRessource: App.get(p,'datefield#d0').getValue(),
+			FinRessource: App.get(p,'datefield#d1').getValue(),
+			id_site: App.get(p,'combo#site').getValue(),
+            d: App.get(p,'combo#p0').getValue(),
+            f: App.get(p,'combo#p1').getValue()
 		};
         App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
 		App.get(p.up('window'),'combo#salle').getStore().load();
