@@ -1217,7 +1217,8 @@ App.controller.define('CMain', {
 	},
     do_display2: function()
     {
-		$('.my_display').attr('src', "/display2");
+		//$('.my_display').attr('src', "/display2");
+        document.location.href="/display2";
 		App.get('schedulergrid#schedule').hide();	        
     },
 	Menu_onClick: function(p,i,item)
