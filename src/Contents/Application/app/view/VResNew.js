@@ -3,7 +3,7 @@ App.view.define('VResNew', {
     alias: 'widget.VResNew',
     initComponent: function() {
         this.width = 500;
-        this.height = 400;
+        this.height = 300;
 		
 		this.title="Ressource";
 		
@@ -147,7 +147,7 @@ App.view.define('VResNew', {
 		{
 			xtype: "textarea",
             itemId: "comment",
-			height: 80,
+			flex: 1,
 			bind: "comment",
 			fieldLabel: "Commentaires",
 			labelAlign: "top",
