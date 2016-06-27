@@ -1215,6 +1215,11 @@ App.controller.define('CMain', {
 		$('.my_display').attr('src', "/display");
 		App.get('schedulergrid#schedule').hide();	
 	},
+    do_display2: function()
+    {
+		$('.my_display').attr('src', "/display2");
+		App.get('schedulergrid#schedule').hide();	        
+    },
 	Menu_onClick: function(p,i,item)
 	{        
         if (p.itemId) {
@@ -1250,6 +1255,9 @@ App.controller.define('CMain', {
 				case "MNU_ADMIN_DB":
 					this.do_admin_db();
 					break;
+                case "MNU_DISPLAY2":
+                    this.do_display2();
+                    break;
 				default:
 					break;
 			};
