@@ -100,7 +100,7 @@ App.view.define('VMain', {
             }]
 		},{
 			text: "Affichage",
-			hidden: true,
+			hidden: false,
 			itemId: "MNU_DISPLAY",
 			menu: [
                 {
