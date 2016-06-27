@@ -335,6 +335,7 @@ App.controller.define('CMain', {
             };  
             if (App.get('VCreateEvenement textfield#insert_evenement').getValue()=="") {
                 alert("Le titre de l'évènement n'est pas renseigné");  
+                p.setDisabled(false);
                 return;
             };
             // on met à jour l'évènement
