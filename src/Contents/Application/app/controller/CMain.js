@@ -997,12 +997,15 @@ App.controller.define('CMain', {
         };        
         if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);
         
-		App.get(p,'combo#salle').getStore().getProxy().extraParams={
-			DebutRessource: App.get(p,'datefield#d0').getValue(),
-			FinRessource: App.get(p,'datefield#d1').getValue(),
-			id_site: 1
+        var obj={
+			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
+			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
+			id_site: App.get(p.up('window'),'combo#site').getValue(),
+            d: App.get(p.up('window'),'combo#p0').getValue(),
+            f: App.get(p.up('window'),'combo#p1').getValue()
 		};
-		App.get(p,'combo#salle').getStore().load();
+        App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
+		App.get(p.up('window'),'combo#salle').getStore().load();
 	},
 	site_onselect: function(p)
 	{
