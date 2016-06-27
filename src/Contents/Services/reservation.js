@@ -11,10 +11,10 @@ reservation={
 	{
         if (o.d=="M") o.d="08:00:00";
         if (o.d=="J") o.d="08:00:00";
-        if (o.d=="A") o.d="13:00:00";
+        if (o.d=="A") o.d="14:00:00";
         if (o.f=="J") o.f="18:00:00";
         if (o.f=="A") o.f="18:00:00";
-        if (o.f=="M") o.f="13:00:00";
+        if (o.f=="M") o.f="12:00:00";
 		o.DebutRessource=o.DebutRessource.split('T')[0]+' '+o.d;
 		o.FinRessource=o.FinRessource.split('T')[0]+' '+o.f;
         console.log("select id_salle, nomSalle from salle where id_site="+o.id_site+" and salle.id_salle not in (select id_salle FROM ressourcesalles WHERE status<>'D' and '"+o.DebutRessource+"' <= finRessource AND '"+o.FinRessource+"' >= debutRessource) order by nomSalle");
