@@ -147,7 +147,7 @@ App.view.define('VResNew', {
 		{
 			xtype: "textarea",
             itemId: "comment",
-			flex: 1,
+			height: 80,
 			bind: "comment",
 			fieldLabel: "Commentaires",
 			labelAlign: "top",
