@@ -1028,7 +1028,6 @@ App.controller.define('CMain', {
 	},
 	select_agent: function(p)
 	{
-		
 		this.display_scheduler(new Date(App.get('combo#selectAnnee').getValue(),App.get('combo#selectMonth').getValue(),1),0,App.get('combo#selectAgent').getValue());
 	},
 	select_year: function(p)
@@ -1279,6 +1278,7 @@ App.controller.define('CMain', {
 		if (!salle) var salle=0; else {
             if (salle!=0) {
                 if (salle==1) App.get('schedulergrid#schedule').columns[0].setText("Salles Campus");
+                alert(salle);
                 var mmm=App.get('combo#selectMonth').getValue()+1;
                 if (mmm<10) mmm="0"+mmm;
                 var debut = now.getFullYear() +'-'+ mmm  + "-01";
@@ -1304,7 +1304,6 @@ App.controller.define('CMain', {
 		
 		var month = App.get('combo#selectMonth').getValue();
 
-		//days_in_month(mm, year);
 		var resultat = days_in_month(mm, year) + 1;
 		this.EVT_CURRENT.resultat = resultat - 1;
 
