@@ -889,7 +889,9 @@ App.controller.define('CMain', {
         var obj={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
-			id_site: App.get(p.up('window'),'combo#site').getValue()
+			id_site: App.get(p.up('window'),'combo#site').getValue(),
+            d: App.get(p.up('window'),'combo#p0').getValue(),
+            f: App.get(p.up('window'),'combo#p1').getValue()
 		};
         App.get(p.up('window'),'panel#resa_site').show();
 		App.get(p.up('window'),'combo#salle').setValue('');
