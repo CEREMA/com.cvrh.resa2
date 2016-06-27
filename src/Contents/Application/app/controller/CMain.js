@@ -1274,9 +1274,7 @@ App.controller.define('CMain', {
 		scheduler.setTimeColumnWidth(10);
 		
 		var year=now.getFullYear();
-		
-        alert(salle);
-        
+		    
 		if (!salle) var salle=0; else {
             
             if (salle!=0) {
