@@ -928,6 +928,7 @@ App.controller.define('CMain', {
             f: App.get(p.up('window'),'combo#p1').getValue()
 		};
         if (App.get(p.up('window'),'combo#p0').getValue()=='A') App.get(p.up('window'),'combo#p1').setValue('A');
+        if (App.get(p.up('window'),'combo#p0').getValue()=='J') App.get(p.up('window'),'combo#p1').setValue('J');
         App.get(p.up('window'),'panel#resa_site').show();
 		App.get(p.up('window'),'combo#salle').setValue('');
         App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
@@ -943,6 +944,7 @@ App.controller.define('CMain', {
             f: App.get(p.up('window'),'combo#p1').getValue()
 		};
         if (App.get(p.up('window'),'combo#p1').getValue()=='M') App.get(p.up('window'),'combo#p0').setValue('M');
+        if (App.get(p.up('window'),'combo#p0').getValue()=='J') App.get(p.up('window'),'combo#p1').setValue('J');
         App.get(p.up('window'),'panel#resa_site').show();
 		App.get(p.up('window'),'combo#salle').setValue('');
 		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	        
