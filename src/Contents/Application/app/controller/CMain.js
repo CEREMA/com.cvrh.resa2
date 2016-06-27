@@ -135,6 +135,12 @@ App.controller.define('CMain', {
 			"VResNew datefield#d1": {
 				select: "d1_select"
 			},
+			"VResNew combo#p0": {
+				select: "p0_select"
+			},
+			"VResNew combo#p1": {
+				select: "p1_select"
+			},
             "VResNew button#record": {
                 click: "resa_record"  
             },
@@ -900,13 +906,44 @@ App.controller.define('CMain', {
 	},
 	d1_select: function(p)
 	{
-        App.get(p.up('window'),'panel#resa_site').show();
-		App.get(p.up('window'),'combo#salle').setValue('');
-		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams={
+        var obj={
 			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
 			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
-			id_site: App.get(p.up('window'),'combo#site').getValue()
-		};	        
+			id_site: App.get(p.up('window'),'combo#site').getValue(),
+            d: App.get(p.up('window'),'combo#p0').getValue(),
+            f: App.get(p.up('window'),'combo#p1').getValue()
+		};
+        App.get(p.up('window'),'panel#resa_site').show();
+		App.get(p.up('window'),'combo#salle').setValue('');
+		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	        
+		App.get(p.up('window'),'combo#salle').getStore().load();
+	},
+	p0_select: function(p)
+	{
+        var obj={
+			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
+			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
+			id_site: App.get(p.up('window'),'combo#site').getValue(),
+            d: App.get(p.up('window'),'combo#p0').getValue(),
+            f: App.get(p.up('window'),'combo#p1').getValue()
+		};
+        App.get(p.up('window'),'panel#resa_site').show();
+		App.get(p.up('window'),'combo#salle').setValue('');
+        App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
+		App.get(p.up('window'),'combo#salle').getStore().load();
+	},
+	p1_select: function(p)
+	{
+        var obj={
+			DebutRessource: App.get(p.up('window'),'datefield#d0').getValue(),
+			FinRessource: App.get(p.up('window'),'datefield#d1').getValue(),
+			id_site: App.get(p.up('window'),'combo#site').getValue(),
+            d: App.get(p.up('window'),'combo#p0').getValue(),
+            f: App.get(p.up('window'),'combo#p1').getValue()
+		};
+        App.get(p.up('window'),'panel#resa_site').show();
+		App.get(p.up('window'),'combo#salle').setValue('');
+		App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	        
 		App.get(p.up('window'),'combo#salle').getStore().load();
 	},
 	VResNew_onshow: function(p)
