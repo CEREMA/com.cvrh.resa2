@@ -1275,8 +1275,10 @@ App.controller.define('CMain', {
 		
 		var year=now.getFullYear();
 		
+        alert(salle);
+        
 		if (!salle) var salle=0; else {
-            alert(salle);
+            
             if (salle!=0) {
                 if (salle==1) App.get('schedulergrid#schedule').columns[0].setText("Salles Campus");                
                 var mmm=App.get('combo#selectMonth').getValue()+1;
