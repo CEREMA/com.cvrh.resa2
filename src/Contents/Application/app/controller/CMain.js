@@ -863,11 +863,15 @@ App.controller.define('CMain', {
         if (old_obj) {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
+            obj.id_salle=old_obj.id_salle;
+            obj.id_site=old_obj.id_site;             
         } else {
             obj.id_salle=dta.id_salle;
             obj.id_site=dta.id_site;         
         };  
-        console.log(obj);
+        
+        //console.log(obj);
+        
         App.DB.post('resalia://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);    
