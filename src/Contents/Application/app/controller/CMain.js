@@ -1154,6 +1154,7 @@ App.controller.define('CMain', {
                             '<div class=typeInfoDebut><table><tr><td>du <b>{debut}</b> au <b>{fin}</b></table></div>',
 							'<div class=typeInfoSalle>{prenom} {nom}</div>',
                             '<div class=typeInfoSalle2>{prenom_assistant} {nom_assistant}</div>',
+                            '<div class=typeInfoDebut><table><tr><td>Affichage : <b>{affichage}</b></td></tr></table></div>',
 							'</div>'
 						];
                     } else {
