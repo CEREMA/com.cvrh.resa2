@@ -845,7 +845,7 @@ App.controller.define('CMain', {
             salleValide: dta.valider,
             status: "I",
             commentaire: dta.comments,
-            clsRessource: "yellow",
+            clsRessource: "#EEEEEE",
             afficher: dta.afficher,
             id_module: p.up('window').moduleID
         };
