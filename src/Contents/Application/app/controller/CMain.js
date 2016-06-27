@@ -1190,6 +1190,7 @@ App.controller.define('CMain', {
 	},
 	do_open_cvrh: function()
 	{
+        App.get('schedulergrid#schedule').columns[0].setText("Salles");
 		this.display_scheduler(new Date(App.get('mainform combo#selectAnnee').getValue(),App.get('mainform combo#selectMonth').getValue(),1),0);
 	},
 	do_open_mesReservations: function()
