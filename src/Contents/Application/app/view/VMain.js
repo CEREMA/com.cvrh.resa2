@@ -112,7 +112,7 @@ App.view.define('VMain', {
         {
 			text: "Administration",
 			hidden: true,
-			itemId: "MNU_ADMIN",
+			id: "MNU_ADMIN",
 			menu: [
 				{
 					text: "Jours fériés",
