@@ -1004,8 +1004,8 @@ App.controller.define('CMain', {
             d: App.get(p,'combo#p0').getValue(),
             f: App.get(p,'combo#p1').getValue()
 		};
-        App.get(p.up('window'),'combo#salle').getStore().getProxy().extraParams=obj;	
-		App.get(p.up('window'),'combo#salle').getStore().load();
+        App.get(p,'combo#salle').getStore().getProxy().extraParams=obj;	
+		App.get(p,'combo#salle').getStore().load();
 	},
 	site_onselect: function(p)
 	{
