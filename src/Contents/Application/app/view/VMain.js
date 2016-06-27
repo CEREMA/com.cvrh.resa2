@@ -99,9 +99,20 @@ App.view.define('VMain', {
                 text: "Mes réservations"
             }]
 		},{
+			text: "Affichage",
+			hidden: true,
+			itemId: "MNU_DISPLAY",
+			menu: [
+                {
+                    text: "Affichage principal",
+                    itemId: "MNU_DISPLAY2"
+                }
+            ]
+        },
+        {
 			text: "Administration",
 			hidden: true,
-			id: "MNU_ADMIN",
+			itemId: "MNU_ADMIN",
 			menu: [
 				{
 					text: "Jours fériés",
