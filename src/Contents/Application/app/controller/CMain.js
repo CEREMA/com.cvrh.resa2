@@ -994,6 +994,9 @@ App.controller.define('CMain', {
         
         if (s) {
             if (s.length>0) {
+                console.log('---------------------');
+                console.log(s[0]);
+                console.log('---------------------');
                 if (s[0].data) {
                     p.valider=s[0].data.salleValide;
                     p.afficher=s[0].data.afficher;
