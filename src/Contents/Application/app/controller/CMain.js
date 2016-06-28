@@ -868,11 +868,12 @@ App.controller.define('CMain', {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
             obj.id_salle=old_obj.id_salle;
-            obj.nomSalle=old_obj.nomSalle;
+            obj.nom_salle=old_obj.nomSalle;
             obj.id_site=old_obj.id_site;             
         } else {
             obj.id_salle=App.get(p.up('window'),'combo#salle').getValue();
-            obj.id_site=dta.id_site;         
+            obj.id_site=dta.id_site;    
+            nom_salle=App.get(p.up('window'),'combo#salle').getRawValue();
         };  
         
         console.log(obj);
