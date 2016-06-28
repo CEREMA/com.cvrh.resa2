@@ -838,6 +838,7 @@ App.controller.define('CMain', {
             data[0].id_salle=old_obj.id_salle;
             data[0].nomSalle=old_obj.nomSalle;
             data[0].id_site=old_obj.id_site;
+            alert('1');
         } else {
             data[0].id_salle=App.get(p.up('window'),'combo#salle').getValue();
             data[0].nomSalle=App.get(p.up('window'),'combo#salle').getRawValue();
