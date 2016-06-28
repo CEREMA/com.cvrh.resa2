@@ -817,6 +817,7 @@ App.controller.define('CMain', {
         
         
         dta.afficher=App.get(p.up('window'),'checkbox#check_afficher').getValue();
+        alert(dta.afficher);
         dta.valider=App.get(p.up('window'),'checkbox#check_valider').getValue();
         dta.preparation=App.get(p.up('window'),'checkbox#check_preparation').getValue();
         
@@ -860,7 +861,7 @@ App.controller.define('CMain', {
             afficher: dta.afficher,
             id_module: p.up('window').moduleID
         };
-        alert(dta.afficher);
+        
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()==4) obj.clsRessource="red";
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()!=4) {
                 obj.clsRessource="orange";
