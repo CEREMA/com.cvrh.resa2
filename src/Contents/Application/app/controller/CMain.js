@@ -843,14 +843,12 @@ App.controller.define('CMain', {
             data[0].nomSalle=App.get(p.up('window'),'combo#salle').getRawValue();
         };
         
-        alert(old_obj.nomSalle);
-
         var dta=data[0];
 
         // on poste les évènements dans le scheduler
         var obj={
             id_choix: dta.choix,
-            nom_salle: App.get(p.up('window'),'combo#salle').getRawValue(),
+//            nom_salle: App.get(p.up('window'),'combo#salle').getRawValue(),
             debutRessource: dta.d0,
             periode: dta.p0,
             finRessource: dta.d1,
