@@ -3,7 +3,7 @@ App.view.define('VResNew', {
     alias: 'widget.VResNew',
     initComponent: function() {
         this.width = 500;
-        this.height = 300;
+        this.height = 400;
 		
 		this.title="Ressource";
 		
