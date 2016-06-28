@@ -965,7 +965,7 @@ App.controller.define('CMain', {
 	{
         var s=p.grid.getSelectionModel().getSelection();        
         if (!p.isNew) {
-            App.get(p,'panel#resa_site').hide();  
+            //App.get(p,'panel#resa_site').hide();  
         };
         if (App.get('combo#cboTypologie').getValue()==1) {
             App.get(p,'checkboxfield#check_valider').hide();
