@@ -967,9 +967,6 @@ App.controller.define('CMain', {
 	VResNew_onshow: function(p)
 	{
         var s=p.grid.getSelectionModel().getSelection();    
-        console.log('----------------------------');
-        console.log(s);
-        console.log('----------------------------');
         if (!p.isNew) {
             App.get(p,'panel#resa_site').hide();  
         };
@@ -991,9 +988,9 @@ App.controller.define('CMain', {
 		App.get(p,'combo#p1').setValue('J');
 		App.get(p,'combo#site').getStore().load();		
         
-        if (p.valider==1) App.get(p,'checkboxfield#check_valider').setValue(true);
-		if (p.afficher==1) App.get(p,'checkboxfield#check_afficher').setValue(true);
-        if (p.preparation==1) App.get(p,'checkboxfield#check_preparation').setValue(true);
+        if (p.valider) App.get(p,'checkboxfield#check_valider').setValue(true); else App.get(p,'checkboxfield#check_valider').setValue(false);
+		if (p.afficher) App.get(p,'checkboxfield#check_afficher').setValue(true);
+        if (p.preparation) App.get(p,'checkboxfield#check_preparation').setValue(true);
         console.log(p);
 		App.get(p,'datefield#d0').setMinValue(p.dd0);	
 		App.get(p,'datefield#d0').setMaxValue(p.dd1);
