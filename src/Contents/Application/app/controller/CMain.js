@@ -816,8 +816,8 @@ App.controller.define('CMain', {
         if (dta.p1=="A") dta.d1.setHours(18);
         
         
-        dta.afficher=App.get(p.up('window'),'checkbox#check_valider').getValue();
-        dta.valider=App.get(p.up('window'),'checkbox#check_afficher').getValue();
+        dta.afficher=App.get(p.up('window'),'checkbox#check_afficher').getValue();
+        dta.valider=App.get(p.up('window'),'checkbox#check_valider').getValue();
         dta.preparation=App.get(p.up('window'),'checkbox#check_preparation').getValue();
         
         var data=[
