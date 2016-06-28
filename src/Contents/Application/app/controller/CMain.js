@@ -869,9 +869,8 @@ App.controller.define('CMain', {
         
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()==4) obj.clsRessource="red";
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()!=4) {
-			alert('xxx');
             obj.clsRessource="orange";
-            if (dta.afficher) obj.clsRessource="green";
+            if (dta.valider) obj.clsRessource="green";
         };
         
         if (old_obj) {
