@@ -489,9 +489,6 @@ App.controller.define('CMain', {
     {
         var me=this;
         var dta=data[ndx].data;
-        console.log('--------------------');
-        console.log(dta);
-        console.log('--------------------');
         // on poste les évènements dans le scheduler
         var obj={
             id_ressource: dta.id_res,
@@ -998,7 +995,7 @@ App.controller.define('CMain', {
         if (s) {
             if (s.length>0) {
                 if (s[0].data) {
-                    p.valider=s[0].data.valider;
+                    p.valider=s[0].data.salleValide;
                     p.afficher=s[0].data.afficher;
                     p.prestation=s[0].data.prestation;
                 }
