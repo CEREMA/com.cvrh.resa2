@@ -860,7 +860,7 @@ App.controller.define('CMain', {
             afficher: dta.afficher,
             id_module: p.up('window').moduleID
         };
-        
+        alert(dta.afficher);
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()==4) obj.clsRessource="red";
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()!=4) {
                 obj.clsRessource="orange";
