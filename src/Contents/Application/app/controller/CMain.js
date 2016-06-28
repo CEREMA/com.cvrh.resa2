@@ -842,6 +842,8 @@ App.controller.define('CMain', {
             data[0].id_salle=App.get(p.up('window'),'combo#salle').getValue();
             data[0].nomSalle=App.get(p.up('window'),'combo#salle').getRawValue();
         };
+        
+        alert(old_obj.nomSalle);
 
         var dta=data[0];
 
