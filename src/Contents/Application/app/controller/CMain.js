@@ -788,12 +788,15 @@ App.controller.define('CMain', {
     },
 	// VResNew
 	resa_record: function(p) {
+        p.setDisabled(true);
         if (App.get(p.up('window'),"combo#salle").getValue()=="") {
             alert("Vous devez sélectionner une salle pour continuer.");
+            p.setDisabled(false);
             return;
         };
         if (!App.get(p.up('window'),"combo#salle").getValue()) {
             alert("Vous devez sélectionner une salle pour continuer.");
+            p.setDisabled(false);
             return;
         };
         var grid=p.up('window').grid;
@@ -859,6 +862,7 @@ App.controller.define('CMain', {
         };
         
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()==4) obj.clsRessource="red";
+        
         if (old_obj) {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
