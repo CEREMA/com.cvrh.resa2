@@ -992,7 +992,15 @@ App.controller.define('CMain', {
 		App.get(p,'combo#p1').setValue('J');
 		App.get(p,'combo#site').getStore().load();		
         
-        console.log(s);
+        if (s) {
+            if (s.length>0) {
+                if (s[0].data) {
+                    p.valider=s[0].data.valider;
+                    p.afficher=s[0].data.afficher;
+                    p.prestation=s[0].data.prestation;
+                }
+            }
+        };
         
         if (p.valider) App.get(p,'checkboxfield#check_valider').setValue(true); else App.get(p,'checkboxfield#check_valider').setValue(false);
 		if (p.afficher) App.get(p,'checkboxfield#check_afficher').setValue(true); else App.get(p,'checkboxfield#check_afficher').setValue(false);
