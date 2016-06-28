@@ -876,7 +876,7 @@ App.controller.define('CMain', {
         };  
         
         console.log(obj);
-        
+        return;
         App.DB.post('resalia://ressourcesalles',obj,function(e) {            
             if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);    
