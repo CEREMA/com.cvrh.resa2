@@ -988,9 +988,9 @@ App.controller.define('CMain', {
 		App.get(p,'combo#p1').setValue('J');
 		App.get(p,'combo#site').getStore().load();		
         
-        if (p.valider) App.get(p,'checkboxfield#check_valider').setValue(true);
-		if (p.afficher) App.get(p,'checkboxfield#check_afficher').setValue(true);
-        if (p.preparation) App.get(p,'checkboxfield#check_preparation').setValue(true);
+        if (p.valider==1) App.get(p,'checkboxfield#check_valider').setValue(true);
+		if (p.afficher==1) App.get(p,'checkboxfield#check_afficher').setValue(true);
+        if (p.preparation==1) App.get(p,'checkboxfield#check_preparation').setValue(true);
 		App.get(p,'datefield#d0').setMinValue(p.dd0);	
 		App.get(p,'datefield#d0').setMaxValue(p.dd1);
 		App.get(p,'datefield#d1').setMinValue(p.dd0);		
