@@ -636,7 +636,10 @@ App.controller.define('CMain', {
                                               "comments": r.result.data[j].commentaire
                                         })
                                     }                        
-                                }
+                                };
+                                console.log('****************************');
+                                console.log(data);
+                                console.log('****************************');
                                 // on bind data a la grid
                                 grid.getStore().loadData(data);
                                 App.get('VCreateEvenement panel#modules').add(mod);                    
