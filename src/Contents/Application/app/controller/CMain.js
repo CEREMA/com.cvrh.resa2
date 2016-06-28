@@ -887,9 +887,13 @@ App.controller.define('CMain', {
         };  
         
         console.log(obj);
-        
+		
+        if (old_obj) {
+			App.DB.del("resalia://ressourcesalles?id_ressource="+old_obj.id_res);	
+		};
+		
         App.DB.post('resalia://ressourcesalles',obj,function(e) {            
-            if (old_obj) data[0].id_res=old_obj.id_res; else 
+            //if (old_obj) data[0].id_res=old_obj.id_res; else 
 			data[0].id_res=e.insertId;
             grid.getStore().add(data);    
             p.up('window').close();            
