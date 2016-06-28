@@ -965,7 +965,7 @@ App.controller.define('CMain', {
 	{
         var s=p.grid.getSelectionModel().getSelection();        
         if (!p.isNew) {
-            //App.get(p,'panel#resa_site').hide();  
+//            App.get(p,'panel#resa_site').hide();  
         };
         if (App.get('combo#cboTypologie').getValue()==1) {
             App.get(p,'checkboxfield#check_valider').hide();
@@ -1006,8 +1006,7 @@ App.controller.define('CMain', {
             for (var z=0;z<tab.length;z++) tab[z]=tab[z]*1;
             App.get(p,'boxselect#cboChoix').setValue(tab);
         };        
-        if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle);
-        
+                
         var obj={
 			DebutRessource: App.get(p,'datefield#d0').getValue(),
 			FinRessource: App.get(p,'datefield#d1').getValue(),
@@ -1017,6 +1016,9 @@ App.controller.define('CMain', {
 		};
         App.get(p,'combo#salle').getStore().getProxy().extraParams=obj;	
 		App.get(p,'combo#salle').getStore().load();
+        App.get(p,'combo#salle').getStore().on('load',function(){
+            if (p.id_salle) App.get(p,'combo#salle').setValue(p.id_salle); 
+        });
 	},
 	site_onselect: function(p)
 	{
