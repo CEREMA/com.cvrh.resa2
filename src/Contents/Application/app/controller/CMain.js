@@ -889,7 +889,7 @@ App.controller.define('CMain', {
         console.log(obj);
         
         App.DB.post('resalia://ressourcesalles',obj,function(e) {            
-            //if (old_obj) data[0].id_res=old_obj.id_res; else 
+            if (old_obj) data[0].id_res=old_obj.id_res; else 
 			data[0].id_res=e.insertId;
             grid.getStore().add(data);    
             p.up('window').close();            
@@ -1005,7 +1005,7 @@ App.controller.define('CMain', {
                 console.log(s[0]);
                 console.log('---------------------');
                 if (s[0].data) {
-                    p.valider=s[0].data.salleValide;
+                    p.valider=s[0].data.valider;
                     p.afficher=s[0].data.afficher;
                     p.prestation=s[0].data.prestation;
                 }
