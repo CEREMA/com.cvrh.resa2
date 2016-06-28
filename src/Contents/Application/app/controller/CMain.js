@@ -489,6 +489,9 @@ App.controller.define('CMain', {
     {
         var me=this;
         var dta=data[ndx].data;
+        console.log('--------------------');
+        console.log(dta);
+        console.log('--------------------');
         // on poste les évènements dans le scheduler
         var obj={
             id_ressource: dta.id_res,
