@@ -1002,6 +1002,8 @@ App.controller.define('CMain', {
             }
         };
         
+        alert(p.valider);
+        
         if (p.valider) App.get(p,'checkboxfield#check_valider').setValue(true); else App.get(p,'checkboxfield#check_valider').setValue(false);
 		if (p.afficher) App.get(p,'checkboxfield#check_afficher').setValue(true); else App.get(p,'checkboxfield#check_afficher').setValue(false);
         if (p.preparation) App.get(p,'checkboxfield#check_preparation').setValue(true); else App.get(p,'checkboxfield#check_preparation').setValue(false);
