@@ -848,7 +848,6 @@ App.controller.define('CMain', {
         // on poste les évènements dans le scheduler
         var obj={
             id_choix: dta.choix,
-//            nom_salle: App.get(p.up('window'),'combo#salle').getRawValue(),
             debutRessource: dta.d0,
             periode: dta.p0,
             finRessource: dta.d1,
@@ -872,6 +871,7 @@ App.controller.define('CMain', {
             obj.id_site=old_obj.id_site;             
         } else {
             obj.id_salle=App.get(p.up('window'),'combo#salle').getValue();
+            obj.nom_salle=App.get(p.up('window'),'combo#salle').getRawValue();
             obj.id_site=dta.id_site;    
             nom_salle=App.get(p.up('window'),'combo#salle').getRawValue();
         };  
