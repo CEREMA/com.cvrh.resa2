@@ -862,7 +862,10 @@ App.controller.define('CMain', {
         };
         
         if (App.get('VCreateEvenement combo#cboTypologie').getValue()==4) obj.clsRessource="red";
-        if (App.get('VCreateEvenement combo#cboTypologie').getValue()!=4) obj.clsRessource="orange";
+        if (App.get('VCreateEvenement combo#cboTypologie').getValue()!=4) {
+                obj.clsRessource="orange";
+                if (dta.afficher) obj.clsRessource="green";
+        };
         
         if (old_obj) {
             grid.getStore().removeAt(row);
