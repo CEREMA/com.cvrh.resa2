@@ -991,7 +991,7 @@ App.controller.define('CMain', {
         if (p.valider) App.get(p,'checkboxfield#check_valider').setValue(true); else App.get(p,'checkboxfield#check_valider').setValue(false);
 		if (p.afficher) App.get(p,'checkboxfield#check_afficher').setValue(true); else App.get(p,'checkboxfield#check_afficher').setValue(false);
         if (p.preparation) App.get(p,'checkboxfield#check_preparation').setValue(true); else App.get(p,'checkboxfield#check_preparation').setValue(false);
-        console.log(p);
+
 		App.get(p,'datefield#d0').setMinValue(p.dd0);	
 		App.get(p,'datefield#d0').setMaxValue(p.dd1);
 		App.get(p,'datefield#d1').setMinValue(p.dd0);		
