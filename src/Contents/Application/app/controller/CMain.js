@@ -802,7 +802,6 @@ App.controller.define('CMain', {
         var grid=p.up('window').grid;
         var s=grid.getSelectionModel().getSelection()
         if (s.length>0) {
-            alert('x');
             var old_obj=s[0].data;
             var row = grid.getStore().indexOf(s[0]);
             console.log(old_obj);
@@ -838,6 +837,7 @@ App.controller.define('CMain', {
         if (old_obj) {
             data[0].id_salle=old_obj.id_salle;
             data[0].nomSalle=old_obj.nomSalle;
+            data[0].id_site=old_obj.id_site;
         } else {
             data[0].id_salle=App.get(p.up('window'),'combo#salle').getValue();
             data[0].nomSalle=App.get(p.up('window'),'combo#salle').getRawValue();
