@@ -171,7 +171,7 @@ App.view.define('VResNew', {
 			{
 				xtype: "checkboxfield",
 				boxLabel: 'Valider',
-				bind: "valider",
+				bind: "salleValide",
 				allowBlank: true,
 				flex: 1,
 				itemId: "check_valider"
