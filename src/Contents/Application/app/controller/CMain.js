@@ -838,7 +838,6 @@ App.controller.define('CMain', {
             data[0].id_salle=old_obj.id_salle;
             data[0].nomSalle=old_obj.nomSalle;
             data[0].id_site=old_obj.id_site;
-            alert('1');
         } else {
             data[0].id_salle=App.get(p.up('window'),'combo#salle').getValue();
             data[0].nomSalle=App.get(p.up('window'),'combo#salle').getRawValue();
@@ -869,16 +868,17 @@ App.controller.define('CMain', {
             grid.getStore().removeAt(row);
             obj.id_res=old_obj.id_res;
             obj.id_salle=old_obj.id_salle;
+            obj.nomSalle=old_obj.nomSalle;
             obj.id_site=old_obj.id_site;             
         } else {
-            obj.id_salle=dta.id_salle;
+            obj.id_salle=App.get(p.up('window'),'combo#salle').getValue();
             obj.id_site=dta.id_site;         
         };  
         
         console.log(obj);
         
         App.DB.post('resalia://ressourcesalles',obj,function(e) {            
-            if (e.insertId!=0) data[0].id_res=e.insertId; else data[0].id_res=old_obj.id_res;
+            if (old_obj) data[0].id_res=old_obj.id_res; else data[0].id_res=e.insertId;
             grid.getStore().add(data);    
             p.up('window').close();            
         });        
