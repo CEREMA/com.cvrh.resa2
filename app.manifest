@@ -32,7 +32,7 @@
             "name": "jquery",
             "version": "3.0.0",
             "src": [
-                "http://cdnjs.cloudflare.com/ajax/libs/jquery/{version}/jquery.js"
+                "http://cdn.omneedia.com/public/jquery/{version}/jquery.js"
             ]
         },
         {
@@ -41,10 +41,10 @@
             "type": "desktop",
             "theme": "classic",
             "src": [
-                "http://cdn.sencha.com/ext/gpl/{version}/ext-all-debug.js"
+                "http://cdn.omneedia.com/public/ext/gpl/{version}/ext-all-debug.js"
             ],
             "res": [
-                "http://cdn.sencha.com/ext/gpl/{version}/resources/ext-theme-{theme}/ext-theme-{theme}-all.css"
+                "http://cdn.omneedia.com/public/ext/gpl/{version}/resources/ext-theme-{theme}/ext-theme-{theme}-all.css"
             ]
         }
     ],
