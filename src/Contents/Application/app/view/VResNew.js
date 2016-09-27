@@ -48,7 +48,7 @@ App.view.define('VResNew', {
 				xtype: "combo",
 				itemId: "salle",
 				fieldLabel: "Salle",
-				bind: "id_salle",
+				bindTo: "id_salle",
 				labelAlign: "top",
 				margin: {
 					left: 5
@@ -70,7 +70,7 @@ App.view.define('VResNew', {
 			{
 				xtype: "datefield",
 				itemId: "d0",
-				bind: "d0",
+				bindTo: "d0",
 				fieldLabel: "Début",
 				labelAlign: "top",
 				editable: false,
@@ -80,7 +80,7 @@ App.view.define('VResNew', {
 			{
 				xtype:"combo",
 				itemId: "p0",
-				bind: "p0",
+				bindTo: "p0",
 				editable: false,
 				fieldLabel: "Période",
 				labelAlign: "top",
@@ -99,7 +99,7 @@ App.view.define('VResNew', {
 			{
 				xtype: "datefield",
 				itemId: "d1",
-				bind: "d1",
+				bindTo: "d1",
 				margin: {
 					left: 5
 				},
@@ -112,7 +112,7 @@ App.view.define('VResNew', {
 			{
 				xtype:"combo",
 				itemId: "p1",
-				bind: "p1",
+				bindTo: "p1",
 				editable: false,
 				fieldLabel: "Période",
 				labelAlign: "top",
@@ -136,7 +136,7 @@ App.view.define('VResNew', {
 			padding: 10,
 			width: "100%",
 			fieldLabel: "Choix",
-			bind: "choix",
+			bindTo: "choix",
 			labelAlign: "top",
 			editable: false,
 			displayField: "nomChoix",
@@ -147,7 +147,7 @@ App.view.define('VResNew', {
 			xtype: "textarea",
             itemId: "comment",
 			flex: 1,
-			bind: "comment",
+			bindTo: "comment",
 			fieldLabel: "Commentaires",
 			labelAlign: "top",
 			width: "100%",
@@ -164,14 +164,14 @@ App.view.define('VResNew', {
 				boxLabel: 'Préparation',
 				allowBlank: true,
                 hidden: true,
-				bind: "preparation",
+				bindTo: "preparation",
 				flex: 1,
 				itemId: "check_preparation"
             },
 			{
 				xtype: "checkboxfield",
 				boxLabel: 'Valider',
-				bind: "valider",
+				bindTo: "valider",
 				allowBlank: true,
 				flex: 1,
 				itemId: "check_valider"
@@ -179,7 +179,7 @@ App.view.define('VResNew', {
 			{
 				xtype: "checkboxfield",
 				boxLabel: 'Afficher',
-				bind: "afficher",
+				bindTo: "afficher",
 				allowBlank: true,
 				flex: 1,
 				itemId: "check_afficher"
