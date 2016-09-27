@@ -810,7 +810,6 @@ App.controller.define('CMain', {
         if (s.length>0) {
             var old_obj=s[0].data;
             var row = grid.getStore().indexOf(s[0]);
-            console.log(old_obj);
         };
                     
         var dta=App.getData(p.up('window'));
