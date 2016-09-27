@@ -288,8 +288,8 @@ App.view.define('VMain', {
                 sortable: true,
                 field: new Ext.form.TextField()
             }],            
-            eventStore: App.store.create("App.events.getAll",{},"events"),
-            resourceStore: App.store.create("App.resources.getAll",{autLoad: true},"resources")
+            eventStore: App.store.create("App.events.getAll",{type:"events"}),
+            resourceStore: App.store.create("App.resources.getAll",{autLoad: true, type: "resources"})
         }]
     }]
 
