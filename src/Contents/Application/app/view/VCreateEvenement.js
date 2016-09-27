@@ -236,7 +236,7 @@ App.view.define('VCreateEvenement', {
                     {
                         xtype: "textfield",
                         itemId: "num_evt",
-                        bind: "id_evenement",
+                        bindTo: "id_evenement",
                         hidden: true
                     },
                     {
@@ -246,7 +246,7 @@ App.view.define('VCreateEvenement', {
                         width: 250,
                         itemId: "insert_numGeff",
                         fieldLabel: "GEFF",
-                        bind: "num_geff",
+                        bindTo: "num_geff",
                         margin: {
                             bottom: 10
                         }
@@ -269,7 +269,7 @@ App.view.define('VCreateEvenement', {
 							editable: false,
 							displayField: "nomTypologie",
 							valueField: "id_typologie",
-                            bind: "id_typologie",
+                            bindTo: "id_typologie",
 							store: App.store.create('resalia://typologie', {
 								autoLoad: true
 							})
@@ -281,7 +281,7 @@ App.view.define('VCreateEvenement', {
 						itemId: "insert_evenement",
 						width: "100%",
 						fieldLabel: "Nom évènement",
-                        bind: "nomEvenement",
+                        bindTo: "nomEvenement",
 						allowBlank: false,
 						editable: false,
 					}, 
@@ -290,7 +290,7 @@ App.view.define('VCreateEvenement', {
 						itemId: "insert_descriptif",
 						width: "100%",
 						fieldLabel: "Commentaires",
-                        bind: "descriptifEvenement",
+                        bindTo: "descriptifEvenement",
                         height: 40,
 						editable: false
 					},
