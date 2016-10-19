@@ -1,10 +1,10 @@
-# com.cvrh.resa2
+# com.cvrh.resalia
 
-## com.cvrh.resa2
+## com.cvrh.resalia
 
-Package description goes here
+Logiciel de suivi et de réservation des salles de formation
 
-Copyright (c) 2015 By CVRH
+Copyright (c) 2015-2016 By CVRH
 
 ## License
 
